@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mux/mux-node": "^8.8.0",
     "@mux/mux-player": "^2.9.1",
     "@mux/mux-player-react": "^2.9.1",
     "@nextui-org/card": "^2.0.33",
@@ -27,10 +28,12 @@
     "@vercel/blob": "^0.24.0",
     "add": "^2.0.6",
     "axios": "^1.7.2",
+    "backblaze-b2": "^1.7.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.2.0",
     "express": "^4.19.2",
+    "formidable": "^3.5.1",
     "framer-motion": "^11.3.31",
     "lucide-react": "^0.436.0",
     "mongodb": "^6.8.0",
@@ -49,6 +52,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/backblaze-b2": "^1.5.6",
+    "@types/formidable": "^3.4.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

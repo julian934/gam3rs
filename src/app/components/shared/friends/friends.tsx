@@ -16,7 +16,10 @@ const FriendsList = (props: Props) => {
     
     //console.log(data)
   return (
-    <div className='flex ' >FriendsList</div>
+    <div className='flex flex-col' >
+     
+      <h1 className='flex justify-between ' > Friends</h1>
+      </div>
   )
 }
 

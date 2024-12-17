@@ -7,7 +7,9 @@ import SignUp from '@/app/components/shared/signup/signup';
 import SignIn from '@/app/components/shared/signin/signin';
 import { StoreStateContext } from '@/app/lib/context/storeContext';
 import { signIn } from 'next-auth/react';
+import NavBar from '@/app/components/ui/nav/nav';
 import Link from 'next/link';
+import Footer from '@/app/components/shared/footer/home/footer';
 type Props = {}
 
 const Auth = (props: Props) => {
@@ -81,17 +83,25 @@ const Auth = (props: Props) => {
       </div>}
   </div>)
   return (
-    <div className='flex flex-col' >
-       <div className='' >
+    <div className='flex flex-col grid grid-cols-4 grid-rows-5 bg-white h-screen ' >
+      <div className='col-start-1 col-span-4 row-start-1' >
+          <NavBar/>
+      </div>
+      <div className=' flex flex-col self-center rounded-sm  justify-center p-2 col-start-2 space-x-2 space-y-2 col-span-2 row-start-2  row-span-2 z-50 border-2 ' >
+      <div className='flex flex-col w-1/2  self-center' >
         <h2>Username</h2>
-         <input className=''  onChange={handleUserChange} ref={userNameRef} type="text" name='user'  />
+         <input className='border-2 '  onChange={handleUserChange} ref={userNameRef} type="text" name='user'  />
       </div>
-      <div className='' >
+      <div className='flex flex-col w-1/2 self-center' >
         <h2 className='' >Password</h2>
-        <input className='' onChange={handlePassChange} ref={passwordRef} type="text" name='email'  />
+        <input className='border-2' onChange={handlePassChange} ref={passwordRef} type="text" name='email'  />
       </div>
-      <div className='' >
-        <button className='' onClick={()=>signIn('credentials',{username:username,password:password,callbackUrl:'/'})} >Sign In </button>
+      <div className='flex flex-col justify-center  self-center w-full bg-red-200 ' >
+        <button className='text-center' onClick={()=>signIn('credentials',{username:username,password:password,callbackUrl:'/'})} >Sign In </button>
+      </div>
+      </div>
+      <div className='col-start-1 col-span-4 row-start-5 self-end' >
+        <Footer/>
       </div>
     
       

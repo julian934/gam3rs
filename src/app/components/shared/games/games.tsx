@@ -20,63 +20,66 @@ const Games = (props: Props) => {
   const ctx=useContext(StoreStateContext);
   const {data}=useQuery({
     queryKey:['gameData'],
-    queryFn:()=>getGames(ctx?.userData)
+    queryFn:()=>ctx.getUserGames()
   })
+  {/* Connect to games api and check for most popular. If not, render first few inside list.*/}
+  console.log(data)
   return (
     <div className='flex justify-around   bg-slate-50 rounded-md  md:w-full md:h-1/4' >
     <div className='' >
       <h1 className='text-xl' >Games</h1>
       <h1>{props?.currentUser}</h1>
     </div>
+    {data!==undefined?<div></div>:<><Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
+    <Skeleton className="rounded-lg">
+      <div className="h-24 rounded-lg bg-gray-300"></div>
+    </Skeleton>
+    <div className="space-y-3">
+      <Skeleton className="w-3/5 rounded-lg">
+        <div className="h-3 w-3/5 rounded-lg bg-gray-200"></div>
+      </Skeleton>
+      <Skeleton className="w-4/5 rounded-lg">
+        <div className="h-3 w-4/5 rounded-lg bg-gray-200"></div>
+      </Skeleton>
+      <Skeleton className="w-2/5 rounded-lg">  
+        <div className="h-3 w-2/5 rounded-lg bg-gray-300"></div>
+      </Skeleton>
+    </div>
+  </Card>
+  <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
+    <Skeleton className="rounded-lg">
+      <div className="h-24 rounded-lg bg-gray-300"></div>
+    </Skeleton>
+    <div className="space-y-3">
+      <Skeleton className="w-3/5 rounded-lg">
+        <div className="h-3 w-3/5 rounded-lg bg-gray-200"></div>
+      </Skeleton>
+      <Skeleton className="w-4/5 rounded-lg">
+        <div className="h-3 w-4/5 rounded-lg bg-gray-200"></div>
+      </Skeleton>
+      <Skeleton className="w-2/5 rounded-lg">  
+        <div className="h-3 w-2/5 rounded-lg bg-gray-300"></div>
+      </Skeleton>
+    </div>
+  </Card>
+  <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
+    <Skeleton className="rounded-lg">
+      <div className="h-24 rounded-lg bg-gray-300"></div>
+    </Skeleton>
+    <div className="space-y-3">
+      <Skeleton className="w-3/5 rounded-lg">
+        <div className="h-3 w-3/5 rounded-lg bg-gray-200"></div>
+      </Skeleton>
+      <Skeleton className="w-4/5 rounded-lg">
+        <div className="h-3 w-4/5 rounded-lg bg-gray-200"></div>
+      </Skeleton>
+      <Skeleton className="w-2/5 rounded-lg">  
+        <div className="h-3 w-2/5 rounded-lg bg-gray-300"></div>
+      </Skeleton>
+    </div>
+  </Card>
+  </>}
     
-    <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
-    <Skeleton className="rounded-lg">
-      <div className="h-24 rounded-lg bg-gray-300"></div>
-    </Skeleton>
-    <div className="space-y-3">
-      <Skeleton className="w-3/5 rounded-lg">
-        <div className="h-3 w-3/5 rounded-lg bg-gray-200"></div>
-      </Skeleton>
-      <Skeleton className="w-4/5 rounded-lg">
-        <div className="h-3 w-4/5 rounded-lg bg-gray-200"></div>
-      </Skeleton>
-      <Skeleton className="w-2/5 rounded-lg">  
-        <div className="h-3 w-2/5 rounded-lg bg-gray-300"></div>
-      </Skeleton>
-    </div>
-  </Card>
-  <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
-    <Skeleton className="rounded-lg">
-      <div className="h-24 rounded-lg bg-gray-300"></div>
-    </Skeleton>
-    <div className="space-y-3">
-      <Skeleton className="w-3/5 rounded-lg">
-        <div className="h-3 w-3/5 rounded-lg bg-gray-200"></div>
-      </Skeleton>
-      <Skeleton className="w-4/5 rounded-lg">
-        <div className="h-3 w-4/5 rounded-lg bg-gray-200"></div>
-      </Skeleton>
-      <Skeleton className="w-2/5 rounded-lg">  
-        <div className="h-3 w-2/5 rounded-lg bg-gray-300"></div>
-      </Skeleton>
-    </div>
-  </Card>
-  <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
-    <Skeleton className="rounded-lg">
-      <div className="h-24 rounded-lg bg-gray-300"></div>
-    </Skeleton>
-    <div className="space-y-3">
-      <Skeleton className="w-3/5 rounded-lg">
-        <div className="h-3 w-3/5 rounded-lg bg-gray-200"></div>
-      </Skeleton>
-      <Skeleton className="w-4/5 rounded-lg">
-        <div className="h-3 w-4/5 rounded-lg bg-gray-200"></div>
-      </Skeleton>
-      <Skeleton className="w-2/5 rounded-lg">  
-        <div className="h-3 w-2/5 rounded-lg bg-gray-300"></div>
-      </Skeleton>
-    </div>
-  </Card>
   <div className='flex' >
       <Link className='self-center text-lg' href='/livestreams' >View All</Link>
   </div>

@@ -93,7 +93,7 @@ const Videos = (props: any) => {
     </div>
   </Card>
   <div className='flex' >
-      <Link className='self-center text-lg ' href='/livestreams' >View All</Link>
+      <Link className='self-center text-lg ' href='/videos' >View All</Link>
   </div>
    </div>)
   if(data!=undefined && data!=null ) return (

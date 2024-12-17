@@ -4,7 +4,7 @@ import Featured from '@/app/components/shared/banners/livestreams/featured'
 import Popular from '@/app/components/shared/livestreams/popular/popular'
 import RecentLives from '@/app/components/shared/livestreams/recent/recents'
 import UpcomingLives from '@/app/components/shared/livestreams/upcoming/upcoming'
-import Footer from '@/app/components/shared/footer/footer'
+import Footer from '@/app/components/shared/footer/home/footer'
 type Props = {}
 
 const LiveStreams = (props: Props) => {

@@ -1,10 +1,11 @@
 'use client'
 import React,{useState,useRef, SetStateAction, useContext} from 'react'
 import NavBar from '@/app/components/ui/nav/nav'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { getTest } from '@/app/lib/actions/connections'
 import { postTest } from '@/app/lib/actions/connections'
 import { getSession, useSession } from 'next-auth/react'
+import { QueryClient } from '@tanstack/react-query'
 import News from '@/app/components/shared/news/news'
 import Games from '@/app/components/shared/games/games'
 import Forums from '@/app/components/shared/forums/forums'
@@ -13,11 +14,12 @@ import LiveStreams from '@/app/components/shared/livestreams/home/livestreams'
 import { Suspense } from 'react'
 import Spinner from '@/app/components/ui/spinner/spinner'
 import { useEffect } from 'react'
-import Footer from '@/app/components/shared/footer/footer'
+import Footer from '@/app/components/shared/footer/home/footer'
 import { connectDB } from '@/app/lib/database/connections'
 import { StoreStateContext } from '@/app/lib/context/storeContext'
 import Placeholder from '@/app/components/ui/placeholder/placeholder'
 import { user } from '@nextui-org/theme'
+import { getUser } from '@/app/lib/database/connections'
 import FriendsList from '@/app/components/shared/friends/friends'
 import Videos from '@/app/components/shared/videos/home/videos'
 
@@ -28,65 +30,117 @@ type Props = {}
 const HomePage = (props: Props) => {
   const ctx=useContext(StoreStateContext);
   const [userInfo,setUserInfo]=useState('');
-  const [userData,setUserData]=useState([]);
+  const [userData,setUserData]=useState<any>();
   const {data:session}=useSession();
-  
+  const [userName,setUserName]=useState<any>('')
+  const [currData,setCurrData]=useState<any>()
+  const [dataState,setDataState]=useState<any>()
   console.log(session);
   console.log(session?.user);
+ 
   const {data}=useQuery({
-    queryKey:['dataTest'],
+    queryKey:['dataTest', session?.user?.name],
     queryFn:async()=>{
-      const sess= await session?.user?.name
-      console.log(sess)
-      return connectDB(sess)
-    }
-  });
-   data && console.log(data);
-   
-   console.log(data);
-   useEffect(()=>{
-      if(session?.user){
-       let user=data?.data?.user
+      const userName=session?.user?.name
+      if(userName){
+        return getUser(userName); //Replace with actual fetch function
+      }
 
-        //ctx.getUser(user)
-        //connectDB(userName)
-      }
-      if(data?.data){
-        let user=data?.data?.data;
-        setUserData(user);
-        console.log(userData);
-        ctx.getUser(user);
-        console.log(ctx.userData)
-      }
-   },[session,data]);
+      throw new Error("User is not logged in or username is undefined.");
+    },
+    initialData:null,
+    enabled: !!session?.user?.name 
+  });
+  
+ //user Type: 
+ /*
+ username?:string | null | undefined,
+    password?: string | null | undefined,
+    wishlistItems?:any[] | null | undefined,
+    cartItems?: any[] | null | undefined,
+    currentSettings?:any[] | null | undefined,
+    uploadedVideos?:any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[],
+    uploadedLiveStreams?: any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[],
+    uploadedGames?: any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[],
+    viewedContent?:any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[]
+  } 
+ */
+  useEffect(()=>{
+    if(session?.user){
+     let user=session?.user?.name;
+     //setUserName(user);
+     //console.log(userName);
+     //const currUser=getUser(userName);
+     //console.log(currUser);
+     //const userObj={
+      //username:currUser
+     //}
+     //setCurrData(currUser);
+      //ctx.getUser(user);
+      //connectDB(userName)
+    }
+    if(data!=undefined){
+     // setCurrData(data)
+    }
+    if(userData){
+      setCurrData(userData)
+      console.log("User data fetched:", userData)
+    }
+    if(data!=undefined){
+      
+      let currentData=data.data
+     
+      setDataState(currentData);
+      localStorage.setItem("userdata",JSON.stringify(currentData));//Update global state to check if localStorage "get" is empty.
+      localStorage.setItem("testdata",dataState);
+      ctx.getUser(currentData);
+      console.log(ctx.userData);
+    }
+   
+ },[userData,data]);
+   //data && console.log(data);
+   currData && console.log(currData)
+   //console.log(data);
+  
+   
+   if(userData){
+    console.log(userData)
+   }
+   
    if(session?.user){
     console.log(session)
    }
-  data && console.log(data?.data)
-  data && console.log(userData)
-  data && console.log(ctx.userData)
+   session && console.log(userName)
+   
+  if(data!=undefined){
+    console.log(data)
+    console.log(ctx.userData)
+  }
+  
   return (
     <main className='flex md:flex-row md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col  bg-white  ' >
       <NavBar/>
       <div className='flex max-sm:self-center   max-sm:w-5/6 max-sm:h-20 md:mt-40 md:w-1/3 md:col-start-1 md:row-start-1 md:row-span-2 p-4 bg-gray-200 rounded-md p-4  ' >
        <Suspense fallback={<div className='' ><Spinner/></div>} >
-       {session ?<SideBar currentUser={userData[0]}   /> :  <SideBar/>}
-        
+       
+        {/*{session ?<SideBar currentUser={userData[0]}   /> :  <SideBar/>} */}
        </Suspense>
       </div>
-      <div className='flex md:row-start-1 md:relative md:-top-48 md:col-start-2 md:col-span-2 md:items-end ' >
+      <div className='flex md:row-start-1 md:relative md:-top-48 md:col-start-2 md:col-span-2 md:items-end z-40' >
       <News user={session?.user?.name} />
       </div>
       <div className='relative  md:w-full   md:h-full md:-top-20  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-3/4 rounded-md  p-4 bg-gray-200 md:space-y-2  ' >
-        {session?<LiveStreams  /> : <LiveStreams/>}
+        {/*session?<LiveStreams  /> : <LiveStreams/>*/}
         {session? <Games  /> : <Games/>}
-        {session? <Forums currentUser={userData[0]} /> : <Forums/>}
-        {session? <Videos currentUser={userData[0]} />: <Videos/>}
+        
+        {/* {session? <Forums currentUser={userData[0]} /> : <Forums/>} */}
+        
+        {/*  {session? <Videos currentUser={userData[0]} />: <Videos/>}*/}
       </div>
       <div className=' flex row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-1/3 justify-self-end rounded-md self-start md:col-start-4 bg-slate-200 ' >
         <FriendsList/>
         </div>
-      <div className='row-start-3 row-span-2 md:position row-span-2 flex justify-center  self-end col-start-1 col-span-4   z-90' >
+      <div className='row-start-3 row-span-2 md:position row-span-2 flex justify-center  self-end col-start-1 col-span-4 static  z-90' >
       <Footer/>
       </div>
       

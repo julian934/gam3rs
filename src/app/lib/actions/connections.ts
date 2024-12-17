@@ -36,3 +36,16 @@ export async function getGames(){
 
   return games
 }
+
+export const popularVideos=async()=>{
+
+};
+
+export const latestVideos=async()=>{
+
+};
+
+export const upcomingVideos=async()=>{
+
+};
+

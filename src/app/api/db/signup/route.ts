@@ -1,4 +1,5 @@
 import { NextRequest,NextResponse } from "next/server";
+import { NextApiRequest } from "next";
 import { MongoClient, ObjectId } from "mongodb";
 
 export async function handler(request:NextRequest){
@@ -12,21 +13,51 @@ const currColl=process.env.MONGO_COLLECTION
    console.log(currClient)
   // const db= await currClient.db(`${mongo_db?.toString()}`)
   const db=await currClient.db('users')
-
+    
    console.log(db)
    if(request.method==='POST'){
       console.log(request)
-      const body=await request.json();
+      const body=await request.nextUrl.searchParams;
       if(body){
          console.log(body)
       }
-      let data=body?.data
-      console.log(data)
+      let first=body?.get('username');
+      let last=body?.get('password');
+      console.log(first);
+      console.log(last);
+      //console.log(data);
+      const defaultSettings={
+
+      }
+      const userData={
+         username:first,
+         password:last,
+         wishlistItems:[],
+         cartItems:[],
+         currentSettings:defaultSettings,
+         videos:[],
+         livestreams:[],
+         forumPosts:[]
+      }
       //const result=await db.collection(`${currColl?.toString()}`).insertOne(data)
-      const result=await db.collection('gam3rs').insertOne({user:data})
+      //const result=await db.collection('gam3rs').insertOne({user:userData})
+      const myObjectID=await new ObjectId('6718571a68fdc2dc1117ebf8')
+    const result = await db.collection('gam3rs').findOne({
+       _id: myObjectID, // Use the correct ObjectId format
+       "gam3rsinfo.users": {$exists:true}
+   });
+   const updateResult = await db.collection('gam3rs').updateOne(
+      {
+          _id: myObjectID
+         
+      },
+      {
+          $push: { "gam3rsinfo.users": userData } as any
+      }
+  );
       return NextResponse.json({
          message:'Data inserted successfully',
-         result:result
+         result:updateResult
       })
    }
   
