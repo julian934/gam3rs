@@ -118,29 +118,50 @@ const HomePage = (props: Props) => {
   }
   
   return (
-    <main className='flex md:flex-row md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col  bg-white  ' >
+    <main className='flex max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col  bg-white  ' >
       <NavBar/>
       <div className='flex max-sm:self-center   max-sm:w-5/6 max-sm:h-20 md:mt-40 md:w-1/3 md:col-start-1 md:row-start-1 md:row-span-2 p-4 bg-gray-200 rounded-md p-4  ' >
        <Suspense fallback={<div className='' ><Spinner/></div>} >
-       
+        <h1 className='' >Updates</h1>
         {/*{session ?<SideBar currentUser={userData[0]}   /> :  <SideBar/>} */}
        </Suspense>
       </div>
-      <div className='flex md:row-start-1 md:relative md:-top-48 md:col-start-2 md:col-span-2 md:items-end z-40' >
+      <div className='flex max-sm:h-1/2 max-sm:self-center max-sm:w-5/6 md:row-start-1 md:relative md:-top-48 md:col-start-2 md:col-span-2 md:items-end z-40' >
       <News user={session?.user?.name} />
       </div>
-      <div className='relative  md:w-full   md:h-full md:-top-20  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-3/4 rounded-md  p-4 bg-gray-200 md:space-y-2  ' >
+      <div className='relative max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center md:w-full space-y-8  md:h-full md:-top-20  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-3/4 rounded-md  p-4 bg-gray-200 md:space-y-12  ' >
         {/*session?<LiveStreams  /> : <LiveStreams/>*/}
-        {session? <Games  /> : <Games/>}
+        {session && userData? <Games  /> : <Games/>}
         
-        {/* {session? <Forums currentUser={userData[0]} /> : <Forums/>} */}
+         {session && userData? <Forums currentUser={userData[0]} /> : <Forums/>}  
         
-        {/*  {session? <Videos currentUser={userData[0]} />: <Videos/>}*/}
+          {session && userData? <Videos currentUser={userData[0]} />: <Videos/>}
+          {/* Bottom Bars */}
+        {/* <div className='flex self-center justify-self-start bg-white justify-around w-1/3 h-8 border-2 mt-12 border-black z-50 space-x-6 -skew-x-12 ' >
+        
+          <div className='flex bg-gray-200 border-2 border-black w-1/4 -skew-x-12 ' >
+              
+              </div>
+              <div className='flex bg-gray-200 border-2 border-black w-1/4 -skew-x-12 ' >
+    
+              </div>
+              <div className='flex bg-gray-200 border-2 border-black w-1/4 -skew-x-12 ' >
+    
+              </div>
+              <div className='flex bg-white border-2 border-black w-1/4 -skew-x-12 ' >
+    
+               </div>
+            </div> */}
+          {/* Bottom left corner */}
+          {/*<div className='flex bg-white w-16 h-16 rotate-45 border-2 border-black -ml-14 -mt-12' >
+          
+        </div> */}
+        
       </div>
       <div className=' flex row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-1/3 justify-self-end rounded-md self-start md:col-start-4 bg-slate-200 ' >
         <FriendsList/>
         </div>
-      <div className='row-start-3 row-span-2 md:position row-span-2 flex justify-center  self-end col-start-1 col-span-4 static  z-90' >
+      <div className='row-start-4 row-span-2 md:position row-span-2 flex justify-center  self-end col-start-1 col-span-4 static  z-90' >
       <Footer/>
       </div>
       

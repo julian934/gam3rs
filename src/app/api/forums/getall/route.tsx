@@ -2,7 +2,8 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
-export async function getForums(request:NextRequest){
+
+export async function getForums(request?:NextRequest){
     const client= new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
     const currClient=await client.connect();
     const db=await currClient.db('users')

@@ -27,13 +27,15 @@ export async function Upload(request: NextRequest) {//update backend with body d
     console.log(testFile?.data)
    
     const upload = await video.uploads.create({
-      cors_origin: '*', // Replace '*' with your actual frontend URL
+      cors_origin: '/testUpload', // Replace '*' with your actual frontend URL
       new_asset_settings: {
         playback_policy: ['public'],
         passthrough: `filename:${testFile?.filename}`,
       },
     });
-
+     //Create a playback id and store playback ID in personal user database, and all site video database as well.
+     console.log(upload.asset_id);
+     
     return NextResponse.json({
       message: 'Upload URL created',
       uploadUrl: upload.url,

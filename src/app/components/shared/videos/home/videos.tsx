@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Featured from '../../banners/livestreams/featured'
 import { useQuery } from '@tanstack/react-query'
 import Placeholder from '@/app/components/ui/placeholder/placeholder'
@@ -36,15 +36,22 @@ const Videos = (props: any) => {
     queryKey:['homelive'],
     queryFn:()=>connectDB(props?.username)
   });
-  const user=ctx.userData?.username
+  
+  useEffect(()=>{
+    //const user:any=ctx.userData?.username
+    if(data){
+
+    }
+  },[])
   //Get Data from context
-   return(<div className='flex  justify-around bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
+   return(<div className='flex max-sm:flex-col max-sm:self-center justify-around bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
     <div className='' >
     <h1 className='text-xl' >Videos</h1>
-    <h1 className='text-xl' >User:{user}</h1>
+    {/* <h1 className='text-xl' >User:{user}</h1> */}
+    
     </div>
     
-    <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
+    <Card className="w-[200px] space-y-5 p-4  flex max-sm:flex-col bg-red-200 " radius="lg">
     <Skeleton className="rounded-lg">
       <div className="h-24 rounded-lg bg-gray-300"></div>
     </Skeleton>

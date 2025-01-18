@@ -11,7 +11,7 @@ const Settings = (props: Props) => {
     <div className='flex flex-col bg-white h-screen' >
       <NavBar/>
       
-      <div className='flex flex-col justify-center self-center  items-center space-y-2' >
+      <div className='flex flex-col justify-center self-center  items-center space-y-2 md:z-50' >
          <h1 className=' text-4xl pt-2  ' >Settings</h1>
          <div className='flex flex-col space-y-8 pt-12 ' >
          <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">

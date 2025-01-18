@@ -63,7 +63,7 @@ export const getAllVideos=async()=>{
   }
   return 'Videos not found'
 }
-export const getVideo=async(id:string)=>{
+export const getVideoInfo=async(id:string)=>{
   const conn=axios.get(`/api/mux/video?id=${id}`)
   if(conn){
     return conn
@@ -106,10 +106,11 @@ export const videoPlayer=async(userData:User)=>{
 
 }
 
-export const getGames=async(userData:User)=>{
+export const getGames=async()=>{
 
-  const gameData=await fetch('/')
-
+  const gameData=await axios.get('/api/games');
+  console.log("game data: ",gameData )
+  const currData=gameData
   return gameData;
 
 }

@@ -28,6 +28,7 @@ export async function postTest(user:string,pass:string){
 }
 
 export async function getNews(){
+  const news=await axios.get('/api/')
   
 }
 
@@ -35,6 +36,16 @@ export async function getGames(){
   const games=await axios.get('/api/games')
 
   return games
+}
+
+export async function thumbNailPic(thumbnail:any){
+  const ID=await thumbnail?.playbackID;
+  if(ID){
+    const currData= await axios.get(`/api/videos/thumbnail/?id=${ID}`);
+    console.log(currData);
+    return currData
+  }
+   return "Data not found."
 }
 
 export const popularVideos=async()=>{

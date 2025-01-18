@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import MuxPlayer from '@mux/mux-player-react'
 import { Card } from '@nextui-org/card'
@@ -7,17 +7,35 @@ import { Skeleton } from '@nextui-org/skeleton'
 import { filteredLatestVideos } from '@/app/lib/database/connections'
 import Featured from '@/app/components/ui/templates/featuredvideos/featured'
 import FeaturedPlaceHolder from '@/app/components/ui/templates/placeholders/featured'
+import Link from 'next/link'
+import { useEffect } from 'react'
+import Thumbnail from '../thumbnail/thumbnail'
 type Props = {}
 
 const Latest = (props: Props) => {
-
+    //const [dataState,setDataState]=useState<any>();
     const {data}=useQuery({
-        queryKey:['latestVideos '],
-        queryFn:()=>filteredLatestVideos()
+        queryKey:['latestVideos'],
+        queryFn:()=>filteredLatestVideos(),
+        enabled: !!filteredLatestVideos
     });
+useEffect(()=>{
+if(data!=undefined){
+  const currData=data
+  //setDataState(currData)
+}
 
+},[data])
+if(data){
+  console.log(data)
+}
+
+const dataState = data?.data?.data || []; // Directly access nested data safely
+if(dataState){
+  console.log(dataState)
+}
   return (
-    <div className='flex h-92 w-92 flex-col' >
+    <div className='flex h-92 w-92 flex-col md:flex-row md:w-full md:border-2 md:border-black md:h-[200px] ' >
       
       <h1 className='' >Latest</h1>
       
@@ -83,8 +101,17 @@ const Latest = (props: Props) => {
     </div>
   </Card>
         </div>*/}
-        {data && data?.data?.data.map((vals:any)=><div className='flex max-sm:flex-col md:flex-row space-y-8 ' key={vals._id} >
-        <Featured key={vals._id}  currentData={vals} />
+        {dataState && dataState.map((vals:any)=><div className='flex flex-col md:w-full space-y-4 p-2 md:h-[200px]  ' key={vals.playbackID} >
+          <Link  href={`/videos/${vals.playbackID}`} >
+                <Thumbnail playbackId={`${vals.playbackID}`} />
+                <div className="flex flex-col  z-60 ">
+                <h2 className='flex text-center self-center ' >{vals.fileName}</h2>
+                
+            </div>
+             
+              {/* <Featured  currentData={vals} /> */}
+          </Link>
+         
         </div>)}
       </div>
   )

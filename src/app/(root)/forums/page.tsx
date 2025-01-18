@@ -41,33 +41,55 @@ const Forums = (props: Props) => {
       console.log(testState)
     }
   return (
-    <div className='flex flex-col grid grid-cols-4 grid-rows-4 bg-white ' >
-      <div className='col-start-1 col-span-4 row-start-1' >
+    <div className='flex grid grid-cols-6 grid-rows-4  bg-white ' >
+      <div className='flex w-screen col-start-1 col-span-6   row-start-1' >
       <NavBar/>
       </div>
-     
-      <div className='flex flex-col col-start-2 col-span-2 row-start-2 row-span-2 z-50 border-2 border-slate-200 rounded-md ' >
-      {userState && <div className='' >
-         <h1 className='' >Current User: {userState.currentUser.userName}</h1>
-        </div>}
-        <div className='flex self-end p-4' >
-           <Link href='/allForums'>See All</Link>
+      <div className='flex flex-col md:justify-start md:self-start md:-mt-8 col-start-2 col-span-4 row-start-2 row-span-2 bg-gray-200 rounded-lg' >
+        <div className='flex w-full justify-around h-32 p-4' >
+           <h1 className='text-2xl' > Current Forums </h1>
+
+           <div className=' rounded-lg shadow-2xl bg-gray-400 hover:bg-gray-700 w-6 h-6' >
+           <Link href='/testUpload' className=' ' >Create a New Forum</Link>
+           </div>
+           
+           <div className=' rounded-lg sha2dow-2xl bg-gray-400 hover:bg-gray-700 flex-col w-10 h-6' >
+            <Link className=' text-xl' href='/allForums' >All Forums</Link>
+           </div>
+          
         </div>
-       <div className='flex w-full h-1/3' >
-           <Recent/>
-        </div>
-       <div className='flex w-full h-1/3' >
-          <Popular/>
-        </div>
-        <div className='flex w-full h-1/3' >
-           <Upcoming/>
+        <div className='flex flex-col  p-2 border-2 md:h-full ' >
+          
+          <div className='flex border-2 flex-col p-2 md:bg-white border-2 border-black ' >
+            <h1 className=' text-xl ' >Latest Videos</h1>
+            <div className='flex md:flex-row md:w-2/3 md:h-full' >
+               <Recent/>  {/* Latest Videos calculated by most recent timestamp/
+                smallest difference between today and the day it was created */}
+            </div>
+
           </div>
+          <div className='flex border-2 flex-col p-2' >
+            <h1 className=' text-xl ' >Popular Videos</h1> {/* Most Popular Videos calculated by number of views */}
+            <div className='' > 
+               <Popular/>
+            </div>
+
+          </div>
+          <div className='flex flex-col  p-2 ' >
+            <h1 className=' text-xl ' >Upcoming Videos</h1>
+            <div className='' >
+               <Upcoming/>{/* Upcoming Videos from the team, created in mongodb with a pre-determined release date */}
+            </div>
+
+          </div>
+
+        </div>
       </div>
       
-      <div className='flex col-start-1 col-span-4 row-start-4 self-end justify-self-center h-full' >
-      <Footer/>
-      </div>
       
+      <div className='flex  row-start-4 col-start-1 col-span-6 w-screen justify-around  '  >
+        <Footer/>
+      </div>
       </div>
   )
 }

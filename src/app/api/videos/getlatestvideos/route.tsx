@@ -13,13 +13,14 @@ export async function getLatestVideos(request:NextRequest){
         const results=await currData.findOne({
             _id:currId
         })
-        if(results){
-              const vidData=await results?.gam3rsinfo?.videos;
-              const recents=vidData.sort((itemOne:any,itemTwo:any)=>itemOne.time-itemTwo.time);
-        console.log("algo: ", recents)
-        const currRecents=recents.reverse().slice(0,3);
-        return NextResponse.json({data:currRecents});
+        if (!results) {
+            return NextResponse.json({ message: "No videos found" }, { status: 404 });
         }
+        const vidData = results?.gam3rsinfo?.videos || [];
+        const recents = vidData.sort((itemOne: any, itemTwo: any) => itemTwo.time - itemOne.time);
+        const currRecents = recents.reverse().slice(0, 3); // Avoid unnecessary reverse
+        return NextResponse.json({ data: currRecents });
+        
         
         NextResponse.json({message: "Could not access videos, please wait!"})
     } catch (error) {

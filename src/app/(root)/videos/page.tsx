@@ -10,26 +10,31 @@ import { useQuery } from '@tanstack/react-query'
 import Latest from '@/app/components/shared/videos/latest/latest';
 import Popular from '@/app/components/shared/videos/popular/popular';
 import Upcoming from '@/app/components/shared/videos/upcoming/upcoming';
+import { useEffect } from 'react'
 type Props = {}
 
 const Videos = (props: Props) => {
      
-    
+    //customize mobile.
   return (
     <div className='flex grid grid-cols-6 grid-rows-4  bg-white ' >
       <div className='flex w-screen col-start-1 col-span-6   row-start-1' >
       <NavBar/>
       </div>
-      <div className='flex flex-col col-start-2 col-span-4 row-start-2 row-span-2 bg-gray-200 rounded-lg' >
+      <div className='flex flex-col justify-start self-start -mt-8 col-start-2 col-span-4 row-start-2 row-span-2 bg-gray-200 rounded-lg' >
         <div className='flex w-full justify-around h-32 p-4' >
-           <h1 className='' > Current Videos </h1>
+           <h1 className='text-2xl' > Current Videos </h1>
 
            <div className=' rounded-lg shadow-2xl bg-gray-400 hover:bg-gray-700 w-6 h-6' >
            <Link href='/testUpload' className=' ' > <Image className='h-6 w-6' src={upload} alt='upload' /> </Link>
            </div>
+           
+           <div className=' rounded-lg sha2dow-2xl bg-gray-400 hover:bg-gray-700 flex-col w-10 h-6' >
+            <Link className=' text-xl' href='/allVideos' >All Videos</Link>
+           </div>
           
         </div>
-        <div className='flex flex-col  p-2 border-2 ' >
+        <div className='flex flex-col max-sm:w-full  p-2 border-2 md:h-full ' >
           
           <div className='flex border-2 flex-col p-2 ' >
             <h1 className=' text-xl ' >Latest Videos</h1>

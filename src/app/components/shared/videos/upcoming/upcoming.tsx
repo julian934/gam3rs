@@ -16,7 +16,7 @@ const Upcoming = (props: Props) => {
   return (
     <div className='' >
     
-      <h1 className='' >  Upcoming </h1>
+      <h1 className='' >  Stay tuned! Videos released by the Gam3rs Network will be released soon! </h1>
       <div className='' >
             {/*data && data.map((vals:any)=>{
             <MuxPlayer
