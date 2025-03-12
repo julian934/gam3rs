@@ -3,8 +3,8 @@ import { MongoClient,ObjectId } from "mongodb";
 
 
 export async function getRecentForums(request:NextRequest){
-    const client=new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
-    const objectID=new ObjectId("6718571a68fdc2dc1117ebf8");
+    const client=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    const objectID=new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
    try {
     const recentClient=await client.connect();
     const currClient=await recentClient.db('users').collection('gam3rs');

@@ -3,8 +3,8 @@ import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
 export async function getUpcomingVids(request:NextRequest){
-    const client=await new MongoClient('mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/');
-    const id=await new ObjectId('6718571a68fdc2dc1117ebf8');
+    const client=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    const id=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     try {
         const currClient= await client.connect();
          const result=await currClient.db('users').collection('gam3rs').findOne({

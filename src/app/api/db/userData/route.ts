@@ -5,7 +5,7 @@ import { MongoClient } from "mongodb"
 export type username={
   username:string
 }
-const client= new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`)
+const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
 export async function handler(request:NextRequest){
     
     console.log(client)

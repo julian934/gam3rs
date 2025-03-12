@@ -5,8 +5,8 @@ import axios from "axios";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 export async function currVideo(request:NextRequest){
-    const mongodb=await new MongoClient('mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/')
-    const currId=await new ObjectId('6718571a68fdc2dc1117ebf8');
+    const mongodb=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
+    const currId=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     const currData=await request.nextUrl.searchParams;
     const videoID=await currData.get('id');
     console.log("current ID:", videoID)

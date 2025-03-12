@@ -6,7 +6,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { MongoClient, ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
-const db = new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
+const db = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
 
 export async function getCurrentUser(request:NextRequest){
     
@@ -19,7 +19,7 @@ export async function getCurrentUser(request:NextRequest){
        console.log("current Data " + body)
         await db.connect();
         const usersCollection = await db.db("users").collection("gam3rs");
-        const targetObjectId = new ObjectId("6718571a68fdc2dc1117ebf8");
+        const targetObjectId = new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
 
         // Find the document with the specified ObjectId
         const document = await usersCollection.aggregate([

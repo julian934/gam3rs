@@ -28,7 +28,7 @@ const Thumbnail = ({ playbackId }: ThumbnailProps) => {
                 alt="Video Thumbnail"
                 width={100}
                 height={100}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-md "
             />
         </div>
     );

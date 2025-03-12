@@ -3,8 +3,8 @@ import { MongoClient, ObjectId } from "mongodb";
 
 export async function getPopularForums(request:NextRequest){ 
     //Filter based on forum thread count. 
-    const currClient=new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
-    const objectID=new ObjectId('6718571a68fdc2dc1117ebf8');
+    const currClient=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    const objectID=new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
    
     try {
         const client=await currClient.connect();

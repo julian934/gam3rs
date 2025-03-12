@@ -14,9 +14,9 @@ const Upcoming = (props: Props) => {
     });
 
   return (
-    <div className='' >
+    <div className='flex' >
     
-      <h1 className='' >  Stay tuned! Videos released by the Gam3rs Network will be released soon! </h1>
+      <h1 className='flex justify-self-center self-center ' >  Stay tuned! Videos released by the Gam3rs Network will be released soon! </h1>
       <div className='' >
             {/*data && data.map((vals:any)=>{
             <MuxPlayer
@@ -29,7 +29,7 @@ const Upcoming = (props: Props) => {
           })*/}
       </div>
       {!data && <div className='flex flex-row justify-around' >
-        <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
+        <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-white " radius="lg">
     <Skeleton className="rounded-lg">
       <div className="h-24 rounded-lg bg-gray-300"></div>
     </Skeleton>

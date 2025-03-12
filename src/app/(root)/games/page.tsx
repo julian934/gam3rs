@@ -1,6 +1,6 @@
 'use client'
 import React, { SetStateAction } from 'react'
-import { useState,useEffect,useContext,useRef } from 'react'
+import { useState,useEffect,useContext,useRef,useId } from 'react'
 import { useQuery } from '@tanstack/react-query';
 import { getGames } from '@/app/lib/actions/connections';
 import type { AxiosResponse } from 'axios';
@@ -9,6 +9,10 @@ import Image from 'next/image';
 import NavBar from '@/app/components/ui/nav/nav';
 import Footer from '@/app/components/shared/footer/general/page'; 
 import Notifications from '@/app/components/shared/notifications/notifications';
+import FriendsList from '@/app/components/shared/friends/friends';
+import { AnimatePresence, motion } from "framer-motion";
+import { useOutsideClick } from "../../components/hooks/use-outside-clicks";
+import { CloseIcon } from "../../components/ui/expandable-card-demo/expandable-card-demo";
 type Props = {}
 
 const Games = (props: Props) => {
@@ -35,19 +39,60 @@ const Games = (props: Props) => {
         //Add Game to user viewed game 
         //Increase views on MongoDB game views object by 1.
     }
+      const [dataState,setDataState]=useState<any>([]);
+      {/* Connect to games api and check for most popular. If not, render first few inside list.*/}
+      console.log(data)
+      if(data){
+        console.log(data)
+      }
+      useEffect(()=>{
+        const currData=data?.data;
+        console.log("Current Data: ", currData)
+        if(currData){
+             const preview=currData.data.slice(0,3);
+             setDataState(preview)
+        }    
+      },[data])
+      if(dataState){
+        console.log(dataState)
+      }
+       const [active, setActive] = useState<any>(
+          null
+        );
+        const ref = useRef<HTMLDivElement>(null);
+        const id = useId();
+      
+        useEffect(() => {
+          function onKeyDown(event: KeyboardEvent) {
+            if (event.key === "Escape") {
+              setActive(false);
+            }
+          }
+      
+          if (active && typeof active === "object") {
+            document.body.style.overflow = "hidden";
+          } else {
+            document.body.style.overflow = "auto";
+          }
+      
+          window.addEventListener("keydown", onKeyDown);
+          return () => window.removeEventListener("keydown", onKeyDown);
+        }, [active]);
+      
+        useOutsideClick(ref, () => setActive(null));
   return (
-    <div className='flex flex-col bg-white grid-cols-4 grid-rows-4 ' >
+    <div className='flex flex-col bg-white grid-cols-4 grid-rows-2 ' >
     <div className='row-start-1 col-start-1 col-span-4' >
        <NavBar/>
     </div>
     {/* Add option to skip to the bottom. */}
-    <div className='flex flex-col row-start-2 row-span-2 col-start-1 z-50 bg-slate-200 ' >
+    <div className='flex flex-col row-start-1 row-span-2 col-start-1 z-50 bg-slate-200 ' >
         <Notifications/>
     </div>
     <div className='' >
         <button className='' >Skip to Bottom</button> 
     </div>
-    <div className='flex max-sm:flex-col md:flex-row row-start-2 row-span-2 col-start-2 col-span-2 flex-wrap w-2/3 self-center h-full z-50 p-4 space-y-4' >
+    <div className='flex max-sm:flex-col  md:flex-row row-start-2 row-span-2 col-start-2 col-span-2 md:col-start-1  md:col-span-4 flex-wrap w-2/3 md:w-full self-center h-full z-50 p-4 md:p-2 space-y-4' >
     {/*games && games?.sort().map((vals:any)=>(<div key={vals.id} className='flex w-92 h-92 bg-slate-200 p-4 ' >
          <Link className='text-black'  href={vals.game_url} >
          <Image className='h-62 w-62 justify-self-center self-center ' width={100} height={100} quality={100}  src={vals.thumbnail} alt={vals.title} />
@@ -58,70 +103,150 @@ const Games = (props: Props) => {
       </div>))*/}
 
        {games && games?.sort().map((vals:any)=>
-            <div  key={vals.id} className='flex md:w-92 md:h-92 md:flex-wrap md:flex-row max-sm:flex-col ' >
-             
-              <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
-              {/* Add Design to this page. */}
-           
-              <div className='flex  -mt-4 py-2 px-2 ml-2 mt-0 row-start-1 col-start-4 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 skew-x-12 z-50 space-x-2' >
-              {/* Upper Right white area & black design */}
-              <div className=' bg-gray-300 h-full w-1/4 self-center  -skew-x-24  ' >
+              < div className=' flex md:w-2/3 md:px-12 ' >
+              <AnimatePresence>
+                      {active && typeof active === "object" && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="fixed inset-0 bg-black/20 h-full w-full z-10"
+                        />
+                      )}
+                    </AnimatePresence>
+                    <AnimatePresence>
+                      {active && typeof active === "object" ? (
+                        <div className="fixed inset-0  grid place-items-center z-[100]">
+                          <motion.button
+                            key={`button-${active.title}-${id}`}
+                            layout
+                            initial={{
+                              opacity: 0,
+                            }}
+                            animate={{
+                              opacity: 1,
+                            }}
+                            exit={{
+                              opacity: 0,
+                              transition: {
+                                duration: 0.05,
+                              },
+                            }}
+                            className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+                            onClick={() => setActive(null)}
+                          >
+                            <CloseIcon />
+                          </motion.button>
+                          <motion.div
+                            layoutId={`card-${active.title}-${id}`}
+                            ref={ref}
+                            className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                          >
+                            <motion.div layoutId={`image-${active.title}-${id}`}>
+                              <Image
+                                priority
+                                width={200}
+                                height={200}
+                                src={active.thumbnail}
+                                alt={active.title}
+                                className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                              />
+                            </motion.div>
+              
+                            <div>
+                              <div className="flex justify-between items-start p-4">
+                                <div className="">
+                                  <motion.h3
+                                    layoutId={`title-${active.title}-${id}`}
+                                    className="font-bold text-neutral-700 dark:text-neutral-200"
+                                  >
+                                    {active.title}
+                                  </motion.h3>
+                                  <motion.p
+                                    layoutId={`description-${active.short_description}-${id}`}
+                                    className="text-neutral-600 dark:text-neutral-400"
+                                  >
+                                    {active.short_description}
+                                  </motion.p>
+                                </div>
+              
+                                <motion.a
+                                  layoutId={`button-${active.title}-${id}`}
+                                  href={active.ctaLink}
+                                  target="_blank"
+                                  className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                                >
+                                  {/*active.ctaText*/}
+                                  <Link className='md:flex md:self-start  md:self-end'  href={`${vals.game_url}`} >
+                                  <h1 className=" " >Play</h1>
+                                  </Link>
+                                </motion.a>
+                              </div>
+                              <div className="pt-4 relative px-4">
+                                <motion.div
+                                  layout
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  exit={{ opacity: 0 }}
+                                  className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                                >
+                                  {typeof active.content === "function"
+                                    ? active.content()
+                                    : active.content}
+                                </motion.div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        </div>
+                      ) : null}
+                    </AnimatePresence>
+                 <motion.div
+                            layoutId={`card-${vals.title}-${id}`}
+                            key={`card-${vals.title}-${id}`}
+                            onClick={() => setActive(vals)}
+                            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+                          >
+                            <div className="flex gap-4 flex-col md:flex-row ">
+                              <motion.div layoutId={`image-${vals.title}-${id}`}>
+                                <Image
+                                  width={100}
+                                  height={100}
+                                  src={vals.thumbnail}
+                                  alt={vals.title}
+                                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                                />
+                              </motion.div>
+                              <div className="">
+                                <motion.h3
+                                  layoutId={`title-${vals.title}-${id}`}
+                                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left"
+                                >
+                                  {vals.title}
+                                </motion.h3>
+                                <motion.p
+                                  layoutId={`description-${vals.short_description}-${id}`}
+                                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
+                                >
+                                  {vals.short_description}
+                                </motion.p>
+                              </div>
+                            </div>
+                            <motion.button
+                              layoutId={`button-${vals.title}-${id}`}
+                              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
+                            >
+                              <Link className='md:flex md:self-start  md:self-end'  href={`${vals.game_url}`} >
+                              <h1 className=" " >Play</h1>
+                              </Link>
+                            </motion.button>
+                          </motion.div>
         
-                </div>
-              <div className='  bg-gray-300 h-full w-1/4 self-center -skew-x-24 ' >
-      
-                </div>
-              <div className=' bg-gray-300 h-full w-1/4  self-center  -skew-x-24 ' >
-      
-                  </div>
-         
-            </div>
-            
-          
-           <div className='flex size-4 bg-gray-50 col-start-1 border-2 border-black row-start-1 row-span-2' >
-      
-      
-           </div>
-           <div className='flex  flex-col  -ml-4 max-sm:-ml-6 w-1/3 max-sm:w-8 col-start-1 col-span-1 row-start-1 row-span-4 bg-white z-40 ' >
-           {/* Left side white area */}
-             <div className='flex max-sm:h-16 max-sm:w-full max-sm:ml-6  -mt-16 max-sm:-mt-8 ml-0 w-full h-1/2 bg-white rotate-45 ' >
-              {/*Left Side Upper Corner */}
-      
-             </div>
-      
-           </div>
-           <div className='flex  -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
-              {/* left side lower slant */}
-      
-           </div>
-           <div className='flex md:-mt-10 md:ml-10 md:w-full md:h-full md:-rotate-45 max-sm:ml-0 max-sm:-z-40 max-sm:mr-4 max-sm:pr-2 max-sm:mt-2 max-sm:h-1/2  rotate-45 max-sm:-rotate-45 row-start-1 row-span-2  col-start-6 z-50 ml-8 max-sm:ml-12 -mt-4 max-sm:mt-6 w-3/4 max-sm:w-full h-24 bg-white ' >
-                 {/*Extra top right white piece */}
-            </div>
-           <div className='flex md:border-2 md:border-black md:mt-6 md:-ml-6 max-sm:mt-0 max-sm:-ml-2 max-sm:z-40 row-start-4 row-span-2 col-start-1 -ml-8 mt-10 max-sm:mt-8 h-full w-full rotate-45 max-sm:-rotate-45 bg-white  ' >
-              {/* Left Side Lower Corner */}
-           </div>
-           
-           <div className='flex  row-start-1 col-start-6 -mt-2 ml-16 max-sm:ml-8 max-sm:mt-0 w-full h-full bg-white rotate-45 max-sm:rotate-0 ' >
-                {/* right side upper block */}
-               
-           </div>
-           <div className='flex  col-start-6 ml-20 max-sm:ml-8 mt-12 max-sm:mt-24 row-start-1 row-span-4 bg-white z-50 w-3/5 max-sm:w-4/5 h-5/6 max-sm:h-4/5 max-sm:w-4/5' >
-              {/* right side bar */}
-           </div>
-           <div className='flex md:z-50 md:ml-10 md:border-2 md:border-black max-sm:-z-40  row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 mt-12 w-full h-full' >
-               {/* right side lower */}
-           </div>
-            <div className='flex  border-2 border-black  flex-col rounded-md self-center justify-self-center  col-start-2 col-span-4 max-sm:row-start-1 max-sm:row-span-4 row-start-2 row-span-3 max-sm:w-full' >
-              {/*  Space for Data */} 
-              <Image className='flex w-full' src={vals.thumbnail} alt={vals.title} width={100} height={100} />
-              <h1 className='flex' >{vals.title}</h1>
-            
-            </div>
-            </div> 
-      
-            </div>)}
+                          </div>)}
     </div>
-      <div className='row-start-4 col-start-1 col-span-4' >
+    <div className='flex  ' >
+          <FriendsList/>
+    </div>
+      <div className='row-start-4 col-start-1 col-span-4 md:self-center bg-white md:justify-end md:z-50' >
           <Footer/>
       </div>
     </div>

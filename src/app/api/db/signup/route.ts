@@ -8,7 +8,7 @@ const password=process.env.MONGO_PASSWORD;
 const cluster=process.env.MONGO_CLUSTER
 const mongo_db=process.env.MONGO_DB
 const currColl=process.env.MONGO_COLLECTION
-   const client= new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`)
+   const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
    const currClient=await client.connect()
    console.log(currClient)
   // const db= await currClient.db(`${mongo_db?.toString()}`)
@@ -27,7 +27,9 @@ const currColl=process.env.MONGO_COLLECTION
       console.log(last);
       //console.log(data);
       const defaultSettings={
-
+         thumbnails:['https://res.cloudinary.com/dmtt3jfwg/image/upload/v1740513562/nb6vdozttv7xjrmsrujk.jpg'],
+         theme:'Dark',
+         
       }
       const userData={
          username:first,
@@ -37,11 +39,12 @@ const currColl=process.env.MONGO_COLLECTION
          currentSettings:defaultSettings,
          videos:[],
          livestreams:[],
-         forumPosts:[]
+         forumPosts:[],
+         friends:[]
       }
       //const result=await db.collection(`${currColl?.toString()}`).insertOne(data)
       //const result=await db.collection('gam3rs').insertOne({user:userData})
-      const myObjectID=await new ObjectId('6718571a68fdc2dc1117ebf8')
+      const myObjectID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`)
     const result = await db.collection('gam3rs').findOne({
        _id: myObjectID, // Use the correct ObjectId format
        "gam3rsinfo.users": {$exists:true}

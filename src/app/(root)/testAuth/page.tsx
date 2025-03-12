@@ -84,11 +84,11 @@ const Auth = (props: Props) => {
   </div>)
   return (
     <div className='flex flex-col grid grid-cols-4 grid-rows-5 bg-white h-screen ' >
-      <div className='col-start-1 col-span-4 row-start-1' >
+      <div className='col-start-1 col-span-4 row-start-1 z-50' >
           <NavBar/>
       </div>
-      <div className=' flex flex-col max-sm:w-full max-sm:h-full md:h-full self-center md:self-start rounded-sm  justify-center p-2  max-sm:col-start-1 col-start-2 space-x-2 space-y-2 max-sm:col-span-4 md:col-span-3 row-start-2  row-span-3 z-50 border-2 max-sm:bg-white' >
-      <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
+      <div className=' flex flex-col  max-sm:w-full max-sm:h-full md:h-full self-center md:self-start rounded-sm  justify-center p-2  max-sm:col-start-1 col-start-2 space-x-2 space-y-2 max-sm:col-span-4 md:col-span-4 row-start-2  row-span-3 z-50 max-sm:bg-white' >
+      <div className=' flex md:mt-20 md:ml-10  md:self-center grid max-sm:mt-4 h-full w-full md:w-3/4 grid-cols-6 grid-rows-4 flex-row  bg-gray-300   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
         {/* Add Design to this page. */}
      
         <div className='flex  -mt-4 py-2 px-2 ml-2 mt-0 row-start-1 col-start-4 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 md:h-2/3 skew-x-12 z-50 space-x-2' >
@@ -122,10 +122,10 @@ const Auth = (props: Props) => {
         {/* left side lower slant */}
 
      </div>
-     <div className='flex  rotate-45 max-sm:-rotate-45 row-start-1 row-span-2  col-start-6 z-50 ml-8 max-sm:ml-8 -mt-4  max-sm:mt-6 w-3/4 max-sm:w-1/4 max-sm:h-1/3  h-24 bg-white ' >
+     <div className='flex  rotate-45 max-sm:-rotate-45 row-start-1 row-span-2  col-start-6 z-40 ml-8 md:ml-10 max-sm:ml-8 -mt-4 md:-mt-10  max-sm:mt-6 w-3/4 max-sm:w-1/4 max-sm:h-1/3  h-24 md:w-full md:h-44 bg-white ' >
            {/*Extra top right white piece */}
       </div>
-     <div className='flex  row-start-4 row-span-2 col-start-1 -ml-8 mt-10 max-sm:mt-8 h-full w-full rotate-45 max-sm:-rotate-45 bg-white  ' >
+     <div className='flex   row-start-4 row-span-2 col-start-1 -ml-8 mt-10 max-sm:mt-8 h-full w-full rotate-45 max-sm:-rotate-45 bg-white  ' >
         {/* Left Side Lower Corner */}
      </div>
      
@@ -136,17 +136,17 @@ const Auth = (props: Props) => {
      <div className='flex  col-start-6 ml-20 max-sm:ml-8 mt-12 max-sm:mt-24 row-start-1 row-span-4 bg-white z-50 w-3/5 max-sm:w-4/5 h-5/6 max-sm:h-4/5 max-sm:w-4/5' >
         {/* right side bar */}
      </div>
-     <div className='flex  row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 mt-12 w-full h-full' >
+     <div className='flex row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 md:ml-8 mt-12 w-full md:w-92 h-full' >
          {/* right side lower */}
      </div>
       <div className='flex  flex-col max-sm:w-full rounded-md self-center justify-self-center  col-start-2 col-span-4 max-sm:row-start-1 max-sm:row-span-4 row-start-2 
-      md:row-start-1 md:py-6 md:row-span-3 row-span-3 md:w-full md:self-end max-sm:w-full' >
+      md:row-start-1 md:py-20 md:row-span-4 row-span-3 md:w-full md:self-end  max-sm:w-full' >
         {/*  Space for Data */} 
-        <div className='flex flex-col w-1/2  self-center py-2 ' >
+        <div className='flex flex-col w-1/2 max-sm:w-full  self-center py-2 ' >
         <h2 className='text-2xl -skew-x-12' >Username</h2>
          <input className='border-2 -skew-x-12'  onChange={handleUserChange} ref={userNameRef} type="text" name='user'  />
       </div>
-      <div className='flex flex-col w-1/2 self-center py-2 ' >
+      <div className='flex flex-col w-1/2 max-sm:w-full self-center py-2 ' >
         <h2 className='text-2xl -skew-x-12 ' >Password</h2>
         <input className='border-2 -skew-x-12 ' onChange={handlePassChange} ref={passwordRef} type="text" name='email'  />
       </div>
@@ -166,7 +166,7 @@ const Auth = (props: Props) => {
       </div> 
       
       </div>
-      <div className='col-start-1 col-span-4 row-start-5 max-sm:self-start md:self-center ' >
+      <div className='col-start-1 col-span-4 row-start-5  row-span-2 -z-50   md:flex md:flex-wrap max-sm:self-start md:flex md:self-end md:justify-center  ' >
         <Footer/>
       </div>
     

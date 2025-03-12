@@ -56,13 +56,13 @@ export const getPopularForums=async()=>{
 export const getUpcomingForums=async()=>{
 
 }
-export const getAllVideos=async()=>{
+/*export const getAllVideos=async()=>{
   const conn=axios.get('/api/mux/videos')
   if(conn){
     return conn
   }
   return 'Videos not found'
-}
+}*/
 export const getVideoInfo=async(id:string)=>{
   const conn=axios.get(`/api/mux/video?id=${id}`)
   if(conn){
@@ -185,4 +185,51 @@ export const filteredUpcomingVideos=async()=>{
   return data
   
 }
+export const getAllVideos=async()=>{
+  const data=await axios.get(`/api/videos/getAllVideos`);
 
+  return data
+
+}
+
+export const getNews=async()=>{
+
+  const data=await axios.get('/api/news');
+  /*const defaultData:any={
+    title:'Welcome to the Gam3r Network',
+    description:'The Gam3r Network is your home for unfiltered, game-related content and the place to find your gaming community.',
+    image:'The Gam3r Network'
+   }
+   if(!data){
+    console.log(defaultData)
+    return defaultData
+   }
+    */
+  
+  console.log("current news data: ", data)
+  
+  return data
+}
+
+export const getNotifications=async()=>{
+  const data=await axios.get('/api/getnotifications');
+  console.log("Notifications: ", data?.data?.data);
+  //default data for infinite cards: name, quote, title
+  const testData=await data?.data?.data;
+  if(testData.default){
+
+    return {data:testData,flag:'default'}
+  }
+ // const finalData=await data?.data?.data?.slice(0,2);
+  
+  return {data:testData,flag:'notifications'}
+}
+
+export const getSearchData=async()=>{
+  const getBackEndData=await axios.get('/api/search');
+  const gameData=await axios.get('/api/games');
+  const currBackendData=getBackEndData?.data?.data
+  const currGameData=gameData?.data?.data
+  const allData=[currBackendData,currGameData].flat();
+   return allData
+}

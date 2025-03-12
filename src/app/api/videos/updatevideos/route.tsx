@@ -4,8 +4,8 @@ import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 
 export async function updateVideos(request:NextRequest){
-    const client= await new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
-    const gam3rObjID=await new ObjectId('6718571a68fdc2dc1117ebf8');
+    const client= await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    const gam3rObjID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     try {
         const currClient=await client.connect();
         const reqData=await request.json();

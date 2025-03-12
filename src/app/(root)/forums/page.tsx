@@ -3,11 +3,16 @@ import React,{useState,useRef,useEffect,useContext} from 'react'
 import NavBar from '@/app/components/ui/nav/nav'
 import Footer from '@/app/components/shared/footer/home/footer'
 import { useQuery } from '@tanstack/react-query'
-import Recent from '@/app/components/shared/forums/recent/recents'
-import Popular from '@/app/components/shared/forums/popular/popular'
+import Recent from '@/app/components/shared/forums/recent/forumsRecent'
+//import Popular from '@/app/components/shared/forums/popular/popular'
+import Popular from '@/app/components/shared/forums/popular/forumsPopular'
 import Upcoming from '@/app/components/shared/forums/upcoming/upcoming'
 import { StoreStateContext } from '@/app/lib/context/storeContext'
+import addbutton from '../../utils/images/addbutton.png'
 import Link from 'next/link'
+import Image from 'next/image'
+import Notifications from '@/app/components/shared/notifications/notifications'
+import FriendsList from '@/app/components/shared/friends/friends'
 type Props = {}
 
 const Forums = (props: Props) => {
@@ -41,41 +46,49 @@ const Forums = (props: Props) => {
       console.log(testState)
     }
   return (
-    <div className='flex grid grid-cols-6 grid-rows-4  bg-white ' >
+    <div className='flex grid grid-cols-6 grid-rows-2  bg-white ' >
       <div className='flex w-screen col-start-1 col-span-6   row-start-1' >
       <NavBar/>
       </div>
-      <div className='flex flex-col md:justify-start md:self-start md:-mt-8 col-start-2 col-span-4 row-start-2 row-span-2 bg-gray-200 rounded-lg' >
-        <div className='flex w-full justify-around h-32 p-4' >
-           <h1 className='text-2xl' > Current Forums </h1>
+      <div className='flex z-10 md:z-50 max-sm:col-start-1 max-sm:col-span-6 md:col-start-1 md:row-start-1 md:row-span-2 md:mt-56 bg-gray-300 md:px-2 ' >
+        <Notifications/>
 
-           <div className=' rounded-lg shadow-2xl bg-gray-400 hover:bg-gray-700 w-6 h-6' >
-           <Link href='/testUpload' className=' ' >Create a New Forum</Link>
+      </div>
+      <div className='flex flex-col max-sm:mt-16 md:mt-48 z-50 max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-6 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-black rounded-lg' >
+        <div className='flex w-full max-sm:w-5/6 justify-around h-32 p-4' >
+           <h1 className='flex h-8 justify-center text-2xl flexrounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > Current Forums </h1>
+
+           <div className=' rounded-3xl shadow-2xl bg-gray-400 hover:bg-white w-10 h-10' >
+           <Link href='/createForum' className=' ' > <Image className='h-10 w-10' src={addbutton} alt='upload' /> </Link>
            </div>
            
-           <div className=' rounded-lg sha2dow-2xl bg-gray-400 hover:bg-gray-700 flex-col w-10 h-6' >
-            <Link className=' text-xl' href='/allForums' >All Forums</Link>
+           <div className=' rounded-lg shadow-2xl bg-gray-400 hover:bg-gray-700 flex-col w-10 h-6' >
+            <Link className=' text-xl' href='/allForums' >
+                <h1 className='flex h-8 justify-center text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white ' > 
+                  All Forums
+                    </h1>
+            </Link>
            </div>
           
         </div>
-        <div className='flex flex-col  p-2 border-2 md:h-full ' >
+        <div className='flex flex-col max-sm:w-full  p-2  md:h-full ' >
           
-          <div className='flex border-2 flex-col p-2 md:bg-white border-2 border-black ' >
-            <h1 className=' text-xl ' >Latest Videos</h1>
-            <div className='flex md:flex-row md:w-2/3 md:h-full' >
+          <div className='flex flex-col  p-2 max-sm:w-full' >
+            
+            <div className='' >
                <Recent/>  {/* Latest Videos calculated by most recent timestamp/
                 smallest difference between today and the day it was created */}
             </div>
 
           </div>
-          <div className='flex border-2 flex-col p-2' >
-            <h1 className=' text-xl ' >Popular Videos</h1> {/* Most Popular Videos calculated by number of views */}
+          <div className='flex  flex-col p-2' >
+           
             <div className='' > 
                <Popular/>
             </div>
 
           </div>
-          <div className='flex flex-col  p-2 ' >
+          <div className='flex flex-col bg-white rounded-md p-2 ' >
             <h1 className=' text-xl ' >Upcoming Videos</h1>
             <div className='' >
                <Upcoming/>{/* Upcoming Videos from the team, created in mongodb with a pre-determined release date */}
@@ -85,9 +98,11 @@ const Forums = (props: Props) => {
 
         </div>
       </div>
+      <div className='flex max-sm:col-start-1 max-sm:col-span-6 md:col-start-6 md:row-start-1 md:row-span-2 z-50 md:mt-48 bg-gray-300 md:px-2 ' >
+          <FriendsList/>
+      </div>
       
-      
-      <div className='flex  row-start-4 col-start-1 col-span-6 w-screen justify-around  '  >
+      <div className='flex  row-start-4 col-start-1 col-span-6 w-screen justify-around   '  >
         <Footer/>
       </div>
       </div>

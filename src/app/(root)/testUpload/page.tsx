@@ -8,6 +8,7 @@ import Footer from '@/app/components/shared/footer/general/page';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
 import { videoUpdate } from '@/app/lib/database/connections';
+import { FileUpload } from '@/app/components/ui/file-upload/file-upload';
 
 type Props = {}
 //This is the correct upload file.
@@ -214,11 +215,12 @@ const Upload = (props: Props) => {
     }
    }
   return (
-    <div className="flex max-sm:h-full max-sm:flex-col grid grid-rows-4 max-sm:grid-rows-3 grid-cols-4 bg-white">
-      <div className="col-start-1 max-sm:flex max-sm:flex-col col-span-4 row-start-1 z-10">
+    <div className="flex grid max-sm:flex-col grid-cols-6 grid-rows-4 bg-white">
+      <div className="row-start-1 col-start-1 col-span-6">
         <NavBar />
       </div>
-      <div className="flex flex-col self-center row-start-2 row-span-2 max-sm:row-span-2 col-start-1 col-span-4">
+    
+      {/*   <div className="flex flex-col self-center row-start-2 row-span-2 max-sm:row-span-2 col-start-1 col-span-4">
         {vidUrl &&!sent && (
           <video className="md:h-1/2 md:w-1/2 flex justify-center" controls>
             <source src={vidUrl} type="video/mp4" />
@@ -252,9 +254,121 @@ const Upload = (props: Props) => {
          {sent && <div className='flex z-60 ' >
              <button className='' onClick={()=>stateReset()} > Send another video? </button>
         </div>}
+      </div> */}
+      <div className=' flex max-sm:w-full max-sm:self-center max-sm:-ml-10 max-sm:justify-end max-sm:h-4/5 md:border-2 md:border-black  md:z-50 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300  col-start-1 col-span-6 col-start-2 col-span-4 row-start-2  row-span-2 md:row-span-2 md:self-center flex-col px-2 ' >
+        {/* Add Design to this page. */}
+     
+        <div className='flex border-2 border-black -mt-4 py-2 px-2 ml-2 mt-0 row-start-1 col-start-4 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 skew-x-12 z-50 space-x-2' >
+        {/* Upper Right white area & black design */}
+        <div className=' bg-gray-300 h-full w-1/4 self-center  -skew-x-24  ' >
+  
+          </div>
+        <div className='  bg-gray-300 h-full w-1/4 self-center -skew-x-24 ' >
+
+          </div>
+        <div className=' bg-gray-300 h-full w-1/4  self-center  -skew-x-24 ' >
+
+            </div>
+   
       </div>
+      
     
-      <div className="flex row-start-4 col-start-1 col-span-4">
+     <div className='flex border-2 border-black size-4 bg-gray-50 col-start-1 border-2 border-black row-start-1 row-span-2' >
+
+
+     </div>
+     <div className='flex  flex-col border-black max-sm:hidden -ml-4 max-sm:-ml-6 w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-gray-50 z-40 ' >
+     {/* Left side white area */}
+       <div className='flex  -mt-16 ml-0 w-full h-1/2 bg-white rotate-45 ' >
+        {/*Left Side Upper Corner */}
+
+       </div>
+
+     </div>
+     <div className='flex -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
+        {/* left side lower slant */}
+
+     </div>
+     <div className='flex rotate-45 max-sm:-rotate-45 row-start-1 row-span-2  col-start-6 z-50 ml-8 max-sm:ml-12 -mt-4 max-sm:mt-6 w-3/4 max-sm:w-full h-24 bg-white ' >
+           {/*Extra top right white piece */}
+      </div>
+     <div className='flex  row-start-4 row-span-2 col-start-1 -ml-8 mt-10 max-sm:mt-8 h-full w-full rotate-45 max-sm:-rotate-45 bg-white  ' >
+        {/* Left Side Lower Corner */}
+     </div>
+     
+     <div className='flex  row-start-1 col-start-6 -mt-2 ml-16 max-sm:ml-8 max-sm:mt-0 w-full h-full bg-white rotate-45 max-sm:rotate-0 ' >
+          {/* right side upper block */}
+         
+     </div>
+     <div className='flex  col-start-6 ml-20 max-sm:ml-8 mt-12 max-sm:mt-24 row-start-1 row-span-4 bg-white z-50 w-3/5 max-sm:w-4/5 h-5/6 max-sm:h-4/5 max-sm:w-4/5' >
+        {/* right side bar */}
+     </div>
+     <div className='flex  row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 mt-12 w-full h-full' >
+         {/* right side lower */}
+     </div>
+      <div className='flex max-sm:w-full md:w-full md:p-4 md:space-y-2 md:h-5/6 md:self-center   flex-col rounded-md max-sm:self-center justify-self-center  col-start-2 md:col-start-1  max-sm:col-span-4 md:col-span-6 max-sm:row-start-1 max-sm:row-span-4 row-start-2  max-sm:row-span-3 md:row-start-1 md:row-span-4 max-sm:w-full' >
+        {/*  Space for Data */} 
+       
+        {vidUrl &&!sent && (
+          <video className="md:h-full md:w-3/4 max-sm:w-full flex justify-center md:self-center" controls>
+            <source src={vidUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+        {!session?.user && (
+          <div className="flex flex-col md:mt-16 self-center justify-self-end">
+            <h1 className="text-center text-lg -skew-x-12  ">You must be signed in to upload.</h1>
+            <Link className="flex h-8 justify-center self-center text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white" href="/testAuth">
+              Sign In
+            </Link>
+          </div>
+        )}
+        {!sent && session?.user && 
+          <input
+          className="z-60 max-sm:w-full text-black bg-slate-200 flex w-1/2 justify-center md:self-center  "
+          onChange={handleFileChange}
+          name="file"
+          ref={inputFileRef}
+          type="file"
+          placeholder="Title"
+          required
+        />}
+       
+        <div  className='flex md:self-center  md:flex-col  md:w-full md:h-full md:justify-center md:justify-around md:justify-self-center md:space-y-4 ' >
+        {!sent && session?.user &&   <input className='z-60 text-black bg-slate-200 flex self-center -skew-x-12 ' onChange={uploadFileName} ref={fileNameRef} placeholder='File Name' />} 
+        {!sent && session?.user && <button className="flex h-8 justify-center self-center text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white " onClick={uploadFile}>
+          Upload
+        </button>}
+        </div>
+        
+          
+         {sent && <div className='flex z-60 ' >
+             <button className='' onClick={()=>stateReset()} > Send another video? </button>
+        </div>}
+
+
+        
+         {/*  <MuxPlayer className='rounded-md flex md:w-full md:h-5/6 '
+          playbackId={playBackID}
+         metadata={{
+            video_id:userVideoID,
+            video_title:userVideoTitle,
+            viewer_user_id:viewer_user_id
+        }}/>
+         <h1 className='flex self-center text-xl ' >{videoState?.data?.data?.fileName}</h1>
+         <div className='flex max-sm:flex-col md:flex-row md:space-x-4 md:justify-around' >
+            <div className='md:w-1/3 flex ' >
+             
+              <h3 className='flex text-xl' >{videoState?.data?.data?.user}</h3>
+            </div>
+            <div className='md:w-1/3 flex ' >
+             
+              <h4 className='flex text-lg ' >{videoState?.data?.data?.tags}</h4>
+            </div>
+         </div>*/} 
+      </div>
+      </div> 
+      <div className="flex row-start-4 row-span-2 z-50 col-start-1 col-span-6 bg-white md:self-end md:justify-center">
         <Footer />
       </div>
     </div>

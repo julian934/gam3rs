@@ -6,6 +6,8 @@ import NavBar from '@/app/components/ui/nav/nav';
 import Footer from '@/app/components/shared/footer/general/page';
 import { getVideoInfo } from '@/app/lib/database/connections';
 import { thumbNailPic } from '@/app/lib/actions/connections';
+import Notifications from '@/app/components/shared/notifications/notifications';
+import FriendsList from '@/app/components/shared/friends/friends';
 type Props = {}
 
 const VideoPlayer = ({params}:{params:{slug:string}}) => {
@@ -39,7 +41,7 @@ const VideoPlayer = ({params}:{params:{slug:string}}) => {
          setVideoState(data);
       }
     }
-   },[])
+   },[data])
    if(playBackID){
     console.log(playBackID)
    }
@@ -50,80 +52,46 @@ const VideoPlayer = ({params}:{params:{slug:string}}) => {
     console.log("thumbnail: ", nail)
    }
   return (
-    <div className='flex grid max-sm:flex-col grid-cols-6 grid-rows-4 bg-white' >
+    <div className='flex grid max-sm:flex-col grid-cols-6 grid-rows-3 bg-white' >
       
-      <div className='row-start-1 col-start-1 col-span-6' >
+      <div className=' max-sm:z-50 row-start-1 col-start-1 col-span-6' >
         <NavBar/>
       </div>
-      <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
-        {/* Add Design to this page. */}
-     
-        <div className='flex  -mt-4 py-2 px-2 ml-2 mt-0 row-start-1 col-start-4 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 skew-x-12 z-50 space-x-2' >
-        {/* Upper Right white area & black design */}
-        <div className=' bg-gray-300 h-full w-1/4 self-center  -skew-x-24  ' >
-  
-          </div>
-        <div className='  bg-gray-300 h-full w-1/4 self-center -skew-x-24 ' >
-
-          </div>
-        <div className=' bg-gray-300 h-full w-1/4  self-center  -skew-x-24 ' >
-
-            </div>
-   
+      <div className=' h-full flex max-sm:z-0 max-sm:col-start-1 max-sm:-mt-44 max-sm:h-24 col-start-1 max-sm:col-span-6 rounded-md row-start-2 md:row-span-2 bg-slate-300 ' >
+          <Notifications/>
       </div>
-      
-    
-     <div className='flex size-4 bg-gray-50 col-start-1 border-2 border-black row-start-1 row-span-2' >
-
-
-     </div>
-     <div className='flex  flex-col  -ml-4 max-sm:-ml-6 w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-gray-50 z-40 ' >
-     {/* Left side white area */}
-       <div className='flex  -mt-16 ml-0 w-full h-1/2 bg-white rotate-45 ' >
-        {/*Left Side Upper Corner */}
-
-       </div>
-
-     </div>
-     <div className='flex -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
-        {/* left side lower slant */}
-
-     </div>
-     <div className='flex rotate-45 max-sm:-rotate-45 row-start-1 row-span-2  col-start-6 z-50 ml-8 max-sm:ml-12 -mt-4 max-sm:mt-6 w-3/4 max-sm:w-full h-24 bg-white ' >
-           {/*Extra top right white piece */}
-      </div>
-     <div className='flex  row-start-4 row-span-2 col-start-1 -ml-8 mt-10 max-sm:mt-8 h-full w-full rotate-45 max-sm:-rotate-45 bg-white  ' >
-        {/* Left Side Lower Corner */}
-     </div>
-     
-     <div className='flex  row-start-1 col-start-6 -mt-2 ml-16 max-sm:ml-8 max-sm:mt-0 w-full h-full bg-white rotate-45 max-sm:rotate-0 ' >
-          {/* right side upper block */}
-         
-     </div>
-     <div className='flex  col-start-6 ml-20 max-sm:ml-8 mt-12 max-sm:mt-24 row-start-1 row-span-4 bg-white z-50 w-3/5 max-sm:w-4/5 h-5/6 max-sm:h-4/5 max-sm:w-4/5' >
-        {/* right side bar */}
-     </div>
-     <div className='flex  row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 mt-12 w-full h-full' >
-         {/* right side lower */}
-     </div>
-      <div className='flex  border-2 border-black  flex-col rounded-md self-center justify-self-center  col-start-2 col-span-4 max-sm:row-start-1 max-sm:row-span-4 row-start-2 row-span-3 max-sm:w-full' >
-        {/*  Space for Data */} 
-        <h1 className='flex self-center' >{videoState?.data?.data?.fileName}</h1>
-        <MuxPlayer className='rounded-md flex'
+      <div className='flex self-center max-sm:z-50 max-sm:justify-self-center md:self-center grid max-sm:mt-4 h-full w-full col-start-2 max-sm:col-start-1  col-span-4 max-sm:col-span-6 row-start-2   row-span-2  flex-col px-2' >
+        <div className='rounded-xl   flex w-full md:h-5/6' >
+        <MuxPlayer className='flex rounded-xl w-full '
           playbackId={playBackID}
          metadata={{
             video_id:userVideoID,
             video_title:userVideoTitle,
             viewer_user_id:viewer_user_id
         }}/>
-        
-        <h3 className='flex' >{videoState?.data?.data?.user}</h3>
-        <h4 className='flex' >{videoState?.data?.data?.tags}</h4>
+        </div>
+      
+         <div className='flex flex-col md:space-x-4 md:justify-around md:-mt-16' >
+         
+          <div className='md:w-1/3 flex max-sm:w-full' >
+             <h1 className='flex self-center text-4xl ' >{videoState?.data?.data?.fileName}</h1>
+          </div>
+            <div className='md:w-1/3 flex py-2' >
+              {/* Uploader Info */}
+              <h3 className='flex self-center text-xl' >{videoState?.data?.data?.user}</h3>
+            </div>
+            <div className='md:w-1/3 flex ' >
+              {/* Video options */}
+              <h4 className='flex  self-center text-lg ' >{videoState?.data?.data?.tags=='user-selected-tags'? '': videoState?.data?.tags}</h4>
+            </div>
+         </div>
+
       </div>
-      </div> 
+       <div className='flex h-full max-sm:row-start-3 max-sm:col-start-1 max-sm:col-span-6 max-sm:mt-48 max-sm:h-24 rounded-md md:col-start-6 md:row-start-2 md:row-span-2 bg-slate-300 ' >
+           <FriendsList/>
+       </div>
       
-      
-        <div className='flex col-start-1 col-span-6 justify-self-center self-center row-start-4 max-sm:mt-20 ' >
+        <div className='flex bg-white col-start-1 col-span-6 justify-self-center self-center md:self-end row-start-4 max-sm:mt-20 ' >
         <Footer/>
         </div>
        

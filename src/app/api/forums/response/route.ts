@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
 export async function updateForum(request: NextRequest) {
-    const client = new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
+    const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     try {
         const currClient = await client.connect();
         const db = currClient.db('users');
@@ -13,7 +13,7 @@ export async function updateForum(request: NextRequest) {
         if (id) console.log("Forum ID:", id);
 
         if (request.method === 'POST') {
-            const myObjectID = new ObjectId('6718571a68fdc2dc1117ebf8') ;
+            const myObjectID = new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`) ;
             const forumId = new ObjectId(`${currBody.forumID}`)
             const newObjectID= new ObjectId().toString();
 

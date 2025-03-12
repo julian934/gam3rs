@@ -7,8 +7,8 @@ import { ObjectId } from "mongodb";
 export async function UpdateUser(request:NextRequest){ //Updates Mongo User Data on every request with the request body.
     //customize aggregation pipeline to accept request body object
     const body=request.json();
-    const client = new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
-    const targetObjectId = new ObjectId("6718571a68fdc2dc1117ebf8");
+    const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    const targetObjectId = new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     
     try{
         await client.connect();

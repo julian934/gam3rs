@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
 export async function forumUpdate(request:NextRequest){
-    const client= new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
+    const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
     const db=await currClient.db('users');
     const req=await request.json();
@@ -12,7 +12,7 @@ export async function forumUpdate(request:NextRequest){
     const body=req
 
     try {
-        const myObjectID=await new ObjectId('6718571a68fdc2dc1117ebf8')
+        const myObjectID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`)
         const result = await db.collection('gam3rs').updateOne(
             {
                 _id: myObjectID,

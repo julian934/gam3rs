@@ -8,6 +8,7 @@ import { connectDB } from '@/app/lib/database/connections';
 import { getForums } from '@/app/lib/database/connections'
 import Link from 'next/link'
 import Image from 'next/image'
+import { HoverEffect } from '../../ui/hover-effect/hover-effect'
 type Props = {
   
   name?:string | null | undefined,
@@ -25,6 +26,13 @@ const Forums = (props: Props) => {
     const currData:any=data;
     if(currData){
       const preview:any=currData.data.data.slice(0,3)
+      const filteredData=preview.map((vals:any)=>{
+         return {
+          title:vals.name,
+          description:vals.description,
+          link:`/forum/${vals._id}`
+         }
+      })
       setDataState(preview)
     }
 
@@ -35,16 +43,23 @@ const Forums = (props: Props) => {
     {/* <h1 className='flex' >{vals.name}</h1> */}
   return (
     <div className='flex max-sm:flex-col max-sm:self-center justify-around rounded-md bg-white md:w-full md:h-1/4' >
-      <div className='' >
-        <h1 className='text-xl' >Forums</h1>
-      <h1 className='' >{props?.currentUser}</h1>
-      </div>
-       {data? <div className='w-[200px] space-y-5  p-4  flex  max-sm:flex-col bg-white md:border-2  md:-mb-2 md:justify-self-center md:self-center md:border-black md:flex-row md:w-full md:h-full md:space-x-4' >
+      <div className='w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center ' >
+     
+     {/*  <h1 className='text-xl' >Games</h1> */}
+     <h1 className='flex  justify-center text-xl flex  rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+       Forums 
+       </h1>
+     
+   </div>
+       {data? <div className='w-[200px] space-y-5  p-4  flex  max-sm:flex-col bg-white  md:mb-0 md:justify-self-center md:self-center md:border-black md:flex-row md:w-full md:h-full md:space-x-4' >
            {dataState && dataState.map((vals:any)=>
-                <Link href={`/forum/${vals._id}`} >
+          
+                <Link className='md:flex md:self-start  md:self-end ' href={`/forums/${vals._id}`} >
+                  
+                   {/*  <HoverEffect items={{title:vals.title, description:vals.description,link:`/forums/${vals._id}`}} />*/}
                    <div className='flex  flex-col md:self-end   ' >
                          
-                          <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
+                          <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300  hover:bg-black hover:text-white col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
                           {/* Add Design to this page. */}
                        
                           <div className='flex   -mt-4 py-2 px-2 ml-2 mt-0 row-start-1 col-start-4 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 skew-x-12 z-50 space-x-2' >
@@ -96,11 +111,11 @@ const Forums = (props: Props) => {
                        <div className='flex md:w-full  md:h-1/2 md:mt-8 md:ml-4  max-sm:-z-40  row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 mt-12 w-full h-full' >
                            {/* right side lower */}
                        </div>
-                        <div className='flex  border-2 border-black  flex-col rounded-md self-center justify-self-center  col-start-2 col-span-4 max-sm:row-start-1 max-sm:row-span-4 row-start-2 row-span-3 max-sm:w-full' >
+                        <div className='flex   md:h-full space-y-4 flex-col rounded-md self-center justify-self-center  col-start-1 col-span-6 max-sm:row-start-1 max-sm:row-span-4 row-start-2 row-span-3 w-full' >
                           {/*  Space for Data */} 
-                          <h1 className='flex' >{vals.name}</h1> 
-                          <p className='flex' > {vals.description} </p>
-                          <p className='flex' > Responses: {vals.description.length} </p>
+                          <h1 className='flex  justify-center  px-4  ' >{vals.name}</h1> 
+                          <p className='flex justify-center  md:text-xs md:h-[20px] md:space-x-2 md:flex-wrap '   > {vals.description} </p>
+                          <p className='flex justify-center text-sm ' > Responses: {vals.description.length} </p>
                         </div>
                         </div> 
                   
@@ -159,7 +174,11 @@ const Forums = (props: Props) => {
        </>}
       
   <div className='flex' >
-      <Link className='self-center text-lg' href='/livestreams' >View All</Link>
+      <Link className='self-center text-lg' href='/livestreams' >
+      <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+        View All 
+        </h1>
+      </Link>
   </div>
     </div>
   )

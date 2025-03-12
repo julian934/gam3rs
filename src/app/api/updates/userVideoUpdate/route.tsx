@@ -3,11 +3,11 @@ import { MongoClient, ObjectId } from "mongodb";
 import axios from "axios";
 
 export async function updateVideos(request:NextRequest){
-    const currClient=new MongoClient("mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/");
+    const currClient=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const client=await currClient.connect();
     const db=await client.db('users');
     const req=await request.json();
-    const myObjectID=await new ObjectId('6718571a68fdc2dc1117ebf8');
+    const myObjectID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     const body=req
     console.log(body);
     const muxConnect=await axios.get('https://api.mux.com/video/v1/assets',{

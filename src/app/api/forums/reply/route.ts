@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 export async function replyForum(request:NextRequest){
-    const client= new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
+    const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
     const db=await currClient.db('users')
     console.log(db);
@@ -19,7 +19,7 @@ export async function replyForum(request:NextRequest){
     console.log(currBody?.data)
     if(request.method=='POST'){   
         console.log(process.env.GAM3RS_OBJECT_ID)
-      const myObjectID=await new ObjectId('6718571a68fdc2dc1117ebf8');
+      const myObjectID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
       const forumID=await new ObjectId(`${forumId}`);
       const postID=await new ObjectId(`${postId}`);
       //const messageId = new ObjectId(`${currBody.thread}`);

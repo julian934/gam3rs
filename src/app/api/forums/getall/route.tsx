@@ -4,11 +4,11 @@ import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
 export async function getForums(request?:NextRequest){
-    const client= new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
+    const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
     const db=await currClient.db('users')
     console.log(process.env.GAM3RS_OBJECT_ID)
-      const myObjectID=await new ObjectId('6718571a68fdc2dc1117ebf8')
+      const myObjectID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`)
       const result = await db.collection('gam3rs').findOne({
          _id: myObjectID, // Use the correct ObjectId format
          "gam3rsinfo.users": {$exists:true}

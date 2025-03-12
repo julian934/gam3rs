@@ -4,8 +4,8 @@ import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
 export async function getLatestVideos(request:NextRequest){
-    const mongodb=await new MongoClient('mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/')
-    const currId=await new ObjectId('6718571a68fdc2dc1117ebf8');
+    const mongodb=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
+    const currId=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
   
     try {
         const data=await mongodb.connect();

@@ -2,7 +2,7 @@
 
 const nextConfig = {
    images:{
-    domains:['www.freetogame.com',"image.mux.com"],
+    domains:['www.freetogame.com',"image.mux.com","assets.aceternity.com","res.cloudinary.com"],
     remotePatterns:[
       {
          protocol:'https',

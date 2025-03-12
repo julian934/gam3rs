@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useEffect, useId, useRef, useState } from "react";
 import { Card } from '@nextui-org/card'
 import { Skeleton } from '@nextui-org/skeleton'
 import { useQuery } from '@tanstack/react-query'
@@ -8,7 +8,11 @@ import { useContext } from 'react';
 import { StoreStateContext } from '@/app/lib/context/storeContext'
 import { getGames } from '@/app/lib/database/connections'
 import type { User } from '@/app/lib/context/storeContext'
-import Image from 'next/image'
+import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
+import { useOutsideClick } from "../../hooks/use-outside-clicks";
+import { CloseIcon } from "../../ui/expandable-card-demo/expandable-card-demo";
+
 type Props = {
   
   name?:string | null | undefined,
@@ -40,19 +44,47 @@ const Games = (props: Props) => {
   if(dataState){
     console.log(dataState)
   }
+   const [active, setActive] = useState<any>(
+      null
+    );
+    const ref = useRef<HTMLDivElement>(null);
+    const id = useId();
+  
+    useEffect(() => {
+      function onKeyDown(event: KeyboardEvent) {
+        if (event.key === "Escape") {
+          setActive(false);
+        }
+      }
+  
+      if (active && typeof active === "object") {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+  
+      window.addEventListener("keydown", onKeyDown);
+      return () => window.removeEventListener("keydown", onKeyDown);
+    }, [active]);
+  
+    useOutsideClick(ref, () => setActive(null));
   return (
-    <div className='flex justify-around  max-sm:self-center max-sm:flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
-    <div className='w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white' >
-      <h1 className='text-xl' >Games</h1>
-      <h1>{props?.currentUser}</h1>
+    <div className='flex justify-around bg-white  max-sm:self-center max-sm:flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
+    <div className='w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center  ' >
+     
+      {/*  <h1 className='text-xl' >Games</h1> */}
+      <h1 className='flex  justify-center text-xl flexrounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+        Games 
+        </h1>
+      
     </div>
-    {data!==undefined?<div className='w-[200px] space-y-5  p-4  flex  max-sm:flex-col bg-white md:border-2  md:-mb-2 md:justify-self-center md:self-center md:border-black md:flex-row md:w-full md:h-full md:space-x-4' >
+    {data!==undefined?<div className='w-[200px] space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-self-center md:self-center  md:flex-row md:w-full md:h-full md:space-x-4' >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
       {dataState && dataState.map((vals:any)=>
-      <Link href={`${vals.game_url}`} >
+      <Link className='md:flex md:self-start  md:self-end'  href={`${vals.game_url}`} >
       <div className='flex  flex-col md:self-end   ' >
        
-        <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
+        <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300 hover:bg-black   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
         {/* Add Design to this page. */}
      
         <div className='flex   -mt-4 py-2 px-2 ml-2 mt-0 row-start-1 col-start-4 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 skew-x-12 z-50 space-x-2' >
@@ -104,15 +136,16 @@ const Games = (props: Props) => {
      <div className='flex md:w-full  md:h-1/2 md:mt-8 md:ml-4  max-sm:-z-40  row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 mt-12 w-full h-full' >
          {/* right side lower */}
      </div>
-      <div className='flex  border-2 border-black  flex-col rounded-md self-center justify-self-center  col-start-2 col-span-4 max-sm:row-start-1 max-sm:row-span-4 row-start-2 row-span-3 max-sm:w-full' >
+      <div className='flex md:w-full md:h-full  flex-col rounded-md self-center justify-self-center  col-start-1 col-span-6 md:px-2 md:py-2 max-sm:row-start-1 max-sm:row-span-4 row-start-2 row-span-3 max-sm:w-full' >
         {/*  Space for Data */} 
-        <Image className='flex w-full' src={vals.thumbnail} alt={vals.title} width={100} height={100} />
-        <h1 className='flex' >{vals.title}</h1>
+        <Image className='flex w-full h-full rounded-md' src={vals.thumbnail} alt={vals.title} width={100} height={100} />
+       
+        {/*  <h1 className='flex text-md flex-wrap -skew-x-12 bg-white w-8 ' >{vals.title}</h1> */}
       
       </div>
       </div> 
-
-      </div> </Link>)}
+       
+      </div> {/* */}  </Link>)}
     </div>:
     <><Card className="w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white " radius="lg">
     <Skeleton className="rounded-lg">
@@ -165,7 +198,11 @@ const Games = (props: Props) => {
   </>}
     
   <div className='flex' >
-      <Link className='self-center text-lg' href='/games' >View All</Link>
+      <Link className='self-center text-lg' href='/games' >
+      <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+        View All 
+        </h1>
+      </Link>
   </div>
     </div>
   )

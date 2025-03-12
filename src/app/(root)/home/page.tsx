@@ -7,8 +7,10 @@ import { postTest } from '@/app/lib/actions/connections'
 import { getSession, useSession } from 'next-auth/react'
 import { QueryClient } from '@tanstack/react-query'
 import News from '@/app/components/shared/news/news'
-import Games from '@/app/components/shared/games/games'
-import Forums from '@/app/components/shared/forums/forums'
+//import Games from '@/app/components/shared/games/games'
+import GamesRedux from '@/app/components/shared/gamesRedux/gamesRedux'
+//import Forums from '@/app/components/shared/forums/forums'
+import Forums from '@/app/components/shared/forums/forumsRedux'
 import SideBar from '@/app/components/shared/sidebar/sidebar'
 import LiveStreams from '@/app/components/shared/livestreams/home/livestreams'
 import { Suspense } from 'react'
@@ -21,9 +23,10 @@ import Placeholder from '@/app/components/ui/placeholder/placeholder'
 import { user } from '@nextui-org/theme'
 import { getUser } from '@/app/lib/database/connections'
 import FriendsList from '@/app/components/shared/friends/friends'
-import Videos from '@/app/components/shared/videos/home/videos'
-
-
+//import Videos from '@/app/components/shared/videos/home/videos'
+import Videos from '@/app/components/shared/videos/home/videosRedux'
+//import { InfiniteMovingCardsDemo } from '@/app/components/ui/infinite-cards-demo/demo'
+import Notifications from '@/app/components/shared/notifications/notifications'
 //Include METADATA
 type Props = {}
 
@@ -37,6 +40,10 @@ const HomePage = (props: Props) => {
   const [dataState,setDataState]=useState<any>()
   console.log(session);
   console.log(session?.user);
+  if(session?.user!=undefined){
+       const user=session?.user?.name
+       localStorage.setItem('username',JSON.stringify(user))
+  }
  
   const {data}=useQuery({
     queryKey:['dataTest', session?.user?.name],
@@ -118,20 +125,18 @@ const HomePage = (props: Props) => {
   }
   
   return (
-    <main className='flex max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col  bg-white  ' >
+    <main className='flex max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col max-sm:space-y-2 bg-white md:z-30  ' >
       <NavBar/>
-      <div className='flex max-sm:self-center   max-sm:w-5/6 max-sm:h-20 md:mt-40 md:w-1/3 md:col-start-1 md:row-start-1 md:row-span-2 p-4 bg-gray-200 rounded-md p-4  ' >
-       <Suspense fallback={<div className='' ><Spinner/></div>} >
-        <h1 className='' >Updates</h1>
-        {/*{session ?<SideBar currentUser={userData[0]}   /> :  <SideBar/>} */}
-       </Suspense>
+      <div className='flex max-sm:z-50  max-sm:-pt-10 md:z-50 bg-slate-200 max-sm:bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
+       
+       <Notifications/>
       </div>
-      <div className='flex max-sm:h-1/2 max-sm:self-center max-sm:w-5/6 md:row-start-1 md:relative md:-top-48 md:col-start-2 md:col-span-2 md:items-end z-40' >
+      <div className='flex max-sm:h-1/2 max-sm:py-4 max-sm:pt-28 max-sm:self-center max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-1/2 md:relative md:top-56 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-50' >
       <News user={session?.user?.name} />
       </div>
-      <div className='relative max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center md:w-full space-y-8  md:h-full md:-top-20  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-3/4 rounded-md  p-4 bg-gray-200 md:space-y-12  ' >
+      <div className='relative max-sm:z-40 max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-20  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 bg-black md:space-y-12  ' >
         {/*session?<LiveStreams  /> : <LiveStreams/>*/}
-        {session && userData? <Games  /> : <Games/>}
+        {session && userData? <GamesRedux  /> : <GamesRedux/>}
         
          {session && userData? <Forums currentUser={userData[0]} /> : <Forums/>}  
         
@@ -158,10 +163,10 @@ const HomePage = (props: Props) => {
         </div> */}
         
       </div>
-      <div className=' flex row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-1/3 justify-self-end rounded-md self-start md:col-start-4 bg-slate-200 ' >
-        <FriendsList/>
+      <div className=' flex max-sm:border-2 max-sm:border-black max-sm:h-full row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-2/3 md:px-8 justify-self-end rounded-md self-start md:col-start-4 bg-slate-200 ' >
+        <FriendsList  friends={currData?.data?.friends} />
         </div>
-      <div className='row-start-4 row-span-2 md:position row-span-2 flex justify-center  self-end col-start-1 col-span-4 static  z-90' >
+      <div className='row-start-4 row-span-2 md:mt-20 row-span-2 flex justify-center  self-end col-start-1 col-span-4 static  z-90' >
       <Footer/>
       </div>
       

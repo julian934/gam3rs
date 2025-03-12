@@ -1,23 +1,45 @@
-import { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
-import { MongoClient } from "mongodb";
-import { ObjectId } from "mongodb";
- 
+import { NextRequest, NextResponse } from "next/server";
+import { MongoClient, ObjectId } from "mongodb";
 
-export async function getNews(request:NextRequest){
-    const currClient=new MongoClient("mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/");
-    const client=await currClient.connect();
-    const db=await client.db('users');
-    const req=await request.json();
-    const myObjectID=await new ObjectId('6718571a68fdc2dc1117ebf8');
-    const body=req;
-    console.log(body);
-    if(req){
+let client: MongoClient | null = null;
 
-        return NextResponse.json({data:''})
-    }
-   
-    return NextResponse.json({data:"Could not connect to database!"})
+async function connectToDB() {
+  if (!client) {
+    client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    await client.connect();
+  }
+  return client.db("users");
 }
 
-export {getNews as GET}
+export async function getNews(request: NextRequest) {
+  try {
+    const db = await connectToDB();
+    const collection = db.collection("gam3rs");
+
+    const currId = new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
+    const results = await collection.findOne({ _id: currId });
+
+    if (!results || !results.gam3rsinfo) {
+      return NextResponse.json({ data: "No news found" }, { status: 404 });
+    }
+
+    const newsData = results.gam3rsinfo.news || [];
+    
+    const defaultData = [
+      {
+        title: "Welcome to the Gam3r Network",
+        description: "The Gam3r Network is your home for unfiltered, game-related content and the place to find your gaming community. Stay tuned for news and updates!",
+        image: "The Gam3r Network",
+      },
+    ];
+
+    const currRecents = Array.isArray(newsData) && newsData.length > 0 ? newsData : defaultData;
+
+    console.log("Current Data:", currRecents);
+    return NextResponse.json({ data: currRecents });
+  } catch (error) {
+    return NextResponse.json({ message: error?.toString() }, { status: 500 });
+  }
+}
+
+export { getNews as GET };

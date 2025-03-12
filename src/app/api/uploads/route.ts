@@ -13,7 +13,7 @@ export const config = {
 };
 
 export async function Upload(request: NextRequest) {//update backend with body data from front-end.
-  const client = new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
+  const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
   try {
     if (request.method !== 'POST') {
       return NextResponse.json({ error: 'Invalid request method' }, { status: 405 });
