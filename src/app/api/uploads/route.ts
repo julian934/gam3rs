@@ -6,11 +6,13 @@ const { video } = new Mux({
   tokenSecret: process.env.MUX_TOKEN_SECRET,
 });
 
+/*
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+*/
 
 export async function Upload(request: NextRequest) {//update backend with body data from front-end.
   const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
