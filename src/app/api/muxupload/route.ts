@@ -6,11 +6,13 @@ const {video} = new Mux({
   tokenSecret: process.env.MUX_TOKEN_SECRET,
 });
 
+/*
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+*/
 
 export async function Upload(request: NextRequest) {
   try {
