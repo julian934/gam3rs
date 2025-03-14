@@ -1,4 +1,4 @@
 
-export async function getLiveStreams(){
+export async function GET(){
     
 }
