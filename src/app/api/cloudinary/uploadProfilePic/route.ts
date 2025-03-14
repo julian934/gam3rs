@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
-
+/*
 export async function uploadProfilePic(request:NextRequest){
     const body=request.json();
 
@@ -9,3 +9,4 @@ export async function uploadProfilePic(request:NextRequest){
 }
 
 export {uploadProfilePic as GET}
+*/
