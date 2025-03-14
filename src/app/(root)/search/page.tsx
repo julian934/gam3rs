@@ -31,7 +31,7 @@ const Search = (props: Props) => {
       
       <div className='flex flex-col  rounded-md px-4 border-2 border-black overflow-y-auto md:self-start md:z-50 md:-mt-36 space-y-2 h-[300px] md:h-[500px]  md:w-[800px] md:-pt-20' >
         <h1 className='flex max-sm:w-36 max-sm:text-xl md:mt-4 h-8 max-sm:ml-4 px-8 justify-center text-3xl w-full flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl md:w-1/2 hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-36 space-y-4 text-white ' >Search Results:</h1>
-      {currSearchData && currSearchData.map((vals:any)=><div className='flex self-center'  >
+      {currSearchData && currSearchData.map((vals:any)=><div className='flex self-center' key={vals?.playbackID} >
                 {vals.id && <Link href={vals.game_url} > {vals.title} </Link>}
                 {vals.playbackID && <Link href={`/videos/${vals.playbackID}`} >{vals.fileName}</Link> }
             </div>)}

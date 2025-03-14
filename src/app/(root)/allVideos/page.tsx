@@ -45,7 +45,7 @@ if(dataState){
       
       <div className=' flex flex-row  row-start-2 row-span-2 flex-wrap max-sm:col-start-1 max-sm:col-span-4 bg-white' >
       {dataState && dataState.map((vals:any)=>
-      <Link className=' md:flex md:self-start border-2 border-black md:self-end ' href={`/videos/${vals?.playbackID}`} >
+      <Link className=' md:flex md:self-start border-2 border-black md:self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID} >
        <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
        </Link>)}
       </div>

@@ -62,10 +62,10 @@ const Videos = (props: any) => {
        </h1>
      
    </div>
-    {data!==undefined?<div className='w-[200px]  space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-self-center md:self-center md:border-black md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
+    {data!==undefined?<div className='w-[200px]  space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-self-center md:self-center md:border-black md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4'  >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
       {dataState && dataState.map((vals:any)=>
-      <Link className=' md:flex md:self-start  md:self-end ' href={`/videos/${vals.playbackID}`} >
+      <Link className=' md:flex md:self-start  md:self-end ' href={`/videos/${vals.playbackID}`} key={vals?.playbackID}>
       <div className='flex  flex-col md:self-start   ' >
        
         <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300 hover:bg-black hover:text-white  col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >

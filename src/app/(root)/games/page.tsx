@@ -86,7 +86,7 @@ const Games = (props: Props) => {
        <NavBar/>
     </div>
     {/* Add option to skip to the bottom. */}
-    <div className='flex flex-col row-start-1 row-span-2 col-start-1 z-50 bg-slate-200 ' >
+    <div className='flex flex-col row-start-1 row-span-2 col-start-1 z-50 bg-slate-200 md:mt-12 ' >
         <Notifications/>
     </div>
     <div className='' >
@@ -103,7 +103,7 @@ const Games = (props: Props) => {
       </div>))*/}
 
        {games && games?.sort().map((vals:any)=>
-              < div className=' flex md:w-2/3 md:px-12 ' >
+              < div className=' flex md:w-2/3 md:px-12 ' key={vals.id} >
               <AnimatePresence>
                       {active && typeof active === "object" && (
                         <motion.div

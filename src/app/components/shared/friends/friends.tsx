@@ -29,7 +29,7 @@ const FriendsList = ({friends}:any) => {
           <h3 className='self-center' >Online: </h3>
           <div className='flex flex-col ' >
              {/* Map online friends list */}
-             {friends.length>0? friends.map((vals:any)=><div className='flex max-sm:flex-wrap md:flex-col  ' >
+             {friends.length>0? friends.map((vals:any)=><div className='flex max-sm:flex-wrap md:flex-col  ' key={vals?._id} >
                         <h1 className='flex' >{vals.username}</h1>
               </div>): <h1 className='flex' >No friends online.</h1>}
             </div>
@@ -37,7 +37,7 @@ const FriendsList = ({friends}:any) => {
         <h3 className='flex self-center' >  Offline: </h3>
             <div className='flex flex-col ' >
                      {/* Map offline friends list */}
-                     {friends.length>0?friends.map((vals:any)=><div className='flex border-2 border-rounded-md overflow-y-auto' >
+                     {friends.length>0?friends.map((vals:any)=><div className='flex border-2 border-rounded-md overflow-y-auto' key={vals?._id} >
                          <h1 className='flex' >{vals.username}</h1>
                      </div>):<h1 className=' flex' > Be sure to check out our Forums to find users to connect with!</h1>}
               </div>

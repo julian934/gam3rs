@@ -71,7 +71,7 @@ const SearchBar = (props: Props) => {
       </div>
      
        {inputRef.current?.value ? <div className='overflow-y-auto h-20 bg-white text-black z-50 '   >
-            {searchData && searchData.map((vals:any)=><div className=''  >
+            {searchData && searchData.map((vals:any)=><div className='' key={vals?.playbackID} >
                 {vals.id && <Link href={vals.game_url} > {vals.title} </Link>}
                 {vals.playbackID && <Link href={`/videos/${vals.playbackID}`} >{vals.fileName}</Link> }
             </div>)}

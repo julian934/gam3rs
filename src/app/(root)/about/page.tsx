@@ -49,7 +49,7 @@ const About = (props: Props) => {
         <p className='flex flex-wrap p-4 ' >The Gam3rs Network is your place for unfiltered, unedited content that is by Gamers, for Gamers. 
         On our YouTube Channel, we make videos about games and gaming-related subjects, as well as host livestreams where we go in-depth 
         about these topics and interact with our viewers to get your opinions about the topic. Over here on The Gam3r Network website, 
-        we continue the conversation with forums, videos and livestreams that we can't host on YouTube. Jump down the rabbit hole and 
+        we continue the conversation with forums, videos and livestreams that we can&apos;t host on YouTube. Jump down the rabbit hole and 
         join the network! Be sure to join us on social media where we post every day!
        </p>
       </div>

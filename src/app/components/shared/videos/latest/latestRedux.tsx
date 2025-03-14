@@ -48,7 +48,7 @@ if(dataState){
     {data!==undefined?<div className='w-[200px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-white  md:mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
       {dataState && dataState.map((vals:any)=>
-      <Link className=' md:flex md:self-start  md:self-end ' href={`/videos/${vals?.playbackID}`} >
+      <Link className=' md:flex md:self-start  md:self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
        <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
        </Link>)}
     </div>:

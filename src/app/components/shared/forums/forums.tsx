@@ -54,7 +54,7 @@ const Forums = (props: Props) => {
        {data? <div className='w-[200px] space-y-5  p-4  flex  max-sm:flex-col bg-white  md:mb-0 md:justify-self-center md:self-center md:border-black md:flex-row md:w-full md:h-full md:space-x-4' >
            {dataState && dataState.map((vals:any)=>
           
-                <Link className='md:flex md:self-start  md:self-end ' href={`/forums/${vals._id}`} >
+                <Link className='md:flex md:self-start  md:self-end ' href={`/forums/${vals._id}`} key={vals?._id} >
                   
                    {/*  <HoverEffect items={{title:vals.title, description:vals.description,link:`/forums/${vals._id}`}} />*/}
                    <div className='flex  flex-col md:self-end   ' >
