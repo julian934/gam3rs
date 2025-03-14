@@ -36,12 +36,12 @@ const LiveStreams = (props: any) => {
     queryKey:['homelive'],
     queryFn:()=>connectDB(props?.username)
   });
-  const user=ctx.userData?.username
+  //const user=ctx.userData?.username
   //Get Data from context
    return(<div className='flex  justify-around bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
     <div className='' >
     <h1 className='text-xl' >LiveStreams</h1>
-    <h1 className='text-xl' >User:{user}</h1>
+    <h1 className='text-xl' >User:</h1>
     </div>
     
     <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
