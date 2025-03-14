@@ -6,7 +6,7 @@ import RecentLives from '@/app/components/shared/livestreams/recent/recents'
 import UpcomingLives from '@/app/components/shared/livestreams/upcoming/upcoming'
 import Footer from '@/app/components/shared/footer/home/footer'
 type Props = {}
-
+/*
 const LiveStreams = (props: Props) => {
   return (
     <div className='' >
@@ -29,5 +29,6 @@ const LiveStreams = (props: Props) => {
         </div>
   )
 }
+  */
 
-export default LiveStreams
+//export default LiveStreams
