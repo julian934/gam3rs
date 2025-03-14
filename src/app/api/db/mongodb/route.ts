@@ -1,7 +1,7 @@
 import { NextRequest,NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
-export async function handler(request:NextRequest){
+export async function getMongo(request:NextRequest){
    const username=process.env.MONGO_USERNAME;
 const password=process.env.MONGO_PASSWORD;
 const cluster=process.env.MONGO_CLUSTER
@@ -42,4 +42,4 @@ const currColl=process.env.MONGO_COLLECTION
    return NextResponse.json({data:collection})
 }
 
-export {handler as GET,handler as POST}
+export {getMongo as GET,getMongo as POST}
