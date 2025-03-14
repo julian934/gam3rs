@@ -41,7 +41,7 @@ export function CarouselDemo() {
                 <CardContent className="flex aspect-square items-center justify-center flex-col p-6">
                   <h1 className="flex flex-wrap -skew-x-12 bg-white text-3xl text-black  w-full py-4 px-2 " >Welcome to the <span className=" text-red-400 px-2" > Gam3r </span> Network! </h1>
                   <p className="flex flex-wrap py-4  " >The Gam3r Network is your home for unfiltered, game-related content and the place to find your gaming community.</p>
-                  {data &&  <h2 className="flex -skew-x-12 bg-white " >{data?.title}</h2>}
+                  {/*data &&  <h2 className="flex -skew-x-12 bg-white " >{data?.title}</h2>*/}
                  
                   {/*  <span className="text-4xl font-semibold">{index + 1}</span>*/}
                   
