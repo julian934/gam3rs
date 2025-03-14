@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
-export async function getUpcomingVids(request:NextRequest){
+export async function GET(request:NextRequest){
     const client=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const id=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     try {
@@ -22,4 +22,4 @@ export async function getUpcomingVids(request:NextRequest){
 
 }
 
-export {getUpcomingVids as GET}
+//export {getUpcomingVids as GET}
