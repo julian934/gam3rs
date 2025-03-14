@@ -15,11 +15,8 @@ type Props = {
 const SideBar = (props: Props) => {
   //Shows news, updates, ongoing events, etc. like ticker tape
   //filtered info and relevant information to the user like upcoming lives, games and popular forums in genres that they like.
-  const {data,isLoading}=useQuery({
-    queryKey:['notifications'],
-    queryFn:notificationsList
-  })
-  console.log(data)
+ 
+  //console.log(data)
   return (
     <div className='' >
       Notifications
