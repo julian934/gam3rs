@@ -14,7 +14,7 @@ export const config = {
 };
 */
 
-export async function Upload(request: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
     // Check if request method is POST (or handle other methods if needed)
     if (request.method !== 'POST') {
@@ -51,4 +51,4 @@ export async function Upload(request: NextRequest) {
   }
 }
 
-export { Upload as GET, Upload as POST };
+//export { Upload as GET, Upload as POST };

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
-export async function getPopularForums(request:NextRequest){ 
+export async function GET(request:NextRequest){ 
     //Filter based on forum thread count. 
     const currClient=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const objectID=new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
@@ -28,4 +28,4 @@ export async function getPopularForums(request:NextRequest){
     }
 }
 
-export {getPopularForums as GET}
+//export {getPopularForums as GET}

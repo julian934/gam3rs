@@ -6,7 +6,7 @@ export type username={
   username:string
 }
 const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
-export async function handler(request:NextRequest){
+export async function GET(request:NextRequest){
     
     console.log(client)
     const body:any=request
@@ -24,4 +24,4 @@ export async function handler(request:NextRequest){
       return NextResponse.json({data:'data not found'})
 }
 
-export {handler as GET,handler as POST}
+//export {handler as GET,handler as POST}

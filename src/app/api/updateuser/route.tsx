@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
-export async function updateUser(request:NextRequest){
+export async function POST(request:NextRequest){
     const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     try{
        
@@ -60,4 +60,4 @@ export async function updateUser(request:NextRequest){
     return NextResponse.json({message: 'Update User Data'})
 }
 
-export {updateUser as POST, updateUser as GET}
+//export {updateUser as POST, updateUser as GET}

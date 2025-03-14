@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function getData(req: NextRequest) {
+export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const playbackId = searchParams.get('playbackId');
      console.log(playbackId)
@@ -19,7 +19,7 @@ export async function getData(req: NextRequest) {
     }
 }
 
-export {getData as GET}
+//export {getData as GET}
 
 /*import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";

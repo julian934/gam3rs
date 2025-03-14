@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
-export async function getNotifications(request:NextRequest){
+export async function GET(request:NextRequest){
      const mongodb=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
      const currId=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
      //const req=await request.json();
@@ -41,4 +41,4 @@ export async function getNotifications(request:NextRequest){
     
 }
 
-export {getNotifications as GET}
+//export {getNotifications as GET}

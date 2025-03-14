@@ -1,9 +1,9 @@
 import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 
-export async function getFriends(request:NextRequest){
+export async function GET(request:NextRequest){
     
     return NextResponse.json({message:"Data not found"},{status:500})
 }
 
-export {getFriends as GET}
+//export {getFriends as GET}

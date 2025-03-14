@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 
-export async function updateVideos(request:NextRequest){
+export async function POST(request:NextRequest){
     const client= await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const gam3rObjID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     try {
@@ -31,4 +31,4 @@ export async function updateVideos(request:NextRequest){
 
 }
 
-export {updateVideos as GET,updateVideos as POST}
+//export {updateVideos as GET,updateVideos as POST}

@@ -4,7 +4,7 @@ import Mux from "@mux/mux-node";
 import axios from "axios";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
-export async function currVideo(request:NextRequest){
+export async function GET(request:NextRequest){
     const mongodb=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
     const currId=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     const currData=await request.nextUrl.searchParams;
@@ -33,4 +33,4 @@ export async function currVideo(request:NextRequest){
 
 }
 
-export {currVideo as GET}
+//export {currVideo as GET}

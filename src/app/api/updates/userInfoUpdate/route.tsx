@@ -4,7 +4,7 @@ import { NextApiRequest } from "next"
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
-export async function UpdateUser(request:NextRequest){ //Updates Mongo User Data on every request with the request body.
+export async function POST(request:NextRequest){ //Updates Mongo User Data on every request with the request body.
     //customize aggregation pipeline to accept request body object
     const body=request.json();
     const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
@@ -64,4 +64,4 @@ export async function UpdateUser(request:NextRequest){ //Updates Mongo User Data
     return NextResponse.json({message:"Test Connection"})
 }
 
-export {UpdateUser as GET, UpdateUser as POST}
+//export {UpdateUser as GET, UpdateUser as POST}

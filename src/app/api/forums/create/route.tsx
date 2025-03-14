@@ -2,7 +2,7 @@ import { NextApiRequest } from "next";
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
-export async function sendForum(request:NextRequest){
+export async function POST(request:NextRequest){
 
     const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
@@ -93,4 +93,4 @@ export async function sendForum(request:NextRequest){
 
 }
 
-export {sendForum as POST, sendForum as GET}
+//export {sendForum as POST, sendForum as GET}

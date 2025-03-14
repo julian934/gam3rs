@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient,ObjectId } from "mongodb";
 
 
-export async function getRecentForums(request:NextRequest){
+export async function GET(request:NextRequest){
     const client=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const objectID=new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
    try {
@@ -26,4 +26,4 @@ export async function getRecentForums(request:NextRequest){
    }
 }
 
-export {getRecentForums as GET}
+//export {getRecentForums as GET}

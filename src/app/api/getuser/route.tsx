@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 
 const db = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
 
-export async function getCurrentUser(request:NextRequest){
+export async function GET(request:NextRequest){
     
     try {
 
@@ -100,4 +100,4 @@ export async function getCurrentUser(request:NextRequest){
     return NextResponse.json({message:'Data'})
 }
 
-export {getCurrentUser as GET}
+//export {getCurrentUser as GET}

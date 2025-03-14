@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
-export async function replyForum(request:NextRequest){
+export async function POST(request:NextRequest){
     const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
     const db=await currClient.db('users')
@@ -68,4 +68,4 @@ export async function replyForum(request:NextRequest){
     return NextResponse.json({message:'Connection successful.'})
 }
 
-export {replyForum as GET, replyForum as POST}
+//export {replyForum as GET, replyForum as POST}

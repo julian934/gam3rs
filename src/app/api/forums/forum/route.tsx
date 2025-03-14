@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 import { NextApiRequest } from "next";
 
-export async function getForum(request:NextRequest){
+export async function GET(request:NextRequest){
     const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
     const db=await currClient.db('users')
@@ -27,4 +27,4 @@ export async function getForum(request:NextRequest){
     return NextResponse.json({message:'data'})
 }
 
-export {getForum as GET, getForum as POST}
+//export {getForum as GET, getForum as POST}

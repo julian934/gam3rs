@@ -11,7 +11,7 @@ async function connectToDB() {
   return client.db("users");
 }
 
-export async function getNews(request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     const db = await connectToDB();
     const collection = db.collection("gam3rs");
@@ -42,4 +42,4 @@ export async function getNews(request: NextRequest) {
   }
 }
 
-export { getNews as GET };
+//export { getNews as GET };

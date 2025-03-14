@@ -14,7 +14,7 @@ export const config = {
 };
 */
 
-export async function Upload(request: NextRequest) {//update backend with body data from front-end.
+export async function POST(request: NextRequest) {//update backend with body data from front-end.
   const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
   try {
     if (request.method !== 'POST') {
@@ -53,4 +53,4 @@ export async function Upload(request: NextRequest) {//update backend with body d
   }
 }
 
-export { Upload as GET, Upload as POST };
+//export { Upload as GET, Upload as POST };

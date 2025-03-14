@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 import axios from "axios";
 
-export async function updateVideos(request:NextRequest){
+export async function POST(request:NextRequest){
     const currClient=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const client=await currClient.connect();
     const db=await client.db('users');
@@ -134,4 +134,4 @@ export async function updateVideos(request:NextRequest){
     }
 }
 
-export {updateVideos as GET, updateVideos as POST}
+//export {updateVideos as GET, updateVideos as POST}

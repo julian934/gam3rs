@@ -1,7 +1,7 @@
 import { NextRequest,NextResponse } from 'next/server';
 import Mux from '@mux/mux-node'
 import axios from 'axios';
-export async function getVideos(request:NextRequest){
+export async function GET(request:NextRequest){
 
    try{
     const muxData=await axios.get('https://api.mux.com/video/v1/assets',{
@@ -21,4 +21,4 @@ export async function getVideos(request:NextRequest){
   return NextResponse.json({message:'Test'})
 }
 
-export {getVideos as GET}
+//export {getVideos as GET}

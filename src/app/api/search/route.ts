@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
-export async function getSearchData(request:NextRequest){
+export async function GET(request:NextRequest){
     const client= await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currId=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     const currClient=await client.connect();
@@ -32,4 +32,4 @@ export async function getSearchData(request:NextRequest){
 
 }
 
-export {getSearchData as GET}
+//export {getSearchData as GET}

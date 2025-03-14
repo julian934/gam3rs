@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
-export async function updateForum(request: NextRequest) {
+export async function POST(request: NextRequest) {
     const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     try {
         const currClient = await client.connect();
@@ -54,4 +54,4 @@ export async function updateForum(request: NextRequest) {
     }
 }
 
-export { updateForum as POST, updateForum as GET };
+//export { updateForum as POST, updateForum as GET };

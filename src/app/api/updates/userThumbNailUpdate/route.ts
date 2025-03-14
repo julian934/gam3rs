@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 import axios from "axios";
 
-export async function UpdateThumbNails(request:NextRequest){
+export async function POST(request:NextRequest){
     const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
     const db=await currClient.db('users');
@@ -44,4 +44,4 @@ export async function UpdateThumbNails(request:NextRequest){
     return NextResponse.json({message:"No data sent!!"})
 }
 
-export {UpdateThumbNails as POST}
+//export {UpdateThumbNails as POST}

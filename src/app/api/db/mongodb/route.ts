@@ -1,6 +1,6 @@
 import { NextRequest,NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
-
+/*
 export async function getMongo(request:NextRequest){
    const username=process.env.MONGO_USERNAME;
 const password=process.env.MONGO_PASSWORD;
@@ -43,3 +43,58 @@ const currColl=process.env.MONGO_COLLECTION
 }
 
 export {getMongo as GET,getMongo as POST}
+*/
+
+//import { NextRequest, NextResponse } from "next/server";
+//import { MongoClient, ObjectId } from "mongodb";
+
+// MongoDB connection logic
+const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+
+async function connectDb() {
+  if (!client.connect()) {
+    await client.connect();
+  }
+  const db = client.db(process.env.MONGO_DB || "default_db");
+  return db;
+}
+
+// The API Route for POST and GET requests
+export async function POST(request: NextRequest) {
+  try {
+    const db = await connectDb();
+
+    // Get data from the request body
+    const body = await request.json();
+    if (body) {
+      console.log("Received data:", body);
+    }
+
+    const result = await db.collection("gam3rs").insertOne({ user: body?.data });
+
+    return NextResponse.json({
+      message: "Data inserted successfully",
+      result: result,
+    });
+  } catch (error) {
+    console.error("Error in POST request:", error);
+    return NextResponse.json({ error: "Failed to insert data" }, { status: 500 });
+  }
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const db = await connectDb();
+
+    const collection = await db
+      .collection("gam3rs")
+      .find({ _id: new ObjectId(process.env.NEXT_PUBLIC_MONGO_OBJECT_ID) })
+      .toArray();
+
+    return NextResponse.json({ data: collection });
+  } catch (error) {
+    console.error("Error in GET request:", error);
+    return NextResponse.json({ error: "Failed to retrieve data" }, { status: 500 });
+  }
+}
+

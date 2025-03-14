@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
-export async function getForums(request?:NextRequest){
+export async function GET(request?:NextRequest){
     const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
     const currClient=await client.connect();
     const db=await currClient.db('users')
@@ -20,4 +20,4 @@ export async function getForums(request?:NextRequest){
    return NextResponse.json({message:'No data found'})
 }
 
-export {getForums as GET}
+//export {getForums as GET}
