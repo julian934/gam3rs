@@ -94,7 +94,7 @@ const SignIn = (props: Props) => {
       Welcome to The Gam3r Network
     </h2>
     <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-      Login to The Gam3r Network if you have an account. If you don't have one, you 
+      Login to The Gam3r Network if you have an account. If you don&apos;t have one, you 
       can  <Link href='/signupRedux' >create an account here.</Link>
     </p>
 

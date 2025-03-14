@@ -81,7 +81,7 @@ const Games = (props: Props) => {
     {data!==undefined?<div className='w-[200px] space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-self-center md:self-center  md:flex-row md:w-full md:h-full md:space-x-4' >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
       {dataState && dataState.map((vals:any)=>
-      <Link className='md:flex md:self-start  md:self-end'  href={`${vals.game_url}`} >
+      <Link className='md:flex md:self-start  md:self-end'  href={`${vals.game_url}`} key={vals?.game_url} >
       <div className='flex  flex-col md:self-end   ' >
        
         <div className=' flex md:mt-12 grid max-sm:mt-4 h-full w-full grid-cols-6 grid-rows-4 flex-row  bg-gray-300 hover:bg-black   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >
