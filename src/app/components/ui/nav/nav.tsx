@@ -93,7 +93,7 @@ const NavBar = (props: Props) => {
            </div>
           </div>
 
-       <div className='flex flex-row max-sm:px-4 max-sm:justify-start md:self-center md:items-center md:justify-between md:w-1/2 md:pl-4 md:h-1/2 ' >
+       <div className='flex flex-row max-sm:px-4 max-sm:justify-start md:self-center md:items-center md:justify-between md:w-2/3 md:pl-4 md:h-1/2  ' >
        <Link className='max-sm:flex max-sm:self-start'   href='/' >
        <h1 className=' text-2xl text-white ' >GAM<span className='text-red-500'>3RS</span></h1>
        </Link>
