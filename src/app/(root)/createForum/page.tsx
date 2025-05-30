@@ -96,7 +96,7 @@ const CreateForum = (props: Props) => {
 
 
      </div>
-     <div className='flex  flex-col  -ml-4 max-sm:-ml-6 w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-gray-50 z-40 ' >
+     <div className='flex  flex-col  -ml-4 max-sm:-ml-6 w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-gray-50 md:bg-white z-40 ' >
      {/* Left side white area */}
        <div className='flex   -mt-16 ml-0 w-full h-1/2 bg-white rotate-45 ' >
         {/*Left Side Upper Corner */}
@@ -122,7 +122,7 @@ const CreateForum = (props: Props) => {
      <div className='flex col-start-6 ml-20 max-sm:ml-8 mt-12 max-sm:mt-20 row-start-1 row-span-4 bg-white z-50 w-3/5 max-sm:w-4/5 h-5/6 max-sm:h-4/5 max-sm:w-4/5' >
         {/* right side bar */}
      </div>
-     <div className='flex  row-start-4 col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 mt-12 w-full h-full' >
+     <div className='flex  row-start-4  col-start-6 bg-white -rotate-45 max-sm:rotate-45 ml-2 md:ml-6 mt-12 w-full h-full' >
          {/* right side lower */}
      </div>
       <div className='flex md:w-3/4 md:h-full   flex-col rounded-md max-sm:self-center justify-self-center  max-sm:col-start-1 md:col-start-1  max-sm:col-span-6 md:col-span-6 max-sm:row-start-1 max-sm:row-span-4 row-start-2  max-sm:row-span-3 md:row-start-1 md:row-span-4 max-sm:w-full' >

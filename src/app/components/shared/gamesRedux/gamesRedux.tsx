@@ -24,6 +24,7 @@ const GamesRedux = (props: Props) => {
     queryFn:()=>getGames()
   })
   const [dataState,setDataState]=useState<any>([]);
+  const [testState,setTestState]=useState<any>();
   {/* Connect to games api and check for most popular. If not, render first few inside list.*/}
   console.log(data)
   if(data){
@@ -45,7 +46,13 @@ const GamesRedux = (props: Props) => {
     );
     const ref = useRef<HTMLDivElement>(null);
     const id = useId();
-  
+  const getSize=async()=>{ //Write algo comparing sizes using MDN info
+    const parentElem=await document.getElementById('parent-container');
+    const parentInfo=parentElem?.getBoundingClientRect();
+     
+    console.log('test Current Parent Width: ', parentInfo?.width);
+        setTestState(parentInfo?.width);
+  }
     useEffect(() => {
       function onKeyDown(event: KeyboardEvent) {
         if (event.key === "Escape") {
@@ -60,10 +67,13 @@ const GamesRedux = (props: Props) => {
       }
   
       window.addEventListener("keydown", onKeyDown);
+      getSize()
       return () => window.removeEventListener("keydown", onKeyDown);
-    }, [active]);
+      
+    }, [active,testState]);
   
     useOutsideClick(ref, () => setActive(null));
+    testState && console.log('Current test parent size: ', testState)
   return (
     <div className='flex justify-around bg-white  max-sm:self-center max-sm:w-full max-sm:px-2 max-sm:flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
     <div className='w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center  ' >
@@ -130,7 +140,7 @@ const GamesRedux = (props: Props) => {
       
                     <div>
                       <div className="flex justify-between items-start p-4">
-                        <div className="">
+                        <div className="" id="parent-container" >
                           <motion.h3
                             layoutId={`title-${active.title}-${id}`}
                             className="font-bold text-neutral-700 dark:text-neutral-200"
@@ -138,9 +148,11 @@ const GamesRedux = (props: Props) => {
                             {active.title}
                           </motion.h3>
                           <motion.p
+                          //Overflow Error location
                             layoutId={`description-${active.short_description}-${id}`}
-                            className="text-neutral-600 dark:text-neutral-400"
+                            className="text-neutral-600 dark:text-neutral-400 md:overflow-hidden"
                           >
+                            
                             {active.short_description}
                           </motion.p>
                         </div>
@@ -163,7 +175,7 @@ const GamesRedux = (props: Props) => {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                          className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-hidden dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                         >
                           {typeof active.content === "function"
                             ? active.content()
@@ -179,16 +191,16 @@ const GamesRedux = (props: Props) => {
                     layoutId={`card-${vals.title}-${id}`}
                     key={`card-${vals.title}-${id}`}
                     onClick={() => setActive(vals)}
-                    className="p-4 flex flex-col  justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+                    className="p-4 md:p-0 flex flex-col  justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
                   >
-                    <div className="flex gap-4 flex-col md:flex-row ">
+                    <div className="flex gap-4 flex-col md:flex-col md:py-2 ">
                       <motion.div layoutId={`image-${vals.title}-${id}`}>
                         <Image
                           width={100}
                           height={100}
                           src={vals.thumbnail}
                           alt={vals.title}
-                          className=" max-sm:flex max-sm:justify-self-center max-sm:w-72  h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                          className=" max-sm:flex max-sm:justify-self-center max-sm:w-72  h-40 w-40 md:h-14 md:w-full rounded-lg object-cover object-top"
                         />
                       </motion.div>
                       <div className="">
@@ -202,13 +214,14 @@ const GamesRedux = (props: Props) => {
                           layoutId={`description-${vals.short_description}-${id}`}
                           className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
                         >
+                          
                           {vals.short_description}
                         </motion.p>
                       </div>
                     </div>
                     <motion.button
                       layoutId={`button-${vals.title}-${id}`}
-                      className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
+                      className="px-4 py-2 text-sm rounded-full md:hidden font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
                     >
                       <Link className='md:flex md:self-start  md:self-end'  href={`${vals.game_url}`} >
                       <h1 className=" " >Play</h1>

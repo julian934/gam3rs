@@ -25,16 +25,16 @@ const About_Modal = ({user}:any) => {
          <div className='flex max-sm:w-full max-sm:h-full max-sm:-mt-24 max-sm:-ml-6   col-start-1 rotate-45 max-sm:-rotate-45 row-start-2 w-1/2   -ml-8 -mt-16   bg-white ' >
             {/* Upper left slant */}
           </div>
-          <div className='flex max-sm:border-2 max-sm:border-white max-sm:-ml-20 max-sm:w-full max-sm:h-1/2 max-sm:mt-20 max-sm:-ml-2  col-start-1 row-start-2 w-1/2 h-1/2  bg-white -skew-x-12 rotate-90  -ml-6 mt-16' >
+          <div className='flex  max-sm:border-2 max-sm:border-white max-sm:-ml-20 max-sm:w-full max-sm:h-1/2 max-sm:mt-20 max-sm:-ml-2  col-start-1 row-start-2 w-1/2 h-1/2  bg-white -skew-x-12 rotate-90  -ml-6 mt-16' >
                {/* Mid Left gap upper*/}
           </div>
-          <div className='flex max-sm:-z-50 max-sm:w-1/2 max-sm:h-1/2 max-sm:rotate-0 max-sm:h-full   max-sm:mt-0 max-sm:-ml-20  col-start-1 row-start-2 w-3/4 h-6  bg-black -skew-x-12 max-sm:skew-x-0 max-sm:rotate-0  -rotate-90 z-50  -ml-16 mt-16 max-sm:-ml-24 -mr-2 ' >
+          <div className='flex  max-sm:-z-50 max-sm:w-1/2 max-sm:h-1/2 max-sm:rotate-0 max-sm:h-full   max-sm:mt-0 max-sm:-ml-20  col-start-1 row-start-2 w-3/4 h-6  bg-black -skew-x-12 max-sm:skew-x-0 max-sm:rotate-0  -rotate-90 z-50  -ml-16 mt-16 max-sm:-ml-24 -mr-2 ' >
              {/* Mid Left Design Upper */}
           </div>
           <div className='flex  max-sm:w-full  max-sm:bg-white max-sm:h-full max-sm:-mt-2 max-sm:-ml-14  col-start-1 row-start-2 w-1/2 h-1/3  bg-black -skew-x-12 -rotate-90  -ml-6 max-sm:mt-24 max-sm:w-2/3 max-sm:h-1/2 mt-24 -mt-6  z-50' >
              {/* Mid left Design Lower */}
           </div>
-          <div className='flex max-sm:w-full max-sm:z-50 max-sm:h-1/2  max-sm:mt-20 max-sm:-ml-14  col-start-1 row-start-2 w-1/2 h-1/2    bg-white skew-x-12 rotate-90 -ml-6 mt-28 ' >
+          <div className='flex  max-sm:w-full max-sm:z-50 max-sm:h-1/2  max-sm:mt-20 max-sm:-ml-14  col-start-1 row-start-2 w-1/2 h-1/2    bg-white skew-x-12 rotate-90 -ml-6 mt-28 ' >
             {/* Mid Left gap lower*/}  
           </div>
        <div className='flex md:w-full md:col-start-1 md:col-span-4 z-50    max-sm:justify-start self-center col-start-2 col-span-2 row-start-1 md:row-start-2 md:w-full md:justify-center row-span-3 md:-mt-12 z-10 p-4' >
@@ -43,9 +43,9 @@ const About_Modal = ({user}:any) => {
              <h3 className='text-red-500 self-center  justify-self-center text-3xl z-50' > Join the Network  </h3>
             </div>
             </div>
-            <div className='flex max-sm:h-4/5  max-sm:-mt-40  self-center pb-2 space-around -mt-16 w-3/5 max-sm:w-full h-4/5  col-start-3 row-start-2 col-span-3 justify-self-end bg-white skew-x-12 space-x-4 space-y-8 px-2  z-50 ' >
+            <div className='flex max-sm:h-4/5 md:z-50 max-sm:-mt-40  self-center pb-2 space-around -mt-16 w-3/5 max-sm:w-full h-4/5  col-start-3 row-start-2 col-span-3 justify-self-end bg-white skew-x-12 space-x-4 space-y-8 px-2  z-50 ' >
           {/* Right side upper design */}
-          <div className='flex w-full h-1/4 max-sm:h-full bg-black skew-x-12 self-end max-sm:self-end' >
+          <div className='flex w-full h-1/4  max-sm:h-full bg-black skew-x-12 self-end max-sm:self-end' >
 
           </div>
           <div className='flex  w-full h-1/4 max-sm:h-full bg-red-600 skew-x-12 self-end' >

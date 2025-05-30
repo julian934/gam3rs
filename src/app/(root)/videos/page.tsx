@@ -10,7 +10,7 @@ import { useQuery } from '@tanstack/react-query'
 //import Latest from '@/app/components/shared/videos/latest/latest';
 //import Popular from '@/app/components/shared/videos/popular/popular';
 import Upcoming from '@/app/components/shared/videos/upcoming/upcoming';
-import addbutton from '../../utils/images/addbutton.png'
+import addbutton from '../../utils/images/icons8-add-new-50.png'
 import { useEffect } from 'react'
 import Latest from '@/app/components/shared/videos/latest/latestRedux'
 import Popular from '@/app/components/shared/videos/popular/popularRedux'
@@ -26,19 +26,19 @@ const Videos = (props: Props) => {
       <div className='flex w-screen col-start-1 col-span-6 row-start-1' >
       <NavBar/>
       </div>
-      <div className='flex z-50 max-sm:px-4 max-sm:col-start-1 max-sm:col-span-6 md:col-start-1 md:row-start-1 md:row-span-2 md:mt-56 bg-gray-300 max-sm:bg-white md:px-2 ' >
+      <div className='flex z-50 max-sm:px-4 max-sm:col-start-1 max-sm:col-span-6 md:col-start-1 md:row-start-1 md:row-span-2 md:mt-56 bg-white max-sm:bg-white md:px-2 ' >
         <Notifications/>
 
       </div>
       <div className='flex flex-col max-sm:mt-16 md:mt-48 z-50 max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-6 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-black rounded-lg' >
-        <div className='flex w-full max-sm:justify-between max-sm:p-2 justify-around h-32 p-4' >
+        <div className='flex w-full max-sm:justify-between max-sm:p-2 justify-around h-32 p-4  md:w-2/3 md:ml-28' >
           
            {/*  <h1 className='text-2xl' > Current Videos </h1>*/}
            <h1 className='flex max-sm:mt-12 h-8 justify-center text-2xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > 
         Current Videos 
         </h1>
 
-           <div className=' rounded-3xl shadow-2xl bg-gray-400 hover:bg-white w-10 h-10 max-sm:mt-12' >
+           <div className=' rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10 max-sm:mt-12' >
            <Link href='/testUploadRedux' className=' ' > <Image className='h-10 w-10' src={addbutton} alt='upload' /> </Link>
            </div>
            
@@ -81,7 +81,7 @@ const Videos = (props: Props) => {
 
         </div>
       </div>
-      <div className='flex max-sm:col-start-1 max-sm:px-4 max-sm:col-span-6 md:col-start-6 md:row-start-1 md:row-span-2 z-50 md:mt-48 bg-gray-300 max-sm:bg-white md:px-2 ' >
+      <div className='flex max-sm:col-start-1 max-sm:px-4 max-sm:col-span-6 md:col-start-6 md:row-start-1 md:row-span-2 z-50 md:mt-48 bg-white max-sm:bg-white md:px-2 ' >
           <FriendsList/>
       </div>
       

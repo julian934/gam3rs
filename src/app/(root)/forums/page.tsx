@@ -8,7 +8,7 @@ import Recent from '@/app/components/shared/forums/recent/forumsRecent'
 import Popular from '@/app/components/shared/forums/popular/forumsPopular'
 import Upcoming from '@/app/components/shared/forums/upcoming/upcoming'
 import { StoreStateContext } from '@/app/lib/context/storeContext'
-import addbutton from '../../utils/images/addbutton.png'
+import addbutton from '../../utils/images/icons8-add-new-50.png'
 import Link from 'next/link'
 import Image from 'next/image'
 import Notifications from '@/app/components/shared/notifications/notifications'
@@ -50,19 +50,19 @@ const Forums = (props: Props) => {
       <div className='flex w-screen col-start-1 col-span-6   row-start-1' >
       <NavBar/>
       </div>
-      <div className='flex z-10 md:z-50 max-sm:col-start-1 max-sm:col-span-6 md:col-start-1 md:row-start-1 md:row-span-2 md:mt-56 bg-gray-300 md:px-2 ' >
+      <div className='flex z-10 md:z-50 max-sm:col-start-1 max-sm:col-span-6 md:col-start-1 md:row-start-1 md:row-span-2 md:mt-56 bg-white md:px-2 ' >
         <Notifications/>
 
       </div>
-      <div className='flex flex-col max-sm:mt-16 md:mt-48 z-50 max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-6 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-black rounded-lg' >
-        <div className='flex w-full max-sm:w-5/6 justify-around h-32 p-4' >
-           <h1 className='flex h-8 justify-center text-2xl flexrounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > Current Forums </h1>
+      <div className='flex  flex-col max-sm:mt-16 md:mt-48 z-50 max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-6 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-black rounded-lg' >
+        <div className='flex w-full max-sm:w-5/6 justify-around h-32 p-4  md:w-2/3 md:ml-24 ' >
+           <h1 className='flex h-8 justify-center text-2xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > Current Forums </h1>
 
-           <div className=' rounded-3xl shadow-2xl bg-gray-400 hover:bg-white w-10 h-10' >
+           <div className=' rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10' >
            <Link href='/createForum' className=' ' > <Image className='h-10 w-10' src={addbutton} alt='upload' /> </Link>
            </div>
            
-           <div className=' rounded-lg shadow-2xl bg-gray-400 hover:bg-gray-700 flex-col w-10 h-6' >
+           <div className=' rounded-lg shadow-2xl  flex-col w-10 h-6' >
             <Link className=' text-xl' href='/allForums' >
                 <h1 className='flex h-8 justify-center text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white ' > 
                   All Forums
@@ -98,7 +98,7 @@ const Forums = (props: Props) => {
 
         </div>
       </div>
-      <div className='flex max-sm:col-start-1 max-sm:col-span-6 md:col-start-6 md:row-start-1 md:row-span-2 z-50 md:mt-48 bg-gray-300 md:px-2 ' >
+      <div className='flex max-sm:col-start-1 max-sm:col-span-6 md:col-start-6 md:row-start-1 md:row-span-2 z-50 md:mt-48 bg-white md:px-2 ' >
           <FriendsList/>
       </div>
       
