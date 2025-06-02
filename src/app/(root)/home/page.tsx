@@ -131,10 +131,10 @@ const HomePage = (props: Props) => {
        
        <Notifications/>
       </div>
-      <div className='flex max-sm:h-1/2 max-sm:py-4 max-sm:pt-28 max-sm:self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5  md:relative md:top-56 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-50' >
+      <div className='flex max-sm:h-1/2 max-sm:py-4 max-sm:pt-28  max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5  md:relative md:top-56 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-50' >
       <News user={session?.user?.name} />
       </div>
-      <div className='relative max-sm:z-40 max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-black md:space-y-12 md:z-50 ' >
+      <div className='relative max-sm:z-40 max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-black md:space-y-12 md:z-50 ' >
         {/*session?<LiveStreams  /> : <LiveStreams/>*/}
         {session && userData? <GamesRedux  /> : <GamesRedux/>}
         

@@ -26,7 +26,7 @@ const News = ({user}:any) => {
     //Need a header, description and link over entire thing. 
     
   return (
-    <div className='flex  md:z-0 max-sm:z-0 max-sm:px-4  max-sm:py-10 grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-full flex-col rounded-lg md:justify-between' >
+    <div className='flex  md:z-0 max-sm:z-0 max-sm:px-4 max-w-[700px] lg:justify-self-center  max-sm:py-10 grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-full flex-col rounded-lg md:justify-between' >
     {/*  <div className='col-start-1 border-2 border-black md:flex md:space-between -ml-2 -mt-4 row-start-1 inline-block -left-24  mt-20 h-20 w-60 z-60  skew-x-12 bg-white absolute rotate-90  ' >
            <div className=' border-2 border-black w-1/2 flex h-20 skew-x-12 bg-white  bottom-2  ' >
              
@@ -77,18 +77,18 @@ const News = ({user}:any) => {
         </Suspense>*/}
       </div>
       </div>
-      <div className='flex md:-z-50  max-sm:h-1/3 max-sm:w-full  max-sm:-mt-16 max-sm:-mr-10 max-sm:pb-2  self-start md:pb-4 space-around -mt-16 w-4/5 h-full  col-start-3 row-start-1 col-span-3 justify-self-end bg-white skew-x-12 space-x-4 space-y-8 px-2 ' >
+      <div className='flex md:-z-50  max-sm:h-1/3 max-sm:w-full  max-sm:-mt-16 max-sm:-mr-10 max-sm:pb-2  self-start md:pb-4 lg:pb-2 space-around -mt-16 w-4/5 h-full  col-start-3 row-start-1 col-span-3 justify-self-end bg-white skew-x-12 space-x-4 space-y-8 px-2 ' >
           {/* Right side upper design */}
-          <div className='flex  w-full h-1/4 max-sm:h-1/2 bg-black skew-x-12 self-end' >
+          <div className='flex  w-full h-1/4 lg:h-1/3 max-sm:h-1/2 bg-black skew-x-12 self-end' >
 
           </div>
-          <div className='flex w-full h-1/4 max-sm:h-1/2 bg-red-600 skew-x-12 self-end' >
+          <div className='flex w-full h-1/4 lg:h-1/3 max-sm:h-1/2 bg-red-600 skew-x-12 self-end' >
 
           </div>
-          <div className='flex  w-full h-1/4 max-sm:h-1/2 bg-black skew-x-12 self-end' >
+          <div className='flex  w-full h-1/4 lg:h-1/3 max-sm:h-1/2 bg-black skew-x-12 self-end' >
 
           </div>
-          <div className='flex  w-full h-1/4 max-sm:h-1/2 bg-white skew-x-12 self-end' >
+          <div className='flex  w-full h-1/4lg:h-1/3  max-sm:h-1/2 bg-white skew-x-12 self-end' >
 
           </div>
       </div>
@@ -98,7 +98,7 @@ const News = ({user}:any) => {
       <div className=' max-sm:flex  max-sm:-ml-28 max-sm:self-end  border-black col-start-1 row-start-4 md:flex md:space-between w-32 md:w-36 h-32 -ml-16 md:-ml-20 mt-8 md:mt-10 max-sm:-mb-20  origin-center rotate-45  bg-white' >
            {/* Bottom Left white area */}
       </div>
-      <div className=' max-sm:flex max-sm:mt-32 max-sm:-mb-12 max-sm:-ml-8 col-start-1  col-span-2 justify-center space-x-2 space-between bg-white flex self-end ml-12 w-48 h-8 md:h-10 row-start-4 skew-x-12 ' >
+      <div className=' max-sm:flex max-sm:mt-32 max-sm:-mb-12 max-sm:-ml-8 col-start-1  col-span-2 justify-center space-x-2 space-between bg-white flex self-end ml-12 lg:ml-4 w-48 h-8 md:h-10 row-start-4 skew-x-12 ' >
         <div className=' w-10 bg-black h-4 md:h-6 skew-x-12  self-center  ' >
             {/* Bottom Left design */}
         </div>
