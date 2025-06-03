@@ -36,17 +36,17 @@ const About = (props: Props) => {
       
      <div className='flex md:space-x-2 max-sm:flex-col grid z-60 md:-mb-12 md:p-4 grid-cols-4 grid-rows-4 row-start-2 md:self-center md:justify-self-center row-span-2 col-start-1 col-span-6  rounded-lg  ' >
      
-      <div className=' flex  max-sm:col-start-1 max-sm:col-span-4 row-start-1 row-span-3 col-start-1 col-span-2
+      <div className=' flex max-w-[800px]  max-h-[800px]  max-sm:col-start-1 max-sm:col-span-4 row-start-1 row-span-3 col-start-1 col-span-2
         max-sm:row-start-1 max-sm:row-span-3 max-sm:col-start-1 max-sm:col-span-6 max-sm:h-full  self-center max-sm:z-50 max-sm:px-4 md:pt-20' >
           <About_Modal/>
       </div>
       <div className='flex flex-col row-start-1 row-span-4 justify-center col-start-3  self-center col-span-2 
        max-sm:col-start-1 max-sm:col-span-6 max-sm:row-start-3 z-50 max-sm:justify-end max-sm:z-50 max-sm:self-start mt-14 ' >
         <div className='flex self-center' >
-            <h1 className=' flex  justify-center self-center p-2 text-6xl ' >What We Do</h1> {/* Add Design */}
+            <h1 className=' flex  justify-center self-center p-2 text-6xl 2xl:text-8xl ' >What We Do</h1> {/* Add Design */}
         </div>
       <div className='flex  rounded-md  bg-white' >
-        <p className='flex flex-wrap p-4 ' >The Gam3rs Network is your place for unfiltered, unedited content that is by Gamers, for Gamers. 
+        <p className='flex flex-wrap p-4 2xl:text-lg ' >The Gam3rs Network is your place for unfiltered, unedited content that is by Gamers, for Gamers. 
         On our YouTube Channel, we make videos about games and gaming-related subjects, as well as host livestreams where we go in-depth 
         about these topics and interact with our viewers to get your opinions about the topic. Over here on The Gam3r Network website, 
         we continue the conversation with forums, videos and livestreams that we can&apos;t host on YouTube. Jump down the rabbit hole and 
