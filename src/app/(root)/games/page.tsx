@@ -86,11 +86,11 @@ const Games = (props: Props) => {
        <NavBar/>
     </div>
     {/* Add option to skip to the bottom. */}
-    <div className='flex flex-col row-start-1 row-span-2 col-start-1 z-50 bg-slate-200 md:mt-12 ' >
+    <div className='flex flex-col row-start-1 rounded-md row-span-2 col-start-1 md:col-start-2  z-50 bg-slate-200 md:mt-12 md:ml-44 md:w-2/3 ' >
         <Notifications/>
     </div>
-    <div className='' >
-        <button className='' >Skip to Bottom</button> 
+    <div className='hover:bg-gray-300 rounded-3xl '  >
+        <button className='' >Skip to Bottom/replace with downward black arrow</button> 
     </div>
     <div className='flex max-sm:flex-col  md:flex-row row-start-2 row-span-2 col-start-2 col-span-2 md:col-start-1  md:col-span-4 flex-wrap w-2/3 md:w-full self-center h-full z-50 p-4 md:p-2 space-y-4' >
     {/*games && games?.sort().map((vals:any)=>(<div key={vals.id} className='flex w-92 h-92 bg-slate-200 p-4 ' >
@@ -103,7 +103,7 @@ const Games = (props: Props) => {
       </div>))*/}
 
        {games && games?.sort().map((vals:any)=>
-              < div className=' flex md:w-2/3 md:px-12 ' key={vals.id} >
+              < div className=' flex md:w-1/3   md:px-12 md:space-x-4 md:py-4 ' key={vals.id} >
               <AnimatePresence>
                       {active && typeof active === "object" && (
                         <motion.div
@@ -204,16 +204,17 @@ const Games = (props: Props) => {
                             layoutId={`card-${vals.title}-${id}`}
                             key={`card-${vals.title}-${id}`}
                             onClick={() => setActive(vals)}
-                            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+                            className="p-4 flex flex-col   justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
                           >
-                            <div className="flex gap-4 flex-col md:flex-row ">
-                              <motion.div layoutId={`image-${vals.title}-${id}`}>
+                            <div className="flex gap-4 flex-col  ">
+                              <motion.div className='md:justify-self-center' layoutId={`image-${vals.title}-${id}`}>
                                 <Image
                                   width={100}
                                   height={100}
+                                  quality={100}
                                   src={vals.thumbnail}
                                   alt={vals.title}
-                                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                                  className="h-40 w-40 md:h-full md:w-full rounded-lg object-cover object-top"
                                 />
                               </motion.div>
                               <div className="">
@@ -243,9 +244,7 @@ const Games = (props: Props) => {
         
                           </div>)}
     </div>
-    <div className='flex  ' >
-          <FriendsList/>
-    </div>
+    
       <div className='row-start-4 col-start-1 col-span-4 md:self-center bg-white md:justify-end md:z-50' >
           <Footer/>
       </div>
