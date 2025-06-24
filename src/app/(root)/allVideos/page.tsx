@@ -43,9 +43,9 @@ if(dataState){
         <NavBar/>
       </div>
       
-      <div className=' flex flex-wrap   max-sm:row-start-2 row-span-2 flex-wrap max-sm:col-start-1 max-sm:col-span-4 bg-white' >
+      <div className=' flex flex-row flex-wrap w-full  max-sm:row-start-2 max-sm:row-span-2 flex-wrap max-sm:col-start-1 max-sm:col-span-4 bg-white' >
       {dataState && dataState.map((vals:any)=>
-      <Link className=' md:flex md:w-1/3 md:h-1/4 md:w-1/4 md:self-start border-2 border-black self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID} >
+      <Link className=' p-2 md:h-92 md:w-92  max-sm:self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID} >
        <Gif playbackID={vals?.playbackID} fileName={vals?.fileName} />
        </Link>)}
       </div>
