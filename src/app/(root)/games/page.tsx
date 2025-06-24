@@ -13,6 +13,8 @@ import FriendsList from '@/app/components/shared/friends/friends';
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "../../components/hooks/use-outside-clicks";
 import { CloseIcon } from "../../components/ui/expandable-card-demo/expandable-card-demo";
+import downArrow from '@/app/utils/images/down-arrow.png'
+import upArrow from '@/app/utils/images/up-arrow.png'
 type Props = {}
 
 const Games = (props: Props) => {
@@ -86,11 +88,13 @@ const Games = (props: Props) => {
        <NavBar/>
     </div>
     {/* Add option to skip to the bottom. */}
-    <div className='flex flex-col row-start-1 rounded-md row-span-2 col-start-1 md:col-start-2  z-50 bg-slate-200 md:mt-12 md:ml-44 md:w-2/3 ' >
+    <div className='flex flex-col row-start-1 rounded-md row-span-2 col-start-1 md:col-start-2  z-50 bg-slate-200 md:mt-12 md:ml-44 md:w-2/3 ' id='top' >
         <Notifications/>
     </div>
-    <div className='hover:bg-gray-300 rounded-3xl '  >
-        <button className='' >Skip to Bottom/replace with downward black arrow</button> 
+    <div className='hover:bg-gray-300 rounded-3xl w-12 relative -right-8'  >
+        <Link className='' href='#bottom' >
+           <Image className='' src={downArrow} alt='Down Arrow' />
+        </Link> 
     </div>
     <div className='flex max-sm:flex-col  md:flex-row row-start-2 row-span-2 col-start-2 col-span-2 md:col-start-1  md:col-span-4 flex-wrap w-2/3 md:w-full self-center h-full z-50 p-4 md:p-2 space-y-4' >
     {/*games && games?.sort().map((vals:any)=>(<div key={vals.id} className='flex w-92 h-92 bg-slate-200 p-4 ' >
@@ -209,8 +213,8 @@ const Games = (props: Props) => {
                             <div className="flex gap-4 flex-col  ">
                               <motion.div className='md:justify-self-center' layoutId={`image-${vals.title}-${id}`}>
                                 <Image
-                                  width={100}
-                                  height={100}
+                                  width={300}
+                                  height={300}
                                   quality={100}
                                   src={vals.thumbnail}
                                   alt={vals.title}
@@ -244,8 +248,12 @@ const Games = (props: Props) => {
         
                           </div>)}
     </div>
-    
-      <div className='row-start-4 col-start-1 col-span-4 md:self-center bg-white md:justify-end md:z-50' >
+    <div className='hover:bg-gray-300 rounded-3xl w-12 relative -right-8 '  >
+        <Link className='' href='#top' >
+           <Image className='' src={upArrow} alt='Up Arrow' />
+        </Link> 
+    </div>
+      <div className='row-start-4 col-start-1 col-span-4 md:self-center bg-white md:justify-end md:z-50' id='bottom' >
           <Footer/>
       </div>
     </div>

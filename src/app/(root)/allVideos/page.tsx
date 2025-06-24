@@ -38,15 +38,15 @@ if(dataState){
   console.log(dataState)
 }
   return (
-    <div className='flex grid grid-cols-4 grid-rows-4 bg-white' >
+    <div className='max-sm:flex max-sm:grid max-sm:grid-cols-4 max-sm:grid-rows-4 bg-white' >
       <div className='col-start-1 col-span-4 row-start-1' >
         <NavBar/>
       </div>
       
-      <div className=' flex flex-row  row-start-2 row-span-2 flex-wrap max-sm:col-start-1 max-sm:col-span-4 bg-white' >
+      <div className=' flex flex-wrap   max-sm:row-start-2 row-span-2 flex-wrap max-sm:col-start-1 max-sm:col-span-4 bg-white' >
       {dataState && dataState.map((vals:any)=>
-      <Link className=' md:flex md:self-start border-2 border-black md:self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID} >
-       <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
+      <Link className=' md:flex md:w-1/3 md:h-1/4 md:w-1/4 md:self-start border-2 border-black self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID} >
+       <Gif playbackID={vals?.playbackID} fileName={vals?.fileName} />
        </Link>)}
       </div>
       <div className='col-start-1 col-span-4 row-start-4' >
