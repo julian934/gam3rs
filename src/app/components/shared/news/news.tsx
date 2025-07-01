@@ -26,7 +26,7 @@ const News = ({user}:any) => {
     //Need a header, description and link over entire thing. 
     
   return (
-    <div className='flex  md:z-0 max-sm:z-0 max-sm:px-4 max-w-[700px] lg:justify-self-center  max-sm:py-10 grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-full flex-col rounded-lg md:justify-between' >
+    <div className='flex max-sm:h-3/4 max-sm:w-96  md:z-0 max-sm:z-0 max-sm:px-10 max-w-[700px] lg:justify-self-center  max-sm:py-10 grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-full flex-col rounded-lg md:justify-between' >
     {/*  <div className='col-start-1 border-2 border-black md:flex md:space-between -ml-2 -mt-4 row-start-1 inline-block -left-24  mt-20 h-20 w-60 z-60  skew-x-12 bg-white absolute rotate-90  ' >
            <div className=' border-2 border-black w-1/2 flex h-20 skew-x-12 bg-white  bottom-2  ' >
              
@@ -70,7 +70,7 @@ const News = ({user}:any) => {
          <h1 className='flex justify-center' > Welcome!</h1>}*/}
       </div>
       <div className='flex md:w-full z-50  md:col-start-1 md:self-center md:col-span-4 max-sm:col-start-1 max-sm:col-span-1   max-sm:self-center  max-sm:justify-self-start col-start-2 col-span-2 row-start-1 md:row-start-2 md:w-full md:justify-center md:h-full row-span-3 md:-mt-20 z-10 p-4' >
-      <div className='flex w-full max-sm:w-96 md:w-5/6   justify-center md:items-center md:self-center md:h-full z-50  ' >
+      <div className='flex w-full max-sm:w-72 md:w-5/6   justify-center md:items-center md:self-center md:h-full z-50  ' >
        <InfiniteMovingCardsDemo/>
         {/*   <Suspense fallback={<div className='' > Loading... </div>} >
           <CarouselDemo/>

@@ -55,15 +55,15 @@ const Forums = (props: Props) => {
 
       </div>
       <div className='flex  flex-col max-sm:mt-16 md:mt-48 z-50 max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-6 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-black rounded-lg' >
-        <div className='flex w-full max-sm:w-5/6 justify-around h-32 p-4  md:w-2/3 md:ml-24 ' >
-           <h1 className='flex h-8 justify-center text-2xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > Current Forums </h1>
+        <div className='flex w-full max-sm:w-5/6 max-sm:space-around justify-around h-32 p-4  md:w-2/3 md:ml-24 ' >
+           <h1 className='flex h-8 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > Current Forums </h1>
 
            <div className=' rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10' >
            <Link href='/createForum' className=' ' > <Image className='h-10 w-10' src={addbutton} alt='upload' /> </Link>
            </div>
            
            <div className=' rounded-lg shadow-2xl  flex-col w-10 h-6' >
-            <Link className=' text-xl' href='/allForums' >
+            <Link className=' text-xl max-sm:text-lg' href='/allForums' >
                 <h1 className='flex h-8 justify-center text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white ' > 
                   All Forums
                     </h1>
@@ -102,7 +102,7 @@ const Forums = (props: Props) => {
           <FriendsList/>
       </div>
       
-      <div className='flex  row-start-4 col-start-1 col-span-6 w-screen justify-around   '  >
+      <div className='md:flex  md:row-start-4 md:col-start-1 md:col-span-6 w-screen justify-around   '  >
         <Footer/>
       </div>
       </div>
