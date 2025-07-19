@@ -86,7 +86,7 @@ const NavBar = (props: Props) => {
 
   
   return (
-    <div className='flex flex-row max-sm:flex-col bg-black h-10vw md:col-start-1 md:row-start-1 md:col-span-4 w-full top-0 self-start z-50 max-sm:z-auto' >
+    <div className='flex max-sm:invisible  flex-row max-sm:flex-col bg-black h-10vw md:col-start-1 md:row-start-1 md:col-span-4 w-full top-0 self-start z-50 max-sm:z-auto' >
       <div className=' inline-block  max-sm:z-0 max-sm:mt-28 max-sm:ml-12 flex flex-col -inset-x-36 inset-y-24  md:mt-12 h-20    w-2/3  bg-white absolute md:z-0' >
            <div className='w-20 flex self-end h-20 bg-white  origin-top-right -rotate-45 bottom-2  ' >
               {/* use CHatgpt to learn how to take element out of order */}

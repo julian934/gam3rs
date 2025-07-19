@@ -56,13 +56,22 @@ const Videos = (props: any) => {
   if(dataState){
     console.log("Current Data: ", data)
   }
-   return(  <div className='flex justify-around  max-sm:self-center max-sm:flex-col max-sm:w-full max-sm:px-4 bg-white rounded-md  md:w-full md:h-1/4 ' >
-     <div className='w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center ' >
+   return(  <div className='flex justify-around  max-sm:self-center flex-col max-sm:w-full max-sm:px-4 bg-white rounded-md  md:w-full md:h-1/4 ' >
+    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
      
      {/*  <h1 className='text-xl' >Games</h1> */}
-     <h1 className='flex  justify-center text-xl flex rounded-sm bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
-       Videos 
+     <h1 className='flex h-8 justify-center md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+       Videos
        </h1>
+       <div>
+       <div className='flex' >
+     <Link className='self-center text-lg' href='/games' >
+     <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+       View All 
+       </h1>
+     </Link>
+ </div>
+       </div>
      
    </div>
     {data!==undefined?<div className='w-[200px] max-sm:w-full  space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-self-center md:self-center md:border-black md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
@@ -123,13 +132,7 @@ const Videos = (props: any) => {
   </Card>
   </>}
     
-  <div className='flex' >
-      <Link className='self-center text-lg' href='/games' >
-        <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
-        View All 
-         </h1>
-      </Link>
-  </div>
+ 
     </div>
   )
 }

@@ -43,16 +43,25 @@ const Forums = (props: Props) => {
   }
     {/* <h1 className='flex' >{vals.name}</h1> */}
   return (
-    <div className='flex max-sm:flex-col max-sm:self-center max-sm:w-full max-sm:px-4 justify-around rounded-md bg-white md:w-full md:h-1/4' >
-      <div className='w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center ' >
+    <div className='flex flex-col max-sm:self-center max-sm:w-full max-sm:px-4 justify-around rounded-md bg-white md:w-full md:h-1/4' >
+      <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
      
      {/*  <h1 className='text-xl' >Games</h1> */}
-     <h1 className='flex  justify-center text-xl flex  rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
-       Forums 
+     <h1 className='flex h-8 justify-center md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+       Forums
        </h1>
+       <div>
+       <div className='flex' >
+     <Link className='self-center text-lg' href='/allForums' >
+     <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+       View All 
+       </h1>
+     </Link>
+ </div>
+       </div>
      
    </div>
-       {data? <div className='w-[200px] max-sm:w-full space-y-5  p-4  flex  max-sm:flex-col bg-white  md:mb-0 md:justify-self-center md:self-start md:border-black md:flex-row md:w-full md:h-1/4 md:space-x-4' >
+       {data? <div className='w-[200px] max-sm:w-full relative md:-top-20 p-4  flex  max-sm:flex-col bg-white  md:mb-0 md:justify-self-center md:self-start md:border-black md:flex-row md:w-full md:h-1/4 md:space-x-4' >
            <HoverEffect items={dataState} />
          </div>:<>
         <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
@@ -105,13 +114,7 @@ const Forums = (props: Props) => {
   </Card>
        </>}
       
-  <div className='flex' >
-      <Link className='self-center text-lg' href='/livestreams' >
-      <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
-        View All 
-        </h1>
-      </Link>
-  </div>
+  
     </div>
   )
 }

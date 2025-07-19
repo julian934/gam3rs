@@ -75,13 +75,22 @@ const GamesRedux = (props: Props) => {
     useOutsideClick(ref, () => setActive(null));
     testState && console.log('Current test parent size: ', testState)
   return (
-    <div className='flex justify-around bg-white  max-sm:self-center max-sm:w-full max-sm:px-2 max-sm:flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
-    <div className='w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center  ' >
+    <div className='flex justify-around bg-white  max-sm:self-center max-sm:w-full max-sm:px-2 flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
+    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
      
       {/*  <h1 className='text-xl' >Games</h1> */}
-      <h1 className='flex  justify-center text-xl flexrounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+      <h1 className='flex h-8 justify-center md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
         Games 
         </h1>
+        <div>
+        <div className='flex' >
+      <Link className='self-center text-lg' href='/games' >
+      <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+        View All 
+        </h1>
+      </Link>
+  </div>
+        </div>
       
     </div>
     {data!==undefined?<div className='w-[200px]   flex  max-sm:flex-col  bg-white   md:mb-0 md:justify-self-center self-center  md:flex-row w-full md:h-full md:space-x-2' >
@@ -281,13 +290,7 @@ const GamesRedux = (props: Props) => {
   </Card>
   </>}
     
-  <div className='flex' >
-      <Link className='self-center text-lg' href='/games' >
-      <h1 className='flex  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
-        View All 
-        </h1>
-      </Link>
-  </div>
+ 
     </div>)
 }
 

@@ -27,6 +27,7 @@ import FriendsList from '@/app/components/shared/friends/friends'
 import Videos from '@/app/components/shared/videos/home/videosRedux'
 //import { InfiniteMovingCardsDemo } from '@/app/components/ui/infinite-cards-demo/demo'
 import Notifications from '@/app/components/shared/notifications/notifications'
+import MobileNav from '@/app/components/shared/modals/mobileNav'
 //Include METADATA
 type Props = {}
 
@@ -126,15 +127,43 @@ const HomePage = (props: Props) => {
   
   return (
     <main className='flex max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col max-sm:space-y-2 bg-white md:z-30  ' >
+     
       <NavBar/>
-      <div className='flex max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-slate-200 max-sm:bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
-       
-       <Notifications/>
+      <div className=' max-sm:visible fixed max max-sm:w-screen max-sm:h-screen border-2 border-black z-[9999] ' >
+        <MobileNav/>
       </div>
+      
+ 
+      <div className='md:invisible' >
+
+
+      </div>
+     
+      <div className='flex max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-slate-200 max-sm:bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
+       <div className='relative md:top-4 md:-left-2' >
+         <Notifications/>
+        </div>
+      
+      </div>
+
       <div className='flex max-sm:h-1/4 max-sm:py-4 max-sm:pt-28  max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5  md:relative md:top-56 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-50' >
       <News user={session?.user?.name} />
       </div>
+      {/* Border-pieces */}
+      <div className=' relative md:-top-[204vh] md:left-[21vw] bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
+
+        </div>
+        <div className=' relative md:-top-[204vh] md:left-[48vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
+
+        </div>
+        <div className=' relative md:-top-[41vh] md:-left-[27vw]  bg-white rotate-45 w-[5vw] h-[10vh] z-[9999]' >
+
+</div>
+<div className=' relative md:-top-[40vh] md:-left-[2.3vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
+
+</div>
       <div className='relative max-sm:z-40 max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-black md:space-y-12 md:z-50 ' >
+      
         {/*session?<LiveStreams  /> : <LiveStreams/>*/}
         {session && userData? <GamesRedux  /> : <GamesRedux/>}
         
@@ -164,7 +193,10 @@ const HomePage = (props: Props) => {
         
       </div>
       <div className=' flex max-sm:border-2 max-sm:border-black max-sm:h-full md:relative md:top-20 row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-2/3 md:px-8 justify-self-end rounded-md self-start md:col-start-4 bg-slate-200 ' >
-        <FriendsList  friends={currData?.data?.friends} />
+      <div className='relative md:left-10 md:top-4' >
+          <FriendsList  friends={currData?.data?.friends} />
+      </div>
+       
         </div>
       <div className='row-start-4 row-span-2 md:mt-20 row-span-2 flex justify-center  self-end col-start-1 col-span-4 static  z-90' >
       <Footer/>
