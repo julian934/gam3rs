@@ -3,30 +3,60 @@ import React,{useState,useEffect,useContext} from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import aboutIcon from '@/app/utils/images/aboutIcon.png'
+import forumsIcon from '@/app/utils/images/forumIcon.png'
+import gamesIcon from '@/app/utils/images/gamesIcon.png'
+import signIn from '@/app/utils/images/signIn.png'
+import SignUp from '@/app/utils/images/signUp.png'
+import videoIcon from '@/app/utils/images/videoIcon.png'
+import minimizeButton from '@/app/utils/images/minimize-button.png'
 
 type Props = {}
 
 const MobileNav = (props: Props) => {
     const [activated,setActivated]=useState<undefined | null | boolean>(null);
     const [signModal,setSignModal]=useState<undefined | null | boolean>(null);
+    useEffect(() => {
+        const setVh = () => {
+          document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        };
+        setVh();
+        window.addEventListener('resize', setVh);
+        return () => window.removeEventListener('resize', setVh);
+      }, []);
+      
 
   return (
-    <div className='max-sm:w-screen max-w-screen max-sm:h-screen sticky top-0 md:visible max-sm:top-12 fixed  max-sm:sticky ' >
+    <div className='max-sm:w-screen max-w-screen max-sm:h-[calc(var(--vh)*100)] top-0 md:visible max-sm:top-0 fixed  max-sm:sticky z-[9999] ' >
        
-        <div className='max-sm:bg-black  relative -top-12 fixed max-sm:sticky max-h-30v bg-black h' >
+        <div className='max-sm:bg-black  relative -mt-4 -top-48 fixed max-sm:sticky max-h-30v bg-black ' >
 
             {/* Left Upper slant */}
             <div className='w-[20vw] h-[5vh]  fixed top-16 rotate-45 -left-8  bg-white ' >
 
             </div>
             {/* Right Upper Slant */}
-            <div className='w-[20vw] h-[5vh]  fixed top-16 right-20 -rotate-45  bg-white ' >
+            <div className='w-[20vw] h-[5vh]  fixed top-16 right-14 -rotate-45  bg-white ' >
 
             </div>
             <div className='w-full flex flex-col ' >
-             <h1 className='text-red-500  self-center text-2xl' > Gam3rs </h1>
-             <button className='self-center flex justify-center ' onClick={()=>{}}  >
-               <Image className='flex   ' src='' alt='downward Arrow' />
+                <div className='relative top-[2.0vh] flex self-center  justify-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-36 h-8 z-50 ' >
+                   <h1 className='flex text-2xl text-white hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' > Gam3rs </h1>
+                </div>
+             
+             <button className='relative top-10 self-center flex justify-center z-[9999] rounded-md bg-white w-14 h-10  ' onClick={()=>setActivated(!activated)}  >
+               {/*<Image className='flex   ' src='' alt='downward Arrow' />*/}
+               {activated?<motion.div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-8">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+</svg></motion.div>
+:
+<motion.div>
+<svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="rotate-0 size-8">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
+</svg></motion.div>}
+
+
              </button>
              
 
@@ -34,23 +64,22 @@ const MobileNav = (props: Props) => {
             
 
         </div>
-        <motion.div className=' flex bg-black  max-w-2/3   max-h-25vh' >
+        {activated &&  <motion.div className=' fixed  bg-slate-200  max-w-[80vw]  rounded-md top-36 left-10 w-[80vw] h-[45vh] max-h-25vh' >
         {/* Middle Modal */}
-        {activated!=null && activated==true && <motion.div className='' >
+        <motion.div className='bg-slate-200 ' >
+            <h1 className='' >Active</h1>
             
 
-             </motion.div>}
+             </motion.div>
 
 
         </motion.div>
-
-        <div className='' >
+}
+      
+        <div className='relative  bg-black h-[12vh] w-full top-[84vh]' >
             {/* Bottom Modal */}
 
-            {/* Left Modal */}
-            <div className='w-5vw h-5vh ' >
-
-            </div>
+           
 
             {/* left slant */}
             <div  >
@@ -58,64 +87,77 @@ const MobileNav = (props: Props) => {
             </div>
 
             {/* Center top white space */}
-            <div className='bg-white h-2/3 border-2 border-black ' >
-              
-
-            </div>
+            
 
 
                {/* right slant */}
-            <div className='' >
+            <div className='flex' >
+                 {/* Left Modal */}
+            <div className=' relative -top-10  skew-x-12 w-[25vw]  -left-2 h-[5vh]  bg-black  ' >
+
+</div>
+
+                  {/* right modal */}
+            <div className='relative -top-10  -skew-x-12 w-[25vw]  left-56 h-[5vh]  bg-black   ' >
+
+</div>
 
               </div>
-
-            {/* right modal */}
-            <div className='w-5vw h-5vh ' >
-
-              </div>
+                {/*  <hr className='relative -top-12 w-full' />*/}
+                  
+                    {/* Red HR */}
 
            {/* Content Buttons */}
 
-           <div className=''  >
-            <motion.div className='' >
-              <Link href='/videos' > <Image className='' src='' alt='Videos Symbol' /> </Link>
+           <div className='relative left-[2vw] fixed flex justify-around space-around -top-[5vh]  h-[12.5vh]  w-[95vw]'  >
+            <motion.div className=' relative -top-4 flex self-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-20 z-50 ' >
+              <Link className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' href='/videos' > <Image className='' quality={100} width={1000} height={1000} src={videoIcon} alt='Videos Symbol' /> </Link>
             </motion.div>
-            <motion.div className='' >
-              <Link href='/forums' > <Image className='' src='' alt='Forums Symbol' /> </Link>
+            <motion.div className='flex self-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-12 z-50 ' >
+              <Link className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' href='/forums' > <Image className='' quality={100}  width={1000} height={1000} src={forumsIcon} alt='Forums Symbol' /> </Link>
             </motion.div>
-            <motion.div className='' >
-              <Link href='/games' > <Image className='' src='' alt='Games Symbol' /> </Link>
+            <motion.div className='flex self-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-12 z-50 ' >
+              <Link className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' href='/games' > <Image className='' quality={100}  width={1000} height={1000} src={gamesIcon} alt='Games Symbol' /> </Link>
             </motion.div>
 
            {/* Sign Up Options */} 
             {signModal?
             <motion.div className='' >
 
-                <motion.div className='' >
-                    <Link className='' href='/signup' >
-                       <Image className='' src='' alt='Sign Up' />
-                    </Link>
-                    <Link className='' href='/signin' >
-                    <Image className='' src='' alt='Sign In' />
-                    </Link>
+                <motion.div className='relative -top-12 left-10  ' >
+                    <motion.div className=  ' flex relative transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-10 h-6 z-50 ' >
+                     <button className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' onClick={()=>{setSignModal(!signModal)}} >
+                       <Image className='' quality={100}  width={1000} height={1000} src={minimizeButton} alt='Sign Up/Sign In Modal' />
+                     </button>
+                    </motion.div>
+                   
 
 
                 </motion.div>
-                <button className='' onClick={()=>{setSignModal(!signModal)}} >
-                    <Image className='' src='' alt='Sign Up/Sign In' />
+
+                <motion.div className='flex  -top-10 left-6 relative transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-12 h-10 z-50' >
+                    <Link className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' href='/signin' >
+                    <Image className='' quality={100}  width={1000} height={1000} src={signIn} alt='Sign In' />
+                    </Link>
+                    </motion.div>
+                <motion.div className='relative -top-10 mt-2 self-center flex transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-12 z-50' >
+                <button className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' onClick={()=>{setSignModal(!signModal)}} >
+                    <Image className='' quality={100}  width={1000} height={1000} src={SignUp} alt='Sign Up/Sign In' />
                 </button>
 
+                </motion.div>
+
             </motion.div>:
-            <motion.div className='' >
-                <button className='' onClick={()=>{setSignModal(!signModal)}} >
-                    <Image className='' src='' alt='Sign Up/Sign In' />
+            <motion.div className='relative  self-center flex transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-12 z-50' >
+                <button className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' onClick={()=>{setSignModal(!signModal)}} >
+                    <Image className='' quality={100}  width={1000} height={1000} src={SignUp} alt='Sign Up/Sign In' />
                 </button>
 
                 </motion.div>}
 
 
-           <motion.div className='' >
-              <Link href='/about' > <Image className='' src='' alt='About Symbol' /> </Link>
+           <motion.div className=' relative -top-4 flex self-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-20 z-50' >
+              <Link className='flex relative top-0 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full h-full hover:scale-110' href='/about' > <Image className='' quality={100}  width={1000} height={1000} src={aboutIcon} alt='About Symbol' /> </Link>
             </motion.div>
 
             </div>    

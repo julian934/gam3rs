@@ -26,7 +26,7 @@ const News = ({user}:any) => {
     //Need a header, description and link over entire thing. 
     
   return (
-    <div className='flex max-sm:h-3/4 max-sm:w-96  md:z-0 max-sm:z-0 max-sm:px-10 max-w-[700px] lg:justify-self-center  max-sm:py-10 grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-full flex-col rounded-lg md:justify-between' >
+    <div className='flex  max-sm:w-96  md:z-0 max-sm:z-0 max-sm:px-10 max-w-[700px] lg:justify-self-center  max-sm:py-10 grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-full flex-col rounded-lg md:justify-between' >
     {/*  <div className='col-start-1 border-2 border-black md:flex md:space-between -ml-2 -mt-4 row-start-1 inline-block -left-24  mt-20 h-20 w-60 z-60  skew-x-12 bg-white absolute rotate-90  ' >
            <div className=' border-2 border-black w-1/2 flex h-20 skew-x-12 bg-white  bottom-2  ' >
              
