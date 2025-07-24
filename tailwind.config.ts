@@ -28,6 +28,9 @@ const config: Config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+      },
+      fontFamily:{
+        Gardion:['Gardion Demo','sans-serif']
       }
     },
   },

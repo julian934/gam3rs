@@ -59,7 +59,7 @@ const News = ({user}:any) => {
           </div>
       <div className='flex flex-col col-start-1 z-10 row-start-1 p-4' >
        
-      <h1 className='flex md:ml-20 justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+      <h1 className='flex font-Gardion md:ml-20 justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
         News 
         </h1>
       {/* News & user personalization*/}

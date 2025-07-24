@@ -95,14 +95,14 @@ const NavBar = (props: Props) => {
 
        <div className='flex flex-row max-sm:px-4 max-sm:justify-start md:self-center md:items-center md:justify-between md:w-2/3 md:pl-4 md:h-1/2  ' >
        <Link className='max-sm:flex max-sm:self-start'   href='/' >
-       <h1 className=' text-2xl text-white ' >GAM<span className='text-red-500'>3RS</span></h1>
+       <h1 className=' text-2xl text-white font-Gardion ' >GAM<span className='text-red-500'>3RS</span></h1>
        </Link>
         
         
         <div className=' flex hidden md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 ' >
           {/*Drop-down menu UI element for the following options under Livestreams */}
           <div className='  flex hover:border hover:border-x-2 px-2 border-double hover:border-slate-300 w-full hover:scale-110   ' >
-          <Link className=' text-white text-center' href='/videos' > Videos  </Link>
+          <Link className=' font-Gardion text-white text-center' href='/videos' > Videos  </Link>
           </div>
          
         
@@ -110,24 +110,24 @@ const NavBar = (props: Props) => {
         <div className='flex hidden md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:scale-110 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28  ' >
           {/* Drop down menu UI element for the following under Forums */}
           <div className=' flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white text-center '  href='/forums' >Forums</Link>
+          <Link className='font-Gardion text-white text-center '  href='/forums' >Forums</Link>
           </div>
          
         
         </div>
         <div className=' flex hidden md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:scale-110 hover:to-red-900 -skew-x-12 w-20 z-50 ' >
           <div className=' flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/games' >Games</Link>
+          <Link className='font-Gardion text-white' href='/games' >Games</Link>
           </div>
         </div>
         <div className=' flex hidden md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:scale-110 hover:to-red-900 -skew-x-12 w-20 z-50 ' >
           <div className=' flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/store' >Store</Link>
+          <Link className='font-Gardion text-white' href='/store' >Store</Link>
           </div>
         </div>
         <div className='flex hidden md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-28 z-50 ' >
           <div className=' flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/about' >About Us</Link>
+          <Link className='font-Gardion text-white' href='/about' >About Us</Link>
           </div>
         </div>
         
@@ -160,7 +160,7 @@ const NavBar = (props: Props) => {
               <div className=' max-sm:mr-4 flex max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 ' >
           {/*Drop-down menu UI element for the following options under Livestreams */}
           <div className='  flex  z-50 hover:border hover:border-x-2 px-2 border-double hover:border-slate-300 w-full hover:scale-110   ' >
-          <Link className=' text-white text-center' href='/videos' > Videos  </Link>
+          <Link className='font-Gardion  text-white text-center' href='/videos' > Videos  </Link>
           </div>
          
         
@@ -175,27 +175,27 @@ const NavBar = (props: Props) => {
         </div>
         <div className=' flex max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:scale-110 hover:to-red-900 -skew-x-12 w-20 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/games' >Games</Link>
+          <Link className='font-Gardion text-white' href='/games' >Games</Link>
           </div>
         </div>
         <div className=' flex max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:scale-110 hover:to-red-900 -skew-x-12 w-20 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/store' >Store</Link>
+          <Link className='font-Gardion text-white' href='/store' >Store</Link>
           </div>
         </div>
         <div className='flex max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-28 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/about' >About Us</Link>
+          <Link className='font-Gardion text-white' href='/about' >About Us</Link>
           </div>
         </div>
         <div className='flex max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-24 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/signin' >Sign In</Link>
+          <Link className='font-Gardion text-white' href='/signin' >Sign In</Link>
           </div>
         </div>
         <div className='flex max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-24 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/signup' >Sign Up</Link>
+          <Link className='font-Gardion text-white' href='/signup' >Sign Up</Link>
           </div>
         </div>
               </div>}
@@ -213,7 +213,7 @@ const NavBar = (props: Props) => {
               <div className=' flex  max-sm:mr-4 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 ' >
           {/*Drop-down menu UI element for the following options under Livestreams */}
           <div className='  flex  z-50 hover:border hover:border-x-2 px-2 border-double hover:border-slate-300 w-full hover:scale-110   ' >
-          <Link className=' text-white text-center' href='/videos' > Videos  </Link>
+          <Link className=' font-Gardion text-white text-center' href='/videos' > Videos  </Link>
           </div>
          
         
@@ -221,34 +221,34 @@ const NavBar = (props: Props) => {
         <div className='flex  max-sm:mr-4  z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:scale-110 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28  ' >
           {/* Drop down menu UI element for the following under Forums */}
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white text-center '  href='/forums' >Forums</Link>
+          <Link className='font-Gardion text-white text-center '  href='/forums' >Forums</Link>
           </div>
          
         
         </div>
         <div className=' flex  max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:scale-110 hover:to-red-900 -skew-x-12 w-20 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/games' >Games</Link>
+          <Link className='font-Gardion text-white' href='/games' >Games</Link>
           </div>
         </div>
         <div className=' flex  max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:scale-110 hover:to-red-900 -skew-x-12 w-20 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/store' >Store</Link>
+          <Link className='font-Gardion text-white' href='/store' >Store</Link>
           </div>
         </div>
         <div className='flex  max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-28 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/about' >About Us</Link>
+          <Link className='font-Gardion text-white' href='/about' >About Us</Link>
           </div>
         </div>
         <div className='flex  max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-28 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/signin' >Sign In</Link>
+          <Link className='font-Gardion text-white' href='/signin' >Sign In</Link>
           </div>
         </div>
         <div className='flex  max-sm:mr-4 z-50 max-sm:self-end md:block transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-28 z-50 ' >
           <div className=' flex max-sm:z-50 hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' >
-          <Link className='text-white' href='/signupRedux' >Sign Up</Link>
+          <Link className='font-Gardion text-white' href='/signupRedux' >Sign Up</Link>
           </div>
         </div>
               </div>}
@@ -259,14 +259,14 @@ const NavBar = (props: Props) => {
           <div className='flex hidden md:block max-sm:space-x-8  md:flex-row max-sm:px-4 md:-ml-20  md:justify-around  w-60  ' >
             <div className=' flex md:justify-self-start md:self-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20' >
               <div className='flex hover:border hover:border-x-2 px-2 border-double hover:border-slate-300 w-full hover:scale-110  ' >
-              <Link className='text-white text-center' href='/signin' >Sign In</Link>
+              <Link className='text-white font-Gardion text-center' href='/signin' >Sign In</Link>
               </div>
               
             </div>
            
            <div className='flex hidden md:justify-self-end md:self-start md:-mt-6 md:block  transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20' >
             <div className='flex hover:border hover:border-x-2 px-2 border-double hover:border-slate-300 w-full hover:scale-110' >
-              <Link className='text-white text-center' href='/signupRedux' >Sign Up</Link>
+              <Link className='text-white font-Gardion text-center' href='/signupRedux' >Sign Up</Link>
             </div>
              
            </div>

@@ -46,7 +46,7 @@ const Notifications = (props: Props) => {
  }
   return (
     <div className='flex   flex-col bg-slate-200 rounded-md z-20 max-sm:z-30 w-full max-sm:h-40 md:-mt-4 max-sm:py-4 ' >
-    <h1 className='flex relative  max-sm:w-48 max-sm:text-xl h-8 max-sm:ml-4 md:right-4  justify-center text-3xl md:text-2xl w-full flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white' > Notifications: </h1>
+    <h1 className='flex font-Gardion relative  max-sm:w-48 max-sm:text-xl h-8 max-sm:ml-4 md:right-4  justify-center text-3xl md:text-2xl w-full flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white' > Notifications </h1>
       {!data && <div className='' >
               <h1 className='' > Sign in to get the latest notifications from the Gam3r Network! </h1>
         </div>}

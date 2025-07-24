@@ -27,7 +27,7 @@ const MobileNav = (props: Props) => {
       
 
   return (
-    <div className='max-sm:w-screen max-w-screen max-sm:h-[calc(var(--vh)*100)] top-0 md:visible max-sm:top-0 fixed  max-sm:sticky z-[9999] ' >
+    <div className='max-sm:w-screen md:invisible max-w-screen max-sm:h-[calc(var(--vh)*100)] top-0 md:visible max-sm:top-0 fixed  max-sm:sticky z-[9999] ' >
        
         <div className='max-sm:bg-black  relative -mt-4 -top-48 fixed max-sm:sticky max-h-30v bg-black ' >
 
@@ -41,7 +41,7 @@ const MobileNav = (props: Props) => {
             </div>
             <div className='w-full flex flex-col ' >
                 <div className='relative top-[2.0vh] flex self-center  justify-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-36 h-8 z-50 ' >
-                   <h1 className='flex text-2xl text-white hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' > Gam3rs </h1>
+                   <h1 className='flex text-2xl text-white hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 font-Gardion ' > Gam3rs </h1>
                 </div>
              
              <button className='relative top-10 self-center flex justify-center z-[9999] rounded-md bg-white w-14 h-10  ' onClick={()=>setActivated(!activated)}  >
