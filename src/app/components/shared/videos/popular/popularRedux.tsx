@@ -35,7 +35,7 @@ const Popular = (props: Props) => {
    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
    
    {/*  <h1 className='text-xl' >Games</h1> */}
-   <h1 className='flex h-8  justify-center md:z-[9999]  md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-36 text-white ' > 
+   <h1 className='flex h-8 font-Gardion justify-center md:z-[9999]  md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white ' > 
     Popular Videos
      </h1>
     
@@ -45,7 +45,7 @@ const Popular = (props: Props) => {
            </div>
      <div>
    <Link className='self-center text-lg md:z-[9999] md:mt-10 ' href='/allVideos' >
-   <h1 className='flex md:z-[9999]  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
+   <h1 className='flex md:z-[9999] font-Gardion justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-24 text-white ' > 
      View All 
      </h1>
    </Link>
