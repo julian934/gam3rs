@@ -31,21 +31,21 @@ const Popular = (props: Props) => {
     
     const dataState = data?.data?.data || []; // Directly access nested data safely
   return (
-    <div className='flex flex-col justify-around  max-sm:self-center max-sm:flex-col bg-slate-50 rounded-md  md:w-full md:h-1/3 ' >
+    <div className='flex flex-col justify-around  max-sm:self-center max-sm:flex-col bg-slate-50 rounded-md  w-full md:h-1/3 ' >
    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
    
    {/*  <h1 className='text-xl' >Games</h1> */}
-   <h1 className='flex h-8 font-Gardion justify-center md:z-[9999]  md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white ' > 
+   <h1 className='flex md:h-8 font-Gardion justify-center md:z-[9999]  md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > 
     Popular Videos
      </h1>
     
-     <div className='flex  md:z-[9999] md:justify-around md:w-[10vw]  ' >
-     <div className=' md:relative md:md:relative md:-top-2 rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10' >
+     <div className='flex max-sm:relative max-sm:top-6 max-sm:space-x-2 md:z-[9999] md:justify-around md:w-[10vw]  ' >
+     <div className=' relative -top-2 rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10' >
            <Link href='/testUploadRedux' className=' ' > <Image className='h-10 w-10' src={addbutton} alt='upload' /> </Link>
            </div>
      <div>
    <Link className='self-center text-lg md:z-[9999] md:mt-10 ' href='/allVideos' >
-   <h1 className='flex md:z-[9999] font-Gardion justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-24 text-white ' > 
+   <h1 className='flex md:z-[9999] font-Gardion justify-center text-lg flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-24 text-white ' > 
      View All 
      </h1>
    </Link>

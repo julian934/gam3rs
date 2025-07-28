@@ -48,13 +48,13 @@ const Popular = (props: Props) => {
     Popular Forums
      </h1>
     
-     <div className='flex  md:z-[9999] md:justify-around md:w-[10vw]  ' >
-     <div className=' md:relative md:md:relative md:-top-2 rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10' >
+     <div className='flex max-sm:relative max-sm:top-6 max-sm:space-x-2 md:z-[9999] md:justify-around md:w-[10vw]  ' >
+     <div className=' relative -top-2 rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10' >
            <Link href='/createForum' className=' ' > <Image className='h-10 w-10' src={addbutton} alt='createForum' /> </Link>
            </div>
      <div>
    <Link className='self-center text-lg md:z-[9999] md:mt-10 ' href='/allForums' >
-   <h1 className='flex font-Gardion md:z-[9999]  justify-center text-xl flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-24 text-white ' > 
+   <h1 className='flex font-Gardion md:z-[9999]  justify-center text-lg flex transition ease-in-out rounded-sm animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-24 text-white ' > 
      View All 
      </h1>
    </Link>
