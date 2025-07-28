@@ -11,6 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import News_Modal from '@/app/components/shared/banners/news/news';
 import About_Modal from '@/app/components/shared/modals/about';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const About = (props: Props) => {
@@ -31,6 +32,9 @@ const About = (props: Props) => {
      
       <div className='col-start-1 col-span-6 row-start-1 z-20 max-sm:z-40' >
       <NavBar/>
+      </div>
+      <div className=' max-sm:visible fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
       </div>
       {/*<h1 className='flex row-start-2 col-start-2 col-span-4 justify-center text-3xl' >About</h1> */}
       
