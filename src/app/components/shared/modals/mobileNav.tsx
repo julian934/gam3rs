@@ -98,7 +98,7 @@ const MobileNav = (props: Props) => {
 </div>
 
                   {/* right modal */}
-            <div className='relative -top-10 z-[9998]  -skew-x-12 w-[25vw]  left-48 h-[7.5vh]  bg-black   ' >
+            <div className='relative -top-10 z-[9998]  -skew-x-12 w-[25vw]  left-52 h-[7.5vh]  bg-black   ' >
 
 </div>
 
