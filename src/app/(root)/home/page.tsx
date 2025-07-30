@@ -126,7 +126,7 @@ const HomePage = (props: Props) => {
   }
   
   return (
-    <main className='flex max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col max-sm:space-y-2 bg-white md:z-30  ' >
+    <main className='flex max-sm:w-full max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col max-sm:space-y-2 bg-white md:z-30  ' >
      
       <NavBar/>
       <div className=' max-sm:visible fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
@@ -150,19 +150,20 @@ const HomePage = (props: Props) => {
       <News user={session?.user?.name} />
       </div>
       {/* Border-pieces */}
-      <div className=' relative md:-top-[204vh] md:left-[21vw] bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
+      
+      {/*<div className=' border-2 border-red-500 relative md:-top-[204vh] md:left-[21vw] bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
 
         </div>
-        <div className=' relative md:-top-[204vh] md:left-[48vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
+        <div className=' border-2 border-red-500 relative md:-top-[204vh] md:left-[48vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
 
         </div>
-        <div className=' relative md:-top-[41vh] md:-left-[27vw]  bg-white rotate-45 w-[5vw] h-[10vh] z-[9999]' >
+        <div className=' border-2 border-red-500 relative md:-top-[41vh] md:-left-[27vw]  bg-white rotate-45 w-[5vw] h-[10vh] z-[9999]' >
 
 </div>
-<div className=' relative md:-top-[40vh] md:-left-[2.3vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
+<div className=' border-2 border-red-500 relative md:-top-[40vh] md:-left-[2.3vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
 
-</div>
-      <div className='relative max-sm:z-40 max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-black md:space-y-12 md:z-50 ' >
+</div> */}
+      <div className='relative border-2 max-sm:z-40 max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-black md:space-y-12 md:z-50 ' >
       
         {/*session?<LiveStreams  /> : <LiveStreams/>*/}
         {session && userData? <GamesRedux  /> : <GamesRedux/>}
