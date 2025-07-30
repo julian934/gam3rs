@@ -76,7 +76,7 @@ const About = (props: Props) => {
           <h1 className='font-Gardion' >Meet The Team</h1>
           {aboutData && <></>}
           <div className='flex max-sm:flex-col max-sm:self-center max-sm:justify-self-center max-sm:space-y-4' >
-                 <Image className='max-sm:relative max-sm:left-4 max-sm:justify-around rounded-md md:w-[10vw]  md:h-[20vh] max-sm:w-[75vw] max-sm:h-[60vh] '  quality={100} height={100} width={100} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
+                 <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[10vw]  md:h-[20vh] max-sm:w-[80vw] max-sm:h-[60vh] '  quality={100} height={100} width={100} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
                  <div className='relative right-44' > 
                  <AboutJulian/>
                  </div>
