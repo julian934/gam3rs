@@ -32,11 +32,11 @@ const MobileNav = (props: Props) => {
         <div className='max-sm:bg-black  relative -mt-4 -top-48 fixed max-sm:sticky max-h-30v bg-black ' >
 
             {/* Left Upper slant */}
-            <div className='w-[20vw] h-[5vh]  fixed top-16 rotate-45 -left-8  bg-white ' >
+            <div className='w-[20vw] h-[5vh]  fixed top-12 rotate-45 -left-10  bg-white ' >
 
             </div>
             {/* Right Upper Slant */}
-            <div className='w-[20vw] h-[5vh]  fixed top-16 right-14 -rotate-45  bg-white ' >
+            <div className='w-[20vw] h-[5vh]  fixed top-12 right-24 -rotate-45  bg-white ' >
 
             </div>
             <div className='w-full flex flex-col ' >
