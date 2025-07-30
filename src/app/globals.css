@@ -16,6 +16,15 @@
   }
 }
 
+@font-face {
+  font-family: 'Gardion Demo';
+  src: url('/fonts/Gardion-Demo.woff2') format('woff2'),
+      url('/fonts/Gardion-Demo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
