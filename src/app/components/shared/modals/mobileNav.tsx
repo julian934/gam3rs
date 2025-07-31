@@ -79,7 +79,7 @@ const MobileNav = (props: Props) => {
         </motion.div>
 }
       
-        <div className='relative  bg-black h-[12vh] w-full top-[75vh]' >
+        <div className='relative  bg-black h-[12vh] w-full top-[80vh]' >
             {/* Bottom Modal */}
 
            

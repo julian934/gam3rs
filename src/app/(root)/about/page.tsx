@@ -42,7 +42,7 @@ const About = (props: Props) => {
       
      <div className='flex md:space-x-2 max-sm:flex-col grid z-60 md:-mb-12 md:p-4 grid-cols-4 grid-rows-4 row-start-2 md:self-center md:justify-self-center row-span-2 col-start-1 col-span-6  rounded-lg  ' >
      
-      <div className=' flex relative max-sm:-top-10 max-w-[800px]  max-h-[800px]  max-sm:col-start-1 max-sm:col-span-4 row-start-1 row-span-3 col-start-1 col-span-2
+      <div className=' flex relative max-sm:-left-2 max-sm:-top-10 max-w-[800px]  max-h-[800px]  max-sm:col-start-1 max-sm:col-span-4 row-start-1 row-span-3 col-start-1 col-span-2
         max-sm:row-start-1 max-sm:row-span-3 max-sm:col-start-1 max-sm:col-span-6 max-sm:h-full  self-center max-sm:z-50 max-sm:px-4 md:pt-20' >
           <About_Modal/>
       </div>
