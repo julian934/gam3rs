@@ -63,7 +63,7 @@ const Forums = (props: Props) => {
       
       <div className='flex  flex-col max-sm:mt-0 md:mt-48 z-50 max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-7 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-black rounded-lg' >
         <div className='flex w-full max-sm:w-5/6 max-sm:space-around justify-around h-32 p-4  md:w-2/3 md:ml-0 ' >
-           <h1 className='flex h-8 font-Gardion relative md:left-36 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-56 text-white ' > Current Forums </h1>
+           <h1 className='flex h-8 font-Gardion relative max-sm:left-8 md:left-36 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-56 text-white ' > Current Forums </h1>
 
           
            

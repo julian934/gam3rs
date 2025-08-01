@@ -40,7 +40,7 @@ const Videos = (props: Props) => {
         <div className='flex w-full max-sm:justify-between max-sm:p-2 justify-around h-32 p-4  md:w-2/3 md:ml-0' >
           
            {/*  <h1 className='text-2xl' > Current Videos </h1>*/}
-           <h1 className='flex font-Gardion relative md:left-36 max-sm:mt-12 h-8 justify-center text-2xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-52 text-white ' > 
+           <h1 className='flex font-Gardion relative max-sm:left-14 md:left-36 max-sm:mt-12 h-8 justify-center text-2xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-52 text-white ' > 
         Current Videos 
         </h1>
 
