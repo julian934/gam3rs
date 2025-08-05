@@ -81,6 +81,10 @@ export const friendsList=async(userData:User)=>{
 }
 
 export const notificationsList=async(userData:User)=>{
+  const notificationData=await axios.get('/api/games');
+  console.log("Notification data: ", notificationData )
+  const currData=notificationData
+  return currData;
 
 }
 
