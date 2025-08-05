@@ -29,7 +29,7 @@ const About = (props: Props) => {
    },[data])
 
   return (
-    <div className='flex max-sm:flex-col grid grid-cols-6 grid-rows-4 h-screen bg-white
+    <div className='flex max-sm:flex-col grid grid-cols-6 grid-rows-4 min-h-screen bg-white
     ' >
      
       <div className='col-start-1 col-span-6 row-start-1 z-20 max-sm:z-40' >
@@ -40,19 +40,19 @@ const About = (props: Props) => {
       </div>
       {/*<h1 className='flex row-start-2 col-start-2 col-span-4 justify-center text-3xl' >About</h1> */}
       
-     <div className='flex md:space-x-2 max-sm:flex-col grid z-60 md:-mb-12 md:p-4 grid-cols-4 grid-rows-4 row-start-2 md:self-center md:justify-self-center row-span-2 col-start-1 col-span-6  rounded-lg  ' >
+     <div className='flex md:space-x-2 max-sm:flex-col grid z-60 md:-mb-12 md:p-4 grid-cols-4 grid-rows-4 max-sm:row-start-1 md:row-start-2 md:self-center md:justify-self-center row-span-2 col-start-1 col-span-6  rounded-lg  ' >
      
-      <div className=' flex relative max-sm:-left-2 max-sm:-top-10 max-w-[800px]  max-h-[800px]  max-sm:col-start-1 max-sm:col-span-4 row-start-1 row-span-3 col-start-1 col-span-2
-        max-sm:row-start-1 max-sm:row-span-3 max-sm:col-start-1 max-sm:col-span-6 max-sm:h-full  self-center max-sm:z-50 max-sm:px-4 md:pt-20' >
+      <div className=' flex  max-sm:h-[250px] max-sm:self-start max-sm:justify-center relative md:-top-48 max-sm:-left-2 max-sm:top-24 max-w-[800px]  max-h-[800px]  max-sm:col-start-1 max-sm:col-span-4 md:row-start-1 md:row-span-3 col-start-1 md:col-span-2
+        1 max-sm:col-start-1 max-sm:col-span-6 max-sm:h-full  md:self-center max-sm:z-50 max-sm:px-4 md:pt-0' >
           <About_Modal/>
       </div>
-      <div className='flex md:relative md:top-4 flex-col row-start-1 row-span-4 justify-center col-start-3  self-center col-span-2 
-       max-sm:col-start-1 max-sm:col-span-6 max-sm:row-start-3 z-50 max-sm:justify-end max-sm:z-50 max-sm:self-start mt-14 ' >
+      <div className='flex md:relative md:-top-48 flex-col row-start-1 row-span-4 justify-center col-start-3  self-center col-span-2 
+       max-sm:col-start-1 max-sm:col-span-6 max-sm:row-start-2 z-50 max-sm:justify-end max-sm:z-50 max-sm:self-start mt-14 ' >
         <div className='flex self-center relative md:top-4' >
             <h1 className=' flex  justify-center self-center p-2 text-5xl 2xl:text-8xl font-Gardion ' >What We Do</h1> {/* Add Design */}
         </div>
       <div className='flex  rounded-md  bg-white' >
-        <p className='flex flex-wrap  p-4 2xl:text-lg ' >The Gam3rs Network is your place for unfiltered, unedited content that is by Gamers, for Gamers. 
+        <p className='flex flex-wrap  p-4 max-sm:px-6 2xl:text-lg ' >The Gam3rs Network is your place for unfiltered, unedited content that is by Gamers, for Gamers. 
         On our YouTube Channel, we make videos about games and gaming-related subjects, as well as host livestreams where we go in-depth 
         about these topics and interact with our viewers to get your opinions about the topic. Over here on The Gam3r Network website, 
         we continue the conversation with forums, videos and livestreams that we can&apos;t host on YouTube. Jump down the rabbit hole and 
@@ -77,7 +77,7 @@ const About = (props: Props) => {
           {aboutData && <></>}
           <div className='flex max-sm:flex-col max-sm:self-center max-sm:justify-self-center max-sm:space-y-4' >
                  <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[15vw]  md:h-[30vh] max-sm:w-[90vw] max-sm:h-[60vh] '  quality={100} height={100} width={100} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
-                 <div className='relative  right-44' > 
+                 <div className='relative max-sm:right-0 md:right-44' > 
                  <AboutJulian/>
                  </div>
                 
@@ -95,7 +95,7 @@ const About = (props: Props) => {
       
 
      </div>*/}
-     <div className='flex relative md:top-14 md:row-start-4 md:col-start-1 md:col-span-4 justify-around bg-white ' >
+     <div className='flex relative md:top-4 ow-start-4 col-start-1 col-span-4 justify-around bg-white ' >
      <Link className='self-center' href='/' >
        <Image className='w-12 h-12  ' src={Instagram} alt='Instagram'  /> {/* Instagram out of place, find one that is black and white. */}
        </Link>
@@ -108,7 +108,7 @@ const About = (props: Props) => {
 
      </div>
     
-     <div className='flex relative -max-sm:-top-98 bg-white top-10 col-start-1 col-span-6 row-start-4  self-end justify-around 
+     <div className='flex relative  max-sm:top-36 bg-white top-10 col-start-1 col-span-6 row-start-4  self-end justify-around 
       ' >
      <Footer/>
      </div>
