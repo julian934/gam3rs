@@ -29,7 +29,6 @@ const MobileNav = (props: Props) => {
 
   return (
     <div className='max-sm:w-screen md:invisible max-w-screen max-sm:h-[calc(var(--vh)*100)] top-0 md:visible max-sm:top-0 fixed  max-sm:sticky z-[9999] ' >
-       
         <div className='max-sm:bg-black  relative -mt-4 -top-48 fixed max-sm:sticky max-h-30v bg-black ' >
 
             {/* Left Upper slant */}
@@ -42,13 +41,13 @@ const MobileNav = (props: Props) => {
             </div>
             <div className='w-full flex flex-col ' >
               
-                <div className='relative top-[4.0vh] flex self-center  justify-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-36 h-8 z-50 ' >
+                <div className='relative top-[4.0vh] pointer-events-auto flex self-center  justify-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-36 h-8 z-50 ' >
                 <Link href='/home' >
                    <h1 className='flex text-2xl text-white hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 font-Gardion ' > Gam3rs </h1>
                    </Link>
                 </div>
                
-             <button className='relative top-10 self-center flex justify-center z-[9999] rounded-md bg-white w-14 h-10  ' onClick={()=>setActivated(!activated)}  >
+             <button className='relative top-10 self-center pointer-events-auto flex justify-center z-[9999] rounded-md bg-white w-14 h-10  ' onClick={()=>setActivated(!activated)}  >
                {/*<Image className='flex   ' src='' alt='downward Arrow' />*/}
                {activated?<motion.div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-8">
   <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
@@ -68,7 +67,7 @@ const MobileNav = (props: Props) => {
             
 
         </div>
-        {activated &&  <motion.div className=' fixed  bg-slate-200  max-w-[80vw]  rounded-md top-36 left-10 w-[80vw] h-[45vh] max-h-25vh' >
+        {activated &&  <motion.div className=' fixed pointer-events-auto bg-slate-200  max-w-[80vw]  rounded-md top-36 left-10 w-[80vw] h-[45vh] max-h-25vh' >
         {/* Middle Modal */}
         <motion.div className='bg-slate-200 ' >
             <h1 className='' >Active</h1>
@@ -113,7 +112,7 @@ const MobileNav = (props: Props) => {
 
            {/* Content Buttons */}
 
-           <div className='relative left-[2vw] fixed flex justify-around space-around -top-[6vh] z-[9999] h-[12.5vh]  w-[95vw]'  >
+           <div className='relative left-[2vw] pointer-events-auto fixed flex justify-around space-around -top-[6vh] z-[9999] h-[12.5vh]  w-[95vw]'  >
             <motion.div className=' relative -top-6 flex self-center transition ease-in-out rounded-md hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-20 z-50 ' >
               <Link className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 ' href='/videos' > <Image className=' relative top-2 h-4/5' quality={100} width={1000} height={1000} src={videoIcon} alt='Videos Symbol' /> </Link>
             </motion.div>
@@ -126,7 +125,7 @@ const MobileNav = (props: Props) => {
 
            {/* Sign Up Options */} 
             {signModal?
-            <motion.div className='' >
+            <motion.div className='pointer-events-auto' >
 
                 <motion.div className='relative -top-20 left-10 -bottom-2 ' >
                     <motion.div className=  ' flex relative transition ease-in-out rounded-md hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-10 h-6 z-50 ' >
@@ -153,7 +152,7 @@ const MobileNav = (props: Props) => {
                 </motion.div>
 
             </motion.div>:
-            <motion.div className=' relative -top-2  self-center flex transition ease-in-out rounded-md hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-12 z-50' >
+            <motion.div className=' relative -top-2 pointer-events-auto self-center flex transition ease-in-out rounded-md hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-16 h-12 z-50' >
                 <button className='flex hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110' onClick={()=>{setSignModal(!signModal)}} >
                     <Image className='' quality={100}  width={1000} height={1000} src={SignUp} alt='Sign Up/Sign In' />
                 </button>

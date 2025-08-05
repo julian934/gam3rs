@@ -9,7 +9,7 @@ import type { AxiosResponse } from 'axios'
 import Link from 'next/link'
 import VideoCard from '@/app/components/shared/videos/gif/gif'
 import Gif from '../../components/shared/videos/gif/gif'
-
+import MobileNav from '@/app/components/shared/modals/mobileNav'
 type Props = {}
 
 const AllVideos = (props: Props) => {
@@ -41,6 +41,9 @@ if(dataState){
     <div className='max-sm:flex max-sm:grid max-sm:grid-cols-4 max-sm:grid-rows-4 bg-white' >
       <div className='col-start-1 col-span-4 row-start-1' >
         <NavBar/>
+      </div>
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
       </div>
       
       <div className=' flex flex-row flex-wrap w-full  max-sm:row-start-2 max-sm:row-span-2 flex-wrap max-sm:col-start-1 max-sm:col-span-4 bg-white' >

@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
 import { videoUpdate } from '@/app/lib/database/connections';
 import { FileUpload } from '@/app/components/ui/file-upload/file-upload';
-
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const TestUploadRedux = (props: Props) => {
@@ -201,7 +201,9 @@ const TestUploadRedux = (props: Props) => {
             <div className='flex w-full'>
                 <NavBar />
             </div>
-
+            <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
+      </div>
             
 
             <div className='flex flex-col z-50 '>

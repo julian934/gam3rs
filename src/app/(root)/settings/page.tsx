@@ -19,6 +19,7 @@ import { StoreStateContext } from '@/app/lib/context/storeContext';
 import { useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
 import { getUser } from '@/app/lib/database/connections';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const Settings = (props: Props) => {
@@ -66,7 +67,9 @@ const Settings = (props: Props) => {
   return (
     <div className='flex flex-col bg-white h-screen space-y-8 ' >
       <NavBar/>
-      
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
+      </div>
       <div className='flex flex-col justify-center self-center  items-center space-y-12 z-50' >
          <h1 className='flex max-sm:w-48 max-sm:text-xl h-8 max-sm:ml-4  justify-center text-3xl w-full flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white' >Settings</h1>
          <div className='flex flex-col space-y-8 ' >

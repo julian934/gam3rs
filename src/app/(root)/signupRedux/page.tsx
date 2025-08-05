@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Navbar } from '@nextui-org/react';
 import Link from 'next/link';
 import { SignupForm } from '@/app/components/ui/sign-up/sign-up';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const SignUpRedux = (props: Props) => {
@@ -16,6 +17,9 @@ const SignUpRedux = (props: Props) => {
         <div className='flex w-full' >
           <NavBar/>
         </div>
+        <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
+      </div>
          <div className='flex justify-center space-y-20 py-8 md:mt-20 ' >
               <SignupForm/>
          </div>

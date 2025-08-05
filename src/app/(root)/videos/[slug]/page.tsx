@@ -8,6 +8,7 @@ import { getVideoInfo } from '@/app/lib/database/connections';
 import { thumbNailPic } from '@/app/lib/actions/connections';
 import Notifications from '@/app/components/shared/notifications/notifications';
 import FriendsList from '@/app/components/shared/friends/friends';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const VideoPlayer = ({params}:{params:{slug:string}}) => {
@@ -56,6 +57,9 @@ const VideoPlayer = ({params}:{params:{slug:string}}) => {
       
       <div className=' max-sm:z-50 row-start-1 col-start-1 col-span-6' >
         <NavBar/>
+      </div>
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
       </div>
       <div className=' h-full flex max-sm:z-0 max-sm:col-start-1 max-sm:-mt-44 max-sm:h-24 col-start-1 max-sm:col-span-6 rounded-md row-start-2 md:row-span-2 bg-slate-300 ' >
           <Notifications/>

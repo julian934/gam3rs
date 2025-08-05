@@ -27,7 +27,7 @@ const Videos = (props: Props) => {
       <div className='flex w-screen col-start-1 col-span-6 row-start-1' >
       <NavBar/>
       </div>
-      <div className=' max-sm:visible fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
         <MobileNav/>
       </div>
       <div className='flex max-sm:z-50 max-sm:invisible max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-slate-200 max-sm:bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >

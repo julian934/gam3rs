@@ -15,6 +15,7 @@ import { forumUpdate } from '@/app/lib/database/connections';
 import Notifications from '@/app/components/shared/notifications/notifications';
 import FriendsList from '@/app/components/shared/friends/friends';
 import ForumPost from '@/app/components/ui/forums/forumPost';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {id:string}
 
 const Forum = ({params}:{params: Props | undefined}) => {
@@ -122,6 +123,9 @@ const Forum = ({params}:{params: Props | undefined}) => {
     <div className=' max-sm:w-screen grid md:grid-cols-4 md:grid-rows-4 max-sm:grid-cols-3 max-sm:grid-rows-3 bg-white ' >
       <div className='flex max-sm:w-3/4 max-sm:w-screen md:row-start-1 md:col-start-1 col-span-4 ' >
          <NavBar/>
+      </div>
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
       </div>
       <div className='flex max-sm:invisible z-10 md:z-50 bg-slate-200 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
        

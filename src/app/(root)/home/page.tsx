@@ -129,7 +129,7 @@ const HomePage = (props: Props) => {
     <main className='flex max-sm:w-full max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col max-sm:space-y-2 bg-white md:z-30  ' >
      
       <NavBar/>
-      <div className=' max-sm:visible fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
         <MobileNav/>
       </div>
       

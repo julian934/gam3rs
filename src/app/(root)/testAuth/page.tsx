@@ -10,6 +10,7 @@ import { signIn } from 'next-auth/react';
 import NavBar from '@/app/components/ui/nav/nav';
 import Link from 'next/link';
 import Footer from '@/app/components/shared/footer/home/footer';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const Auth = (props: Props) => {
@@ -86,6 +87,9 @@ const Auth = (props: Props) => {
     <div className='flex flex-col grid grid-cols-4 grid-rows-5 bg-white h-screen ' >
       <div className='col-start-1 col-span-4 row-start-1 z-50' >
           <NavBar/>
+      </div>
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
       </div>
       <div className=' flex flex-col  max-sm:w-full max-sm:h-full md:h-full self-center md:self-start rounded-sm  justify-center p-2  max-sm:col-start-1 col-start-2 space-x-2 space-y-2 max-sm:col-span-4 md:col-span-4 row-start-2  row-span-3 z-50 max-sm:bg-white' >
       <div className=' flex md:mt-20 md:ml-10  md:self-center grid max-sm:mt-4 h-full w-full md:w-3/4 grid-cols-6 grid-rows-4 flex-row  bg-gray-300   col-start-2 col-span-4 row-start-2 row-span-2 flex-col px-2 ' >

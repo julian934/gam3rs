@@ -88,7 +88,7 @@ const Games = (props: Props) => {
     <div className='row-start-1 col-start-1 col-span-4' >
        <NavBar/>
     </div>
-    <div className=' max-sm:visible fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+    <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
         <MobileNav/>
       </div>
     {/* Add option to skip to the bottom. */}

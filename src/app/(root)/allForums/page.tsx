@@ -9,6 +9,7 @@ import type { AxiosResponse } from 'axios';
 import type { SetStateAction } from 'react';
 import Link from 'next/link';
 import { HoverEffect } from '@/app/components/ui/forums/forumHover';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const AllForums = (props: Props) => {
@@ -45,6 +46,9 @@ const AllForums = (props: Props) => {
     <div className='flex grid grid-cols-4 grid-rows-4 bg-white ' >
       <div className='col-start-1 col-span-4 row-start-1' >
          <NavBar/>
+      </div>
+      <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
       </div>
      
       <div className='flex z-60 p-6' >

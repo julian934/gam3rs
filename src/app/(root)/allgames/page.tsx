@@ -10,6 +10,7 @@ import type { AxiosResponse } from 'axios'
 import Link from 'next/link'
 import Image from 'next/image'
 import Dropdown from '@/app/components/ui/dropdown/allgames'
+import MobileNav from '@/app/components/shared/modals/mobileNav'
 type Props = {}
 
 const AllGames = (props: Props) => {
@@ -38,7 +39,10 @@ const AllGames = (props: Props) => {
   return (
     <div className='flex flex-col bg-white '   >
         <NavBar/>
-        AllGames
+        <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
+      </div>
+        
         <div className='flex self-center z-50 space-x-23 pb-4 ' >
            <input className='' placeholder='Search...' onChange={handleSearch} ref={searchRef} />
            <div className='' >

@@ -11,6 +11,7 @@ import NavBar from '@/app/components/ui/nav/nav';
 import Link from 'next/link';
 import Footer from '@/app/components/shared/footer/home/footer';
 import SignIn from '@/app/components/ui/sign-in/sign-in';
+import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
 const Auth = (props: Props) => {
@@ -20,6 +21,9 @@ const Auth = (props: Props) => {
     <div className='flex w-full z-50' >
       <NavBar/>
     </div>
+    <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
+        <MobileNav/>
+      </div>
      <div className='flex justify-center space-y-20 z-0 md:z-20 md:mt-20' >
           <SignIn/>
      </div>

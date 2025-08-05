@@ -30,15 +30,15 @@ const AboutJulian = (props: Props) => {
         </div>
         <div className='flex z-[9999] h-8 justify-center md:h-[6vh] max-sm:h-[10vh] md:w-[30vw]  max-sm:w-[82.5vw] relative left-48 max-sm:left-0 relative text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900  -skew-x-12 w-40 text-white' >
         <div className='relative text-black  top-2  md:left-2' >
-            <h1 className='text-md text-white font-Gardion px-2 ' >
+            <h1 className='text-md text-white font-Gardion p-2 ' >
             Gam3r Network Founder and Lead Engineer
                 
             </h1>
        
         </div>
         </div>
-        <Motion.div className='absolute max-sm:left-0 md:left-48 md:top-24 flex flex-col ' >
-          <button onClick={()=>setActiveModal(!activeModal)} >{activeModal?<Image className='relative w-8 h-8' src={DownArrow} alt='Open Modal' />:<Image className='relative w-8 h-8' src={UpArrow}  alt='Down Modal' />}</button>
+        <Motion.div className='absolute  max-sm:left-0 md:left-48 md:top-24 flex flex-col ' >
+          <button onClick={()=>setActiveModal(!activeModal)} >{activeModal?<Image className='relative z-[9999] w-8 h-8' src={DownArrow} alt='Open Modal' />:<Image className='relative w-8 h-8' src={UpArrow}  alt='Down Modal' />}</button>
           {activeModal?<Motion.div className=' md:min-h-[20vh] relative md:min-w-[25vw] md:max-w-[20vw] md:-top-10 md:left-10 bg-black text-white' >
             <p className=' relative top-20vh p-4 font-Gardion  ' >
             Julian Borner is the founder and Lead Engineer of the Gam3r Network Company and Website 
