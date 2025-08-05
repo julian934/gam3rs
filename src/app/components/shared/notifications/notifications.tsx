@@ -7,6 +7,7 @@ import { useContext } from 'react'
 import { getNotifications } from '@/app/lib/database/connections'
 //import { HoverEffect } from '../../ui/hover-effect/hover-effect'
 import { HoverEffect } from '../../ui/hover-effect/search-hover-effect'
+import NotificationCircle from '@/app/utils/images/notification-circle.png'
 type Props = {}
 
 const Notifications = (props: Props) => {

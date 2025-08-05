@@ -3,6 +3,7 @@ import React,{useState,useEffect,useRef,useContext} from 'react';
 import { StoreStateContext } from '@/app/lib/context/storeContext';
 import { useQuery } from '@tanstack/react-query';
 import { getNotifications } from '@/app/lib/database/connections';
+import NotificationCircle from '@/app/utils/images/notification-circle.png'
 type Props = {}
 
 const Notifications = (props: Props) => {

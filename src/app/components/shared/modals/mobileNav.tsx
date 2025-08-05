@@ -10,6 +10,7 @@ import signIn from '@/app/utils/images/signIn.png'
 import SignUp from '@/app/utils/images/signUp.png'
 import videoIcon from '@/app/utils/images/videoIcon.png'
 import minimizeButton from '@/app/utils/images/minimize-button.png'
+import NotificationCircle from '@/app/utils/images/notification-circle.png'
 
 type Props = {}
 
