@@ -12,24 +12,22 @@ import { useEffect } from 'react';
 import News_Modal from '@/app/components/shared/banners/news/news';
 import About_Modal from '@/app/components/shared/modals/about';
 import MobileNav from '@/app/components/shared/modals/mobileNav';
-import AboutJulian from '@/app/components/ui/about/aboutJulian';
+//import AboutJulian from '@/app/components/ui/about/aboutJulian';
+import AboutJulian from '@/app/components/ui/about/aboutJulianRedux';
 import JB_Profile_Pic from '@/app/utils/images/JB_Professional_Pic.jpg'
 type Props = {}
 
 const About = (props: Props) => {
-  const [aboutData,setAboutData]=useState<any>([]);
-  const {data}=useQuery({
-    queryKey:['aboutPage'],
-    queryFn:()=>{} 
-  })
+
+  
    
    useEffect(()=>{
-        const currData=data;
-        setAboutData(currData);
-   },[data])
+       
+      
+   },[])
 
   return (
-    <div className='flex max-sm:flex-col grid grid-cols-6 grid-rows-4 min-h-screen bg-white
+    <div className=' max-sm:flex-col grid grid-cols-6 grid-rows-4 min-h-screen bg-white
     ' >
      
       <div className='col-start-1 col-span-6 row-start-1 z-20 max-sm:z-40' >
@@ -74,7 +72,7 @@ const About = (props: Props) => {
         </div> */}
         <div className='flex flex-col bg-white max-sm:space-y-4' >
           <h1 className='font-Gardion relative max-sm:left-6' >Meet The Team</h1>
-          {aboutData && <></>}
+       
           <div className='flex max-sm:flex-col max-sm:self-center max-sm:justify-self-center max-sm:space-y-4' >
                  <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[15vw]  md:h-[30vh] max-sm:w-[90vw] max-sm:h-[60vh] '  quality={100} height={100} width={100} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
                  <div className='relative max-sm:right-0 md:right-44' > 

@@ -237,3 +237,14 @@ export const getSearchData=async()=>{
   const allData=[currBackendData,currGameData].flat();
    return allData
 }
+
+export const getAdmin=async(currAdmin:any)=>{
+  const user=currAdmin.username;
+  const pass=currAdmin.password
+  const getCurrAdmin=await axios.get(`/api/auth/findadmin/?username=${user}&password=${pass}`);
+  const currAdd= await getCurrAdmin;
+  console.log('Current Admin: ', currAdd);
+
+
+  return currAdd.data
+}
