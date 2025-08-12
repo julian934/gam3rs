@@ -76,7 +76,7 @@ const GamesRedux = (props: Props) => {
     testState && console.log('Current test parent size: ', testState)
   return (
     <div className='flex justify-around bg-white  max-sm:self-center max-sm:w-full max-sm:px-2 flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
-    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
+    <div className='w-full space-y-5 p-4 flex rounded-md   max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
      
       {/*  <h1 className='text-xl' >Games</h1> */}
       <h1 className='flex relative md:-top-4 font-Gardion h-8 justify-center md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
