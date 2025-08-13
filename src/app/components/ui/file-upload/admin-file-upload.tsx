@@ -71,12 +71,12 @@ export const FileUpload = ({
   })
   
   useEffect(() => {
-    let currUser=localStorage.getItem("userdata");
-    let currData=currUser?JSON.parse(currUser) : null;
-    if(currData){
+   // let currUser=localStorage.getItem("userdata");
+    //let currData=currUser?JSON.parse(currUser) : null;
+    /*if(currData){
        setUserState(currData)
        console.log(ctx.userData)
-    }
+    }*/
     if (vidUrl) { 
       return () => URL.revokeObjectURL(vidUrl);
     }
@@ -262,8 +262,8 @@ export const FileUpload = ({
       type:newData? newData.type  : ''
     }
     setData(vals)
-    localStorage.setItem("videoData",JSON.stringify(newData));
-    localStorage.getItem("videoData")
+    localStorage.setItem("AdminVideoData",JSON.stringify(newData));
+    localStorage.getItem("AdminVideoData")
   }
    onChange // && setVidUrl(currFile[0].name);
   };

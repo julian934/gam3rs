@@ -66,12 +66,15 @@ const Admin = (props: Props) => {
 
 
     }
+    
 
    console.log('Curr User: ', userName?.current?.value)
    console.log('Curr Pass: ', passWord?.current?.value)
    console.log('Admin Test: ', verified)
    console.log('Verification Status: ', verified)
    console.log('State Test: ')
+   let currVideo= localStorage.getItem("AdminVideoData")
+   console.log('Admin Video Data: ',currVideo)
   return (
     <div className='bg-white  min-h-screen ' >
         
@@ -81,7 +84,7 @@ const Admin = (props: Props) => {
       </div>
       {verified ?<div className='flex relative max-sm:top-12 justify-center z-[9999]  w-1/2' >
         {/* Generate Notifications & automatically send out  */}
-        <div className='flex w-full max-sm:w-5/6 max-sm:space-around justify-around h-32 p-4  md:w-2/3 md:ml-0 ' >
+        <div className='flex w-full md:absolute max-sm:w-5/6 max-sm:space-around justify-around h-32 p-4  md:w-2/3 md:ml-0 ' >
            <h1 className='flex h-8 font-Gardion relative max-sm:left-20 md:left-36 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-56 text-white ' > Admin </h1>
 
         </div>
@@ -180,15 +183,15 @@ const Admin = (props: Props) => {
 
           </motion.div> }
          
-          {postActive && <motion.div className='' >
+          {postActive && <motion.div className=' flex max-sm:flex-col  md:min-w-[60vw] md:min-h-[50vh] md:relative md:top-16 md:left-96 ' >
              {/* Set Up Forum Pipeline */}
-             <div className='' >
+             <div className='   ' >
                 {/* Video */}
                     <div className='flex z-50 '>
                                        <FileUpload />
                                    </div>
              </div>
-             <div className='flex flex-col items-center space-y-4' >
+             <div className='flex flex-col items-center space-y-4 md:relative md:top-12' >
                 {/* Thumbnail, title, and body text */}
                 <CldUploadWidget
         uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
@@ -239,11 +242,11 @@ const Admin = (props: Props) => {
             onClick={() => open()}
             className="px-4 py-2 bg-blue-500 text-white rounded-md"
           >
-            Upload Image
+            Upload Thumbnail
           </button>
         )}
       </CldUploadWidget>
-                <input className='rounded-lg p-4 ' placeholder='Title' ref={titleRef} />
+                <input className='rounded-lg p-4 md:ml-4 ' placeholder='Title' ref={titleRef} />
                 <input className='rounded-lg p-4 ' placeholder='Body text' ref={bodyText} />
 
              </div>
@@ -287,7 +290,7 @@ const Admin = (props: Props) => {
       </div>
       
 
-      <div className='flex self-end w-screen justify-around relative md:mt-56 '  >
+      <div className='flex self-end w-screen justify-around relative md:mt-72 '  >
         <Footer/>
       </div>
 
