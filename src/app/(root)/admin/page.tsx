@@ -1,5 +1,5 @@
 'use client'
-import React,{useState,useContext,useRef} from 'react'
+import React,{useState,useContext,useRef,useEffect} from 'react'
 import { StoreStateContext } from '@/app/lib/context/storeContext'
 import NavBar from '@/app/components/ui/nav/nav'
 import Footer from '@/app/components/shared/footer/home/footer'
@@ -16,12 +16,15 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { getUser } from "@/app/lib/database/connections";
 import { useQuery } from "@tanstack/react-query";
+import { useMutation } from '@tanstack/react-query'
+import { videoUpdate } from '@/app/lib/database/connections'
 type Props = {}
 
 
 {/* Categories: video, notification, news */}
 const Admin = (props: Props) => {
     const ctx=useContext(StoreStateContext);
+     const inputFileRef = useRef<HTMLInputElement | null>(null);
     const userName=useRef<any>(null);
     const passWord=useRef<any>(null);
     const titleRef=useRef<any>(null);
@@ -32,10 +35,23 @@ const Admin = (props: Props) => {
     const [postActive,setPostActive]=useState<any>(null);
     const [banActive,setBanActive]=useState<any>(null);
     const [addAdmin,setAddAdmin]=useState<any>(null);
-    
+     const [returnData,setReturnData]=useState<any>([]);
+     const [vidUrl, setVidUrl] = useState<string | null>(null);
+        const [sent, setSent] = useState<boolean>(false);
+        const [asset, setAsset] = useState<string | null>(null);
+        const [addUserVid, setUserVid] = useState<any>();
+        const [uploadMessage, setUploadMessage] = useState<any>('');
+        const [uploadURL, setUploadURL] = useState<any>('');
+        const [uploadID, setUploadID] = useState<any>('');
+        const [currFileName, setCurrFileName] = useState<any>('');
+        const [userState, setUserState] = useState<any>();
+        const [moddedUser, setModdedUser] = useState<any>();
+         const [currInputData,setInputData]=useState<any[]>([]);
+    const [userData,setUserData]=useState<any>();
     const [imageUrl, setImageUrl] = useState<string | null>(null);
     const [imageData,setImageData]=useState<any>();
-    const [userData,setUserData]=useState<any>();
+    const [currVideoUrl,setCurrVideoUrl]=useState<any>(null);
+    //const [userData,setUserData]=useState<any>();
     const [updated,setUpdated]=useState<any>(null)
     const [currData,setCurrData]=useState<any>()
       const [dataState,setDataState]=useState<any>()
@@ -45,9 +61,78 @@ const Admin = (props: Props) => {
     //const user:any=localStorage.getItem("userdata");
     //const finUserData=JSON.parse(user);
     //setUserData(ctx.getUserData);
+    useEffect(() => {
+      let currUser = localStorage.getItem("userdata");
+      let currData = currUser ? JSON.parse(currUser) : null;
+    
+      if (currData) {
+        setUserState(currData);
+        console.log(currData); // Debugging the user data
+      }
+      if (vidUrl) { 
+          return () => URL.revokeObjectURL(vidUrl);
+        }
+      // Ensure the user data is updated after a successful video upload
+      if (sent && uploadURL && uploadID) {
+        const updatedUser = {
+          ...currData, // Spread the current user data
+          videos: [
+            ...(currData.videos || []), // Append to existing videos array
+            {
+              fileName: currFileName,
+              assetId: uploadID,
+              tags: ['user-selected tags'],
+              user: currData,
+              url: uploadURL,
+            },
+          ],
+        };
+    
+        setModdedUser(updatedUser);
+        ctx.getUser(updatedUser); // Trigger context update
+    
+        // Optional: Persist the updated user data to the backend or localStorage
+        axios.post('/api/updateuser', updatedUser).catch(console.error);
+      }
+    
+      // Reset state when video is uploaded or user logs in
+      if (session?.user) {
+        setUserState(ctx.userData);
+      }
+    
+      // Video data handling
+      const currVideo: any = localStorage.getItem("video");
+      const vidObj = JSON.parse(currVideo);
+      if (vidObj != null) {
+        setUserVid(vidObj);
+      }
+    
+      const storedVidUrl = localStorage.getItem("video");
+    
+      if (storedVidUrl) {
+        setVidUrl(JSON.parse(storedVidUrl));
+      }
+    
+    }, [vidUrl, sent]);
     if(imageUrl){
       console.log(imageUrl)
     }
+
+    const mutation = useMutation({
+      mutationFn: async (video: any) => {
+        if (video != undefined) {
+          const currVideo: any = await video;
+          return videoUpdate(currVideo);
+        }
+        return { message: "No Data!" }
+      },
+      onSuccess: () => {
+        console.log("User data updated successfully");
+      },
+      onError: (error) => {
+        console.error("Error updating user data:", error);
+      }
+    });
     //if(finUserData!=null){
       //setUserData(finUserData)
    // }
@@ -66,7 +151,78 @@ const Admin = (props: Props) => {
 
 
     }
+    const handleFileChange = () => {
+      const file = inputFileRef?.current?.files ? inputFileRef.current.files[0] : null;
+      if (file) {
+        setVidUrl(URL.createObjectURL(file));
+      }
+    };
+
+    const sendToNetwork=()=>{
+
+    }
+
+    async function uploadFile(file:any) {
+      const currFile=await file.files[0]?file.files[0].name:null
+      const response = await fetch(`/api/muxupload?filename=${currFile}`, {
+        method: 'POST',
+      });
+      const data = await response.json();
     
+      if (data.uploadUrl && ctx.userData!=null ) {
+        
+        const id=await data.uploadUrl
+        setReturnData(data)
+        setAsset(id)
+        let currUser=await userData
+        let uploaded:any=await userData;
+         const vids={//filename, assetId, tags, user
+          fileName:currFile,
+          assetId:asset,
+          tags:['user-selected tags'],
+          user:currUser,
+          uploadUrl:data.uploadUrl
+        }
+            uploaded.push(vids)
+           currUser?.videos.map((vals:any)=>{
+            return [...vals, vids]
+           })
+           ctx.getUser(currUser)
+           localStorage.set("userdata",currUser)
+        if(currFile!=null ){
+          
+        }
+       
+        const uploadResponse = await fetch(data.uploadUrl, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/octet-stream' },
+          body: currFile, // The file from an <input type="file" /> element
+        }).then((res:any)=>{
+          setSent(true)
+          setAsset(res?.assetId)
+        });
+        
+        /*if (uploadResponse.ok) {
+        
+          console.log('File successfully uploaded to Mux');
+        } else {
+          console.error('Error during upload:', uploadResponse.statusText);
+        }
+          */
+      }
+    }
+    
+   // const uploadFileName = () => {
+      //  setCurrFileName(fileNameRef.current.value);
+   // };
+
+    const stateReset = () => {
+      if (sent) {
+        setSent(false);
+      }
+    };
+
+
 
    console.log('Curr User: ', userName?.current?.value)
    console.log('Curr Pass: ', passWord?.current?.value)
@@ -248,7 +404,9 @@ const Admin = (props: Props) => {
       </CldUploadWidget>
                 <input className='rounded-lg p-4 md:ml-4 ' placeholder='Title' ref={titleRef} />
                 <input className='rounded-lg p-4 ' placeholder='Body text' ref={bodyText} />
-
+               <button  onClick={()=>uploadFile(inputFileRef?.current)} className='flex h-8 font-Gardion relative md:absolute   max-sm:left-20 md:left-10 md:top-56 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-96 text-white ' >
+                   Post To Gam3r Network
+               </button>
              </div>
 
             </motion.div>}

@@ -17,7 +17,11 @@ export type User={
     videos?:any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[],
     livestreams?: any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[],
     uploadedGames?: any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[],
-    viewedContent?:any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[]
+    viewedContent?:any[] | null | undefined | {fileName:any, assetId:any, tags:any[], user:any}[],
+    urlSet:string | null | undefined ,
+    blobUrl: string |null | undefined,
+    file: File | null,
+    fileSet: File | null
   }
 const initialContext={
    userCheck:(username:string,password:string)=>{
@@ -57,6 +61,15 @@ const initialContext={
    },
    wishlistUpdate:(wishlist:object)=>{
 
+   },
+   urlSet:(file:string | null | undefined)=>{
+
+   },
+   currUrl:null,
+   blobUrl:null as string | null,
+   file:null as File | null,
+   fileSet:(file:File | null)=>{
+
    }
 }
 type ContextType=typeof initialContext;
@@ -81,6 +94,24 @@ export const StoreStateContextProvider:FC<StoreStateContextProviderProps>=({chil
     const [recommendedVideos,setRecommendedVideos]=useState([]);
     const [recommendedLives,setRecommendedLives]=useState([]);
     const [currUser,setCurrUser]=useState([]);
+    const [blobUrl, setBlobUrl] = useState<string | null>(null);
+    const [file, setFile] = useState<File | null>(null);
+
+
+    const fileSet=(file:File | null)=>{
+        if(file!=null){
+            const fileURL=file;
+            setFile(file)
+        }
+
+    }
+
+    const urlSet=(file:any)=>{
+        if (file) {
+            const objectUrl = URL.createObjectURL(file);
+            setBlobUrl(objectUrl);
+          }
+    }
     
     const userCheck=(username:string,password:string)=>{
         const userCheck= username.split(',');//Optimize with Regex
@@ -223,9 +254,13 @@ export const StoreStateContextProvider:FC<StoreStateContextProviderProps>=({chil
         forumUpdate,
         infoUpdate,
         purchaseUpdate,
-        wishlistUpdate
+        wishlistUpdate,
+        urlSet,
+        blobUrl,
+        fileSet,
+        file
     }),
-    [userData]
+    [userData,blobUrl,file]
    );
 
     return(<StoreStateContext.Provider value={contextValue} >

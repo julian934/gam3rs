@@ -8,7 +8,7 @@ import Footer from '@/app/components/shared/footer/general/page';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
 import { videoUpdate } from '@/app/lib/database/connections';
-import { FileUpload } from '@/app/components/ui/file-upload/file-upload';
+import { FileUpload } from '@/app/components/ui/file-upload/file-upload'
 import MobileNav from '@/app/components/shared/modals/mobileNav';
 type Props = {}
 
@@ -24,6 +24,7 @@ const TestUploadRedux = (props: Props) => {
     const [currFileName, setCurrFileName] = useState<any>('');
     const [userState, setUserState] = useState<any>();
     const [moddedUser, setModdedUser] = useState<any>();
+    const [urlState,setURLState]=useState<any>();
     const { data: session } = useSession();
     const ctx = useContext(StoreStateContext);
 
@@ -49,10 +50,11 @@ const TestUploadRedux = (props: Props) => {
     useEffect(() => {
         let currUser = localStorage.getItem("userdata");
         let currData = currUser ? JSON.parse(currUser) : null;
-      
-        if (currData) {
-          setUserState(currData);
-          console.log(currData); // Debugging the user data
+        console.log('Curr Data (updated):', ctx.blobUrl);
+        //const storedUrl = localStorage.getItem('VidURL');
+        const storedUrl=ctx.blobUrl;
+        if (storedUrl) {
+          setURLState(storedUrl);
         }
         if (vidUrl) { 
             return () => URL.revokeObjectURL(vidUrl);
@@ -119,23 +121,31 @@ const TestUploadRedux = (props: Props) => {
       }
 
       const file = inputFileRef.current.files[0];
-      const fileData:any=localStorage.getItem("videoData");
-      const fileURL=JSON.parse(fileData);
+    //  const file=localStorage.getItem('VidURL');
+    //const file=urlState;
+       //file!=null && file!=undefined && JSON.parse(file);
+     // const fileData:any=localStorage.getItem("videoData");
+      const fileURL=ctx.file && {
+        fileName: ctx.file.name,
+        size: ctx.file.size,
+        modified: ctx.file.lastModified,
+      };
+      console.log('Check File: ', fileURL)
       // Step 1: Request an upload URL from the backend
-      const { data } = await axios.post('/api/uploads', { filename: fileURL.fileName });
+      const { data } = await axios.post('/api/uploads', { filename: fileURL && fileURL?.fileName });
       const uploadUrl = data.uploadUrl;
 
       // Step 2: Upload the file to Mux using the upload URL
       try {
        
-        const response = await axios.post('/api/uploads', { filename: fileURL.fileName }); //filename is the file sent through. 
+        const response = await axios.post('/api/uploads', { filename: fileURL && fileURL.fileName }); //filename is the file sent through. 
 
         const { uploadUrl, assetId } = response.data;
         setUploadURL(uploadUrl);
         setUploadID(assetId);
 
-        const uploadResponse = await axios.put(uploadUrl, file, {
-          headers: { 'Content-Type': 'application/octet-stream' },
+        const uploadResponse = await axios.put(uploadUrl, ctx.file, {
+          headers: { 'Content-Type': ctx.file?.type },
         });
         setSent(true);
         setAsset(data.assetId); // Asset ID from Mux to store
@@ -196,8 +206,15 @@ const TestUploadRedux = (props: Props) => {
       }
     };
 
+    let checkData=localStorage.getItem('VidURL')
+   ctx.blobUrl && console.log(ctx.blobUrl);
+   let currCheck=localStorage.getItem('videoData')
+   let currLink=localStorage.getItem('video')
+   console.log('curr file url: ', currCheck )
+   console.log('Testing Video LinkL: ')
+   console.log('Testing Upload URL: ', uploadURL)
     return (
-        <div className='bg-white'>
+        <div className='bg-white min-h-screen '>
             <div className='flex w-full'>
                 <NavBar />
             </div>
@@ -221,7 +238,7 @@ const TestUploadRedux = (props: Props) => {
                       </div>
                     )}
 
-                    {!sent && session?.user && (
+                    {/*!sent && session?.user && (
                       <input
                         className="z-50 max-sm:w-full text-black bg-slate-200 flex w-1/2 justify-center md:self-center"
                         onChange={handleFileChange}
@@ -231,11 +248,11 @@ const TestUploadRedux = (props: Props) => {
                         placeholder="Title"
                         required
                       />
-                    )}
+                    )*/}
 
                     <div className='flex md:z-50 md:self-center md:flex-col md:w-full md:h-full md:justify-center md:justify-around md:justify-self-center md:space-y-4'>
                         {!sent && session?.user && (
-                          <input className='z-50 text-black bg-slate-200 flex self-center -skew-x-12 ' onChange={uploadFileName} ref={fileNameRef} placeholder='File Name' />
+                          <input className='z-50 text-black bg-slate-200 flex self-center -skew-x-12 px-2 ' onChange={uploadFileName} ref={fileNameRef} placeholder='File Name' />
                         )}
                         {!sent && session?.user && <button className="flex h-8 justify-center self-center text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white " onClick={uploadFile}>
                           Upload
@@ -248,7 +265,7 @@ const TestUploadRedux = (props: Props) => {
                 </div>
             </div>
 
-            <div className='flex'>
+            <div className='flex  md:self-end md:justify-center md:relative md:top-24 '>
                 <Footer />
             </div>
         </div>

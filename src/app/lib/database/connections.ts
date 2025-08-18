@@ -64,11 +64,12 @@ export const getUpcomingForums=async()=>{
   return 'Videos not found'
 }*/
 export const getVideoInfo=async(id:string)=>{
-  const conn=axios.get(`/api/mux/video?id=${id}`)
-  if(conn){
-    return conn
+  try {
+    const response = await axios.get(`/api/mux/video?id=${id}`)
+    return response.data  // Always returns an object
+  } catch (err) {
+    return { message: 'Videos not found', status: 404 }
   }
-  return 'Videos not found'
 }
 export const cloudConnect=async()=>{
     const conn=await axios.get('/api/db/cloudinary');

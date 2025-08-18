@@ -71,12 +71,12 @@ export const FileUpload = ({
   })
   
   useEffect(() => {
-   // let currUser=localStorage.getItem("userdata");
-    //let currData=currUser?JSON.parse(currUser) : null;
-    /*if(currData){
+    let currUser=localStorage.getItem("userdata");
+    let currData=currUser?JSON.parse(currUser) : null;
+    if(currData){
        setUserState(currData)
        console.log(ctx.userData)
-    }*/
+    }
     if (vidUrl) { 
       return () => URL.revokeObjectURL(vidUrl);
     }
@@ -119,102 +119,7 @@ export const FileUpload = ({
   };
   */
 
-  const uploadFile = async () => {
-    if (!inputFileRef.current?.files) {
-      console.error('No file selected');
-      return;
-    }
 
-    const file = inputFileRef.current.files[0];
-    
-    // Step 1: Request an upload URL from the backend
-    const { data } = await axios.post('/api/uploads', { filename: file.name });
-    const uploadUrl = data.uploadUrl;
-
-    // Step 2: Upload the file to Mux using the upload URL
-    try {
-          
-       const response=await axios.post('/api/uploads',{filename:file.name});
-      
-       const {uploadUrl,assetId}=response.data;
-       setUploadURL(uploadUrl);
-       setUploadID(assetId);
-      const uploadResponse = await axios.put(uploadUrl, file, {
-        headers: { 'Content-Type': 'application/octet-stream' },
-      });
-      setSent(true);
-      setAsset(data.assetId); // Asset ID from Mux to store
-      
-      console.log('Video uploaded successfully:', uploadResponse.data);
-
-      // Optional: Update user data context
-      const currUser = userState;
-      const newUpload = {
-        fileName: currFileName?currFileName:'',
-        assetId: uploadID,
-        tags: ['user-selected tags'],
-        user: currUser,
-        url:uploadURL? uploadURL : ''  ,
-      };
-    //  currUser?.videos.map((vals:any)=>{
-       // return [...vals, newUpload]
-       //})
-       const userData={
-        user:session?.user?.name,
-        fileName: currFileName?currFileName:'',
-        assetId: uploadID,
-        tags: ['user-selected tags'],//Modify to template literal containing user tags. 
-        url:uploadURL? uploadURL : ''  ,
-        time:new Date(),
-        views:0
-       }
-       mutation.mutate(userData)
-       currUser.videos.push(newUpload)
-       //ctx.getUser(currUser)
-       mutation.mutate(newUpload);
-       localStorage.set("userdata",JSON.stringify(currUser))
-       let newUser=localStorage.get("userdata");
-       setUserState(JSON.parse(newUser));
-      ctx.getUser({
-        ...currUser,
-        videos: [...currUser.videos, newUpload],
-      });
-      let currData=currUser
-      
-      
-      const updateUser=await axios.post('/api/updateuser',currData);
-      
-        
-      return updateUser
-        /* 
-      if (uploadResponse.status === 200) {
-        setSent(true);
-        setAsset(data.assetId); // Asset ID from Mux to store
-        
-        console.log('Video uploaded successfully:', uploadResponse.data);
-
-        // Optional: Update user data context
-        const currUser = ctx.userData;
-        const newUpload = {
-          fileName: file.name,
-          assetId: uploadID,
-          tags: ['user-selected tags'],
-          user: currUser,
-          url:uploadURL,
-        };
-
-        ctx.getUser({
-          ...currUser,
-          videos: [...currUser.videos, newUpload],
-        });
-        const updateUser=await axios.post('/api/updateuser',ctx.getUser);
-
-        return updateUser
-      }*/
-    } catch (error) {
-      console.error("Error during file upload:", error);
-    }
-  };
   const uploadFileName=()=>{
       setCurrFileName(fileNameRef.current.value)
   }
@@ -262,8 +167,8 @@ export const FileUpload = ({
       type:newData? newData.type  : ''
     }
     setData(vals)
-    localStorage.setItem("AdminVideoData",JSON.stringify(newData));
-    localStorage.getItem("AdminVideoData")
+    localStorage.setItem("videoData",JSON.stringify(newData));
+    localStorage.getItem("videoData")
   }
    onChange // && setVidUrl(currFile[0].name);
   };

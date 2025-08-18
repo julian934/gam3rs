@@ -71,8 +71,9 @@ export const FileUpload = ({
   })
   
   useEffect(() => {
-    let currUser=localStorage.getItem("userdata");
-    let currData=currUser?JSON.parse(currUser) : null;
+    let currUser:any=localStorage.getItem("userdata");
+    let currFinUser=currUser!=undefined && currUser!=null?JSON.parse(currUser):'Anonymous';
+    let currData=currFinUser
     if(currData){
        setUserState(currData)
        console.log(ctx.userData)
@@ -262,6 +263,7 @@ export const FileUpload = ({
       type:newData? newData.type  : ''
     }
     setData(vals)
+   newFiles &&  ctx.fileSet(newFiles[0]);
     localStorage.setItem("videoData",JSON.stringify(newData));
     localStorage.getItem("videoData")
   }
@@ -284,6 +286,15 @@ vidUrl && console.log(vidUrl)
 files && console.log(files)
 files!=undefined && console.log(files[0]?.name)
 newData && console.log(newData)
+console.log('Current File: ', ctx.file)
+const test=Object.create(ctx.file)
+console.log('Object File: ',test?.fileName )
+const fileURL=ctx.file && {
+  fileName: ctx.file.name,
+  size: ctx.file.size,
+  modified: ctx.file.lastModified,
+};
+console.log(fileURL)
   return (
     <div className="w-full" {...getRootProps()}>
       <div  >

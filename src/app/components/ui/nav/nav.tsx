@@ -137,11 +137,11 @@ const NavBar = (props: Props) => {
          <SearchBar/>
         
          {/*  <Image className='text-white' src='' alt='notifications' /> */}
-         <div className='pt-4 z-40 max-sm:z-50 text-white space-y-2' >
+         <div className='pt-4 z-40 max-sm:z-50 text-white space-y-2 md:block' >
             {/* Profile Picture if signed in, blank if signed out, with drop down menu option. */}
             {session?  <> 
-              <button className=' z-30  ' onClick={menu}  >
-            {dataState && dataState!=undefined &&  dataState?.settings?.thumbnails?.length>0 && dataState?.settings?<Image className='rounded-3xl md:h-12 md:w-12 md:self-center max-sm:ml-10 md:justify-self-center ' width={100} height={100} src={`${dataState?.settings?.thumbnails[0]}`} alt='User Profile Pic' />:<Image width={100} height={100} className='bg-slate-200 rounded-3xl md:h-12 md:w-12' src={placeholder} alt='default image' />}
+              <button className=' z-30 flex flex-col  ' onClick={menu}  >
+            {dataState && dataState!=undefined &&  dataState?.settings?.thumbnails?.length>0 && dataState?.settings?<Image className='rounded-3xl md:h-12 md:w-12 md:self-center max-sm:ml-10 md:justify-center  md:self-center ' width={100} height={100} src={`${dataState?.settings?.thumbnails[0]}`} alt='User Profile Pic' />:<Image width={100} height={100} className='bg-slate-200 relative md:justify-center  md:self-center   rounded-3xl md:h-12 md:w-12' src={placeholder} alt='default image' />}
           
           <h2 className='' >Current User: {session?.user?.name}</h2>
           
@@ -282,7 +282,7 @@ const NavBar = (props: Props) => {
          
           
          
-          {settingsMenu? <div className='relative max-sm:top-20 max-sm:right-48 md:right-48 md:top-28   z-50 ' >
+          {settingsMenu? <div className='relative max-sm:top-20 max-sm:right-48 md:right-40 md:top-12 z-[9999]  z-50 ' >
             <Settings/>
             </div> :<></>}
        
