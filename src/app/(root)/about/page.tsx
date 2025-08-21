@@ -75,7 +75,7 @@ const About = (props: Props) => {
        
           <div className='flex max-sm:flex-col max-sm:self-center max-sm:justify-self-center max-sm:space-y-4' >
                  <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[15vw]  md:h-[30vh] max-sm:w-[90vw] max-sm:h-[60vh] '  quality={100} height={100} width={100} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
-                 <div className='relative max-sm:right-0 md:right-44' > 
+                 <div className='relative max-sm:right-0 md:-right-4  '   > 
                  <AboutJulian/>
                  </div>
                 
@@ -93,7 +93,7 @@ const About = (props: Props) => {
       
 
      </div>*/}
-     <div className='flex relative max-sm:top-28 md:top-4 row-start-4 col-start-1 col-span-4 justify-around bg-white ' >
+     <div className='flex relative max-sm:top-28 md:top-10 row-start-4 col-start-1 col-span-4 justify-around bg-white ' >
      <Link className='self-center' href='/' >
        <Image className='w-12 h-12  ' src={Instagram} alt='Instagram'  /> {/* Instagram out of place, find one that is black and white. */}
        </Link>
@@ -106,7 +106,7 @@ const About = (props: Props) => {
 
      </div>
     
-     <div className='flex relative  max-sm:top-36 bg-white top-10 col-start-1 col-span-6 row-start-4  self-end justify-around 
+     <div className='flex relative md:top-10  max-sm:top-36 bg-white top-10 col-start-1 col-span-6 row-start-4  self-end justify-around 
       ' >
      <Footer/>
      </div>

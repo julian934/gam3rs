@@ -21,28 +21,18 @@ const ForumPost = (props: Props) => {
        
         
         
-        <div className='flex h-[7.5vh] max-sm:h-[6vh] max-sm:left-8 w-[30vw] max-sm:min-w-[60vw] relative md:left-60 justify-center text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl   to-red-900  -skew-x-12 w-40 text-white' >
-        <div className='relative md:right-12 top-4 text-sm text-black z-[9999]' >
-            <h1 className='font-Gardion' >
-              
-            </h1>
-        
-        </div>
+        <div className='flex h-[7.5vh] max-sm:h-[6vh] max-sm:left-8 w-[30vw] max-sm:min-w-[60vw] relative md:left-60 justify-center text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl   to-red-900  z-[9999] -skew-x-12 w-40 text-white' >
+       
         <div className='relative left-20 max-sm:left-0 top-4 text-sm text-black z-[9999]' >
             <h1 className='font-Gardion' >
                {props.user}
             </h1>
+            <h1 className='font-Gardion' >
+                 {props.forum}
+                 </h1>
+        </div>
+        </div>
         
-        </div>
-        </div>
-        <div className='flex h-8 justify-center h-[7.5vh] max-sm:h-[6vh] w-[30vw] max-sm:min-w-[60vw] z-[9999] relative md:left-48 relative text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900  -skew-x-12 w-40 text-white' >
-        <div className='relative text-black  top-2 ' >
-            <h1 className='text-md text-white font-Gardion' >
-            {props.forum}
-            </h1>
-       
-        </div>
-        </div>
         <Motion.div className='relative md:left-[15vw] md:top-[5vh] max-sm:p-2  max-sm:-left-4  flex flex-col z-[9998]' >
           
           {/* <button onClick={()=>setActiveModal(!activeModal)} >{activeModal?<Image className='relative z-[9999] w-8 h-8' src={DownArrow} alt='Open Modal' />:<Image className='relative w-8 h-8' src={UpArrow}  alt='Down Modal' />}</button>*/}

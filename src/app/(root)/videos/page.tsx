@@ -30,7 +30,7 @@ const Videos = (props: Props) => {
       <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
         <MobileNav/>
       </div>
-      <div className='flex max-sm:z-50 max-sm:invisible max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-slate-200 max-sm:bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
+      <div className='flex max-sm:z-50 max-sm:invisible max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-slate-200 max-sm:bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-4/5 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
        <div className='relative md:top-4 md:-left-2' >
          <Notifications/>
         </div>
@@ -77,7 +77,7 @@ const Videos = (props: Props) => {
 
         </div>
       </div>
-      <div className=' flex max-sm:invisible md:z-[9999] max-sm:border-2 md:top-20 md:left-60 md:-right-10  max-sm:border-black max-sm:h-full md:relative row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-2/3 md:px-8 justify-self-end rounded-md self-start md:col-start-5 bg-slate-200 ' >
+      <div className=' flex max-sm:invisible md:z-[9999] max-sm:border-2 md:top-20 md:left-60 md:-right-10  max-sm:border-black max-sm:h-full md:relative row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-4/5 md:px-8 justify-self-end rounded-md self-start md:col-start-5 bg-slate-200 ' >
       <div className='relative md:left-4 md:top-4' >
           <FriendsList  />
       </div>

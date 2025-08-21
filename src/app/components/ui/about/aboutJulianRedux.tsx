@@ -41,7 +41,7 @@ const AboutJulian = (props: Props) => {
         {/* Modal */}
         {isModalOpen && (
           <Motion.div
-            className="relative mt-4 md:min-h-[20vh] md:min-w-[25vw] max-w-[90vw] bg-black text-white p-4 rounded-md shadow-lg"
+            className="absolute md:min-h-[20vh] md:min-w-[25vw] max-w-[90vw] bg-black text-white md:mt-20 rounded-md shadow-lg"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}

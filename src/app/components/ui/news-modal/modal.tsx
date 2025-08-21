@@ -9,20 +9,21 @@ export function InfiniteMovingCardsDemo() {
      const [newsState,setNewsState]=useState<any>();
     const {data}=useQuery({
         queryKey:['newsModal'],
-        queryFn:getNews
+        queryFn:()=>getNews(),
+
     });
 
     useEffect(()=>{
         if(data){
-            const currData=data? data?.data?.data : null
-             const testData=currData.title=='Welcome to the Gam3r Network'?[currData,currData,currData]: currData;
+            const currData=data? data?.data : null
+           //  const testData=currData?.title=='Welcome to the Gam3r Network'?[currData,currData,currData]: currData;
 
    
-            setNewsState(testData);
-            if(testData!= null && testData.title=='Welcome to the Gam3r Network'){
+            setNewsState(currData);
+           /* if(testData!= null && testData.title=='Welcome to the Gam3r Network'){
                 const newData=[testData,testData,testData]
                 setNewsState(newData)
-               }
+               }*/
         }
     },[data]);
     if(newsState){

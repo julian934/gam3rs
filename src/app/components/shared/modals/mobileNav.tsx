@@ -11,12 +11,23 @@ import SignUp from '@/app/utils/images/signUp.png'
 import videoIcon from '@/app/utils/images/videoIcon.png'
 import minimizeButton from '@/app/utils/images/minimize-button.png'
 import NotificationCircle from '@/app/utils/images/notification-circle.png'
+import { HoverEffect } from '../../ui/hover-effect/hover-effect'
+import Gif from '../../shared/videos/gif/mobileGif'
+import { getNotifications } from '@/app/lib/database/connections'
+import { useQuery } from '@tanstack/react-query'
 
 type Props = {}
 
 const MobileNav = (props: Props) => {
     const [activated,setActivated]=useState<undefined | null | boolean>(null);
     const [signModal,setSignModal]=useState<undefined | null | boolean>(null);
+
+    const {data}=useQuery({
+      queryKey:['latestVideos'],
+      queryFn:()=>getNotifications(),
+      enabled: !!getNotifications
+  });
+
     useEffect(() => {
         const setVh = () => {
           document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
@@ -70,7 +81,18 @@ const MobileNav = (props: Props) => {
         {activated &&  <motion.div className=' fixed pointer-events-auto bg-slate-200  max-w-[80vw]  rounded-md top-36 left-10 w-[80vw] h-[45vh] max-h-25vh' >
         {/* Middle Modal */}
         <motion.div className='bg-slate-200 ' >
-            <h1 className='' >Active</h1>
+            
+            <div className=' flex flex-col max-h-[40vh] py-2 space-y-20 border-2 border-black max-w-[60vw] self-center justify-self-center overflow-y-auto' >
+            {data && data?.data?.reverse()?.map((vals:any)=>
+      <Link className='flex flex-col justify-center self-center h-[10vh] w-3/5  ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
+        <h1 className='' >{vals?.user} just posted {vals?.fileName}:  </h1>
+        <div className='flex w-full px-4 max-h-[5vh]' > 
+          <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
+        </div>
+       
+       </Link>)}
+            </div>
+          
             
 
              </motion.div>

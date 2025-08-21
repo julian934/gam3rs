@@ -9,7 +9,7 @@ import * as motion from 'motion/react-client'
 import UploadWidget from '@/app/components/shared/uploadImage/upload'
 import { CldUploadWidget, CldImage } from "next-cloudinary";
 import test from "node:test";
-import { FileUpload } from '@/app/components/ui/file-upload/admin-file-upload'
+import { FileUpload } from '@/app/components/ui/file-upload/file-upload'
 import axios from "axios";
 import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
@@ -18,6 +18,7 @@ import { getUser } from "@/app/lib/database/connections";
 import { useQuery } from "@tanstack/react-query";
 import { useMutation } from '@tanstack/react-query'
 import { videoUpdate } from '@/app/lib/database/connections'
+import { notificationUpdate } from '@/app/lib/database/connections'
 type Props = {}
 
 
@@ -51,6 +52,7 @@ const Admin = (props: Props) => {
     const [imageUrl, setImageUrl] = useState<string | null>(null);
     const [imageData,setImageData]=useState<any>();
     const [currVideoUrl,setCurrVideoUrl]=useState<any>(null);
+    const [urlState,setURLState]=useState<any>();
     //const [userData,setUserData]=useState<any>();
     const [updated,setUpdated]=useState<any>(null)
     const [currData,setCurrData]=useState<any>()
@@ -64,10 +66,11 @@ const Admin = (props: Props) => {
     useEffect(() => {
       let currUser = localStorage.getItem("userdata");
       let currData = currUser ? JSON.parse(currUser) : null;
-    
-      if (currData) {
-        setUserState(currData);
-        console.log(currData); // Debugging the user data
+      console.log('Curr Data (updated):', ctx.blobUrl);
+      //const storedUrl = localStorage.getItem('VidURL');
+      const storedUrl=ctx.blobUrl;
+      if (storedUrl) {
+        setURLState(storedUrl);
       }
       if (vidUrl) { 
           return () => URL.revokeObjectURL(vidUrl);
@@ -122,7 +125,7 @@ const Admin = (props: Props) => {
       mutationFn: async (video: any) => {
         if (video != undefined) {
           const currVideo: any = await video;
-          return videoUpdate(currVideo);
+          return notificationUpdate(currVideo);
         }
         return { message: "No Data!" }
       },
@@ -161,60 +164,93 @@ const Admin = (props: Props) => {
     const sendToNetwork=()=>{
 
     }
-
-    async function uploadFile(file:any) {
-      const currFile=await file.files[0]?file.files[0].name:null
-      const response = await fetch(`/api/muxupload?filename=${currFile}`, {
-        method: 'POST',
-      });
-      const data = await response.json();
-    
-      if (data.uploadUrl && ctx.userData!=null ) {
-        
-        const id=await data.uploadUrl
-        setReturnData(data)
-        setAsset(id)
-        let currUser=await userData
-        let uploaded:any=await userData;
-         const vids={//filename, assetId, tags, user
-          fileName:currFile,
-          assetId:asset,
-          tags:['user-selected tags'],
-          user:currUser,
-          uploadUrl:data.uploadUrl
-        }
-            uploaded.push(vids)
-           currUser?.videos.map((vals:any)=>{
-            return [...vals, vids]
-           })
-           ctx.getUser(currUser)
-           localStorage.set("userdata",currUser)
-        if(currFile!=null ){
-          
-        }
-       
-        const uploadResponse = await fetch(data.uploadUrl, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/octet-stream' },
-          body: currFile, // The file from an <input type="file" /> element
-        }).then((res:any)=>{
-          setSent(true)
-          setAsset(res?.assetId)
-        });
-        
-        /*if (uploadResponse.ok) {
-        
-          console.log('File successfully uploaded to Mux');
-        } else {
-          console.error('Error during upload:', uploadResponse.statusText);
-        }
-          */
-      }
+    const handlefileName=()=>{
+      setCurrFileName(titleRef?.current?.value)
     }
-    
-   // const uploadFileName = () => {
-      //  setCurrFileName(fileNameRef.current.value);
-   // };
+
+    const uploadFile = async () => {
+      /*if (!inputFileRef.current?.files) {
+        console.error('No file selected');
+        return;
+      }
+
+      const file = inputFileRef.current.files[0];*/
+    //  const file=localStorage.getItem('VidURL');
+    //const file=urlState;
+       //file!=null && file!=undefined && JSON.parse(file);
+     // const fileData:any=localStorage.getItem("videoData");
+      const fileURL=ctx.file && {
+        fileName: ctx.file.name,
+        size: ctx.file.size,
+        modified: ctx.file.lastModified,
+      };
+      console.log('Check File: ', fileURL)
+      // Step 1: Request an upload URL from the backend
+      const { data } = await axios.post('/api/uploads', { filename: fileURL && fileURL?.fileName });
+      const uploadUrl = data.uploadUrl;
+
+      // Step 2: Upload the file to Mux using the upload URL
+      try {
+       
+        const response = await axios.post('/api/uploads', { filename: fileURL && fileURL.fileName }); //filename is the file sent through. 
+
+        const { uploadUrl, assetId } = response.data;
+        setUploadURL(uploadUrl);
+        setUploadID(assetId);
+
+        const uploadResponse = await axios.put(uploadUrl, ctx.file, {
+          headers: { 'Content-Type': ctx.file?.type },
+        });
+        setSent(true);
+        setAsset(data.assetId); // Asset ID from Mux to store
+
+        console.log('Video uploaded successfully:', uploadResponse.data);
+
+        // Optional: Update user data context
+        const currUser = userState;
+        const videoUrl: any = localStorage.getItem("video");
+        console.log("Video check:", JSON.parse(videoUrl));
+
+        const newUpload = {
+          fileName: currFileName ? currFileName : '',
+          assetId: uploadID,
+          tags: ['user-selected tags'],
+          user: currUser,
+          url: uploadURL ? uploadURL : '',
+        };
+
+        const userData = {
+          user: session?.user?.name,
+          fileName: currFileName ? currFileName : '',
+          assetId: uploadID,
+          tags: ['user-selected tags'],
+          url: uploadURL ? uploadURL : '',
+          time: new Date(),
+          views: 0
+        };
+
+        mutation.mutate(userData);
+        currUser.videos.push(newUpload);
+        localStorage.setItem("userdata", JSON.stringify(currUser));
+        let newUser:any = localStorage.getItem("userdata");
+        setUserState(JSON.parse(newUser));
+
+        ctx.getUser({
+          ...currUser,
+          videos: [...currUser.videos, newUpload],
+        });
+        const currData = userState || JSON.parse(localStorage.getItem("userdata") || '{}');
+
+        const updateUser = await axios.post('/api/updateuser', currData);
+
+        return updateUser;
+
+      } catch (error) {
+        console.error("Error during file upload:", error);
+      }
+    };
+
+  
 
     const stateReset = () => {
       if (sent) {
@@ -229,8 +265,9 @@ const Admin = (props: Props) => {
    console.log('Admin Test: ', verified)
    console.log('Verification Status: ', verified)
    console.log('State Test: ')
-   let currVideo= localStorage.getItem("AdminVideoData")
-   console.log('Admin Video Data: ',currVideo)
+   console.log('Update Test: ', updated)
+//   let currVideo= localStorage.getItem("AdminVideoData")
+ //  console.log('Admin Video Data: ',currVideo)
   return (
     <div className='bg-white  min-h-screen ' >
         
@@ -402,9 +439,9 @@ const Admin = (props: Props) => {
           </button>
         )}
       </CldUploadWidget>
-                <input className='rounded-lg p-4 md:ml-4 ' placeholder='Title' ref={titleRef} />
+                <input className='rounded-lg p-4 md:ml-4 ' placeholder='Title' onChange={handlefileName} ref={titleRef} />
                 <input className='rounded-lg p-4 ' placeholder='Body text' ref={bodyText} />
-               <button  onClick={()=>uploadFile(inputFileRef?.current)} className='flex h-8 font-Gardion relative md:absolute   max-sm:left-20 md:left-10 md:top-56 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-96 text-white ' >
+               <button  onClick={()=>uploadFile()} className='flex z-[9999] h-8 font-Gardion relative md:absolute   max-sm:left-20 md:left-10 md:top-56 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-96 text-white ' >
                    Post To Gam3r Network
                </button>
              </div>

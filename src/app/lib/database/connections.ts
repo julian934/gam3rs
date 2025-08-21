@@ -89,6 +89,9 @@ export const notificationsList=async(userData:User)=>{
 
 }
 
+
+
+
 export const getVideos=async(userData:User)=>{
   const videoData=await fetch('/')
 
@@ -119,6 +122,8 @@ export const getGames=async()=>{
   return gameData;
 
 }
+
+
 export const forumUpdate=(forum?:object | void | null)=>{
   try {
       if(forum){
@@ -145,6 +150,22 @@ export const videoUpdate=(video?:object| void | null)=>{
   }
 
 }
+
+
+export const notificationUpdate=(video?:object| void | null)=>{
+  try {
+    if(video){
+      const currData=video;
+      const backendConnect=axios.post('/api/updates/notificationsUpdate',{currData});
+      return backendConnect;
+    }
+    return {message:"Invalid Data"};
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
 
 export const filteredPopLives=()=>{
 
@@ -213,21 +234,17 @@ export const getNews=async()=>{
   
   console.log("current news data: ", data)
   
-  return data
+  return data?.data
 }
 
 export const getNotifications=async()=>{
   const data=await axios.get('/api/getnotifications');
   console.log("Notifications: ", data?.data?.data);
   //default data for infinite cards: name, quote, title
-  const testData=await data?.data?.data;
-  if(testData.default){
-
-    return {data:testData,flag:'default'}
-  }
+  
  // const finalData=await data?.data?.data?.slice(0,2);
   
-  return {data:testData,flag:'notifications'}
+  return {data:data?.data?.data,flag:'notifications'}
 }
 
 export const getSearchData=async()=>{
