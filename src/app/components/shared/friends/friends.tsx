@@ -19,7 +19,7 @@ const FriendsList = ({friends}:any) => {
     
     //console.log(data)
   return (
-    <div className='flex max-sm:h-40 flex-col w-full bg-slate-200 rounded-md md:space-y-4' >
+    <div className='flex max-sm:h-40 flex-col w-full bg-white rounded-md md:space-y-4' >
      
       <h1 className='flex font-Gardion max-sm:w-48 h-8 max-sm:text-xl max-sm:ml-4 justify-center text-xl w-full flex md:relative md:-left-10 rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white ' > Friends {friends && friends?.length}</h1>
       
