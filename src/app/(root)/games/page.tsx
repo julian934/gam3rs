@@ -92,9 +92,7 @@ const Games = (props: Props) => {
         <MobileNav/>
       </div>
     {/* Add option to skip to the bottom. */}
-    <div className='flex max-sm:invisible flex-col row-start-1 rounded-md row-span-2 col-start-1 md:col-start-2  z-50 bg-slate-200 md:mt-12 md:ml-44 md:w-2/3 ' id='top' >
-        <Notifications/>
-    </div>
+    
     <div className='hover:bg-gray-300 rounded-3xl w-12 relative -right-8'  >
         <Link className='' href='#bottom' >
            <Image className='' src={downArrow} alt='Down Arrow' />
