@@ -131,7 +131,7 @@ const Forum = ({params}:{params: Props | undefined}) => {
        
        <Notifications/>
       </div>
-      <div className='flex flex-col relative md:-top-[50vh] max-sm:-top-[65vh] max-sm:w-[95vw]    md:w-2/3 md:h-full justify-self-center flex-around row-start-2 row-span-2 col-start-1 col-span-4 z-20  -mt-12  ' >
+      <div className='flex flex-col relative md:-top-[72.5vh] max-sm:-top-[65vh] max-sm:w-[95vw]  md:max-h-[600px]  md:w-2/3 md:h-full justify-self-center flex-around row-start-2 row-span-2 col-start-1 col-span-4 z-20  -mt-12  ' >
          
           <div className=' flex max-sm:justify-self-center  grid max-sm:mt-4 h-full w-full max-sm:grid-cols-3 max-sm:grid-rows-3 max-sm:justify-self-center max-sm:w-full grid-cols-6 grid-rows-4 flex-row  bg-black z-[9999]  col-start-2 col-span-4 row-start-2  row-span-2  flex-col px-2 ' >
         {/* Add Design to this page. */}
