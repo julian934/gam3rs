@@ -90,13 +90,13 @@ const TestUploadRedux = (props: Props) => {
         // Video data handling
         const currVideo: any = localStorage.getItem("video");
         const vidObj = JSON.parse(currVideo);
-        if (vidObj != null) {
+        if (vidObj != null && vidObj!=undefined) {
           setUserVid(vidObj);
         }
       
         const storedVidUrl = localStorage.getItem("video");
       
-        if (storedVidUrl) {
+        if (storedVidUrl && storedVidUrl!=null && storedVidUrl!=undefined) {
           setVidUrl(JSON.parse(storedVidUrl));
         }
       
@@ -156,7 +156,9 @@ const TestUploadRedux = (props: Props) => {
         const currUser = userState;
         const videoUrl: any = localStorage.getItem("video");
         console.log("Video check:", JSON.parse(videoUrl));
-
+          if(!videoUrl){
+            return ;
+          }
         const newUpload = {
           fileName: currFileName ? currFileName : '',
           assetId: uploadID,
