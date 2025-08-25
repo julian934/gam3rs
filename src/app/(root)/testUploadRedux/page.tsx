@@ -52,7 +52,7 @@ const TestUploadRedux = (props: Props) => {
         let currData = currUser ? JSON.parse(currUser) : null;
         console.log('Curr Data (updated):', ctx.blobUrl);
         //const storedUrl = localStorage.getItem('VidURL');
-        const storedUrl=ctx.blobUrl;
+        const storedUrl=ctx?.blobUrl;
         if (storedUrl) {
           setURLState(storedUrl);
         }
@@ -126,9 +126,9 @@ const TestUploadRedux = (props: Props) => {
        //file!=null && file!=undefined && JSON.parse(file);
      // const fileData:any=localStorage.getItem("videoData");
       const fileURL=ctx.file && {
-        fileName: ctx.file.name,
-        size: ctx.file.size,
-        modified: ctx.file.lastModified,
+        fileName: ctx?.file?.name,
+        size: ctx?.file?.size,
+        modified: ctx?.file?.lastModified,
       };
       console.log('Check File: ', fileURL)
       // Step 1: Request an upload URL from the backend
@@ -208,11 +208,11 @@ const TestUploadRedux = (props: Props) => {
       }
     };
 
-    let checkData=localStorage.getItem('VidURL')
+   // let checkData=localStorage.getItem('VidURL')
    ctx.blobUrl && console.log(ctx.blobUrl);
-   let currCheck=localStorage.getItem('videoData')
-   let currLink=localStorage.getItem('video')
-   console.log('curr file url: ', currCheck )
+  // let currCheck=localStorage.getItem('videoData')
+   //let currLink=localStorage.getItem('video')
+   //console.log('curr file url: ', currCheck )
    console.log('Testing Video LinkL: ')
    console.log('Testing Upload URL: ', uploadURL)
     return (
