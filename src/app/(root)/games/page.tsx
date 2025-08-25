@@ -110,7 +110,7 @@ const Games = (props: Props) => {
          </Link>
       </div>))*/}
 
-       {games && games?.sort().map((vals:any)=>
+       {games && games?.sort()?.map((vals:any)=>
               < div className=' flex md:w-1/3   md:px-12 md:space-x-4 md:py-4 ' key={vals.id} >
               <AnimatePresence>
                       {active && typeof active === "object" && (

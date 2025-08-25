@@ -35,7 +35,7 @@ export function InfiniteMovingCardsDemo() {
         <InfiniteMovingCards
         items={newsState}
         direction="right"
-        speed="slow"
+        speed="normal"
       />
         </div>
       

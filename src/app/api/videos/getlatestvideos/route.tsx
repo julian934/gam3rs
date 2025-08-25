@@ -18,12 +18,12 @@ export async function GET(request:NextRequest){
         }
         const vidData = results?.gam3rsinfo?.videos || [];
         const recents = vidData.sort((itemOne: any, itemTwo: any) => itemTwo.time - itemOne.time);
-        const currRecents = recents.reverse().slice(0, 3); // Avoid unnecessary reverse
+        const currRecents = recents?.reverse()?.slice(0, 3); // Avoid unnecessary reverse
         console.log('Testing recents: ', currRecents)
         return NextResponse.json({ data: currRecents });
         
         
-        NextResponse.json({message: "Could not access videos, please wait!"})
+   
     } catch (error) {
         NextResponse.json({message:error},{status:500})
     }

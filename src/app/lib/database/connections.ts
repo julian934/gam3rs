@@ -200,7 +200,7 @@ export const filteredPopVideos=async()=>{
 
 export const filteredLatestVideos=async()=>{
   const data=await axios.get('/api/videos/getlatestvideos');
-
+ 
   return data
 
 }

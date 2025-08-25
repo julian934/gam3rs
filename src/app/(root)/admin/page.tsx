@@ -305,9 +305,9 @@ const Admin = (props: Props) => {
           </motion.button>
 
           </motion.div>}
-          {newsActive && <motion.div className='' >
+          {newsActive && <motion.div className='flex flex-col border-2 md:relative md:left-48 border-black  z-[9999] md:self-center md:w-3/4 ' >
             {/*  Set Up News Pipeline */}
-            <div className='flex flex-col items-center space-y-4' >
+            <div className='flex flex-col relative md:left-48 md:top-28 items-center space-y-4' >
                 {/* Set Image Thumbnail */}
                 <CldUploadWidget
         uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
@@ -363,7 +363,7 @@ const Admin = (props: Props) => {
         )}
       </CldUploadWidget>
             </div>
-            <div className='' >
+            <div className='flex flex-col space-y-4 ' >
                 {/* Set Title and Body Text*/}
               <input className='rounded-lg p-4 ' placeholder='Title' ref={titleRef} />
               <input className='rounded-lg p-4 ' placeholder='Body text' ref={bodyText} />

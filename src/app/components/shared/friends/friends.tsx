@@ -21,9 +21,9 @@ const FriendsList = ({friends}:any) => {
   return (
     <div className='flex max-sm:h-40 flex-col w-full bg-slate-200 rounded-md md:space-y-4' >
      
-      <h1 className='flex font-Gardion max-sm:w-48 h-8 max-sm:text-xl max-sm:ml-4 justify-center text-3xl w-full flex md:relative md:-left-10 rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white ' > Friends {friends && friends?.length}</h1>
+      <h1 className='flex font-Gardion max-sm:w-48 h-8 max-sm:text-xl max-sm:ml-4 justify-center text-xl w-full flex md:relative md:-left-10 rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white ' > Friends {friends && friends?.length}</h1>
       
-        {!friends && <h1 className='flex flex-wrap px-4' >Your friends list will apear here once you sign in!</h1>}
+        {!friends && <h1 className='flex relative right-8 flex-wrap px-2' >Your friends list will apear here once you sign in!</h1>}
        
         {friends && <div className='flex' >
           <h3 className='self-center' >Online: </h3>
