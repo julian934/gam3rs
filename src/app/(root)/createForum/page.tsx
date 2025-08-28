@@ -9,7 +9,14 @@ import { useSession } from 'next-auth/react';
 import { SetStateAction } from 'react';
 import ForumTags from '@/app/components/ui/dropdown/forumtags';
 import Link from 'next/link';
+import { Metadata } from 'next';
 type Props = {}
+
+export const metadata:Metadata={
+  title:'The Gam3r Network create Forum Page',
+  description:'This page allows users to create Forums and post them to The Gam3r Network.',
+  creator:'The Gam3r Network'
+}
 
 const CreateForum = (props: Props) => {
     const [forumName,setForumName]=useState<string | HTMLInputElement | undefined| SetStateAction<string | HTMLInputElement | undefined>>();

@@ -19,8 +19,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useMutation } from '@tanstack/react-query'
 import { videoUpdate } from '@/app/lib/database/connections'
 import { notificationUpdate } from '@/app/lib/database/connections'
+import { Metadata } from 'next'
 type Props = {}
-
+export const metadata:Metadata={
+  title:'The Gam3r Network Admin Page',
+  description:'The Admin page allows admins to send out notifications, send out official Gam3r Network content and perform other administrative duties.',
+  creator:'The Gam3r Network'
+}
 
 {/* Categories: video, notification, news */}
 const Admin = (props: Props) => {

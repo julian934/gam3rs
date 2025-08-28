@@ -10,8 +10,13 @@ import type { SetStateAction } from 'react';
 import Link from 'next/link';
 import { HoverEffect } from '@/app/components/ui/forums/forumHover';
 import MobileNav from '@/app/components/shared/modals/mobileNav';
+import { Metadata } from 'next';
 type Props = {}
-
+export const metadata:Metadata={
+  title:'The Gam3r Network All Forums Page',
+  description:'This page holds all of the publicly-accessible forums on The Gam3r Network website.',
+  creator:'The Gam3r Network'
+}
 const AllForums = (props: Props) => {
   const [forumData,setforumData]=useState<AxiosResponse<any, any> | SetStateAction<never[] > | SetStateAction<any[] | any>>([]);
   const ctx=useContext(StoreStateContext);

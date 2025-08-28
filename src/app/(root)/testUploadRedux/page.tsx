@@ -10,8 +10,13 @@ import { useMutation } from '@tanstack/react-query';
 import { videoUpdate } from '@/app/lib/database/connections';
 import { FileUpload } from '@/app/components/ui/file-upload/file-upload'
 import MobileNav from '@/app/components/shared/modals/mobileNav';
+import { Metadata } from 'next';
 type Props = {}
-
+export const metadata:Metadata={
+  title:'The Gam3r Network Upload page.',
+  description:'This page allows users to upload content to the Gam3r Network.',
+  creator:'The Gam3r Network'
+}
 const TestUploadRedux = (props: Props) => {
     const inputFileRef = useRef<HTMLInputElement | null>(null);
     const [vidUrl, setVidUrl] = useState<string | null>(null);

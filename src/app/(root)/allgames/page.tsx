@@ -11,7 +11,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Dropdown from '@/app/components/ui/dropdown/allgames'
 import MobileNav from '@/app/components/shared/modals/mobileNav'
+import { Metadata } from 'next'
 type Props = {}
+export const metadata:Metadata={
+  title:'The Gam3r Network All Games Page',
+  description:'This page holds all of the publicly-accessible games on The Gam3r Network website.',
+  creator:'The Gam3r Network'
+}
 
 const AllGames = (props: Props) => {
     const [games,setGames]=useState<AxiosResponse<any, any> | SetStateAction<never[] > | SetStateAction<any[] | any>>([]);

@@ -14,7 +14,14 @@ import Image from 'next/image'
 import Notifications from '@/app/components/shared/notifications/notifications'
 import FriendsList from '@/app/components/shared/friends/friends'
 import MobileNav from '@/app/components/shared/modals/mobileNav'
+import { Metadata } from 'next'
 type Props = {}
+
+export const metadata:Metadata={
+  title:'The Gam3r Network Forums page.',
+  description:'The Forums landing page shows the latest, most popular and upcoming forums that The Gam3r Network will host.',
+  creator:'The Gam3r Network'
+}
 
 const Forums = (props: Props) => {
     //Utilize MongoDB for forums & optimize.
