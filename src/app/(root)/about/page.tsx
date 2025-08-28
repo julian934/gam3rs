@@ -93,7 +93,7 @@ const About = (props: Props) => {
       
 
      </div>*/}
-     <div className='flex relative max-sm:top-28 md:top-10 row-start-4 col-start-1 col-span-4 justify-around bg-white ' >
+     <div className='flex relative max-sm:top-28 top-10 row-start-4 col-start-1 col-span-4 justify-around bg-white ' >
      <Link className='self-center' href='/' >
        <Image className='w-12 h-12  ' src={Instagram} alt='Instagram'  /> {/* Instagram out of place, find one that is black and white. */}
        </Link>
@@ -106,7 +106,7 @@ const About = (props: Props) => {
 
      </div>
     
-     <div className='flex relative md:top-10  max-sm:top-36 bg-white top-10 col-start-1 col-span-6 row-start-4  self-end justify-around 
+     <div className='flex relative md:top-10 max-sm:top-36 bg-white top-10 max-sm:top-48  col-start-1 col-span-6 row-start-4  self-end justify-around 
       ' >
      <Footer/>
      </div>

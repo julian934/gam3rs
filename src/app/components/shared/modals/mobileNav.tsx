@@ -80,12 +80,12 @@ const MobileNav = (props: Props) => {
         </div>
         {activated &&  <motion.div className=' fixed pointer-events-auto bg-slate-200  max-w-[80vw]  rounded-md top-36 left-10 w-[80vw] h-[45vh] max-h-25vh' >
         {/* Middle Modal */}
-        <motion.div className='bg-slate-200 ' >
+        <motion.div className='bg-slate-200 p-4 ' >
             
             <div className=' flex flex-col max-h-[40vh] py-2 space-y-20 border-2 border-black max-w-[60vw] self-center justify-self-center overflow-y-auto' >
             {data && data?.data?.reverse()?.map((vals:any)=>
       <Link className='flex flex-col justify-center self-center h-[10vh] w-3/5  ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
-        <h1 className='' >{vals?.user} just posted {vals?.fileName}:  </h1>
+        <h1 className='font-Gardion' >{vals?.user} just posted {vals?.fileName}:  </h1>
         <div className='flex w-full px-4 max-h-[5vh]' > 
           <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
         </div>

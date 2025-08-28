@@ -21,7 +21,7 @@ const About_Modal = ({user}:any) => {
     //Need a header, description and link over entire thing. 
     
   return (
-    <div className='flex max-sm:relative max-sm:-right-2 md:max-h-[600px]  max-sm:py-10  grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-1/2 flex-col rounded-lg md:justify-between' >
+    <div className='flex max-sm:relative max-sm:-right-2 md:max-h-[600px] max-sm:max-h-[250px]  max-sm:py-10  grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-1/2 flex-col rounded-lg md:justify-between' >
          <div className='flex max-sm:w-full md:w-3/4 md:left-6 md:-top-12 relative max-sm:-left-2 max-sm:h-full max-sm:-mt-24 max-sm:-ml-6  col-start-1 rotate-45 max-sm:-rotate-45 row-start-2 w-1/2   -ml-8 -mt-16  2xl:-mt-80  bg-white ' >
             {/* Upper left slant */}
           </div>
