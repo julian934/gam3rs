@@ -12,7 +12,7 @@ const AboutJulian = (props: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 relative md:-left-2 md:px-4 ">
       {/* Name Header */}
       <div className="flex items-center justify-center h-[6vh] w-[80vw] md:w-[30vw] bg-gradient-to-r from-red-900 via-red-500 to-red-900 shadow-xl -skew-x-12 rounded-sm">
         <h1 className="font-Gardion text-xl text-white skew-x-12">Julian Borner</h1>
@@ -41,18 +41,21 @@ const AboutJulian = (props: Props) => {
         {/* Modal */}
         {isModalOpen && (
           <Motion.div
-            className="absolute md:min-h-[20vh] md:min-w-[25vw] max-w-[90vw] bg-black text-white md:mt-20 rounded-md shadow-lg"
+            className="absolute md:min-h-[20vh] md:min-w-[25vw] max-w-[90vw] bg-black text-white md:mt-10 rounded-md shadow-lg"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
           >
-            <p className="font-Gardion">
-              Julian Borner is the founder and Lead Engineer of the Gam3r Network Company and Website.
+            <p className="font-Gardion p-4">
+              Julian Borner is the founder and Lead Engineer of the Gam3r Network Company and Website
             </p>
 
             {/* Decorative corners (optional) */}
-            <div className="absolute w-5 h-5 bg-white rotate-45 -top-2 left-4"></div>
-            <div className="absolute w-5 h-5 bg-white rotate-45 -top-2 right-4"></div>
+            {/*   <div className="absolute w-5 h-10 bg-white rotate-45 border-2 border-black -top-4 left-0"></div>
+            <div className="absolute w-10 h-5 bg-white rotate-45 border-2 border-black -top-2 -right-2"></div>
+            <div className="absolute w-5 h-10 bg-white -rotate-45 border-2 border-black top-24 left-4"></div>
+            <div className="absolute w-5 h-10 bg-white rotate-45 border-2 border-black top-24 right-2"></div>*/}
+          
           </Motion.div>
         )}
       </Motion.div>

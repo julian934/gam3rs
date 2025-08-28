@@ -40,8 +40,8 @@ const About = (props: Props) => {
       
      <div className='flex md:space-x-2 max-sm:flex-col grid z-60 md:-mb-12 md:p-4 grid-cols-4 grid-rows-4 max-sm:row-start-1 md:row-start-2 md:self-center md:justify-self-center row-span-2 col-start-1 col-span-6  rounded-lg  ' >
      
-      <div className=' flex  max-sm:h-[35vh] max-sm:self-start max-sm:justify-center relative md:-top-48 max-sm:-left-2 max-sm:top-32 max-w-[800px]  max-h-[800px]  max-sm:col-start-1 max-sm:col-span-4 md:row-start-1 md:row-span-3 col-start-1 md:col-span-2
-        1 max-sm:col-start-1 max-sm:col-span-6 max-sm:h-full  md:self-center max-sm:z-50 max-sm:px-4 md:pt-0' >
+      <div className=' flex  max-sm:h-[35vh] max-sm:self-start max-sm:justify-center relative md:-top-48 max-sm:-left-2 max-sm:top-32 max-w-[800px]  md:max-h-[600px]  max-sm:col-start-1 max-sm:col-span-4 md:row-start-1 md:row-span-3 col-start-1 md:col-span-2
+        1 max-sm:col-start-1 max-sm:col-span-6 max-sm:h-full md:relative md:-top-4  md:self-center max-sm:z-50 max-sm:px-4 md:pt-0' >
           <About_Modal/>
       </div>
       <div className='flex md:relative md:-top-48 flex-col row-start-1 row-span-4 justify-center col-start-3  self-center col-span-2 
@@ -74,7 +74,7 @@ const About = (props: Props) => {
           <h1 className='font-Gardion relative max-sm:left-6' >Meet The Team</h1>
        
           <div className='flex max-sm:flex-col max-sm:self-center max-sm:justify-self-center max-sm:space-y-4' >
-                 <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[15vw]  md:h-[30vh] max-sm:w-[90vw] max-sm:h-[60vh] '  quality={100} height={100} width={100} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
+                 <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[20vw]  md:h-[40vh] max-sm:w-[90vw] max-sm:h-[60vh] '  quality={100} height={400} width={400} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
                  <div className='relative max-sm:right-0 md:-right-4  '   > 
                  <AboutJulian/>
                  </div>
