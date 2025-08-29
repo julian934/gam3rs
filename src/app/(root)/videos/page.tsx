@@ -17,13 +17,8 @@ import Popular from '@/app/components/shared/videos/popular/popularRedux'
 import Notifications from '@/app/components/shared/notifications/notifications'
 import FriendsList from '@/app/components/shared/friends/friends'
 import MobileNav from '@/app/components/shared/modals/mobileNav'
-import { Metadata } from 'next'
+
 type Props = {}
-export const metadata:Metadata={
-  title:'The Gam3r Network Videos page.',
-  description:'The Videos page shows all the most recent, most popular and upcoming videos posted to The Gam3r Network.',
-  creator:'The Gam3r Network'
-}
 
 const Videos = (props: Props) => {
      

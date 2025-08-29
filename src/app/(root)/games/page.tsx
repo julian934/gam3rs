@@ -16,13 +16,9 @@ import { CloseIcon } from "../../components/ui/expandable-card-demo/expandable-c
 import downArrow from '@/app/utils/images/down-arrow.png'
 import upArrow from '@/app/utils/images/up-arrow.png'
 import MobileNav from '@/app/components/shared/modals/mobileNav';
-import { Metadata } from 'next';
+
 type Props = {}
-export const metadata:Metadata={
-  title:'The Gam3r Network Games page.',
-  description:'The Games page shows all the games that Gam3r Network has to offer.',
-  creator:'The Gam3r Network'
-}
+
 
 const Games = (props: Props) => {
   const [games,setGames]=useState<AxiosResponse<any, any> | SetStateAction<never[] > | SetStateAction<any[] | any>>([]);

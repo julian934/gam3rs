@@ -28,15 +28,11 @@ import Videos from '@/app/components/shared/videos/home/videosRedux'
 //import { InfiniteMovingCardsDemo } from '@/app/components/ui/infinite-cards-demo/demo'
 import Notifications from '@/app/components/shared/notifications/notifications'
 import MobileNav from '@/app/components/shared/modals/mobileNav'
-import type { Metadata } from 'next'
+
 //Include METADATA
 type Props = {}
 
-export const metadata:Metadata={
-  title:'The Gam3r Network Home Page',
-  description: ' The Gam3r Network Home Page features sampels of all the content throughout the site, such as the most popular games, videos and forums.',
-  creator:'The Gam3r Network'
-}
+
 
 const HomePage = (props: Props) => {
   const ctx=useContext(StoreStateContext);

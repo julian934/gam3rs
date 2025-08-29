@@ -10,14 +10,10 @@ import Link from 'next/link'
 import VideoCard from '@/app/components/shared/videos/gif/gif'
 import Gif from '../../components/shared/videos/gif/gif'
 import MobileNav from '@/app/components/shared/modals/mobileNav'
-import { Metadata } from 'next'
+
 type Props = {}
 
-export const metadata:Metadata={
-  title:'The Gam3r Network All Videos Page',
-  description:'This page holds all of the publicly-accessible videos on The Gam3r Network website.',
-  creator:'The Gam3r Network'
-}
+
 
 const AllVideos = (props: Props) => {
  // const ctx=useContext(StoreStateContext);

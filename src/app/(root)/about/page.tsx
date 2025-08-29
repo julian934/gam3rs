@@ -15,14 +15,10 @@ import MobileNav from '@/app/components/shared/modals/mobileNav';
 //import AboutJulian from '@/app/components/ui/about/aboutJulian';
 import AboutJulian from '@/app/components/ui/about/aboutJulianRedux';
 import JB_Profile_Pic from '@/app/utils/images/JB_Professional_Pic.jpg'
-import { Metadata } from 'next';
+
 type Props = {}
 
-export const metadata:Metadata={
-  title:'The Gam3r Network About Page',
-  description:'About our company, who we are and what we do.',
-  creator:'The Gam3r Network'
-}
+
 
 const About = (props: Props) => {
 
