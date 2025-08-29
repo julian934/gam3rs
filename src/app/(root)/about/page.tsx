@@ -4,9 +4,9 @@ import NavBar from '@/app/components/ui/nav/nav';
 import Footer from '@/app/components/shared/footer/general/page';
 import Image from 'next/image';
 import Link from 'next/link';
-import Instagram from '../../utils/images/socials/icons8-instagram-96.png'
-import Twitter from '../../utils/images/socials/icons8-twitterx-100.png';
-import Twitch from '../../utils/images/socials/icons8-twitch-100.png'
+import Instagram from '../../utils/images/socials/revised/instagram.png'
+import Twitter from '../../utils/images/socials/revised/x_icon.png';
+import Twitch from '../../utils/images/socials/revised/twitch.png'
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import News_Modal from '@/app/components/shared/banners/news/news';

@@ -7,6 +7,7 @@ import { CarouselDemo } from '../carousel/newsCarousel'
 import { Suspense } from 'react'
 import Skeleton from '../../ui/skeleton/skeleton'
 import { getNews } from '@/app/lib/actions/connections'
+import { useSession } from 'next-auth/react';
 type Props = {}
 //Configure props.
 const About_Modal = ({user}:any) => {
@@ -15,17 +16,19 @@ const About_Modal = ({user}:any) => {
       queryKey:['news'],
       queryFn:getNews
     });
-
+  const session=useSession();
     
 
     //Need a header, description and link over entire thing. 
+
     
   return (
     <div className='flex max-sm:relative max-sm:-right-2 md:max-h-[600px] max-sm:max-h-[250px]  max-sm:py-10  grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-1/2 flex-col rounded-lg md:justify-between' >
-         <div className='flex max-sm:w-full md:w-3/4 md:left-6 md:-top-12 relative max-sm:-left-2 max-sm:h-full max-sm:-mt-24 max-sm:-ml-6  col-start-1 rotate-45 max-sm:-rotate-45 row-start-2 w-1/2   -ml-8 -mt-16  2xl:-mt-80  bg-white ' >
+      {session && <div className='max-sm:invisible md:visible md:bg-white  md:w-full md:h-[50px] md:absolute md:mt-0 md:z-[9999]   '  >   </div>}
+         <div className='flex   max-sm:w-full md:w-3/4 md:left-6 md:-top-12 relative max-sm:-left-2 max-sm:h-full max-sm:-mt-24 max-sm:-ml-6  col-start-1 rotate-45 max-sm:-rotate-45 row-start-2 w-1/2   -ml-8 -mt-16  2xl:-mt-80  bg-white ' >
             {/* Upper left slant */}
           </div>
-          <div className='flex  max-sm:-ml-20 max-sm:w-full   max-sm:h-1/2 max-sm:mt-20 max-sm:-ml-2  col-start-1 row-start-2 w-1/2 h-1/2 2xl:w-3/4  bg-white -skew-x-12 rotate-90  -ml-6 2xl:-ml-12 mt-16 2xl:mt-12' >
+          <div className='flex max-sm:-ml-20 max-sm:w-full   max-sm:h-1/2 max-sm:mt-20 max-sm:-ml-2  col-start-1 row-start-2 w-1/2 h-1/2 2xl:w-3/4  bg-white -skew-x-12 rotate-90  -ml-6 2xl:-ml-12 mt-16 2xl:mt-12' >
                {/* Mid Left gap upper*/}
           </div>
           <div className='flex   max-sm:-z-50 max-sm:w-1/2 max-sm:h-1/2 max-sm:rotate-0 max-sm:h-full   max-sm:mt-0 max-sm:-ml-20  col-start-1 row-start-2 w-3/4 h-6  bg-black -skew-x-12 max-sm:skew-x-0 max-sm:rotate-0  -rotate-90 z-50  -ml-16 mt-16 2xl:mt-20 max-sm:-ml-24 -mr-2 ' >

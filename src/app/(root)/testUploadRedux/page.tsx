@@ -253,12 +253,15 @@ const TestUploadRedux = (props: Props) => {
                       />
                     )*/}
 
-                    <div className='flex md:z-50 md:self-center md:flex-col md:w-full md:h-full md:justify-center md:justify-around md:justify-self-center md:space-y-4'>
+                    <div className='flex bg-white md:z-50 md:self-center md:flex-col md:w-full md:h-full md:justify-center md:justify-around md:justify-self-center md:space-y-4'>
                         {!sent && session?.user && (
                           <input className='z-50 text-black bg-slate-200 flex self-center -skew-x-12 px-2 ' onChange={uploadFileName} ref={fileNameRef} placeholder='File Name' />
                         )}
                         {!sent && session?.user && <button className="flex h-8 justify-center self-center text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-28 text-white " onClick={uploadFile}>
+                          
                           Upload
+                          
+                         
                         </button>}
                     </div>
 
@@ -268,7 +271,7 @@ const TestUploadRedux = (props: Props) => {
                 </div>
             </div>
 
-            <div className='flex  md:self-end md:justify-center md:relative md:top-24 '>
+            <div className='flex bg-white  md:self-end md:justify-center md:relative md:top-24 '>
                 <Footer />
             </div>
         </div>
