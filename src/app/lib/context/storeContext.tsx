@@ -98,20 +98,42 @@ export const StoreStateContextProvider:FC<StoreStateContextProviderProps>=({chil
     const [file, setFile] = useState<File | null>(null);
 
 
-    const fileSet=(file:File | null)=>{
+    /*const fileSet=(file:File | null)=>{
         if(file!=null){
             const fileURL=file;
-            setFile(file)
+            setFile(fileURL)
         }
 
-    }
+    }*/
+   const fileSet = (newFile: File | null) => {
+  if (newFile) {
+    setFile(newFile);
+    // Optionally generate blob immediately
+    const objectUrl = URL.createObjectURL(newFile);
+    setBlobUrl(objectUrl);
+  } else {
+    setFile(null);
+    setBlobUrl(null);
+  }
+};
 
-    const urlSet=(file:any)=>{
+   /* const urlSet=(file:any)=>{
         if (file) {
             const objectUrl = URL.createObjectURL(file);
             setBlobUrl(objectUrl);
           }
-    }
+    }*/
+   const urlSet = (newFile: File | null) => {
+  if (newFile) {
+    const objectUrl = URL.createObjectURL(newFile);
+    setBlobUrl(objectUrl);
+    // Also store file reference
+    setFile(newFile);
+  } else {
+    setBlobUrl(null);
+    setFile(null);
+  }
+};
     
     const userCheck=(username:string,password:string)=>{
         const userCheck= username.split(',');//Optimize with Regex
@@ -258,7 +280,8 @@ export const StoreStateContextProvider:FC<StoreStateContextProviderProps>=({chil
         urlSet,
         blobUrl,
         fileSet,
-        file
+        file,
+        
     }),
     [userData,blobUrl,file]
    );

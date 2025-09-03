@@ -9,19 +9,20 @@ export async function POST(request:NextRequest){
         const currClient=await client.connect();
         const db = currClient.db('users');
         const query = await request.nextUrl.searchParams;
-        const id = query?.get('id');
+        const id = query?.get('username');
         const currBody = await request.json();
-        console.log("Current Body " + currBody)
+        console.log("Current Body " + currBody?.body)
+        console.log('testing curr username: ', currBody?.username)
         if (id) console.log("Forum ID:", id);
 
         if(request.method=='POST'){
-            const myObjectID = new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`) ;
-            const userId = new ObjectId(`${currBody.userID}`)
-            const newObjectID= new ObjectId().toString();
+          //  const myObjectID = new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`) ;
+           // const userId = new ObjectId(`${currBody.userID}`)
+           // const newObjectID= new ObjectId().toString();
             
-            if (!myObjectID || !userId) {
+            /*if (!myObjectID || !userId) {
                 return NextResponse.json({ error: 'Invalid ObjectId format' }, { status: 400 });
-            }
+            }*/
             /*
              const forumPost = {
                 forumID:forumId,
@@ -34,7 +35,7 @@ export async function POST(request:NextRequest){
             }; 
             console.log(forumPost) 
             */
-            const updateResult = await db.collection('gam3rs').updateOne(
+            /*const updateResult = await db.collection('gam3rs').updateOne(
                 {
                     _id: myObjectID,
                     "gam3rsinfo.users._id": userId
@@ -44,7 +45,16 @@ export async function POST(request:NextRequest){
                         "gam3rsinfo.users.$": currBody  as any
                       }
                 }
-            );
+            );*/
+             // Update user by username
+    const updateResult = await db.collection("gam3rs").updateOne(
+      { "gam3rsinfo.users.username": currBody.username },
+      {
+        $set: {
+          "gam3rsinfo.users.$": currBody, // replace user object
+        },
+      }
+    );
             return NextResponse.json({
                 message: 'Data Sent!',
                 data: updateResult

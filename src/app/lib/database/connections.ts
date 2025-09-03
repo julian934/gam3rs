@@ -137,11 +137,11 @@ export const forumUpdate=(forum?:object | void | null)=>{
   }
 }
 
-export const videoUpdate=(video?:object| void | null)=>{
+export const videoUpdate=(video?:object| void | null,user?:string | null | undefined)=>{
   try {
     if(video){
       const currData=video;
-      const backendConnect=axios.post('/api/updates/userVideoUpdate',{currData});
+      const backendConnect=axios.post(`/api/updates/userVideoUpdate?username=${user}`,{currData});
       return backendConnect;
     }
     return {message:"Invalid Data"};

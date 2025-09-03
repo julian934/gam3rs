@@ -32,21 +32,20 @@ const TestUploadRedux = (props: Props) => {
     const fileNameRef = useRef<any>();
     console.log(ctx.userData);
 
-    const mutation = useMutation({
-      mutationFn: async (video: any) => {
-        if (video != undefined) {
-          const currVideo: any = await video;
-          return videoUpdate(currVideo);
-        }
-        return { message: "No Data!" }
-      },
-      onSuccess: () => {
-        console.log("User data updated successfully");
-      },
-      onError: (error) => {
-        console.error("Error updating user data:", error);
-      }
-    });
+  const mutation = useMutation({
+  mutationFn: async (video: any) => {
+    if (!video) return Promise.reject(new Error("No video data provided"));
+    return videoUpdate(video, session?.user?.name); // always returns a Promise
+  },
+  onSuccess: () => {
+    console.log("User data updated successfully");
+  },
+  onError: (error) => {
+    console.error("Error updating user data:", error);
+  },
+  retry:Infinity,
+  retryDelay:1000
+});
 
     useEffect(() => {
         let currUser = localStorage.getItem("userdata");
@@ -114,14 +113,11 @@ const TestUploadRedux = (props: Props) => {
         setVidUrl(URL.createObjectURL(file));
         setCurrFileName(file.name);
     };
-
+/*
     const uploadFile = async () => {
-      if (!inputFileRef.current?.files) {
-        console.error('No file selected');
-        return;
-      }
+   
 
-      const file = inputFileRef.current.files[0];
+     // const file = inputFileRef.current.files[0];
     //  const file=localStorage.getItem('VidURL');
     //const file=urlState;
        //file!=null && file!=undefined && JSON.parse(file);
@@ -139,19 +135,21 @@ const TestUploadRedux = (props: Props) => {
       // Step 2: Upload the file to Mux using the upload URL
       try {
        
-        const response = await axios.post('/api/uploads', { filename: fileURL && fileURL.fileName }); //filename is the file sent through. 
+        const response = await axios.post('/api/uploads', { filename: fileURL && fileURL?.fileName }); //filename is the file sent through. 
 
         const { uploadUrl, assetId } = response.data;
         setUploadURL(uploadUrl);
         setUploadID(assetId);
-
-        const uploadResponse = await axios.put(uploadUrl, ctx.file, {
+        //  if(ctx.file!=null && ctx.file!=undefined){
+               const uploadResponse = await axios.put(uploadUrl, ctx.file, {
           headers: { 'Content-Type': ctx.file?.type },
         });
         setSent(true);
         setAsset(data.assetId); // Asset ID from Mux to store
 
         console.log('Video uploaded successfully:', uploadResponse.data);
+        //  }
+      
 
         // Optional: Update user data context
         const currUser = userState;
@@ -198,6 +196,68 @@ const TestUploadRedux = (props: Props) => {
         console.error("Error during file upload:", error);
       }
     };
+*/
+const uploadFile = async () => {
+  try {
+    /*
+    if (!ctx.file) {
+      console.error("No file selected in context");
+      return;
+    }*/
+
+    // Step 1: Request an upload URL from backend
+    
+    const { data: uploadData } = await axios.post("/api/uploads", {
+      filename: ctx?.file?.name,
+    });
+
+    const { uploadUrl, assetId } = uploadData;
+
+    // Step 2: Upload the file to Mux using the upload URL
+    await axios.put(uploadUrl, ctx.file!, {
+      headers: { "Content-Type": ctx?.file!.type },
+    });
+
+    console.log("Video uploaded successfully:", { uploadUrl, assetId });
+
+    // Step 3: Prepare new video entry
+    const currUser = ctx.userData || JSON.parse(localStorage.getItem("userdata") || "{}");
+
+    const newUpload = {
+      fileName: currFileName || ctx?.file?.name,
+      assetId,
+      tags: ["user-selected tags"],
+      user: currUser,
+      url: uploadUrl,
+    };
+
+    // Step 4: Update full user object
+    const updatedUser = {
+      ...currUser,
+      videos: [...(currUser.videos || []), newUpload],
+    };
+
+    // Step 5: Update context, local state, and localStorage
+    ctx.getUser(updatedUser); // now sets context
+    setUserState(updatedUser);
+    localStorage.setItem("userdata", JSON.stringify(updatedUser));
+
+    // Step 6: Optional backend update
+    await axios.post("/api/updateuser", updatedUser);
+
+    // Step 7: Mutation for analytics or logging (optional)
+    mutation.mutate(updatedUser);
+
+    // Step 8: Mark as sent
+    setSent(true);
+    setAsset(assetId);
+   // setVidUrl(URL.createObjectURL(ctx?.file));
+   setVidUrl(ctx.file ? URL.createObjectURL(ctx.file) : null);
+
+  } catch (error) {
+    console.error("Error during file upload:", error);
+  }
+};
 
     const uploadFileName = () => {
         setCurrFileName(fileNameRef.current.value);
@@ -211,6 +271,7 @@ const TestUploadRedux = (props: Props) => {
 
    // let checkData=localStorage.getItem('VidURL')
    ctx.blobUrl && console.log(ctx.blobUrl);
+   ctx.file && console.log('current file: ', ctx.file)
   // let currCheck=localStorage.getItem('videoData')
    //let currLink=localStorage.getItem('video')
    //console.log('curr file url: ', currCheck )

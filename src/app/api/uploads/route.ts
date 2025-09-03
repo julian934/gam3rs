@@ -37,12 +37,12 @@ export async function POST(request: NextRequest) {//update backend with body dat
     });
      //Create a playback id and store playback ID in personal user database, and all site video database as well.
      console.log("Current Upload Obj: ", upload)
-     console.log('Current Asset ID: ', upload.asset_id);
+     console.log('Current Asset ID: ', upload.id);
      
     return NextResponse.json({
       message: 'Upload URL created',
       uploadUrl: upload.url,
-      assetId: upload.asset_id,
+      assetId: upload.id,
     });
 
   } catch (error) {
