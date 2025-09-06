@@ -24,7 +24,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
 
   useEffect(() => {
     if (params?.slug) {
-      setPlayBackID(params.slug)
+      setPlayBackID(params?.slug)
     }
   }, [params.slug])
 
@@ -71,7 +71,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
       {/* Player */}
       <div className="flex self-center grid col-start-2 col-span-4 row-start-2 row-span-2 px-2">
         <div className="rounded-xl w-full md:h-5/6 flex">
-          {playBackID && isReady ? (
+          {playBackID  ? (
             <MuxPlayer
               className="rounded-xl w-full"
               playbackId={playBackID}
@@ -86,6 +86,21 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
               Loading video...
             </div>
           )}
+          {/* {playBackID && isReady ? (
+            <MuxPlayer
+              className="rounded-xl w-full"
+              playbackId={playBackID}
+              metadata={{
+                video_id: videoData?._id ?? '',
+                video_title: videoData?.fileName ?? '',
+                viewer_user_id: 'viewer-id',
+              }}
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full bg-black text-white">
+              Loading video...
+            </div>
+          )}*/}
         </div>
 
         {/* Video Info */}

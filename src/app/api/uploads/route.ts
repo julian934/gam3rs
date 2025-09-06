@@ -22,12 +22,14 @@ export async function POST(request: NextRequest) {//update backend with body dat
     }
     
     const searchParams = request.nextUrl.searchParams;
-    const filename = searchParams.get('filename');
+   // const filename = searchParams.get('filename');
     const testFile=await request.json()
-    console.log("testFile Data" + testFile)
+    const {fileName} = testFile;
+    console.log("testFile Data", testFile)
     console.log(testFile?.filename)
     console.log(testFile?.data)
-   
+    const currFileName= await testFile?.name
+   console.log('Testing file name')
     const upload = await video.uploads.create({
       cors_origin: `${process.env.NEXT_PUBLIC_APP_URL}/testUploadRedux`, // Replace '*' with your actual frontend URL
       new_asset_settings: {
@@ -37,12 +39,12 @@ export async function POST(request: NextRequest) {//update backend with body dat
     });
      //Create a playback id and store playback ID in personal user database, and all site video database as well.
      console.log("Current Upload Obj: ", upload)
-     console.log('Current Asset ID: ', upload.id);
+     console.log('Current Upload ID: ', upload.id);
      
     return NextResponse.json({
       message: 'Upload URL created',
       uploadUrl: upload.url,
-      assetId: upload.id,
+      uploadId: upload.id,
     });
 
   } catch (error) {

@@ -51,8 +51,8 @@ if(dataState){
       
       <div className=' flex flex-row flex-wrap w-full  max-sm:row-start-2 max-sm:row-span-2 flex-wrap max-sm:col-start-1 max-sm:col-span-4 bg-white' >
       {dataState && dataState.map((vals:any)=>
-      <Link className=' p-2 md:h-92 md:w-92  max-sm:self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID} >
-       <Gif playbackID={vals?.playbackID} fileName={vals?.fileName} />
+      <Link className=' p-2 md:h-92 md:w-92  max-sm:self-end ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId} >
+       <Gif playbackID={vals?.playbackId} fileName={vals?.fileName} />
        </Link>)}
       </div>
       <div className='col-start-1 col-span-4 row-start-4' >

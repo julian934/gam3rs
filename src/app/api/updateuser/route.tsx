@@ -11,8 +11,8 @@ export async function POST(request:NextRequest){
         const query = await request.nextUrl.searchParams;
         const id = query?.get('username');
         const currBody = await request.json();
-        console.log("Current Body " + currBody?.body)
-        console.log('testing curr username: ', currBody?.username)
+        console.log("Current Body " + currBody?.user)
+        console.log('testing curr videos: ', currBody?.videos)
         if (id) console.log("Forum ID:", id);
 
         if(request.method=='POST'){
