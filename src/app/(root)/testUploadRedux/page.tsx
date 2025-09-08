@@ -31,7 +31,7 @@ const TestUploadRedux = (props: Props) => {
 
     const fileNameRef = useRef<any>();
     console.log(ctx.userData);
-
+/*
   const mutation = useMutation({
   mutationFn: async (video: any) => {
     if (!video) return Promise.reject(new Error("No video data provided"));
@@ -46,7 +46,8 @@ const TestUploadRedux = (props: Props) => {
   retry:Infinity,
   retryDelay:1000
 });
-
+*/
+/*
 const waitForMuxAsset = async (assetId: string, retries = 20, delay = 2000) => {
   for (let i = 0; i < retries; i++) {
     try {
@@ -62,6 +63,7 @@ const waitForMuxAsset = async (assetId: string, retries = 20, delay = 2000) => {
   }
   throw new Error(`Mux asset ${assetId} not ready after ${retries} retries`);
 };
+*/
 
 
     useEffect(() => {
@@ -157,7 +159,7 @@ const waitForMuxAsset = async (assetId: string, retries = 20, delay = 2000) => {
         size: ctx?.file?.size,
         modified: ctx?.file?.lastModified,
       };
-      let currFileName=fileURL?.fileName
+     // let currFileName=fileURL?.fileName
        console.log("Check File:", fileURL);
         const response = await axios.post('/api/uploads', { filename: fileURL?.fileName || ''}); //filename is the file sent through. 
 
@@ -378,7 +380,7 @@ const uploadFile = async () => {
    //let currLink=localStorage.getItem('video')
    //console.log('curr file url: ', currCheck )
    //console.log('Testing Video LinkL: ')
-   const storedUser=localStorage.getItem('userdata')
+   //const storedUser=localStorage.getItem('userdata')
   // const currUser=storedUser!=null?JSON.parse(storedUser):null;
    //console.log('Testing Current User: ', currUser)
    console.log('Testing User State: ', userState)
