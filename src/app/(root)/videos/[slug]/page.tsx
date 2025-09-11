@@ -15,7 +15,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
 
   const { data } = useQuery({
     queryKey: ['videoplayer', params.slug],
-    queryFn: () => getVideoInfo(params.slug),
+    queryFn: () => getVideoInfo(params?.slug),
     // retry: false, // optional: avoid retries if asset not found
   })
 
@@ -50,9 +50,10 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
 
     checkReady()
   }, [videoData, params.slug])
-
+ console.log('Current Video Data: ', params);
+ console.log('Testing Data: ', data)
   return (
-    <div className="flex grid max-sm:flex-col grid-cols-6 grid-rows-3 bg-white">
+    <div className="max-sm:flex md:min-h-screen max-sm:flex-col  bg-white">
       {/* Nav */}
       <div className="row-start-1 col-start-1 col-span-6">
         <NavBar />
@@ -64,13 +65,13 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
       </div>
 
       {/* Notifications */}
-      <div className="h-full col-start-1 row-start-2 md:row-span-2 bg-slate-300 rounded-md">
+      <div className="h-full max-sm:invisible col-start-1 row-start-1 md:relative md:top-12 md:h-1/5 md:w-1/3 rounded-md">
         <Notifications />
       </div>
 
       {/* Player */}
-      <div className="flex self-center grid col-start-2 col-span-4 row-start-2 row-span-2 px-2">
-        <div className="rounded-xl w-full md:h-5/6 flex">
+      <div className=" justify-self-center  md:w-1/2 md:px-4 self-start rounded-md md:relative md:-top-[205vh]  ">
+        <div className="rounded-xl w-full md:h-full flex">
           {playBackID  ? (
             <MuxPlayer
               className="rounded-xl w-full"
@@ -104,7 +105,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
         </div>
 
         {/* Video Info */}
-        <div className="flex flex-col md:space-x-4 md:justify-around md:-mt-16">
+        <div className="flex flex-col md:space-x-4 md:justify-around md:-mt-16 z-[9999] ">
           <div className="md:w-1/3 flex max-sm:w-full">
             <h1 className="text-4xl">{videoData?.fileName}</h1>
           </div>
@@ -120,12 +121,12 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
       </div>
 
       {/* Friends List */}
-      <div className="flex h-full md:col-start-6 md:row-start-2 md:row-span-2 bg-slate-300 rounded-md max-sm:row-start-3 max-sm:col-start-1 max-sm:col-span-6">
+      <div className="flex max-sm:invisible relative md:-top-[265vh] md:left-4 justify-self-end h-full md:h-1/5 md:w-1/5 md:relative md:top-12 md:col-start-6 md:row-start-1 md:row-span-2 bg-slate-300 rounded-md max-sm:row-start-3 max-sm:col-start-1 max-sm:col-span-6">
         <FriendsList />
       </div>
 
       {/* Footer */}
-      <div className="flex bg-white col-start-1 col-span-6 justify-self-center self-center md:self-end row-start-4 max-sm:mt-20">
+      <div className="flex md:relative md:-top-48 bg-white col-start-1 col-span-6 justify-self-center self-center md:self-start row-start-4 max-sm:mt-20">
         <Footer />
       </div>
     </div>
