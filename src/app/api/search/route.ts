@@ -1,13 +1,16 @@
 import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 
 export async function GET(request:NextRequest){
-    const client= await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+   /* const client= await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });*/
     const currId=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
-    const currClient=await client.connect();
-    const db=await currClient.db('users');
-   
+   // const currClient=await client.connect();
+   // const db=await currClient.db('users');
+   const db=await connectToDB();
 
     try {
        // const data=await mongodb.connect();

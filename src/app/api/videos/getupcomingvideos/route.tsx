@@ -3,7 +3,9 @@ import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
 export async function GET(request:NextRequest){
-    const client=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    const client=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });
     const id=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     try {
         const currClient= await client.connect();

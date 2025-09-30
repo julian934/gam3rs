@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 
 export async function GET(request:NextRequest){ 
     //Filter based on forum thread count. 
-    const currClient=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+   /* const currClient=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });*/
     const objectID=new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
    
     try {
-        const client=await currClient.connect();
-        const db=await client.db('users').collection('gam3rs');
+        const client=await connectToDB();
+        const db=await client?.collection('gam3rs');
         const result=await db.findOne({
             _id:objectID
         });

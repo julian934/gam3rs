@@ -2,18 +2,22 @@ import { ObjectId } from "mongodb";
 import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 
 export async function POST(request:NextRequest){
-    const client= await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+   /* const client= await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });*/
     const gam3rObjID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     try {
-        const currClient=await client.connect();
+       // const currClient=await client.connect();
         const reqData=await request.json();
        
         const videoData= await reqData.currData;
         console.log("Current Video Data: ", videoData);
-        const db=await currClient.db('users');
-        if(currClient){ 
+       // const db=await currClient.db('users');
+       const db=await connectToDB();
+        if(db){ 
             const results=await db.collection('gam3rs').updateOne({
               _id:gam3rObjID
             },{

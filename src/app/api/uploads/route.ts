@@ -15,7 +15,9 @@ export const config = {
 */
 
 export async function POST(request: NextRequest) {//update backend with body data from front-end.
-  const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+  const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });
   try {
     if (request.method !== 'POST') {
       return NextResponse.json({ error: 'Invalid request method' }, { status: 405 });

@@ -2,11 +2,14 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 
 export async function GET(request:NextRequest){
-    const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
-    const currClient=await client.connect();
-    const db=await currClient.db('users')
+  /*  const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });*/
+  //  const currClient=await client.connect();
+    const db=await connectToDB();
     console.log(process.env.GAM3RS_OBJECT_ID)
       const myObjectID=await new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`)
       const result = await db.collection('gam3rs').findOne({

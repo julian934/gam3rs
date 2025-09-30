@@ -161,8 +161,8 @@ const waitForMuxAsset = async (assetId: string, retries = 20, delay = 2000) => {
       };
      // let currFileName=fileURL?.fileName
        console.log("Check File:", fileURL);
-        const response = await axios.post('/api/uploads', { filename: fileURL?.fileName || ''}); //filename is the file sent through. 
-
+      //  const response = await axios.post('/api/uploads', { filename: fileURL?.fileName || ''}); //filename is the file sent through. 
+         const response = await axios.post('/api/uploads', { filename: fileNameRef?.current?.value || ''});
         const { uploadUrl, uploadId } = response.data;
         console.log('Testing frontend upload from uploads: ', uploadId);
         let currUploadID=await uploadId;
@@ -195,7 +195,7 @@ const waitForMuxAsset = async (assetId: string, retries = 20, delay = 2000) => {
           //  return ;
          // }
         const newUpload = {
-          fileName: ctx?.file?.name,
+          fileName: fileNameRef? fileNameRef?.current?.value : '',
           assetID: '',
           playbackID:'',
           tags: ['user-selected tags'],

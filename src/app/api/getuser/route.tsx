@@ -1,15 +1,16 @@
 // app/api/getuser/route.ts (or route.js if using JS)
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 
-const db = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+//const db = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
 
 export async function GET(request: NextRequest) {
   try {
     // Access searchParams directly from the request URL (this is server-side)
     const searchParams = request.nextUrl.searchParams;
     const currentUser = searchParams.get("user");
-    
+    const newDb=await connectToDB();
     console.log("Current User:", currentUser);
 
     if (!currentUser) {
@@ -17,8 +18,10 @@ export async function GET(request: NextRequest) {
     }
 
     // Connect to MongoDB
-    await db.connect();
-    const usersCollection = db.db("users").collection("gam3rs");
+
+   // await db;
+   // const usersCollection = db.db("users").collection("gam3rs");
+   const usersCollection=newDb?.collection("gam3rs");
     const targetObjectId = new ObjectId(process.env.NEXT_PUBLIC_MONGO_OBJECT_ID || "");
 
     // Perform MongoDB aggregation query

@@ -142,8 +142,8 @@ const HomePage = (props: Props) => {
 
       </div>
      
-      <div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
-       <div className='relative md:top-4 md:-left-2' >
+      <div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1  p-4 rounded-md p-4  ' >
+       <div className='relative  md:w-2/3 md:top-4 md:-left-2' >
          <Notifications/>
         </div>
       
@@ -196,12 +196,13 @@ const HomePage = (props: Props) => {
         </div> */}
         
       </div>
-      <div className=' flex max-sm:invisible max-sm:border-2 max-sm:border-black max-sm:h-full md:relative md:top-20 row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-2/3 md:px-8 justify-self-end rounded-md self-start md:col-start-4 bg-white ' >
+      {/*<div className=' flex max-sm:invisible max-sm:border-2 max-sm:border-black max-sm:h-full md:relative md:top-20 row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-2/3 md:px-8 justify-self-end rounded-md self-start md:col-start-4 bg-white ' >
       <div className='relative md:left-10 md:top-4' >
           <FriendsList  friends={currData?.data?.friends} />
       </div>
        
-        </div>
+        </div> */}
+      
       <div className='row-start-4 row-span-2 md:mt-20 row-span-2 flex justify-center  self-end col-start-1 col-span-4 static  z-90' >
       <Footer/>
       </div>

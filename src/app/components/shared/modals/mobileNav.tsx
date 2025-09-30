@@ -52,7 +52,7 @@ const MobileNav = (props: Props) => {
             </div>
             <div className='w-full flex flex-col ' >
               
-                <div className='relative top-[4.0vh] pointer-events-auto flex self-center  justify-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-36 h-8 z-50 ' >
+                <div className='relative top-[2.0vh] pointer-events-auto flex self-center  justify-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-36 h-8 z-50 ' >
                 <Link href='/home' >
                    <h1 className='flex text-2xl text-white hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 font-Gardion ' > Gam3rs </h1>
                    </Link>
@@ -81,12 +81,17 @@ const MobileNav = (props: Props) => {
         {activated &&  <motion.div className=' fixed pointer-events-auto bg-slate-200  max-w-[80vw]  rounded-md top-36 left-10 w-[80vw] h-[45vh] max-h-25vh' >
         {/* Middle Modal */}
         <motion.div className='bg-slate-200 p-4 ' >
-            
-            <div className=' flex flex-col max-h-[40vh] py-2 space-y-20 border-2 border-black max-w-[60vw] self-center justify-self-center overflow-y-auto' >
+            <div className='relative top-[0vh] pointer-events-auto flex self-center  justify-center transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 hover:scale-110 -skew-x-12 w-48 h-8 z-50 ' >
+                
+                   <h1 className='flex text-2xl text-white hover:border hover:border-x-2 px-4 border-double hover:border-slate-300 w-full hover:scale-110 font-Gardion ' > Notifications</h1>
+                   
+                </div>
+
+            <div className=' flex relative top-4 max-h-[40vh] py-6 space-x-20 max-w-[60vw] self-center justify-self-center overflow-x-auto' >
             {data && data?.data?.reverse()?.map((vals:any)=>
-      <Link className='flex flex-col justify-center self-center h-[10vh] w-3/5  ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
+      <Link className='flex flex-col justify-center self-center h-[30vh] w-3/5  ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
         <h1 className='font-Gardion' >{vals?.user} just posted {vals?.fileName}:  </h1>
-        <div className='flex w-full px-4 max-h-[5vh]' > 
+        <div className='flex w-full px-4 max-h-[15vh] h-full ' > 
           <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
         </div>
        
@@ -94,6 +99,9 @@ const MobileNav = (props: Props) => {
             </div>
           
             
+
+             </motion.div>
+             <motion.div className='bg-slate-200 p-4' >
 
              </motion.div>
 

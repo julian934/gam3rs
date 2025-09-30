@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
-
+import { connectToDB } from "@/app/lib/mongodb";
 let client: MongoClient | null = null;
 
-async function connectToDB() {
+/*async function connectToDB() {
   if (!client) {
-    client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });
     await client.connect();
   }
   return client.db("users");
-}
+}*/
 
 export async function GET(request: NextRequest) {
   try {

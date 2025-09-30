@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
 export async function POST(request: NextRequest) {
-    const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+    const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });
     try {
         const currClient = await client.connect();
         const db = currClient.db('users');

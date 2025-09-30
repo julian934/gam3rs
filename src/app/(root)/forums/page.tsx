@@ -57,14 +57,21 @@ const Forums = (props: Props) => {
       <div className=' max-sm:visible fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
         <MobileNav/>
       </div>
-      <div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-20  bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-4/5 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
+      {/*<div className='flex z-[9999]  max-sm:invisible max-sm:-pt-10  md:relative md:top-8 md:left-72 bg-white max-sm:bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-full max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1   rounded-md   ' >
+       <div className='relative z-[9999]  md:top-4 md:-left-2' >
+         <Notifications/>
+        </div>
+      
+      </div> */}
+      
+      {/*<div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-20  bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-4/5 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
        <div className='relative md:top-4 md:-left-2' >
          <Notifications/>
         </div>
       
-      </div>
+      </div> */}
       
-      <div className='flex  flex-col max-sm:mt-0 md:mt-48 z-50 max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-7 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-white rounded-lg' >
+      <div className='flex  flex-col max-sm:mt-0 md:mt-96 z-[9999] max-sm:border-2 max-sm:w-full max-sm:px-4 max-sm:border-black justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 max-sm:col-span-7 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3 bg-white rounded-lg' >
         <div className='flex w-full max-sm:w-5/6 max-sm:space-around justify-around h-32 p-4  md:w-2/3 md:ml-0 ' >
            <h1 className='flex h-8 font-Gardion relative max-sm:left-8 md:left-36 justify-center text-2xl max-sm:text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-56 text-white ' > Current Forums </h1>
 
@@ -100,12 +107,13 @@ const Forums = (props: Props) => {
 
         </div>
       </div>
-      <div className=' flex max-sm:invisible md:z-[9999] max-sm:border-2 md:top-20 md:left-60 md:-right-10  max-sm:border-black max-sm:h-full md:relative row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-4/5 md:px-8 justify-self-end rounded-md self-start md:col-start-5 bg-white' >
+      
+        {/* <div className=' flex max-sm:invisible md:z-[9999] max-sm:border-2 md:top-20 md:left-60 md:-right-10  max-sm:border-black max-sm:h-full md:relative row-start-1 md:mt-40 row-span-2 md:h-5/6 md:w-4/5 md:px-8 justify-self-end rounded-md self-start md:col-start-5 bg-white' >
       <div className='relative md:left-4 md:top-4' >
           <FriendsList  />
       </div>
        
-        </div>
+        </div>*/}
       
       <div className='md:flex  md:row-start-4 md:col-start-1 md:col-span-6 w-screen justify-around   '  >
         <Footer/>

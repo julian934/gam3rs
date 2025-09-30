@@ -3,16 +3,21 @@ import { NextResponse } from "next/server"
 import { NextApiRequest } from "next"
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 
 export async function POST(request:NextRequest){ //Updates Mongo User Data on every request with the request body.
     //customize aggregation pipeline to accept request body object
     const body=request.json();
-    const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+   /* const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });*/
+    const client=await connectToDB();
     const targetObjectId = new ObjectId(`${process.env.NEXT_PUBLIC_MONGO_OBJECT_ID}`);
     
     try{
-        await client.connect();
-        const usersCollection = await client.db("users").collection("gam3rs");
+      //  await client.connect();
+      //  const usersCollection = await client.db("users").collection("gam3rs");
+      const usersCollection=await client?.collection("gam3rs");
         const document = await usersCollection.aggregate([
             {
               "$match": {

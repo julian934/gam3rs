@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 import axios from "axios";
+import { connectToDB } from "@/app/lib/mongodb";
 
 export async function POST(request:NextRequest){
-    const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
-    const currClient=await client.connect();
-    const db=await currClient.db('users');
+  /*  const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });*/
+   // const currClient=await client.connect();
+    //const db=await currClient.db('users');
+    const db=await connectToDB();
     const req=await request.json();
     console.log(req)
     const body=req

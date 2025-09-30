@@ -64,8 +64,11 @@ if(dataState){
     {data!==undefined?<div className='w-[200px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-white  md:mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
       <h1 className='' >{data?.data?.title} </h1>
       {dataState && dataState?.length>0 && dataState?.slice(0, 3)?.map((vals:any)=>
-      <Link className=' md:flex md:self-start  md:self-end ' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
-       <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
+      <Link className='md:flex md:self-start border-2 border-gray-600 rounded-md md:w-[200px]' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
+       <div className='md:w-full' > 
+           <Gif playbackID={vals?.playbackID} fileName={vals?.fileName} />
+       </div>
+      
        </Link>)}
     </div>:
     <><Card className="w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white " radius="lg">

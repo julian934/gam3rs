@@ -1,6 +1,7 @@
 import { NextRequest,NextResponse } from "next/server";
 import { NextApiRequest } from "next";
 import { MongoClient, ObjectId } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 
 export async function POST(request:NextRequest){
    const username=process.env.MONGO_USERNAME;
@@ -8,12 +9,14 @@ const password=process.env.MONGO_PASSWORD;
 const cluster=process.env.MONGO_CLUSTER
 const mongo_db=process.env.MONGO_DB
 const currColl=process.env.MONGO_COLLECTION
-   const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
-   const currClient=await client.connect()
-   console.log(currClient)
+   const client= new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    })
+//   const currClient=await client.connect()
+//   console.log(currClient)
   // const db= await currClient.db(`${mongo_db?.toString()}`)
-  const db=await currClient.db('users')
-    
+  const db=await connectToDB();
+    console.log('Current DataBase: ', db)
    console.log(db)
    if(request.method==='POST'){
       console.log(request)

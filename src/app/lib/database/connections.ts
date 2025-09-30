@@ -65,7 +65,8 @@ export const getUpcomingForums=async()=>{
 }*/
 export const getVideoInfo=async(id:string)=>{
   try {
-    const response = await axios.get(`/api/mux/video?id=${id}`)
+    //const response = await axios.get(`/api/mux/video?id=${id}`)
+     const response = await axios.get(`/api/videos/getVideo?id=${id}`)
     return response.data  // Always returns an object
   } catch (err) {
     return { message: 'Videos not found', status: 404 }
@@ -245,6 +246,22 @@ export const getNotifications=async()=>{
  // const finalData=await data?.data?.data?.slice(0,2);
   
   return {data:data?.data?.data,flag:'notifications'}
+}
+
+export const likeVideo=async(data:any)=>{
+   let liked=await axios.post('/api/updates/likeUpdate', data);
+   return liked;
+}
+
+export const dislikeVideo=async(data:any)=>{
+   let disLiked=await axios.post('/api/updates/dislikeUpdate', data);
+
+   return disLiked;
+}
+
+export const commentUpdate=async(data:any)=>{
+   let commentUpdate=await axios.post('/api/updates/commentUpdate', data);
+    return commentUpdate;
 }
 
 export const getSearchData=async()=>{

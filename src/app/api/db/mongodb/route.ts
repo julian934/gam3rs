@@ -1,5 +1,6 @@
 import { NextRequest,NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
+import { connectToDB } from "@/app/lib/mongodb";
 /*
 export async function getMongo(request:NextRequest){
    const username=process.env.MONGO_USERNAME;
@@ -49,20 +50,22 @@ export {getMongo as GET,getMongo as POST}
 //import { MongoClient, ObjectId } from "mongodb";
 
 // MongoDB connection logic
-const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+const client = new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`,{
+      maxPoolSize:10
+    });
 
-async function connectDb() {
+/*async function connectDb() {
   if (!client.connect()) {
     await client.connect();
   }
   const db = client.db(process.env.MONGO_DB || "default_db");
   return db;
-}
+}*/
 
 // The API Route for POST and GET requests
 export async function POST(request: NextRequest) {
   try {
-    const db = await connectDb();
+    const db = await connectToDB();
 
     // Get data from the request body
     const body = await request.json();
@@ -84,7 +87,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const db = await connectDb();
+    const db = await connectToDB();
 
     const collection = await db
       .collection("gam3rs")
