@@ -142,14 +142,14 @@ const HomePage = (props: Props) => {
 
       </div>
      
-      <div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-20 bg-white max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1  p-4 rounded-md p-4  ' >
-       <div className='relative  md:w-2/3 md:top-4 md:-left-2' >
+      <div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-8 md:left-72  max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-full max-sm:h-20 md:mt-40  md:col-start-1  md:col-span-2 md:row-start-1  p-4 rounded-md p-4  ' >
+       <div className='relative  md:w-full md:top-0 md:left-2' >
          <Notifications/>
         </div>
       
       </div>
 
-      <div className='flex max-sm:h-2/5 max-sm:max-h-[450px] max-sm:pt-0 max-sm:relative max-sm:-top-20 max-sm:left-4 max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5  md:relative md:top-56 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-50' >
+      <div className='flex max-sm:h-2/5 max-sm:max-h-[450px] max-sm:pt-0 relative max-sm:-top-20 max-sm:left-4 max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5   md:top-96 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-30' >
       <News user={session?.user?.name} />
       </div>
       {/* Border-pieces */}

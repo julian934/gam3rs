@@ -56,7 +56,7 @@ const Videos = (props: any) => {
   if(dataState){
     console.log("Current Data: ", data)
   }
-   return(  <div className='flex justify-around  max-sm:self-center flex-col max-sm:w-full max-sm:px-4 bg-white rounded-md  md:w-full md:h-1/4 ' >
+   return(  <div className='flex justify-around bg-white  max-sm:self-center max-sm:w-full max-sm:px-2 flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4  ' >
     <div className='w-full space-y-5 p-4 flex rounded-md  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
      
      {/*  <h1 className='text-xl' >Games</h1> */}
@@ -74,10 +74,10 @@ const Videos = (props: any) => {
        </div>
      
    </div>
-    {data!==undefined?<div className='w-[200px] max-sm:w-full  space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-self-center md:self-center md:border-black md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
+    {data!==undefined?<div className='w-[100px] max-sm:w-full  space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-around md:self-center md:border-black md:z-60 md:flex-row md:self-start  md:w-full md:h-full ' >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
       {dataState && dataState.map((vals:any)=>
-      <Link className=' max-sm:w-full md:flex md:self-start  md:self-end  ' href={`/videos/${vals.playbackID}`} key={vals?.playbackID} >
+      <Link className=' max-sm:w-full md:flex md:self-start    ' href={`/videos/${vals.playbackID}`} key={vals?.playbackID} >
         
        <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
       </Link>)}

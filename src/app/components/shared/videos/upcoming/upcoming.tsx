@@ -28,7 +28,7 @@ const Upcoming = (props: Props) => {
           }}/>
           })*/}
       </div>
-      {!data && <div className='flex flex-row justify-around' >
+      {/*!data && <div className='flex flex-row justify-around' >
         <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-white " radius="lg">
     <Skeleton className="rounded-lg">
       <div className="h-24 rounded-lg bg-gray-300"></div>
@@ -77,7 +77,7 @@ const Upcoming = (props: Props) => {
       </Skeleton>
     </div>
   </Card>
-        </div>}
+        </div>*/}
       </div>
   )
 }

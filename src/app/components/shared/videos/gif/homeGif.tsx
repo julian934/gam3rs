@@ -11,7 +11,7 @@ const VideoCard = ({ playbackID, fileName }: { playbackID: string; fileName: str
     <Link href={`/videos/${playbackID}`} className="block">
       <div
         className={cn(
-          "group w-full cursor-pointer overflow-hidden relative card h-40 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800 transition-all duration-500"
+          "group w-full md:w-4/5 cursor-pointer overflow-hidden relative card h-72 rounded-md shadow-xl mx-auto flex flex-col justify-end  border border-transparent dark:border-neutral-800 transition-all duration-500"
         )}
         style={{
           backgroundImage: `url(https://image.mux.com/${playbackID}/${
@@ -23,7 +23,7 @@ const VideoCard = ({ playbackID, fileName }: { playbackID: string; fileName: str
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="text relative z-50">
-          <h1 className="font-bold text-xl md:text-3xl text-gray-300">{fileName}</h1>
+          <h1 className="font-bold text-xl md:text-xl text-gray-300">{fileName}</h1>
         </div>
       </div>
     </Link>
