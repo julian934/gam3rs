@@ -233,9 +233,9 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
         
       </div>
         <div className='flex flex-col relative overflow-hidden' >
-              {activeComments && data?.data?.comments ? data?.data?.comments?.map((vals:any)=><div className='border-2 border-black' >
+              {/*activeComments && data?.data?.comments ? data?.data?.comments?.map((vals:any)=><div className='border-2 border-black' >
           <h1 className='' >testing Data</h1>
-        </div>):null}
+        </div>):null*/}
 
         </div>
       
