@@ -42,7 +42,7 @@ const Mobile_News = ({user}:any) => {
           <div className='flex  max-sm:w-full max-sm:z-50 max-sm:h-1/2  max-sm:mt-20 max-sm:-ml-14  col-start-1 row-start-2 w-1/2 h-1/2 2xl:w-3/4   bg-white skew-x-12 rotate-90 -ml-6 2xl:-ml-12 mt-28 ' >
             {/* Mid Left gap lower*/}  
           </div>
-       <div className='flex  max-sm:relative max-sm:left-0 max-sm:w-full max-sm:top-10 md:w-full md:col-start-1 md:col-span-4 z-50    max-sm:justify-start self-center col-start-2 col-span-2 row-start-1 md:row-start-2 md:w-full md:justify-center row-span-3 md:-mt-12 z-10 p-4' >
+       <div className='flex  max-sm:relative max-sm:-left-14 max-sm:w-[300px] max-sm:top-10 md:w-full md:col-start-1 md:col-span-4 z-50    max-sm:justify-start self-center col-start-2 col-span-2 row-start-1 md:row-start-2 md:w-full md:justify-center row-span-3 md:-mt-12 z-10 p-4' >
            
             {/*  <div className='flex flex-col w-full self-start self-center max-sm:w-[70vw]  justify-center md:items-center  ' >
              <h1 className='text-white self-center  justify-self-center text-7xl 2xl:text-9xl font-Gardion' >GAM<span className='text-red-500' >3RS</span></h1>
