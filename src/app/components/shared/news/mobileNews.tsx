@@ -25,7 +25,7 @@ const Mobile_News = ({user}:any) => {
 
     
   return (
-    <div className='flex max-sm:relative  max-sm:-top-12 md:max-h-[600px] max-sm:max-h-[250px] max-sm:max-w-[400px]   grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-1/2 flex-col rounded-lg md:justify-between' >
+    <div className='flex max-sm:relative  max-sm:-top-12 md:max-h-[600px] max-sm:max-h-[250px] max-sm:max-w-[375px]   grid grid-cols-4 grid-rows-4  bg-black md:w-full md:h-1/2 flex-col rounded-lg md:justify-between' >
       
          <div className='flex  max-sm:w-full md:w-3/4 md:left-6 md:-top-12 relative max-sm:-left-2 max-sm:h-full max-sm:-mt-24 max-sm:-ml-6  col-start-1 rotate-45 max-sm:-rotate-45 row-start-2 w-1/2   -ml-8 -mt-16  2xl:-mt-80  bg-white ' >
             {/* Upper left slant */}
@@ -65,7 +65,7 @@ const Mobile_News = ({user}:any) => {
 
           </div>
       </div>
-      <div className='flex border-2 border-black max-sm:relative  z-50  w-1/6  md:-ml-2   h-full self-start row-start-2 col-start-5 z-50 ' >
+      <div className='flex border-2 border-black max-sm:left-0  max-sm:relative  z-50  w-1/6  md:-ml-2   h-full self-start row-start-2 col-start-5 z-50 ' >
          {/* Rightside mid Design*/}
       </div>
       <div className=' max-sm:flex  max-sm:relative max-sm:top-4 max-sm:mt-2  max-sm:w-20 max-sm:-mb-24 col-start-1 row-start-4 md:self-center md:flex md:space-between w-24 h-24 -ml-12  origin-center rotate-45 md:-mb-20  bg-white' >
@@ -90,7 +90,7 @@ const Mobile_News = ({user}:any) => {
       <div className='flex  max-sm:mt-10 max-sm:ml-12 max-sm:w-full max-sm:h-2/3 z-60 max-sm:z-50 row-start-3 col-start-4 w-1/2 h-1/2 -rotate-90 bg-white  skew-x-12 ml-32 mt-20 ' >
         {/* Mid-right slant*/}
       </div>
-      <div className='flex  max-sm:mt-18 max-sm:ml-4  max-sm:h-full max-sm:w-full   z-60 row-start-4 col-start-4 w-full h-full bg-white  -rotate-45 ml-14 mt-12 ' >
+      <div className='flex max-sm:mt-18 max-sm:ml-6  max-sm:h-full max-sm:w-full   z-60 row-start-4 col-start-4 w-full h-full bg-white  -rotate-45 ml-14 mt-12 ' >
         {/* Bottom Right */}
           
       </div>
