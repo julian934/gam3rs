@@ -7,6 +7,7 @@ import { postTest } from '@/app/lib/actions/connections'
 import { getSession, useSession } from 'next-auth/react'
 import { QueryClient } from '@tanstack/react-query'
 import News from '@/app/components/shared/news/news'
+import Mobile_News from '@/app/components/shared/news/mobileNews'
 //import Games from '@/app/components/shared/games/games'
 import GamesRedux from '@/app/components/shared/gamesRedux/gamesRedux'
 //import Forums from '@/app/components/shared/forums/forums'
@@ -149,8 +150,12 @@ const HomePage = (props: Props) => {
       
       </div>
 
-      <div className='flex max-sm:h-2/5 max-sm:max-h-[450px] max-sm:pt-0 relative max-sm:-top-20 max-sm:left-4 max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5   md:top-96 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-30' >
+      <div className=' max-sm:invisible  flex max-sm:h-2/5 max-sm:max-h-[450px] max-sm:pt-0 relative max-sm:-top-20 max-sm:left-4 max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5   md:top-96 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-30' >
+     
       <News user={session?.user?.name} />
+      </div>
+      <div className=' md:invisible md:z-0 flex max-sm:h-2/5 max-sm:max-h-[450px] max-sm:pt-0 relative max-sm:-top-96 max-sm:left-0 max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5   md:top-96 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-30' >
+          <Mobile_News/>
       </div>
       {/* Border-pieces */}
       
@@ -166,7 +171,7 @@ const HomePage = (props: Props) => {
 <div className=' border-2 border-red-500 relative md:-top-[40vh] md:-left-[2.3vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
 
 </div> */}
-      <div className='relative border-2 max-sm:z-40 max-sm:py-4 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-white md:space-y-12 md:z-50 ' >
+      <div className='relative border-2 max-sm:z-40 max-sm:py-4 max-sm:-top-20 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-white md:space-y-12 md:z-50 ' >
       
         {/*session?<LiveStreams  /> : <LiveStreams/>*/}
         {session && userData? <GamesRedux  /> : <GamesRedux/>}
