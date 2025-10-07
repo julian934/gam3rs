@@ -26,6 +26,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
   const [disliked,setDisliked]=useState<boolean>(false);
   const [hasFetched, setHasFetched] = useState(false);
   const [activeComments, setActiveComments]=useState<boolean>(false);
+  const [currData,setCurrData]=useState<any>();
   const {data:session}=useSession();
   const commentRef=useRef<any>();
   const { data } = useQuery({
@@ -46,6 +47,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
     }
     if(data && data!=undefined){
       setHasFetched(true)
+      setCurrData(data?.data[0])
     }
 
   }, [params.slug,data])
@@ -108,7 +110,8 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
     await commentUpdate(comment)
   }
  console.log('Current Video Data: ', params);
- console.log('Testing Data: ', data)
+ console.log('Testing Data: ', data?.data)
+ console.log('Current Data: ', currData);
   return (
     <div className="max-sm:flex  max-sm:flex-col  bg-white">
       {/* Nav */}
@@ -219,14 +222,27 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
             </button>
         </div>
           <div className='relative top-12 w-1/3  p-4 md:min-h-[300px]' >
-         <button onClick={()=>setActiveComments(!activeComments)} >
-        <div className='flex  transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-full max-sm:w-full' >
+         
+        <div className='flex  transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-1/3 max-sm:w-full' >
               <h1 className='text-white font-Gardion  px-2 text-md' >Comments</h1>
              
         </div>
-        </button>
-         <div className=' flex self-center relative top-10 max-sm:top-2  left-10 max-sm:left-20 justify-center  w-full  max-sm:min-w-[200px] ' >
-          {activeComments && data?.data?.comments ?<div></div>:<h1 className='-skew-x-12 bg-gray-400 rounded-sm px-2 max-sm:w-full text-white' > No Comments Yet. Be the first! </h1>}
+        
+         <div className=' flex flex-col self-center relative -top-2 max-sm:top-2  left-10 max-sm:left-0 justify-center md:min-w-[60vw] max-sm:min-w-[80vw] z-[9999] py-10' >
+          {currData && currData?.comments?.length > 0 ?<div className='flex flex-col z-[9999]  w-full h-[250px] overflow-y-auto  ' >
+            {currData?.comments?.map((comment:any)=>{
+             return( <div className='flex flex-col z-[50] space-y-4  py-4 px-6' >
+                   <div className='flex  transition ease-in-out rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl self-end  to-red-900 -skew-x-12  ' >
+                    <h1 className='text-white w-1/2  font-Gardion  px-2 text-md' >{comment && comment?.videoData?.data[0]?.user}</h1>
+                    </div>
+                     
+                  <div className='-skew-x-12 bg-gray-400 min-h-[50px] rounded-sm px-2 max-sm:w-full text-white' >
+                    {comment && comment?.comment}
+                    </div>
+                </div>)
+
+            })}
+          </div>:<h1 className='-skew-x-12 bg-gray-400 rounded-sm px-2 max-sm:w-full text-white' > No Comments Yet. Be the first! </h1>}
              
 
         </div>
