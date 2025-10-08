@@ -101,6 +101,7 @@ console.log('curr data: ', finalAssetID)
     $push: {
       "gam3rsinfo.users.$.videos": dataObj, // push into user's videos array
       "gam3rsinfo.videos": dataObj,         // push into global videos array
+      "gam3rsinfo.notifications":dataObj    //push into global notifications array
     } as any,
   }
 );

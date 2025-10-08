@@ -23,7 +23,7 @@ const VideoCard = ({ playbackID, fileName }: { playbackID: string; fileName: str
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="text relative z-50">
-          <h1 className="font-bold text-xl md:text-3xl text-gray-300">{fileName}</h1>
+          <h1 className="font-bold text-xl md:text-2xl text-gray-300">{fileName}</h1>
         </div>
       </div>
     </Link>

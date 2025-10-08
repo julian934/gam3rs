@@ -245,7 +245,7 @@ export const getNotifications=async()=>{
   
  // const finalData=await data?.data?.data?.slice(0,2);
   
-  return {data:data?.data?.data,flag:'notifications'}
+  return {data:data?.data?.data?.reverse(),flag:'notifications'}
 }
 
 export const likeVideo=async(data:any)=>{

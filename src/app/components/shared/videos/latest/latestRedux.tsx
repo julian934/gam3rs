@@ -64,9 +64,9 @@ if(dataState){
     {data!==undefined?<div className='w-[200px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-white  md:mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
       <h1 className='' >{data?.data?.title} </h1>
       {dataState && dataState?.length>0 && dataState?.slice(0, 3)?.map((vals:any)=>
-      <Link className='md:flex md:self-start border-2 border-gray-600 rounded-md md:w-[200px]' href={`/videos/${vals?.playbackID}`} key={vals?.playbackID}  >
+      <Link className='md:flex md:self-start  rounded-md md:w-[200px]' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
        <div className='md:w-full' > 
-           <Gif playbackID={vals?.playbackID} fileName={vals?.fileName} />
+           <Gif playbackID={vals?.playbackId} fileName={vals?.fileName} />
        </div>
       
        </Link>)}
