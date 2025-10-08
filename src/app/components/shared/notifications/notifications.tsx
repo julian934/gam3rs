@@ -61,7 +61,7 @@ const Notifications = (props: Props) => {
             
             <div className=' flex flex-row z-[9999]  relative max-h-[45vh]  right-0 max-h-full  space-x-12 max-w-[50vw]  overflow-y-auto' >
             {data && data?.data?.map((vals:any)=>
-      <Link className='flex flex-col rounded-md  max-h-[45vh]   ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackID}  >
+      <Link className='flex flex-col rounded-md  max-h-[45vh]   ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
         <h1 className='w-full relative left-8 font-Gardion text-sm' >{vals?.user} just posted a video  </h1>
         <div className='flex justify-center w-full  max-h-[15vh]' > 
           <Gif playbackID={vals.playbackId} fileName={vals.fileName} />
