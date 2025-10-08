@@ -232,7 +232,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
           {currData && currData?.comments?.length > 0 ?<div className='flex flex-col z-[9999]  w-full h-[250px] overflow-y-auto  ' >
             {currData?.comments?.map((comment:any)=>{
              return( <div className='flex flex-col z-[50] space-y-4  py-4 px-6' >
-                   <div className='flex  transition ease-in-out rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl self-end  to-red-900 -skew-x-12  ' >
+                   <div className='flex  transition ease-in-out rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl self-end  to-red-900 -skew-x-12  ' key={comment?.comment} >
                     <h1 className='text-white w-1/2  font-Gardion  px-2 text-md' >{comment && comment?.videoData?.data[0]?.user}</h1>
                     </div>
                      
