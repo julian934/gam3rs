@@ -231,8 +231,8 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
          <div className=' flex flex-col self-center relative -top-2 max-sm:top-2  left-10 max-sm:left-0 justify-center md:min-w-[60vw] max-sm:min-w-[80vw] z-[9999] py-10' >
           {currData && currData?.comments?.length > 0 ?<div className='flex flex-col z-[9999]  w-full h-[250px] overflow-y-auto  ' >
             {currData?.comments?.map((comment:any)=>{
-             return( <div className='flex flex-col z-[50] space-y-4  py-4 px-6' >
-                   <div className='flex  transition ease-in-out rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl self-end  to-red-900 -skew-x-12  ' key={`${comment?.playbackId}`} >
+             return( <div className='flex flex-col z-[50] space-y-4  py-4 px-6' key={`${comment?.playbackId}`}  >
+                   <div className='flex  transition ease-in-out rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl self-end  to-red-900 -skew-x-12  ' >
                     <h1 className='text-white w-1/2  font-Gardion  px-2 text-md' >{comment && comment?.videoData?.data[0]?.user}</h1>
                     </div>
                      
