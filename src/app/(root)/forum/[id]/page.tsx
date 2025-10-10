@@ -127,11 +127,18 @@ const Forum = ({params}:{params: Props | undefined}) => {
       <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
         <MobileNav/>
       </div>
-      <div className='flex max-sm:invisible z-10 md:z-50 bg-slate-200 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
+      {/* Mobile Nav */}
+      
+
+      {/* Notifications */}
+      <div className="h-full max-sm:invisible col-start-1 row-start-1 md:relative md:top-6 md:left-72 md:h-2/5 md:w-2/3 z-[30] rounded-md">
+        <Notifications />
+      </div>
+      {/* <div className='flex max-sm:invisible z-10 md:z-50 bg-slate-200 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-2/3 max-sm:h-20 md:mt-40  md:col-start-1 md:row-start-1 md:row-span-2 p-4 rounded-md p-4  ' >
        
        <Notifications/>
-      </div>
-      {forumData && forumData?.threads?.length>0? <div className='flex flex-col relative md:-top-[72.5vh] max-sm:-top-[65vh] max-sm:w-[95vw]  md:max-h-[600px]  md:w-2/3 md:h-full justify-self-center flex-around row-start-2 row-span-2 col-start-1 col-span-4 z-20  -mt-12  ' >
+      </div>*/}
+      {forumData && forumData?.threads?.length>0? <div className='flex flex-col relative md:top-0 max-sm:-top-[65vh] max-sm:w-[95vw]  md:max-h-[600px]  md:w-2/3 md:h-full justify-self-center flex-around row-start-2 row-span-2 col-start-1 col-span-4 z-20 z-[9999] -mt-12  ' >
          
          <div className=' flex max-sm:justify-self-center  grid max-sm:mt-4 h-full w-full max-sm:grid-cols-3 max-sm:grid-rows-3 max-sm:justify-self-center max-sm:w-full grid-cols-6 grid-rows-4 flex-row  bg-black z-[9999]  col-start-2 col-span-4 row-start-2  row-span-2  flex-col px-2 ' >
        {/* Add Design to this page. */}
@@ -190,12 +197,12 @@ const Forum = ({params}:{params: Props | undefined}) => {
        {forumData && <div className=' flex flex-col space-y-4 max-sm:space-y-8 self-center max-sm:col-start-1 md:col-start-2 col-span-3 w-full   rounded-md h-full' >
            {/*Features needed: make a post, reply to post and delete your post, and update the server with the new information. */}
            {forumData && <div className='flex max-sm:relative max-sm:-left-10 flex-col w-92 max-sm:w-full h-full self-center max-sm:space-y-4 md:space-y-8 md:pt-12 ' >
-            <h1 className=' flex font-Gardion h-8 justify-center text-3xl max-sm:text-xl w-full flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 
-             shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white' > {forumData.name} </h1>
+            <h1 className=' flex  h-8 justify-center text-3xl max-sm:text-xl w-full flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 
+             shadow-xl   to-red-900  -skew-x-12 w-64 text-white' > {forumData.name} </h1>
             <h3 className=' flex font-Gardion bg-white h-8 justify-center text-lg max-sm:text-md flex rounded-sm md:self-center   -skew-x-12 w-full text-black px-4' > {forumData.description} </h3>
 
          </div> } 
-           {forumData?.threads?.length<1?<div className='flex flex-col w-full  h-full p-4 space-y-4 flex justify-self-center self-start md:mb-12 ' >
+           {forumData?.threads?.length<1?<div className='flex flex-col w-full  h-full p-4 space-y-4 flex justify-self-center self-start md:mb-0 ' >
              
               <h3 className='px-4 bg-white flex justify-center -skew-x-12  ' >First one here? Be the first to post and get the conversation started! </h3>
               
@@ -213,7 +220,7 @@ const Forum = ({params}:{params: Props | undefined}) => {
      </div>
      </div> 
      
-     <div className='flex z-[9999] md:py-4  flex-col overflow-auto max-h-[1000px] w-full max-w-4xl max-sm:w-4/5 mx-auto space-y-4 max-sm:pt-8 md:pt-12' >
+     <div className='flex z-[9999] md:py-4 relative md:top-10  flex-col overflow-auto max-h-[1000px] w-full max-w-4xl max-sm:w-4/5 mx-auto space-y-4 max-sm:pt-8 ' >
      {forumData && forumData?.threads?.length >0 &&  forumData?.threads? forumData?.threads?.map((vals:any)=><div className=' flex flex-col w-full p-4  rounded-md shadow-sm  z-[9999]' key={vals.id}  >
               
               
@@ -328,9 +335,10 @@ const Forum = ({params}:{params: Props | undefined}) => {
      </div>}
      
      
-      <div className=' flex max-sm:border-2 max-sm:invisible md:z-50 max-sm:border-black max-sm:h-full md:row-start-1 md:mt-40 md:row-span-2 md:h-5/6 md:w-2/3 md:px-8 justify-self-end rounded-md self-start md:col-start-4 bg-slate-200 ' >
+      
+        {/* <div className=' flex max-sm:border-2 max-sm:invisible md:z-50 max-sm:border-black max-sm:h-full md:row-start-1 md:mt-40 md:row-span-2 md:h-5/6 md:w-2/3 md:px-8 justify-self-end rounded-md self-start md:col-start-4 bg-slate-200 ' >
         <FriendsList  friends={currUser?.friends} />
-        </div>
+        </div>*/}
 
       <div className='flex row-start-4 col-start-1 col-span-4 bg-white justify-self-center self-center z-50' >
          <Footer/>

@@ -21,38 +21,41 @@ const ForumPost = (props: Props) => {
        
         
         
-        <div className='flex h-[7.5vh] max-sm:h-[6vh] max-sm:left-8 w-[30vw] max-sm:min-w-[60vw] relative md:left-60 justify-center text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl   to-red-900  z-[9999] -skew-x-12 w-40 text-white' >
+        <div className='flex h-[7.5vh] max-sm:h-[6vh] max-sm:left-8 w-[30vw] max-sm:min-w-[60vw] relative md:left-60 justify-center text-lg flex   to-red-900  z-[9999] -skew-x-12 w-40 text-white' >
        
-        <div className='relative left-20 max-sm:left-0 top-4 text-sm text-black z-[9999]' >
-            <h1 className='font-Gardion' >
+        <div className='flex  transition ease-in-out rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl self-end  to-red-900 -skew-x-12 ' >
+            
+            {/* <h1 className='relative font-Gardion px-4 flex justify-self-center ' >
                {props.user}
-            </h1>
-            <h1 className='font-Gardion' >
-                 {props.forum}
+            </h1>*/}
+            <h1 className='relative px-4 flex justify-self-center ' >
+                 {props.user}
                  </h1>
+                 {/* */}
         </div>
         </div>
         
         <Motion.div className='relative md:left-[15vw] md:top-[5vh] max-sm:p-2  max-sm:-left-4  flex flex-col z-[9998]' >
           
           {/* <button onClick={()=>setActiveModal(!activeModal)} >{activeModal?<Image className='relative z-[9999] w-8 h-8' src={DownArrow} alt='Open Modal' />:<Image className='relative w-8 h-8' src={UpArrow}  alt='Down Modal' />}</button>*/}
-          <Motion.div className=' md:min-h-[20vh] max-sm:h-full relative max-sm:min-w-[60vw] max-sm:max-w-[80vw]  md:min-w-[25vw] md:max-w-[20vw] md:-top-6 md:left-10 bg-black text-white' >
-            <p className=' relative top-20vh p-4 font-Gardion  ' >
+          <Motion.div className=' md:min-h-[20vh] max-sm:h-full relative max-sm:min-w-[60vw] max-sm:max-w-[80vw]  md:min-w-[25vw] md:max-w-[20vw] md:-top-6 md:left-10 text-white' >
+            <p className=' -skew-x-12 bg-gray-400 min-h-[50px] rounded-sm px-2 max-sm:w-full text-white ' >
            
             {props.message}
             </p>
-            <div className='absolute w-10 h-10  max-sm:-top-[5vh] max-sm:-left-[5.3vw] md:-top-6 md:left-[23.6vw] bg-white rotate-45 ' >
-                   {/* Top Left*/}
+            
+           {/* <div className='absolute w-10 h-10  max-sm:-top-[5vh] max-sm:-left-[5.3vw] md:-top-6 md:left-[23.6vw] bg-white rotate-45 ' >
+                  
             </div>
             <div className='absolute w-10 h-10  max-sm:top-[7.5vh] max-sm:-left-[5vw] md:-top-6 md:-left-[1.4vw] bg-white rotate-45 ' >
-                 {/* bottom Left*/}
+                 
 </div>
 <div className='absolute w-10 h-10  max-sm:-top-[3vh] max-sm:left-[61vw] md:-left-6 bg-white md:top-[17vh] rotate-45 ' >
-    {/* Top right*/}
+    
 </div>
 <div className='absolute w-10 h-10  max-sm:top-[7.5vh] max-sm:left-[58vw] md:left-[23.6vw] md:top-[17vh] bg-white rotate-45 ' >
 
-</div>
+</div>*/}
             
 
           </Motion.div>

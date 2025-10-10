@@ -50,7 +50,7 @@ const Notifications = (props: Props) => {
   console.log("Current Default Data: ", defaultData)
  }
   return (
-    <div className='flex space-y-8 max-h-[45vh]  flex-col rounded-md z-[9999] max-sm:z-30 w-full max-sm:h-40 md:-mt-8 max-sm:py-4 ' >
+    <div className='flex space-y-8 max-h-[45vh]  flex-col rounded-md z-[9999] max-sm:z-30 w-full max-sm:h-40 md:mt-0 max-sm:py-4 ' >
     <h1 className='flex font-Gardion relative z-[9999]  max-sm:w-48 md:w-36 max-sm:text-xl h-8 max-sm:ml-4 md:-right-2  justify-center text-3xl md:text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white' > Notifications </h1>
      
         {defaultData &&  <div className='flex flex-col self-center space-y-2 md:space-y-4  md:w-full' >
