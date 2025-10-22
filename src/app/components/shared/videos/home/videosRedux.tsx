@@ -12,6 +12,7 @@ import { StoreStateContext } from '@/app/lib/context/storeContext'
 import { useContext } from 'react'
 import Image from 'next/image'
 import { filteredLatestVideos } from '@/app/lib/database/connections'
+import { filteredPopVideos } from '@/app/lib/database/connections'
 import Thumbnail from '../thumbnail/thumbnail'
 import { cn } from '@/app/lib/utils'
 import Gif from '../gif/homeGif'
@@ -79,7 +80,7 @@ const Videos = (props: any) => {
       {dataState && dataState.map((vals:any)=>
       <Link className=' max-sm:w-full md:flex md:self-start    ' href={`/videos/${vals.playbackID}`} key={vals?.playbackID} >
         
-       <Gif playbackID={vals.playbackID} fileName={vals.fileName} />
+       <Gif playbackID={vals?.playbackId} fileName={vals?.fileName} />
       </Link>)}
     </div>:
     <><Card className="w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white " radius="lg">

@@ -143,7 +143,7 @@ const HomePage = (props: Props) => {
 
       </div>
      
-      <div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-8 md:left-72  max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-full max-sm:h-20 md:mt-40  md:col-start-1  md:col-span-2 md:row-start-1  p-4 rounded-md p-4  ' >
+      <div className='flex max-sm:invisible max-sm:z-50  max-sm:-pt-10 md:z-50 md:relative md:top-2 md:left-72  max-sm:-mt-10 max-sm:self-center max-sm:w-full max-sm:z-auto max-sm:p-4 md:h-5/6 md:w-full max-sm:h-20 md:mt-40  md:col-start-1  md:col-span-2 md:row-start-1  p-4 rounded-md p-4  ' >
        <div className='relative  md:w-full md:top-0 md:left-2' >
          <Notifications/>
         </div>

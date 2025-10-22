@@ -65,7 +65,7 @@ const AboutRedux = (props: Props) => {
                 quality={100}
                 width={100}
                 height={100}
-                className="rounded-md md:w-[15vw] md:h-[30vh] max-sm:w-[90vw] max-sm:h-[60vh]"
+                className="rounded-md md:w-[15vw] lg:h-[20vh] lg:w-[10vw] md:max-w-[15vw] md:h-[30vh] md:max-h-[30vh] max-sm:w-[90vw] max-sm:h-[60vh]"
               />
               <div className="md:right-44 relative max-sm:right-0">
                 <AboutJulian />

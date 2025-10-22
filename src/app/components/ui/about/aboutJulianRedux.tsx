@@ -14,12 +14,12 @@ const AboutJulian = (props: Props) => {
   return (
     <div className="flex flex-col items-center gap-2 relative md:-left-2 md:px-4 ">
       {/* Name Header */}
-      <div className="flex items-center justify-center h-[6vh] w-[80vw] md:w-[30vw] bg-gradient-to-r from-red-900 via-red-500 to-red-900 shadow-xl -skew-x-12 rounded-sm">
+      <div className="flex items-center justify-center h-[6vh] w-[80vw] md:w-[30vw]  lg:max-h-[3vh]  bg-gradient-to-r from-red-900 via-red-500 to-red-900 shadow-xl -skew-x-12 rounded-sm">
         <h1 className="font-Gardion text-xl text-white skew-x-12">Julian Borner</h1>
       </div>
 
       {/* Role Header */}
-      <div className="flex items-center justify-center h-[8vh] w-[82.5vw] md:w-[30vw] bg-gradient-to-r from-red-900 via-red-500 to-red-900 shadow-xl -skew-x-12 rounded-sm">
+      <div className="flex items-center justify-center h-[8vh] lg:max-h-[4vh] w-[82.5vw] md:w-[30vw] bg-gradient-to-r from-red-900 via-red-500 to-red-900 shadow-xl -skew-x-12 rounded-sm">
         <h2 className="text-md text-white font-Gardion p-2 skew-x-12 text-center">
           Gam3r Network Founder and Lead Engineer
         </h2>
@@ -41,7 +41,7 @@ const AboutJulian = (props: Props) => {
         {/* Modal */}
         {isModalOpen && (
           <Motion.div
-            className="absolute md:min-h-[20vh] md:min-w-[25vw] max-w-[90vw] bg-black text-white mt-10 rounded-md shadow-lg"
+            className="absolute md:max-h-[20vh] md:max-w-[25vw] max-w-[90vw] bg-black text-white mt-10 rounded-md shadow-lg"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
