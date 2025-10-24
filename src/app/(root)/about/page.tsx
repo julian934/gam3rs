@@ -30,7 +30,7 @@ const About = (props: Props) => {
    },[])
 
   return (
-    <div className=' max-sm:flex-col grid grid-cols-6 grid-rows-4 min-h-screen bg-white
+    <div className=' max-sm:flex-col min-h-screen bg-white
     ' >
      
       <div className='col-start-1 col-span-6 row-start-1 z-20 max-sm:z-40' >
@@ -41,14 +41,13 @@ const About = (props: Props) => {
       </div>
       {/*<h1 className='flex row-start-2 col-start-2 col-span-4 justify-center text-3xl' >About</h1> */}
       
-     <div className='flex md:space-x-2 max-sm:flex-col grid z-60 md:-mb-12 md:p-4 grid-cols-4 grid-rows-4 max-sm:row-start-1 md:row-start-2 md:self-center md:justify-self-center row-span-2 col-start-1 col-span-6  rounded-lg  ' >
+     <div className='flex md:space-x-2 flex-col  z-60 md:-mb-12 md:p-4  md:self-center md:justify-self-center  rounded-lg  ' >
      
-      <div className=' flex  max-sm:h-[35vh] max-sm:self-start max-sm:justify-center relative md:-top-48 max-sm:-left-2 max-sm:top-32 max-w-[800px]  md:max-h-[600px]  max-sm:col-start-1 max-sm:col-span-4 md:row-start-1 md:row-span-3 col-start-1 md:col-span-2
-        1 max-sm:col-start-1 max-sm:col-span-6 max-sm:h-full md:relative md:-top-4  md:self-center max-sm:z-50 max-sm:px-4 md:pt-0' >
+      <div className=' flex  max-sm:h-[35vh] md:top-4 max-sm:self-start max-sm:justify-center relative md:-top-48 max-sm:-left-2 max-sm:top-32 max-w-[800px]  md:max-h-[500px]  
+        1 max-sm:h-full md:relative md:-top-4  md:self-center max-sm:z-50 max-sm:px-4 md:pt-0' >
           <About_Modal/>
       </div>
-      <div className='flex md:relative md:-top-48 flex-col row-start-1 row-span-4 justify-center col-start-3  self-center col-span-2 
-       max-sm:col-start-1 max-sm:col-span-6 max-sm:row-start-2 z-50 max-sm:justify-end max-sm:z-50 max-sm:self-start mt-14 ' >
+      <div className='flex flex-col md:relative md:w-4/6 md:self-center z-50 max-sm:justify-end max-sm:z-50 max-sm:self-start mt-14 ' >
         <div className='flex self-center relative md:top-4' >
             <h1 className=' flex  justify-center self-center p-2 text-5xl 2xl:text-8xl font-Gardion ' >What We Do</h1> {/* Add Design */}
         </div>
@@ -73,11 +72,11 @@ const About = (props: Props) => {
         </p>
         </div>
         </div> */}
-        <div className='flex flex-col bg-white max-sm:space-y-4' >
+        <div className='flex flex-col bg-white max-sm:space-y-4 w-4/5 self-center ' >
           <h1 className='font-Gardion relative max-sm:left-6' >Meet The Team</h1>
        
           <div className='flex max-sm:flex-col max-sm:self-center max-sm:justify-self-center max-sm:space-y-4' >
-                 <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[20vw]  md:h-[40vh] max-sm:w-[90vw] max-sm:h-[60vh] '  quality={100} height={400} width={400} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
+                 <Image className='max-sm:relative max-sm:left-0 max-sm:justify-around rounded-md md:w-[17.5vw]  md:h-[40vh] max-sm:w-[90vw] max-sm:h-[60vh] '  quality={100} height={400} width={400} src={JB_Profile_Pic} alt='Julian Borner Profile Pic' />
                  <div className='relative max-sm:right-0 md:-right-4  '   > 
                  <AboutJulian/>
                  </div>

@@ -11,7 +11,7 @@ const VideoCard = ({ playbackID, fileName }: { playbackID: string; fileName: str
     <Link href={`/videos/${playbackID}`} className="block">
       <div
         className={cn(
-          "group w-full cursor-pointer overflow-hidden relative card h-20 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 transition-all duration-500"
+          "group w-full cursor-pointer overflow-hidden relative card h-32 min-w-40 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 transition-all duration-500"
         )}
         style={{
           backgroundImage: `url(https://image.mux.com/${playbackID}/${
