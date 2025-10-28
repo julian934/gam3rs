@@ -22,7 +22,8 @@ export async function POST(request:NextRequest){
               _id:gam3rObjID
             },{
                 $push:{
-                    "gam3rsinfo.videos":videoData as any
+                    "gam3rsinfo.videos":videoData as any,
+                    "gam3rsinfo.notifications":videoData as any                    
                 }
             })
             console.log("Returned Data: ", results);

@@ -59,15 +59,23 @@ const Notifications = (props: Props) => {
           </div>}
           <motion.div className=' md:w-full max-h-[45vh] z-[9999]' >
             
-            <div className=' flex flex-row z-[9999]  relative max-h-[45vh]  right-0 max-h-full  space-x-12 max-w-[50vw]  overflow-y-auto' >
-            {data && data?.data?.map((vals:any)=>
+            <div className=' flex flex-row z-[9999]  relative max-h-[45vh]  right-0 max-h-full  space-x-12 max-w-[60vw]  overflow-y-auto' >
+            {data && data?.data?.map((vals:any)=>vals?.playbackId && vals!==null?
       <Link className='flex flex-col rounded-md  max-h-[45vh]  space-y-2 ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
         <h1 className='w-full relative left-8 font-Gardion text-sm' >{vals?.user}  </h1>
         <div className='flex justify-center w-full  max-h-[25vh] min-w-[22.5vw] ' > 
           <Gif playbackID={vals.playbackId} fileName={vals.fileName} />
         </div>
        
-       </Link>)}
+       </Link>:vals?.forumID && vals!==null? <Link href={`/forums/${vals.forumID}`} >
+
+           <h1>{vals.user} just posted to </h1>
+           <h1 className='flex  relative z-[9999] px-2  max-sm:w-48 md:w-72 max-sm:text-xl h-8 max-sm:ml-4 md:-right-2  justify-center text-3xl md:text-lg flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-64 text-white' >
+            {vals.forumName}
+           </h1>
+
+                   
+       </Link>:<div></div>)}
             </div>
           
             

@@ -39,7 +39,9 @@ export async function POST(request: NextRequest) {
                     "gam3rsinfo.forums._id": forumId
                 },
                 {
-                    $push: { "gam3rsinfo.forums.$.threads": forumPost } as any
+                    $push: { "gam3rsinfo.forums.$.threads": forumPost,
+                             "gam3rsinfo.notifications":forumPost
+                     } as any
                 }
             );
 

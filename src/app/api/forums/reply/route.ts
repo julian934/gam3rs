@@ -46,7 +46,9 @@ export async function POST(request:NextRequest){
           "gam3rsinfo.forums.threads._id":postID
         },
         {
-          $push:{"gam3rsinfo.forums.$[forumElem].threads.$[postElem].replies":forumReply} as any
+          $push:{"gam3rsinfo.forums.$[forumElem].threads.$[postElem].replies":forumReply,
+            "gam3rsinfo.notifications":forumReply
+          } as any
         },{
           arrayFilters:[
             {"forumElem._id":forumID},

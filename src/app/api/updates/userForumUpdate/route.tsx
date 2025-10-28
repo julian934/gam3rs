@@ -23,7 +23,9 @@ export async function POST(request:NextRequest){
                 "gam3rsinfo.users.username": body.currData.user.name,
             },
             {
-                $push: { "gam3rsinfo.users.$.forumPosts": body },
+                $push: { "gam3rsinfo.users.$.forumPosts": body,
+                         "gam3rsinfo.notifications":body
+                 },
             }
         );
        console.log("Current User: ", result)
