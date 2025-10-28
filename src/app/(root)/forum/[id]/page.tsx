@@ -158,11 +158,11 @@ const Forum = ({params}:{params: Props | undefined}) => {
      </div>
      
    
-    <div className='flex size-4 bg-gray-50 col-start-1  row-start-1 row-span-2' >
+    <div className='flex size-4 bg-white col-start-1  row-start-1 row-span-2' >
 
 
     </div>
-    <div className='flex   flex-col  -ml-4 max-sm:-ml- w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-gray-50 z-40 ' >
+    <div className='flex   flex-col  -ml-4 max-sm:-ml- w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-white z-40 ' >
     {/* Left side white area */}
       <div className='flex -mt-16 md:relative md:top-2 md:left-6 ml-0  w-full h-1/2 bg-white rotate-45 ' >
        {/*Left Side Upper Corner */}
@@ -170,7 +170,7 @@ const Forum = ({params}:{params: Props | undefined}) => {
       </div>
 
     </div>
-    <div className='flex  z-50 -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
+    <div className='flex bg-white  z-50 -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
        {/* left side lower slant */}
 
     </div>
@@ -255,11 +255,11 @@ const Forum = ({params}:{params: Props | undefined}) => {
      </div>
      
    
-    <div className='flex size-4 bg-gray-50 col-start-1  row-start-1 row-span-2' >
+    <div className='flex size-4 bg-whitecol-start-1  row-start-1 row-span-2' >
 
 
     </div>
-    <div className='flex   flex-col  -ml-4 max-sm:-ml- w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-gray-50 z-40 ' >
+    <div className='flex   flex-col  -ml-4 max-sm:-ml- w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-white z-40 ' >
     {/* Left side white area */}
       <div className='flex -mt-16 md:relative md:top-2 md:left-6 ml-0  w-full h-1/2 bg-white rotate-45 ' >
        {/*Left Side Upper Corner */}
@@ -267,7 +267,7 @@ const Forum = ({params}:{params: Props | undefined}) => {
       </div>
 
     </div>
-    <div className='flex  z-50  -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
+    <div className='flex bg-white z-50  -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
        {/* left side lower slant */}
 
     </div>
