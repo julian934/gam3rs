@@ -23,7 +23,7 @@ const Footer = (props: Props) => {
         </li>*/}
       
         <li>
-            <a href="/contact" className="hover:underline">Contact</a>
+            <a href="mailto:jborner111@gmail.com" className="hover:underline">Contact</a>
         </li>
     </ul>
     </div>
