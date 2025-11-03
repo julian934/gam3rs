@@ -8,7 +8,7 @@ const Footer = (props: Props) => {
 
 <footer className=" md:row-start-3  md:self-center md:col-start-1 md:col-span-3 relative md:-top-60  md:col-span-4 bg-white rounded-lg shadow m-4 dark:bg-gray-800">
     <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" className="hover:underline">Julian Borner™</a>. All Rights Reserved.
+      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="/home" className="hover:underline">Julian Borner™</a>. All Rights Reserved.
     </span>
     <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
@@ -17,9 +17,10 @@ const Footer = (props: Props) => {
         <li>
             <a href="/privacy" className="hover:underline me-4 md:me-6">Privacy Policy</a>
         </li>
-        <li>
+        
+        {/* <li>
             <a href="#" className="hover:underline me-4 md:me-6">Licensing</a>
-        </li>
+        </li>*/}
         <li>
             <a href="mailto:jborner111@gmail.com" className="hover:underline">Contact</a>
         </li>
