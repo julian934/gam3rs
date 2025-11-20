@@ -93,7 +93,7 @@ if(dataState){
     {/*vals.playbackId!=undefined &&  <div className="absolute bg-red-900 w-36 h-6 bottom-20 left-48 ml-8 -skew-x-[0.85rad] rotate-90  rounded-md" />*/}
      <div className='absolute   rounded-md h-10 w-[25vw] -top-4 z-50' >
       {/* Top */}
-      <div className='absolute w-[20rem] h-1/2 bg-black -top-2 left-2 px-4 rounded-sm ' >
+      <div className='absolute w-[20rem] h-1/2 bg-black   bg-gradient-to-t from-red-900    to-red-700 -top-2 left-2 px-4 rounded-sm ' >
         {/* Top Upper 1*/}
       </div>
        <div className='absolute  w-[20rem] h-1/3 bg-gradient-to-t from-red-700    to-red-900  top-4 left-2 rounded-sm z-[60]' >
@@ -121,26 +121,26 @@ if(dataState){
                 {/* Upper Skew Right */}
             </div>
 
-            <div className='absolute bg-red-700 top-8    rotate-360 left-20 ml-0 skew-x-[0.85rad] h-4 w-1/3  z-40 '  >
+            <div className='absolute bg-red-700 top-8 rounded-sm   rotate-360 left-20 ml-0 skew-x-[0.85rad] h-4 w-1/3  z-40 '  >
                 {/* Inverse Skew Left */}
             </div>
-            <div className='absolute bg-red-700 top-8 rotate-360 left-36 -ml-4 -skew-x-[0.85rad] h-4 w-1/3  z-50  ' >
+            <div className='absolute bg-red-700 top-8 rounded-sm rotate-360 left-36 -ml-4 -skew-x-[0.85rad] h-4 w-1/3  z-50  ' >
                 {/* Inverse Skew Right */}
             </div>
          </div>
      </div>
-   <div className='absolute bg-black h-8 w-[25vw] top-96 z-50' >
+   <div className='absolute  bg-gradient-to-b from-red-700  via-red-900  to-red-900 h-8 w-[25vw] top-96 z-50' >
       {/* Bottom */}
-      <div className='absolute w-1/3 h-6 left-0  -top-2  bg-black  ' >
+      <div className='absolute w-1/3 h-6 left-0  bg-gradient-to-b from-red-700    to-red-900 -top-2  z-0 ' >
         {/*Top Left 1*/}
       </div>
-       <div className='absolute w-1/3 h-6 -top-2 left-4 bg-black skew-x-[0.85rad] ' >
+       <div className='absolute w-1/3 h-6 -top-2 left-4  bg-gradient-to-b from-red-700    to-red-900 skew-x-[0.85rad] z-0' >
         {/*Top Left 2 */}
       </div>
-      <div className='absolute w-1/3 h-6  -top-2 left-56   bg-black z-[60]  ' >
+      <div className='absolute w-1/3 h-6  -top-2 left-56  bg-gradient-to-b from-red-700    to-red-900 z-30  ' >
          {/*  top Right 1 */}
       </div>
-      <div className='absolute w-1/3 h-6 -top-2 left-52   bg-black -skew-x-[0.85rad] ' >
+      <div className='absolute w-1/3 h-6 -top-2 left-52    bg-gradient-to-b from-red-700    to-red-900 -skew-x-[0.85rad]  z-30' >
          {/*  top Right 2 */}
       </div>
     <div className='absolute  rotate-45 h-10 w-10  top-6 -mt-2 ml-2 -left-8 bg-white' >
