@@ -39,8 +39,8 @@ if(dataState){
   console.log(dataState)
 }
   return (
-    <div className='flex flex-col  justify-around bg-white max-sm:self-center max-sm:flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
-    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
+    <div className='flex flex-col  justify-around  max-sm:self-center max-sm:flex-col bg-black rounded-md  md:w-full md:h-1/4 ' >
+    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col  md:self-center md:justify-between md:p-4 ' >
    
    {/*  <h1 className='text-xl' >Games</h1> */}
    <h1 className='flex max-sm:relative max-sm:left-2 h-8 font-Gardion justify-center md:z-[9999]  md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-40 text-white ' > 
@@ -48,8 +48,8 @@ if(dataState){
      </h1>
     
      <div className='flex max-sm:relative max-sm:top-6 max-sm:space-x-2 md:z-[9999] md:justify-around md:w-[10vw]  ' >
-     <div className=' relative  -top-2 rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10  h-10  ' >
-           <Link href='/testUploadRedux' className=' ' > <Image className='h-8 w-8' src={addbutton} alt='upload' /> </Link>
+     <div className=' relative  -top-2 rounded-md shadow-2xl -left-2 w-10  h-10  ' >
+           <Link href='/testUploadRedux' className=' bg-white ' > <Image className='h-8 w-8 bg-white hover:bg-gray-400' src={addbutton} alt='upload' /> </Link>
            </div>
      <div>
    <Link className='self-center  max-sm:relative max-sm:-top-2  max-sm:left-32 text-lg md:z-[9999] md:mt-10 ' href='/allVideos' >
@@ -61,7 +61,7 @@ if(dataState){
      </div>
    
  </div>
-    {data!==undefined?<div className='w-[300px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-white  md:mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-10' >
+    {data!==undefined?<div className='w-[300px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-black md:-mt-4 md:mb-8 md:pb-8 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-10' >
       <h1 className='' >{data?.data?.title} </h1>
       {/*dataState && dataState?.length>0 && dataState?.slice(0, 3)?.map((vals:any)=>
       <Link className='md:flex md:self-start  rounded-md md:w-[300px]  border-2 border-black ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
@@ -85,7 +85,7 @@ if(dataState){
   <Link
     href={`/videos/${vals?.playbackId}`}
     key={vals?.playbackId}
-    className="relative flex flex-col items-center rounded-md md:w-[300px]  "
+    className="relative flex flex-col items-center rounded-md md:w-[300px] md:-mt-8  "
   >
     {/* Decorative shapes positioned relative to this card */}
     {/*vals.playbackId!=undefined && <div className="absolute bg-red-900 w-36 h-10 top-96 left-36 -mt-8 -ml-4  skew-x-[0.85rad] rounded-md " />*/}
@@ -101,10 +101,10 @@ if(dataState){
       </div>
          <div className='absolute -mt-2 w-full h-8 left-2  ' >
           
-          <div className='absolute bg-white top-[0.9rem]  left-36 -ml-4 skew-x-[0.85rad] h-4 w-1/3  z-50 border-2 ' >
+          <div className='absolute  top-[0.9rem]  left-36 -ml-4 skew-x-[0.85rad] h-4 w-1/3  z-50 border-2 ' >
              {/* white background upper 1 */}
           </div>
-           <div className='absolute bg-white top-[0.9rem]  left-24 -ml-4 -skew-x-[0.85rad] h-4 w-1/3  z-50 border-2' >
+           <div className='absolute  top-[0.9rem]  left-24 -ml-4 -skew-x-[0.85rad] h-4 w-1/3  z-50 border-2' >
              {/* white background upper 2 */}
           </div>
             {/* Top Design */}
@@ -143,10 +143,10 @@ if(dataState){
       <div className='absolute w-1/3 h-6 -top-2 left-52    bg-gradient-to-b from-red-700    to-red-900 -skew-x-[0.85rad]  z-30' >
          {/*  top Right 2 */}
       </div>
-    <div className='absolute  rotate-45 h-10 w-10  top-6 -mt-2 ml-2 -left-8 bg-white' >
+    <div className='absolute  rotate-45 h-10 w-10  top-6 -mt-2 ml-2 -left-8 bg-black' >
          {/* Bottom Left*/}
     </div>
-     <div className='absolute rotate-45 h-10 w-10 top-2 mt-2 left-72 ml-6 bg-white z-[70]' >
+     <div className='absolute rotate-45 h-10 w-10 top-2 mt-2 left-72 ml-6 bg-black z-[70]' >
          {/* Bottom Right*/}
     </div>
      </div>
