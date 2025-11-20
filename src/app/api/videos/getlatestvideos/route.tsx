@@ -20,9 +20,9 @@ export async function GET(request:NextRequest){
         if (!results) {
             return NextResponse.json({ message: "No videos found" }, { status: 404 });
         }
-        const vidData = results?.gam3rsinfo?.videos || [];
+        const vidData = results?.gam3rsinfo?.videos;
         const recents = vidData.sort((itemOne: any, itemTwo: any) => itemTwo.time - itemOne.time);
-        const currRecents = recents?.reverse()?.slice(0, 3); // Avoid unnecessary reverse
+        const currRecents = recents; // Avoid unnecessary reverse
         console.log('Testing recents: ', currRecents)
         return NextResponse.json({ data: currRecents });
         

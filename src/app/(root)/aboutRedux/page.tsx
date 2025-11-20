@@ -24,7 +24,7 @@ const AboutRedux = (props: Props) => {
   return (
     <div className="grid grid-cols-6 grid-rows-4 min-h-screen bg-white max-sm:flex max-sm:flex-col">
       {/* Navigation */}
-      <div className="col-span-6 row-start-1 z-20 max-sm:z-40">
+      <div className="col-span-6 row-start-1 z-[9999] max-sm:z-40  ">
         <NavBar />
       </div>
 

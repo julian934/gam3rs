@@ -112,6 +112,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
  console.log('Current Video Data: ', params);
  console.log('Testing Data: ', data?.data)
  console.log('Current Data: ', currData);
+ console.log('testing title: ', data?.data[0]?.fileName?.split(':')?.filter((val:string)=>val!='filename' && val!=':')?.join(''));
   return (
     <div className="max-sm:flex  max-sm:flex-col  bg-white">
       {/* Nav */}
@@ -130,11 +131,51 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
       </div>
 
       {/* Player */}
-      <div className=" justify-self-center z-[9999] max-sm:z-50 md:w-3/4 px-4 md:top-8 self-start rounded-md md:relative ">
-        <div className="rounded-xl w-full md:h-full flex">
+      <div className=" justify-self-center z-[9999] max-sm:z-50 md:w-3/4 px-4 md:top-8 self-start rounded-md  md:relative ">
+        <div className="rounded-xl w-full md:h-full flex  z-[9999]  ">
+            <div className='absolute flex w-10 h-10  rotate-45 left-[4.75rem] bg-white top-8 z-[9999] ' >
+                {/* Top Left Corner */}
+          </div>
+           <div className='absolute flex  w-10 h-10 left-[53.45rem] top-8 bg-white -rotate-45 z-[9999] ' >
+                {/* Top Right Corner */}
+          </div>
+          <div className='absolute flex  w-10 h-10 rotate-45 bg-white left-[4.75rem] top-[28.6rem] z-[9999] ' >
+                {/* Bottom Left Corner */}
+          </div>
+          <div className='absolute flex  w-10 h-10  rotate-45 bg-white left-[53.35rem] top-[28.65rem] z-[9999] ' >
+                {/* Bottom Right Corner */}
+          </div>
+          <div className='absolute flex self-center left-24 justify-self-center bg-black rounded-sm w-4/5 h-2/5 z-0 ' >
+             {/* Black Background*/}
+          </div>
+          <div className='absolute  flex  -skew-x-[0.7rad] h-10 w-96 top-4 left-36  bg-black z-[9999]  ' >
+                {/* top design 1*/}
+          </div>
+           <div className='absolute left-12 flex  skew-x-[0.7rad] h-10 w-96 top-4 left-48  bg-black z-[9999]  ' >
+                {/* top design 2*/}
+          </div>
+          <div  className='absolute  flex  skew-x-[0.7rad] h-20 w-96 top-[27.5rem] left-36  bg-black ' >
+            {/* Lower Design 1 */}
+          </div>
+          <div className='absolute  flex  -skew-x-[0.7rad] h-20 w-96 top-[27.5rem] left-64  bg-black ' >
+            {/* Lower Design 2 */}
+          </div>
+           <div  className='absolute  flex  skew-x-[0.7rad] h-6 w-56 top-[29.5rem] left-[35rem]  bg-black  z-50' >
+            {/* Lower Design 3 */}
+          </div>
+          <div className='absolute  flex  -skew-x-[0.7rad] h-6 w-20 top-[29.5rem] left-[47rem]   bg-black  z-50' >
+            {/* Lower Design 4 */}
+          </div>
+          <div className='absolute w-10 h-10 ' >
+               
+          </div>
+           <div className='absolute w-10 h-10 ' >
+
+          </div>
+         
           {playBackID  ? (
             <MuxPlayer
-              className="rounded-xl w-full"
+              className="rounded-xl w-full md:scale-75 z-30 "
               playbackId={playBackID}
               metadata={{
                 video_id: videoData?._id ?? '',
@@ -167,16 +208,23 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
         {/* Video Info */}
         <div className="flex flex-col relative bg-white max-sm:top-2 md:top-6 md:space-x-4 space-y-4 md:justify-around  z-[9999] ">
           <div className='flex justify-between' >
-              <div className="flex  rounded-sm bg-red-500 bg-gradient-to-r from-red-900 via-red-500 to-red-900 shadow-xl  -skew-x-12 ">
+              <div className="flex  rounded-sm bg-red-500 bg-gradient-to-r from-red-900 via-red-500 to-red-900  ml-4 ">
+                <div className='absolute w-4 h-6 rotate-45 bg-white  left-40 top-4  ' >
+
+                </div>
                 
-                 {data?  <h1 className="text-xl text-white  max-sm:text-md w-full px-2">{data?.data[0]?.fileName}</h1> : <h1></h1> }
+                 {data?  <h1 className="text-xl text-white  max-sm:text-md w-full px-2">{data?.data[0]?.fileName?.split(':')?.filter((val:string)=>val!='filename' && val!=':')?.join('')}</h1> : <h1></h1> }
              </div>
              <div className='' >
                  <h1 className='font-semibold' >Views: {data?.data[0]?.views}</h1>
              </div>
           </div>
           <div className='flex justify-between' >
-              <div className="flex  rounded-sm  h-3/4 shadow-xl bg-gray-400    -skew-x-12 ">
+              <div className="flex  rounded-sm  h-3/4  bg-gray-400     ">
+              <div className='absolute rotate-45 bg-white w-6 h-6 left-64 ml-4 mt-4 ' >
+
+
+              </div>
             <h3 className="text-xl text-white px-4">{data?.data[0]?.user} </h3>
           </div>
           <div className="md:w-1/4 flex justify-around border-2 border-gray-500  rounded-3xl p-2 ">

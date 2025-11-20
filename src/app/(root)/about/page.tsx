@@ -10,7 +10,7 @@ import Twitch from '../../utils/images/socials/revised/twitch.png'
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import News_Modal from '@/app/components/shared/banners/news/news';
-import About_Modal from '@/app/components/shared/modals/about';
+import About_Modal from '@/app/components/shared/modals/newAboutModal';
 import MobileNav from '@/app/components/shared/modals/mobileNav';
 //import AboutJulian from '@/app/components/ui/about/aboutJulian';
 import AboutJulian from '@/app/components/ui/about/aboutJulianRedux';

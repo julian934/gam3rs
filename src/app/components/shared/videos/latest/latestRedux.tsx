@@ -33,7 +33,7 @@ if(data!=undefined){
 if(data){
   console.log(data)
 }
-
+console.log('Current available latest videos: ', data)
 const dataState = data?.data || []; // Directly access nested data safely
 if(dataState){
   console.log(dataState)
@@ -61,15 +61,103 @@ if(dataState){
      </div>
    
  </div>
-    {data!==undefined?<div className='w-[200px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-white  md:mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
+    {data!==undefined?<div className='w-[300px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-white  md:mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-10' >
       <h1 className='' >{data?.data?.title} </h1>
-      {dataState && dataState?.length>0 && dataState?.slice(0, 3)?.map((vals:any)=>
-      <Link className='md:flex md:self-start  rounded-md md:w-[200px]' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
-       <div className='md:w-full' > 
+      {/*dataState && dataState?.length>0 && dataState?.slice(0, 3)?.map((vals:any)=>
+      <Link className='md:flex md:self-start  rounded-md md:w-[300px]  border-2 border-black ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
+         <div className='absolute bg-red-900 w-36 h-6 top-[108.75vh] left-[7vw] skew-x-[0.85rad] ' >
+            
+            </div> 
+            <div className='absolute bg-red-900 w-10 h-6 top-[107vh]  -rotate-45  left-[17.5vw] z-[9999] ' >
+
+            </div>
+            <div className='absolute bg-red-900 w-36 h-6 top-[92.5vh] -skew-x-[0.85rad]  rotate-90  left-[15vw] -ml-2 top-12  ' >
+
+            </div>
+         
+       <div className='md:w-full z-[9999] ' > 
+        
            <Gif playbackID={vals?.playbackId} fileName={vals?.fileName} />
        </div>
       
-       </Link>)}
+       </Link>)*/}
+       {dataState && dataState.length > 0 && dataState.filter((val:any)=>val?.playbackId!=null && val?.playbackId!=undefined).slice(0, 3).map((vals: any) => (
+  <Link
+    href={`/videos/${vals?.playbackId}`}
+    key={vals?.playbackId}
+    className="relative flex flex-col items-center rounded-md md:w-[300px]  "
+  >
+    {/* Decorative shapes positioned relative to this card */}
+    {/*vals.playbackId!=undefined && <div className="absolute bg-red-900 w-36 h-10 top-96 left-36 -mt-8 -ml-4  skew-x-[0.85rad] rounded-md " />*/}
+    {/*vals.playbackId!=undefined &&  <div className="absolute bg-red-900 w-8 h-2 top-96 -mt-2 -ml-2 left-72 z-[9999] right-4 -skew-x-[0.65rad] -rotate-45 z-20 rounded-2xl" />*/}
+    {/*vals.playbackId!=undefined &&  <div className="absolute bg-red-900 w-36 h-6 bottom-20 left-48 ml-8 -skew-x-[0.85rad] rotate-90  rounded-md" />*/}
+     <div className='absolute   rounded-md h-10 w-[25vw] -top-4 z-50' >
+      {/* Top */}
+      <div className='absolute w-[20rem] h-1/2 bg-black -top-2 left-2 px-4 rounded-sm ' >
+        {/* Top Upper 1*/}
+      </div>
+       <div className='absolute  w-[20rem] h-1/3 bg-gradient-to-t from-red-700    to-red-900  top-4 left-2 rounded-sm z-[60]' >
+        {/* Top Upper 2*/}
+      </div>
+         <div className='absolute -mt-2 w-full h-8 left-2  ' >
+          
+          <div className='absolute bg-white top-[0.9rem]  left-36 -ml-4 skew-x-[0.85rad] h-4 w-1/3  z-50 border-2 ' >
+             {/* white background upper 1 */}
+          </div>
+           <div className='absolute bg-white top-[0.9rem]  left-24 -ml-4 -skew-x-[0.85rad] h-4 w-1/3  z-50 border-2' >
+             {/* white background upper 2 */}
+          </div>
+            {/* Top Design */}
+            <div className='absolute flex self-center   rotate-[180deg] justify-self-center top-4 bg-gradient-to-t from-red-800    to-red-900 -ml-2 w-1/3 -skew-x-[0.85rad]  h-4 z-30 ' >
+              {/* Top Base left */}
+            </div>
+             <div className='absolute flex self-center bg-gradient-to-t from-red-700    to-red-900    justify-self-center ml-2 top-4 bg-red-900 w-1/3 skew-x-[0.85rad]   h-4 z-30 ' >
+              {/* Top Base right */}
+            </div>
+            <div className='absolute bg-red-900 top-2  bg-gradient-to-t from-red-700    to-red-900    left-20 mt-2  ml-0 -skew-x-[0.85rad] h-4 w-1/3  z-50' >
+                {/* Upper Skew Left */}
+            </div>
+             <div className='absolute bg-red-900 top-2 bg-gradient-to-t from-red-700    to-red-900  left-36 -ml-4 mt-2 skew-x-[0.85rad] h-4 w-1/3  z-50 ' > 
+                {/* Upper Skew Right */}
+            </div>
+
+            <div className='absolute bg-red-700 top-8    rotate-360 left-20 ml-0 skew-x-[0.85rad] h-4 w-1/3  z-40 '  >
+                {/* Inverse Skew Left */}
+            </div>
+            <div className='absolute bg-red-700 top-8 rotate-360 left-36 -ml-4 -skew-x-[0.85rad] h-4 w-1/3  z-50  ' >
+                {/* Inverse Skew Right */}
+            </div>
+         </div>
+     </div>
+   <div className='absolute bg-black h-8 w-[25vw] top-96 z-50' >
+      {/* Bottom */}
+      <div className='absolute w-1/3 h-6 left-0  -top-2  bg-black  ' >
+        {/*Top Left 1*/}
+      </div>
+       <div className='absolute w-1/3 h-6 -top-2 left-4 bg-black skew-x-[0.85rad] ' >
+        {/*Top Left 2 */}
+      </div>
+      <div className='absolute w-1/3 h-6  -top-2 left-56   bg-black z-[60]  ' >
+         {/*  top Right 1 */}
+      </div>
+      <div className='absolute w-1/3 h-6 -top-2 left-52   bg-black -skew-x-[0.85rad] ' >
+         {/*  top Right 2 */}
+      </div>
+    <div className='absolute  rotate-45 h-10 w-10  top-6 -mt-2 ml-2 -left-8 bg-white' >
+         {/* Bottom Left*/}
+    </div>
+     <div className='absolute rotate-45 h-10 w-10 top-2 mt-2 left-72 ml-6 bg-white z-[70]' >
+         {/* Bottom Right*/}
+    </div>
+     </div>
+
+    {/* Main content */}
+    <div className="w-full z-[3]">
+      <Gif playbackID={vals?.playbackId} fileName={vals?.fileName} />
+    </div>
+  </Link>
+))}
+
     </div>:
     <><Card className="w-[200px] space-y-5 p-4 flex  max-sm:flex-col bg-white " radius="lg">
     <Skeleton className="rounded-lg">
