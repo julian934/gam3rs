@@ -16,6 +16,7 @@ import { filteredPopVideos } from '@/app/lib/database/connections'
 import Thumbnail from '../thumbnail/thumbnail'
 import { cn } from '@/app/lib/utils'
 import Gif from '../gif/homeGif'
+//import Gam3rs_Video_Modal from '@/app/utils/images/redesign/Gam3rs_Videos_Menu_Modal.png'
 
 type User={
   username?:string | null | undefined,
@@ -42,8 +43,8 @@ const Videos = (props: any) => {
  // const [dataState,setDataState]=useState<any>([]);
   const {data}=useQuery({
     queryKey:['homevideo'],
-    queryFn:()=>filteredLatestVideos(),
-    enabled: !!filteredLatestVideos
+    queryFn:()=>filteredPopVideos(),
+    enabled: !!filteredPopVideos
   });//default to most popular videos
   
   useEffect(()=>{
@@ -57,8 +58,8 @@ const Videos = (props: any) => {
   if(dataState){
     console.log("Current Data: ", data)
   }
-   return(  <div className='flex justify-around bg-white  max-sm:self-center max-sm:w-full max-sm:px-2 flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4  ' >
-    <div className='w-full space-y-5 p-4 flex rounded-md  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
+   return(  <div className='flex justify-around   max-sm:self-center max-sm:w-full max-sm:px-2 flex-col  rounded-md  md:w-full md:h-1/4  ' >
+    <div className='w-full space-y-5 p-4 flex rounded-md  max-sm:flex-col  md:self-center md:justify-between md:p-4 ' >
      
      {/*  <h1 className='text-xl' >Games</h1> */}
      <h1 className='flex font-Gardion h-8 justify-center md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
@@ -75,11 +76,11 @@ const Videos = (props: any) => {
        </div>
      
    </div>
-    {data!==undefined?<div className='w-[100px] max-sm:w-full  space-y-5  p-4  flex  max-sm:flex-col bg-white   md:mb-0 md:justify-around md:self-center md:border-black md:z-60 md:flex-row md:self-start  md:w-full md:h-full ' >
+    {data!==undefined?<div className='w-[200px] max-sm:self-center space-y-5  md:p-4 max-sm:-ml-14 md:mb-2 flex  max-sm:flex-col    md:-mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4 ' >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
-      {dataState && dataState.map((vals:any)=>
-      <Link className=' max-sm:w-full md:flex md:self-start    ' href={`/videos/${vals.playbackID}`} key={vals?.playbackID} >
-        
+      {dataState && dataState?.slice(0,3)?.map((vals:any)=>
+      <Link className=' md:flex md:self-center  rounded-md w-[200px] max-sm:w-[250px]  ' href={`/videos/${vals.playbackID}`} key={vals?.playbackID} >
+         
        <Gif playbackID={vals?.playbackId} fileName={vals?.fileName} />
       </Link>)}
     </div>:

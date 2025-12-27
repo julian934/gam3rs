@@ -42,7 +42,7 @@ const SignUp = (props: Props) => {
       {errored && <h1></h1>}
     </form> */}
   return (
-    <div className='flex flex-col grid grid-cols-4 grid-rows-5 bg-white h-screen ' >
+    <div className='flex flex-col grid grid-cols-4 grid-rows-5 bg-white h-screen max-sm:min-h-screen ' >
     <div className='col-start-1 col-span-4 row-start-1' >
         <NavBar/>
     </div>

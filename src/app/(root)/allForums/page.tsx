@@ -44,7 +44,7 @@ const AllForums = (props: Props) => {
   data && console.log(data)
   data && console.log(forumData)
   return (
-    <div className='flex grid grid-cols-4 grid-rows-4 bg-white ' >
+    <div className='flex grid grid-cols-4 grid-rows-4 bg-gradient-to-b from-black  via-red-900  to-red-900  ' >
       <div className='col-start-1 col-span-4 row-start-1' >
          <NavBar/>
       </div>
@@ -52,9 +52,9 @@ const AllForums = (props: Props) => {
         <MobileNav/>
       </div>
      
-      <div className='flex z-60 p-6' >
+      <div className='flex md:w-1/2  md:self-center relative md:left-[25vw] md:-top-2 md:justify-self-around z-60 p-6' >
      
-      <h1 className='flex justify-center h-10 text-lg flex rounded-sm transition ease-in-out animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-24 text-white ' > 
+      <h1 className='flex justify-center h-10 text-lg flex rounded-sm transition ease-in-out bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-24 text-white ' > 
       All Forums
         </h1> 
         

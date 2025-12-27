@@ -41,7 +41,7 @@ if(dataState){
   console.log(dataState)
 }
   return (
-    <div className='max-sm:flex max-sm:grid max-sm:grid-cols-4 max-sm:grid-rows-4 bg-white' >
+    <div className='max-sm:flex max-sm:grid max-sm:grid-cols-4 max-sm:grid-rows-4 bg-gradient-to-b from-black  via-red-900  to-red-900 ' >
       <div className='col-start-1 col-span-4 row-start-1' >
         <NavBar/>
       </div>

@@ -2,6 +2,8 @@ import { cn } from "../../../lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
+import Gam3rs_Video_Modal from '@/app/utils/images/redesign/Gam3rs_Videos_Menu_Modal.png'
 
 export const HoverEffect = ({
   items,
@@ -31,6 +33,10 @@ export const HoverEffect = ({
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
+          <div className="absolute z-[9999] h-full w-full scale-x-[1.325] max-sm:scale-y-[1.5] scale-y-[1.1]  max-sm:left-[1.5vw] left-[0.35vw] max-sm:-top-[0.5vh] -top-[4.5vh]  " >
+            <Image className="w-full h-full" src={Gam3rs_Video_Modal} alt='Background' />
+
+          </div>
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span

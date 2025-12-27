@@ -75,8 +75,8 @@ const GamesRedux = (props: Props) => {
     useOutsideClick(ref, () => setActive(null));
     testState && console.log('Current test parent size: ', testState)
   return (
-    <div className='flex justify-around bg-white  max-sm:self-center max-sm:w-full max-sm:px-2 flex-col bg-slate-50 rounded-md  md:w-full md:h-1/4 ' >
-    <div className='w-full space-y-5 p-4 flex rounded-md   max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
+    <div className='flex justify-around   max-sm:self-center max-sm:w-full max-sm:px-2 flex-col  rounded-md  md:w-full md:h-1/4 ' >
+    <div className='w-full space-y-5 p-4 flex rounded-md   max-sm:flex-col  md:self-center md:justify-between md:p-4 ' >
      
       {/*  <h1 className='text-xl' >Games</h1> */}
       <h1 className='flex relative md:-top-4 font-Gardion h-8 justify-center md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
@@ -93,7 +93,7 @@ const GamesRedux = (props: Props) => {
         </div>
       
     </div>
-    {data!==undefined?<div className='w-[200px]   flex  max-sm:flex-col  bg-white   md:mb-0 md:justify-self-center self-center  md:flex-row w-full md:h-full md:space-x-2' >
+    {data!==undefined?<div className='w-[200px]   flex  max-sm:flex-col   rounded-md   md:mb-0 md:justify-self-center self-center  md:flex-row w-full md:h-full md:space-x-2 md:px-2' >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
       
       {dataState && dataState.map((vals:any)=>
@@ -215,13 +215,13 @@ const GamesRedux = (props: Props) => {
                       <div className="">
                         <motion.h3
                           layoutId={`title-${vals.title}-${id}`}
-                          className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left"
+                          className="font-medium text-white dark:text-neutral-200 text-center md:text-left"
                         >
                           {vals.title}
                         </motion.h3>
                         <motion.p
                           layoutId={`description-${vals.short_description}-${id}`}
-                          className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
+                          className="text-slate-500 font-semibold dark:text-neutral-400 text-center md:text-left"
                         >
                           
                           {vals.short_description}

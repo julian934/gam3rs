@@ -30,7 +30,7 @@ export function InfiniteMovingCardsDemo() {
         console.log(newsState)
     }
   return (
-    <div className="h-[12.5rem] md:h-2/3 border-2 flex md:self-center border-black rounded-md flex antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div className="h-[12.5rem] md:h-2/3  flex md:self-center  rounded-md flex antialiased    items-center justify-center relative overflow-hidden">
         <div className="flex full w-[25rem] " >
         <InfiniteMovingCards
         items={newsState}

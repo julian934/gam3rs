@@ -34,7 +34,7 @@ const AboutRedux = (props: Props) => {
       </div>
 
       {/* Main About Section */}
-      <div className="grid grid-cols-4 grid-rows-4 row-span-2 col-span-6 md:row-start-2 md:justify-self-center md:p-4 md:space-x-2 max-sm:mt-12 max-sm:top-0 max-sm:flex max-sm:flex-col z-60">
+      <div className="grid border-2 border-white grid-cols-4 grid-rows-4 row-span-2 col-span-6 md:row-start-2 md:justify-self-center md:p-4 md:space-x-2 max-sm:mt-12 max-sm:top-0 max-sm:flex max-sm:flex-col z-0">
         
         {/* Left: About Modal */}
         <div className="flex max-sm:h-[35vh] max-sm:justify-center max-sm:col-span-6 md:col-span-2 md:self-center md:-top-48 relative max-w-[800px] max-h-[800px]">

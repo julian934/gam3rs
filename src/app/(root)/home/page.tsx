@@ -130,7 +130,7 @@ const HomePage = (props: Props) => {
   }
   
   return (
-    <main className='flex max-sm:w-full max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col max-sm:space-y-2 bg-white md:z-30  ' >
+    <main className='flex max-sm:w-full max-sm:py-4 md:flex-row  md:position md:grid md:grid-cols-4 md:grid-rows-2 max-sm:flex-col max-sm:space-y-2 bg-gradient-to-b from-black  via-red-900  to-red-900  md:z-30  ' >
      
       <NavBar/>
       <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
@@ -157,6 +157,7 @@ const HomePage = (props: Props) => {
       <div className=' md:invisible md:z-0 flex max-sm:h-2/5 max-sm:max-h-[450px] max-sm:pt-0 relative max-sm:-top-96 max-sm:left-0 max-sm:self-center lg:justify-self-center max-w-[1000px] max-sm:z-20 md:z-10 max-sm:w-full md:row-start-1  md:h-2/5   md:top-96 md:col-start-2 md:col-span-2 md:items-end z-40 md:z-30' >
           <Mobile_News/>
       </div>
+      
       {/* Border-pieces */}
       
       {/*<div className=' border-2 border-red-500 relative md:-top-[204vh] md:left-[21vw] bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
@@ -171,7 +172,7 @@ const HomePage = (props: Props) => {
 <div className=' border-2 border-red-500 relative md:-top-[40vh] md:-left-[2.3vw]  bg-white rotate-45  w-[5vw] h-[10vh] z-[9999]' >
 
 </div> */}
-      <div className='relative border-2 max-sm:z-40 max-sm:py-4 max-sm:-top-20 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4 bg-white md:space-y-12 md:z-50 ' >
+      <div className='relative  max-sm:z-40 max-sm:py-4 max-sm:-top-20 max-sm:flex max-sm:flex-col max-sm:justify-self-center max-sm:self-center max-sm:w-full max-sm:px-4 md:w-full space-y-8  md:h-full md:-top-72 lg:-top-60  md:row-start-2 md:col-start-2 md:col-span-2 md:self-start md:items-start  max-sm:h-3/4 md:h-96 max-sm:w-full  rounded-md  p-4 md:pt-4  md:space-y-12 md:z-50 ' >
       
         {/*session?<LiveStreams  /> : <LiveStreams/>*/}
         {session && userData? <GamesRedux  /> : <GamesRedux/>}

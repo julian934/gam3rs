@@ -10,6 +10,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 //import { HoverEffect } from '../../ui/hover-effect/hover-effect'
 import { HoverEffect } from '../../ui/forums/forumHover'
+import Gam3rs_Video_Modal from '@/app/utils/images/redesign/Gam3rs_Videos_Menu_Modal.png'
 type Props = {
   
   name?:string | null | undefined,
@@ -43,8 +44,8 @@ const Forums = (props: Props) => {
   }
     {/* <h1 className='flex' >{vals.name}</h1> */}
   return (
-    <div className='flex flex-col max-sm:self-center max-sm:w-full max-sm:px-4 justify-around rounded-md bg-white md:w-full md:h-1/4' >
-      <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
+    <div className='flex flex-col max-sm:self-center max-sm:w-full max-sm:px-4 justify-around rounded-md  md:w-full md:h-1/4' >
+      <div className='w-full space-y-5 p-4 flex  max-sm:flex-col md:self-center md:justify-between md:p-4 ' >
      
      {/*  <h1 className='text-xl' >Games</h1> */}
      <h1 className='flex relative md:-top-10 font-Gardion h-8 justify-center md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-20 text-white ' > 
@@ -61,7 +62,8 @@ const Forums = (props: Props) => {
        </div>
      
    </div>
-       {data? <div className='w-[200px] max-sm:w-full relative md:-top-20 p-4  flex  max-sm:flex-col bg-white  md:mb-0 md:justify-self-center md:self-start md:border-black md:flex-row md:w-full md:h-1/4 md:space-x-4' >
+       {data? <div className='w-[200px] max-sm:w-full relative md:-top-20 p-4  flex  max-sm:flex-col   md:mb-0 md:justify-self-center md:self-start md:border-black md:flex-row md:w-full md:h-1/4 md:space-x-4' >
+       
            <HoverEffect items={dataState} />
          </div>:<>
         <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">

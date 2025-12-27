@@ -37,7 +37,7 @@ const Videos = (props: Props) => {
         </div>
       
       </div>
-      <div className='flex border-2 border-transparent flex-col relative md:top-8 max-sm:mt-0 md:mt-96 z-[9999] max-sm:border-2 max-sm:w-full max-sm:px-4 justify-start self-start md:self-end -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3  rounded-lg' >
+      <div className='flex border-2 border-transparent flex-col relative md:top-8 max-sm:mt-0 md:mt-96 z-[9999] max-sm:border-2 max-sm:w-full max-sm:px-4 justify-start max-sm:justify-center self-start md:self-end max-sm:self-center -mt-8 max-sm:-mt-48 max-sm:mb-12 col-start-2 max-sm:col-start-1 col-span-4 row-start-2 md:row-start-1 row-span-2 max-sm:row-span-3  rounded-lg' >
         <div className='flex w-full max-sm:justify-between max-sm:p-2 justify-around h-32 p-4  md:w-2/3 md:ml-0' >
           
            {/*  <h1 className='text-2xl' > Current Videos </h1>*/}
@@ -86,8 +86,12 @@ const Videos = (props: Props) => {
         </div> */}
      
       
-      <div className='flex max-sm:hidden max-sm:z-50   max-sm:bottom-0 row-start-4 max-sm:row-start-4 col-start-1 col-span-6 w-screen justify-around  '  >
-        <Footer/>
+      <div className='relative md:row-start-4  md:col-start-1 md:col-span-6 self-end  w-screen justify-around  '  >
+        
+         <div className='relative   ' >
+            <Footer/>
+        </div>
+       
       </div>
       </div>
   )

@@ -17,6 +17,8 @@ import BlackLike from '@/app/utils/images/like_black.png'
 import DislikeIcon from '@/app/utils/images/dislike_icon.png'
 import BlackDislike from '@/app/utils/images/dislike_black.png'
 import axios from 'axios'
+import Video_Design from '@/app/utils/images/redesign/Gam3rs_Video_Design.png'
+import Description_Design from '@/app/utils/images/redesign/Gam3rs_Video_Description_Design.png'
 //import { Session } from 'next-auth'
 import { useSession } from 'next-auth/react'
 const VideoPlayer = ({ params }: { params: { slug: string } }) => {
@@ -114,7 +116,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
  console.log('Current Data: ', currData);
  console.log('testing title: ', data?.data[0]?.fileName?.split(':')?.filter((val:string)=>val!='filename' && val!=':')?.join(''));
   return (
-    <div className="max-sm:flex  max-sm:flex-col  bg-white">
+    <div className="max-sm:flex  max-sm:flex-col  bg-gradient-to-b from-black  via-red-900  to-red-900  ">
       {/* Nav */}
       <div className="row-start-1 col-start-1 col-span-6">
         <NavBar />
@@ -132,50 +134,13 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
 
       {/* Player */}
       <div className=" justify-self-center z-[9999] max-sm:z-50 md:w-3/4 px-4 md:top-8 self-start rounded-md  md:relative ">
-        <div className="rounded-xl w-full md:h-full flex  z-[9999]  ">
-            <div className='absolute flex w-10 h-10  rotate-45 left-[4.75rem] bg-white top-8 z-[9999] ' >
-                {/* Top Left Corner */}
-          </div>
-           <div className='absolute flex  w-10 h-10 left-[53.45rem] top-8 bg-white -rotate-45 z-[9999] ' >
-                {/* Top Right Corner */}
-          </div>
-          <div className='absolute flex  w-10 h-10 rotate-45 bg-white left-[4.75rem] top-[28.6rem] z-[9999] ' >
-                {/* Bottom Left Corner */}
-          </div>
-          <div className='absolute flex  w-10 h-10  rotate-45 bg-white left-[53.35rem] top-[28.65rem] z-[9999] ' >
-                {/* Bottom Right Corner */}
-          </div>
-          <div className='absolute flex self-center left-24 justify-self-center bg-black rounded-sm w-4/5 h-2/5 z-0 ' >
-             {/* Black Background*/}
-          </div>
-          <div className='absolute  flex  -skew-x-[0.7rad] h-10 w-96 top-4 left-36  bg-black z-[9999]  ' >
-                {/* top design 1*/}
-          </div>
-           <div className='absolute left-12 flex  skew-x-[0.7rad] h-10 w-96 top-4 left-48  bg-black z-[9999]  ' >
-                {/* top design 2*/}
-          </div>
-          <div  className='absolute  flex  skew-x-[0.7rad] h-20 w-96 top-[27.5rem] left-36  bg-black ' >
-            {/* Lower Design 1 */}
-          </div>
-          <div className='absolute  flex  -skew-x-[0.7rad] h-20 w-96 top-[27.5rem] left-64  bg-black ' >
-            {/* Lower Design 2 */}
-          </div>
-           <div  className='absolute  flex  skew-x-[0.7rad] h-6 w-56 top-[29.5rem] left-[35rem]  bg-black  z-50' >
-            {/* Lower Design 3 */}
-          </div>
-          <div className='absolute  flex  -skew-x-[0.7rad] h-6 w-20 top-[29.5rem] left-[47rem]   bg-black  z-50' >
-            {/* Lower Design 4 */}
-          </div>
-          <div className='absolute w-10 h-10 ' >
-               
-          </div>
-           <div className='absolute w-10 h-10 ' >
-
-          </div>
-         
+     
+        <div className="rounded-xl w-full md:h-full flex relative  z-[9999]  ">
+           
+         <div className='relative top-4 flex md:left-6 md:scale-x-[0.78]  md:scale-[0.77] w-full  z-[9999] ' >
           {playBackID  ? (
             <MuxPlayer
-              className="rounded-xl w-full md:scale-75 z-30 "
+              className="rounded-3xl w-full h-4/5 md:scale-100  md:h-[27.5rem] pt-8"
               playbackId={playBackID}
               metadata={{
                 video_id: videoData?._id ?? '',
@@ -188,6 +153,8 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
               Loading video...
             </div>
           )}
+          </div>
+           <Image className='absolute z-0 md:-top-[22.5rem] md:left-44 w-[40rem] h-[65rem] md:scale-125 overflow-hidden' src={Video_Design} alt='Video Design' />
           {/* {playBackID && isReady ? (
             <MuxPlayer
               className="rounded-xl w-full"
@@ -206,12 +173,10 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
         </div>
 
         {/* Video Info */}
-        <div className="flex flex-col relative bg-white max-sm:top-2 md:top-6 md:space-x-4 space-y-4 md:justify-around  z-[9999] ">
+        <div className="flex flex-col relative md:max-h-[500px]  max-sm:top-2 md:top-20 md:w-5/6 md:left-24 md:space-x-4 space-y-4 md:justify-self-around  z-[9999] ">
           <div className='flex justify-between' >
-              <div className="flex  rounded-sm bg-red-500 bg-gradient-to-r from-red-900 via-red-500 to-red-900  ml-4 ">
-                <div className='absolute w-4 h-6 rotate-45 bg-white  left-40 top-4  ' >
-
-                </div>
+              <div className="flex  rounded-sm bg-red-500 bg-gradient-to-r from-red-900 via-red-500 to-red-900 mt-2 ml-4 ">
+                
                 
                  {data?  <h1 className="text-xl text-white  max-sm:text-md w-full px-2">{data?.data[0]?.fileName?.split(':')?.filter((val:string)=>val!='filename' && val!=':')?.join('')}</h1> : <h1></h1> }
              </div>
@@ -219,15 +184,12 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
                  <h1 className='font-semibold' >Views: {data?.data[0]?.views}</h1>
              </div>
           </div>
-          <div className='flex justify-between' >
+          <div className='flex justify-between z-[9999]' >
               <div className="flex  rounded-sm  h-3/4  bg-gray-400     ">
-              <div className='absolute rotate-45 bg-white w-6 h-6 left-64 ml-4 mt-4 ' >
-
-
-              </div>
+             
             <h3 className="text-xl text-white px-4">{data?.data[0]?.user} </h3>
           </div>
-          <div className="md:w-1/4 flex justify-around border-2 border-gray-500  rounded-3xl p-2 ">
+          <div className="md:w-1/4 flex justify-around border-2 border-gray-500  rounded-3xl p-2 z-[9999]">
             <button onClick={()=>likedVideo()} className="text-lg  font-Gardion">
               {/*videoData?.tags === 'user-selected-tags' ? '' : videoData?.tags*/}
               
@@ -245,11 +207,18 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
             </button>
           </div>
           </div>
-          <div className='p-2 rounded-md bg-gray-300 text-black ' >
+          <div className='p-2 rounded-md  text-black z-[9999]  md:relative md:-top-4 md:left-4 md:h-1/4 ' >
 
-            {data?.data?.description ? <div>
-              {data?.data?.description}
-            </div> :<h1 className='text-white' >Description....</h1>
+            {data?.data?.description ? <div  className=' h-1/3 z-[9999]' >
+              <Image className='absolute w-[40rem] h-[40rem]' src={Description_Design} alt='Description' />
+              <p className='max-h-[350px] overflow-y-hidden' >
+                {data?.data?.description}
+              </p>
+              
+            </div> :<div className='flex  md:-py-4 md:h-1/3 ' >
+               <Image className='relative w-[40rem] h-[40rem] flex -top-64  ' src={Description_Design} alt='Description' />
+              <h1 className='flex relative top-20 -left-96 text-white' >Description....</h1>
+              </div>
             }
 
 
@@ -257,10 +226,10 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
          
         </div>
       
-      <div className='flex flex-col relative top-10 justify-self-start self-start w-full  min-w-full space-y-4 ' >
+      <div className='flex flex-col relative top-8 justify-self-center self-center w-5/6   space-y-6 py-4' >
         
          {/* <h1 className='' ></h1> */}
-         <div className='self-center  w-3/4 min-h-12  z-50  rounded-lg ' >
+         <div className='self-center  w-3/4 min-h-12  z-[9999]  rounded-lg ' >
           <input className='text-gray-400 text-center w-full rounded-md  p-2  '  placeholder='Comment Here...'  ref={commentRef} />
          </div>
          <button className='' onClick={()=>newComment()} >
@@ -269,7 +238,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
          </div>
             </button>
         </div>
-          <div className='relative top-12 w-1/3  p-4 md:min-h-[300px]' >
+          <div className='relative top-12 w-1/3 left-8  p-4 md:min-h-[300px]' >
          
         <div className='flex  transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-1/3 max-sm:w-full' >
               <h1 className='text-white font-Gardion  px-2 text-md' >Comments</h1>
@@ -281,10 +250,10 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
             {currData?.comments?.map((comment:any)=>{
              return( <div className='flex flex-col z-[50] space-y-4  py-4 px-6' key={`${comment?.playbackId}`}  >
                    <div className='flex  transition ease-in-out rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl self-end  to-red-900 -skew-x-12  ' >
-                    <h1 className='text-white w-1/2  font-Gardion  px-2 text-md' >{comment && comment?.videoData?.data[0]?.user}</h1>
+                    <h1 className='text-white w-1/2    px-2 text-md' >{comment && comment?.videoData?.data[0]?.user}</h1>
                     </div>
                      
-                  <div className='-skew-x-12 bg-gray-400 min-h-[50px] rounded-sm px-2 max-sm:w-full text-white' >
+                  <div className='-skew-x-12 border-2 border-gray-400  min-h-[50px] rounded-sm px-2 max-sm:w-full text-white' >
                     {comment && comment?.comment}
                     </div>
                 </div>)
@@ -312,7 +281,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
      
 
       {/* Footer */}
-      <div className="flex md:relative bg-white md:min-h-[100px] bg-white col-start-1 col-span-6 justify-self-center self-center md:self-start row-start-4 max-sm:mt-20">
+      <div className="flex md:relative md:min-h-[100px]  col-start-1 col-span-6 justify-self-center self-center md:self-start row-start-4 max-sm:mt-20">
         <Footer />
       </div>
     </div>

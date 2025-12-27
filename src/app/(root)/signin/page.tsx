@@ -17,7 +17,7 @@ type Props = {}
 const Auth = (props: Props) => {
 
   return (
-    <div className='bg-white' >
+    <div className='bg-white min-h-screen' >
     <div className='flex w-full z-50' >
       <NavBar/>
     </div>

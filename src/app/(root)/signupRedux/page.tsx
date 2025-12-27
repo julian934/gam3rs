@@ -13,14 +13,14 @@ type Props = {}
 
 const SignUpRedux = (props: Props) => {
   return (
-    <div className='bg-white' >
+    <div className='bg-white min-h-screen' >
         <div className='flex w-full' >
           <NavBar/>
         </div>
         <div className=' max-sm:visible pointer-events-none fixed max max-sm:w-screen max-sm:h-screen  z-[9999] ' >
         <MobileNav/>
       </div>
-         <div className='flex justify-center space-y-20 py-8 md:mt-20 ' >
+         <div className='flex justify-center space-y-20 py-8 mt-20 ' >
               <SignupForm/>
          </div>
         

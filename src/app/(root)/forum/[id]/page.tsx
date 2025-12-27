@@ -16,6 +16,8 @@ import Notifications from '@/app/components/shared/notifications/notifications';
 import FriendsList from '@/app/components/shared/friends/friends';
 import ForumPost from '@/app/components/ui/forums/forumPost';
 import MobileNav from '@/app/components/shared/modals/mobileNav';
+import  Gam3rs_News_Modal from '@/app/utils/images/redesign/Gam3rs_News_Modal.png'
+import Image from 'next/image';
 type Props = {id:string}
 
 const Forum = ({params}:{params: Props | undefined}) => {
@@ -120,7 +122,7 @@ const Forum = ({params}:{params: Props | undefined}) => {
    //Iterate over chosen
    //build separate component to handle forum replies and render it if prepReply==true
   return (
-    <div className=' max-sm:w-screen grid md:grid-cols-4 md:grid-rows-4 max-sm:grid-cols-3 max-sm:grid-rows-3 bg-white ' >
+    <div className=' max-sm:w-screen max-sm:min-h-screen grid md:grid-cols-4 md:grid-rows-4 max-sm:grid-cols-3  bg-gradient-to-b from-black  via-red-900  to-red-900 max-sm:grid-rows-3  ' >
       <div className='flex max-sm:w-3/4 max-sm:w-screen md:row-start-1 md:col-start-1 col-span-4 ' >
          <NavBar/>
       </div>
@@ -138,77 +140,33 @@ const Forum = ({params}:{params: Props | undefined}) => {
        
        <Notifications/>
       </div>*/}
-      {forumData && forumData?.threads?.length>0? <div className='flex flex-col relative md:top-48 max-sm:-top-[65vh] max-sm:w-[95vw]  md:max-h-[600px]  md:w-2/3 md:h-full justify-self-center flex-around row-start-2 row-span-2 col-start-1 col-span-4 z-20 z-[9999] -mt-12  ' >
-         
-         <div className=' flex max-sm:justify-self-center  grid max-sm:mt-4 h-full w-full max-sm:grid-cols-3 max-sm:grid-rows-3 max-sm:justify-self-center max-sm:w-full grid-cols-6 grid-rows-4 flex-row  bg-black z-[9999]  col-start-2 col-span-4 row-start-2  row-span-2  flex-col px-2 ' >
+      {forumData && <div className='absolute md:z-[9999] md:h-full md:w-full max-sm:top-[15vh] max-sm:left-[22.5vw] max-w-[60vw] max-h-[70vh] max-sm: max-sm:scale-x-[2.5] max-sm:scale-y-[3] overflow-hidden' >
+           <Image className='md:z-[9999]' src={Gam3rs_News_Modal} alt='Forum Modal' />
+         </div>}
+      {forumData && forumData?.threads?.length>0? <div className='flex flex-col relative top-48 max-sm:-top-36 max-sm:left-10  max-sm:w-[85vw]  md:max-h-[600px]  md:w-2/3 md:h-full justify-self-center flex-around row-start-2 row-span-2 col-start-1 col-span-4 z-20  -mt-12  ' >
+      
+         <div className=' flex max-sm:justify-self-center  grid max-sm:mt-4 h-full w-full max-sm:grid-cols-3 max-sm:grid-rows-3 max-sm:justify-self-center max-sm:w-full grid-cols-6 grid-rows-4 flex-row  z-[9999]  col-start-2 col-span-4 row-start-2  row-span-2  flex-col px-2 ' >
        {/* Add Design to this page. */}
     
-       <div className='flex max-sm:relative max-sm:left-56 max-sm:w-[140px] z-[9999] max-sm:h-1/3 max-sm:w-full md:-mt-4 md:py-2 px-2 md:ml-2 md:mt-0 row-start-1  col-start-4 max-sm:col-start-2 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 md:relative md:-top-4 md:h-2/3 skew-x-12 z-50 space-x-2' >
-       {/* Upper Right white area & black design */}
-       <div className=' bg-red-500 h-full w-1/4   self-center  -skew-x-24 z-[9999] ' >
- 
-         </div>
-       <div className='  bg-black h-full w-1/4 self-center -skew-x-24 z-[9999] ' >
-
-         </div>
-       <div className=' bg-red-500 h-full w-1/4  self-center  -skew-x-24 z-[9999] ' >
-
-           </div>
-  
-     </div>
-     
-   
-    <div className='flex size-4 bg-white col-start-1  row-start-1 row-span-2' >
-
-
-    </div>
-    <div className='flex   flex-col  -ml-4 max-sm:-ml- w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-white z-40 ' >
-    {/* Left side white area */}
-      <div className='flex -mt-16 md:relative md:top-2 md:left-6 ml-0  w-full h-1/2 bg-white rotate-45 ' >
-       {/*Left Side Upper Corner */}
-
-      </div>
-
-    </div>
-    <div className='flex bg-white  z-50 -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
-       {/* left side lower slant */}
-
-    </div>
-    <div className='flex max-sm:relative max-sm:left-72 max-sm:-top-20 max-sm:ml-12  rotate-45 max-sm:-rotate-45 row-start-1 row-span-2  col-start-6 z-50 ml-8 max-sm:ml-0  -mt-4 max-sm:mt-6 w-3/4 max-sm:w-full h-24 bg-white ' >
-          {/*Extra top right white piece */}
-     </div>
-    <div className='flex relative max-sm:-left-2 md:-top-4 md:left-2  max-sm:w-[75px] max-sm:top-0   z-[9999]   max-sm:h-full row-start-4 row-span-2 col-start-1 -ml-8 max-sm:-ml-4 mt-10 max-sm:mt-4 h-full w-full rotate-45 max-sm:rotate-45 bg-white  ' >
-       {/* Left Side Lower Corner */}
-    </div>
-    
-    <div className='flex max-sm:invisible row-start-1 col-start-6 -mt-2 ml-16 max-sm:ml-20 max-sm:mt-0 w-full h-full bg-white rotate-45 max-sm:rotate-0 ' >
-         {/* right side upper block */}
-        
-    </div>
-    <div className='flex relative  md:-left-4  max-sm:left-72 max-sm:-right-40 max-sm:-top-20  col-start-6 ml-20  max-sm:ml-20 mt-12 max-sm:mt-20 row-start-1 row-span-4 bg-white z-50 w-4/5 max-sm:w-4/5 h-5/6 max-sm:h-full max-sm:w-full' >
-       {/* right side bar */}
-    </div>
-    <div className='flex relative  md:-top-4 md:right-2  max-sm:left-72 max-sm:ml-12 max-sm:z-[9999] max-sm:-top-8  row-start-4 col-start-6 bg-white -rotate-45 max-sm:-rotate-45 ml-2 mt-12 w-full h-full' >
-        {/* right side lower */}
-    </div>
+      
      <div className='flex  md:h-full  flex-col rounded-md max-sm:self-center justify-self-center  col-start-2 md:col-start-1  max-sm:col-span-4 md:col-span-6 max-sm:row-start-1 max-sm:row-span-4 row-start-2  max-sm:row-span-3 md:row-start-1 md:row-span-4 max-sm:w-full' >
        {/*  Space for Data */} 
       
        {forumData && <div className=' flex flex-col space-y-4 max-sm:space-y-8 self-center max-sm:col-start-1 md:col-start-2 col-span-3 w-full   rounded-md h-full' >
            {/*Features needed: make a post, reply to post and delete your post, and update the server with the new information. */}
-           {forumData && <div className='flex max-sm:relative max-sm:-left-10 flex-col w-92 max-sm:w-full h-full self-center max-sm:space-y-4 md:space-y-8 md:pt-12 ' >
-            <h1 className=' flex  h-8 justify-center text-3xl max-sm:text-xl w-full flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 
+           {forumData && <div className='flex max-sm:relative max-sm:-left-10 max-sm:pt-2 flex-col w-92 max-sm:w-full h-full self-center max-sm:space-y-4 md:space-y-8 md:pt-12 ' >
+            <h1 className=' flex  h-auto justify-center text-3xl max-sm:text-xl w-full flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 
              shadow-xl   to-red-900  -skew-x-12 w-64 text-white' > {forumData.name} </h1>
-            <h3 className=' flex bg-white h-8 justify-center text-lg max-sm:text-md flex rounded-sm md:self-center   -skew-x-12 w-full text-black px-4' > {forumData.description} </h3>
+            <h3 className=' flex bg-white h-auto justify-center text-lg max-sm:text-md flex rounded-sm md:self-center  overflow-y-hidden -skew-x-12 w-full text-black px-4' > {forumData.description} </h3>
 
          </div> } 
-           {forumData?.threads?.length<1?<div className='flex flex-col w-full  h-full p-4 space-y-4 flex justify-self-center self-start md:mb-0 ' >
+           {forumData?.threads?.length<1?<div className='flex flex-col w-full  h-full p-2 space-y-2 max-sm:-mt-8 flex justify-self-center self-start md:mb-0 ' >
              
               <h3 className='px-4 bg-white flex justify-center -skew-x-12  ' >First one here? Be the first to post and get the conversation started! </h3>
               
            <input className='w-full max-sm:w-full self-center -skew-x-12 px-4 ' onChange={handleType}  ref={postRef} placeholder='Type here...' />
            <button className='flex h-8 font-Gardion justify-center text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-40 text-white' onClick={()=>sendPost(params?.id)} >Post Here</button>
-           </div>:<div className='flex flex-col w-full  h-full p-4 space-y-4 flex justify-self-center self-start md:mb-12' >
+           </div>:<div className='flex flex-col max-sm:-mt-4 w-full  h-full p-0 space-y-4 flex justify-self-center self-start md:mb-12' >
            
            {/* <h1 className='px-4 bg-white flex justify-center -skew-x-12 ' >Continue the conversation! </h1>*/}
            <input className='w-full max-sm:relative max-sm:-left-10 max-sm:w-full self-center -skew-x-12 px-4  ' onChange={handleType}  ref={postRef} placeholder='Type here to continue the conversation...' />
@@ -240,54 +198,12 @@ const Forum = ({params}:{params: Props | undefined}) => {
          <div className=' flex max-sm:justify-self-center  grid max-sm:mt-4 h-full w-full max-sm:grid-cols-3 max-sm:grid-rows-3 max-sm:justify-self-center max-sm:w-full grid-cols-6 grid-rows-4 flex-row  bg-black z-[9999]  col-start-2 col-span-4 row-start-2  row-span-2  flex-col px-2 ' >
        {/* Add Design to this page. */}
     
-       <div className='flex max-sm:relative max-sm:left-56 max-sm:w-[140px] z-[9999] max-sm:h-1/3 max-sm:w-full md:-mt-4 md:py-2 px-2 md:ml-2 md:mt-0 row-start-1  col-start-4 max-sm:col-start-2 col-span-3 bg-white w-3/4 max-sm:w-full h-1/2 md:relative md:-top-4 md:h-1/2  skew-x-12 z-50 space-x-2' >
-       {/* Upper Right white area & black design */}
-       <div className=' bg-red-500 h-full w-1/4   self-center  -skew-x-24 z-[9999] ' >
- 
-         </div>
-       <div className='  bg-black h-full w-1/4 self-center -skew-x-24 z-[9999] ' >
-
-         </div>
-       <div className=' bg-red-500 h-full w-1/4  self-center  -skew-x-24 z-[9999] ' >
-
-           </div>
-  
-     </div>
+     
      
    
-    <div className='flex size-4 bg-whitecol-start-1  row-start-1 row-span-2' >
-
-
-    </div>
-    <div className='flex   flex-col  -ml-4 max-sm:-ml- w-1/2 max-sm:w-10 col-start-1 col-span-1 row-start-1 row-span-4 bg-white z-40 ' >
-    {/* Left side white area */}
-      <div className='flex -mt-16 md:relative md:top-2 md:left-6 ml-0  w-full h-1/2 bg-white rotate-45 ' >
-       {/*Left Side Upper Corner */}
-
-      </div>
-
-    </div>
-    <div className='flex bg-white z-50  -left-8 row-start-1 col-start-1 h-full w-1/2  ' >
-       {/* left side lower slant */}
-
-    </div>
-    <div className='flex max-sm:relative max-sm:left-72 max-sm:-top-20 max-sm:ml-12  rotate-45 max-sm:-rotate-45 row-start-1 row-span-2  col-start-6 z-50 ml-8 max-sm:ml-0  -mt-4 max-sm:mt-6 w-3/4 max-sm:w-full h-24 bg-white ' >
-          {/*Extra top right white piece */}
-     </div>
-    <div className='flex relative max-sm:-left-2 md:-top-2 md:left-2  max-sm:w-[75px] max-sm:top-0   z-[9999]   max-sm:h-full row-start-4 row-span-2 col-start-1 -ml-8 max-sm:-ml-4 mt-10 max-sm:mt-4 h-full w-full rotate-45 max-sm:rotate-45 bg-white  ' >
-       {/* Left Side Lower Corner */}
-    </div>
-    
-    <div className='flex max-sm:invisible row-start-1 col-start-6 -mt-2 ml-16 max-sm:ml-20 max-sm:mt-0 w-full h-full bg-white rotate-45 max-sm:rotate-0 ' >
-         {/* right side upper block */}
-        
-    </div>
-    <div className='flex relative  md:-left-4  max-sm:left-72 max-sm:-right-40 max-sm:-top-20  col-start-6 ml-20  max-sm:ml-20 mt-12 max-sm:mt-20 row-start-1 row-span-4 bg-white z-50 w-4/5 max-sm:w-4/5 h-5/6 max-sm:h-full max-sm:w-full' >
-       {/* right side bar */}
-    </div>
-    <div className='flex relative  md:-top-4 md:right-2  max-sm:left-72 max-sm:ml-12 max-sm:z-[9999] max-sm:-top-8  row-start-4 col-start-6 bg-white -rotate-45 max-sm:-rotate-45 ml-2 mt-12 w-full h-full' >
-        {/* right side lower */}
-    </div>
+   
+  
+  
      <div className='flex  md:h-full  flex-col rounded-md max-sm:self-center justify-self-center  col-start-2 md:col-start-1  max-sm:col-span-4 md:col-span-6 max-sm:row-start-1 max-sm:row-span-4 row-start-2  max-sm:row-span-3 md:row-start-1 md:row-span-4 max-sm:w-full' >
        {/*  Space for Data */} 
       
@@ -299,16 +215,16 @@ const Forum = ({params}:{params: Props | undefined}) => {
             <h3 className=' flex  bg-white h-8 justify-center text-lg max-sm:text-md flex rounded-sm md:self-center   -skew-x-12 w-full text-black px-4' > {forumData.description} </h3>
 
          </div> } 
-           {forumData?.threads?.length<1?<div className='flex flex-col w-full  h-full p-4 space-y-4 flex justify-self-center self-start md:mb-12 ' >
+           {forumData?.threads?.length<1?<div className='flex flex-col w-full  h-full p-0 space-y-4 flex justify-self-center self-start md:mb-12 ' >
              
               <h3 className='px-4 bg-white flex justify-center -skew-x-12  ' >First one here? Be the first to post and get the conversation started! </h3>
               
            <input className='w-full max-sm:w-full self-center -skew-x-12 px-4 ' onChange={handleType}  ref={postRef} placeholder='Type here...' />
            <button className='flex h-8 font-Gardion justify-center text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-40 text-white' onClick={()=>sendPost(params?.id)} >Post Here</button>
-           </div>:<div className='flex flex-col w-full  h-full p-4 space-y-4 flex justify-self-center self-start md:mb-12' >
+           </div>:<div className='flex  flex-col w-full  h-full p-4 space-y-4 flex justify-self-center self-start md:mb-12' >
            
            {/* <h1 className='px-4 bg-white flex justify-center -skew-x-12 ' >Continue the conversation! </h1>*/}
-           <input className='w-full max-sm:relative max-sm:-left-10 max-sm:w-full self-center -skew-x-12 px-4  ' onChange={handleType}  ref={postRef} placeholder='Type here to continue the conversation...' />
+           <input className='w-full max-sm:relative max-sm:-left-10  max-sm:w-full self-center -skew-x-12 px-4  ' onChange={handleType}  ref={postRef} placeholder='Type here to continue the conversation...' />
            <button className='flex h-8 font-Gardion justify-center text-lg flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-40 text-white' onClick={()=>sendPost(params?.id)} >Post Here</button>
            </div> }
            </div>}

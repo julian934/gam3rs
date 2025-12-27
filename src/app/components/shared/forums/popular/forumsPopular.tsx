@@ -10,6 +10,9 @@ import { Skeleton } from '@nextui-org/skeleton'
 import { HoverEffect } from '@/app/components/ui/hover-effect/forums-hover-effect'
 import Image from 'next/image'
 import addbutton from '../../../../utils/images/icons8-add-new-50.png'
+import Gam3rs_Video_Modal from '@/app/utils/images/redesign/Gam3rs_Videos_Menu_Modal.png'
+import Add_Button from '@/app/utils/images/redesign/Gam3rs_Mobile_Menu_Options_Lower.png'
+import Plus from '../../../../utils/images/icons8-add-new-50.png'
 type Props = {}
 
 const Popular = (props: Props) => {
@@ -40,8 +43,8 @@ const Popular = (props: Props) => {
       console.log(dataState)
     }
   return (
-    <div className='flex flex-col md:z-[9999] max-sm:self-center max-sm:w-full max-sm:px-4 justify-around rounded-md bg-white md:w-full md:h-1/4' >
-    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-white md:self-center md:justify-between md:p-4 ' >
+    <div className='flex flex-col md:z-[9999] max-sm:self-center max-sm:w-full max-sm:px-4 justify-around rounded-md  md:w-full md:h-1/4' >
+    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col  md:self-center md:justify-between md:p-4 ' >
    
    {/*  <h1 className='text-xl' >Games</h1> */}
    <h1 className='flex h-8 font-Gardion  justify-center md:z-[9999]  md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > 
@@ -49,8 +52,11 @@ const Popular = (props: Props) => {
      </h1>
     
      <div className='flex max-sm:relative max-sm:top-6 max-sm:space-x-2 md:z-[9999] md:justify-around md:w-[10vw]  ' >
-     <div className=' relative -top-2 rounded-md shadow-2xl bg-white hover:bg-gray-400 w-10 h-10' >
-           <Link href='/createForum' className=' ' > <Image className='h-8 w-8' src={addbutton} alt='createForum' /> </Link>
+     <div className=' relative -top-2 -left-4 rounded-md shadow-2xl  hover:bg-gray-400 w-10 h-10' >
+           <Link href='/createForum' className=' ' > 
+           <Image className='absolute h-6 w-6 top-2 left-[0.5vw]  z-50  ' src={Plus} alt='Plus' /> 
+            <Image className='absolute scale-[5.5] -top-2   z-40 ' src={Add_Button} alt='Add_Body' />
+            </Link>
            </div>
      <div>
    <Link className='self-center max-sm:relative max-sm:-top-2  max-sm:left-28  text-lg md:z-[9999] md:mt-10 ' href='/allForums' >
@@ -62,7 +68,7 @@ const Popular = (props: Props) => {
      </div>
    
  </div>
-     {data? <div className='w-[200px] max-sm:w-full relative md:-top-12 p-4  flex  max-sm:flex-col bg-white  md:mb-0 md:justify-self-center md:self-start md:border-black md:flex-row md:w-full md:h-1/4 md:space-x-4' >
+     {data? <div className='w-[200px] max-sm:w-full relative md:-top-12 p-4  flex  max-sm:flex-col   md:mb-0 md:justify-self-center md:self-start md:border-black md:flex-row md:w-full md:h-1/4 md:space-x-4' >
          <HoverEffect items={dataState} />
        </div>:<>
       <Card className="w-[200px] space-y-5 p-4 flex max-sm:flex-col bg-red-200 " radius="lg">
