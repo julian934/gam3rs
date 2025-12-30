@@ -86,7 +86,7 @@ const Games = (props: Props) => {
       
         useOutsideClick(ref, () => setActive(null));
   return (
-    <div className='flex flex-col bg-white grid-cols-4 grid-rows-2 ' >
+    <div className='flex flex-col  grid-cols-4 grid-rows-2  bg-gradient-to-b from-black  via-red-900  to-red-900 ' >
     <div className='row-start-1 col-start-1 col-span-4' >
        <NavBar/>
     </div>
