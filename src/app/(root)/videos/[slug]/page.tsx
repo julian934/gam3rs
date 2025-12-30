@@ -154,7 +154,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
             </div>
           )}
           </div>
-           <Image className='absolute z-0 md:-top-[22.5rem] md:left-44 w-[40rem] h-[65rem] md:scale-125 overflow-hidden' src={Video_Design} alt='Video Design' />
+           <Image className='absolute z-0 md:-top-[22.5rem] max-sm:left-6 max-sm:-top-[12rem] max-sm:w-[80.5vw] max-sm:scale-125 max-sm:overflow-hidden max-sm:h-[60vh] md:left-44 w-[40rem] h-[65rem] md:scale-125 overflow-hidden' src={Video_Design} alt='Video Design' />
           {/* {playBackID && isReady ? (
             <MuxPlayer
               className="rounded-xl w-full"
@@ -173,7 +173,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
         </div>
 
         {/* Video Info */}
-        <div className="flex flex-col relative md:max-h-[500px]  max-sm:top-2 md:top-20 md:w-5/6 md:left-24 md:space-x-4 space-y-4 md:justify-self-around  z-[9999] ">
+        <div className="flex flex-col relative md:max-h-[500px]  max-sm:top-10 md:top-20 md:w-5/6 md:left-24 md:space-x-4 space-y-4 md:justify-self-around  z-[9999] ">
           <div className='flex justify-between' >
               <div className="flex  rounded-sm bg-red-500 bg-gradient-to-r from-red-900 via-red-500 to-red-900 mt-2 ml-4 ">
                 
@@ -207,7 +207,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
             </button>
           </div>
           </div>
-          <div className='p-2 rounded-md  text-black z-[9999]  md:relative md:-top-4 md:left-4 md:h-1/4 ' >
+          <div className='p-2 rounded-md  text-black z-[9999]  relative md:-top-4 md:left-4 md:h-1/4 ' >
 
             {data?.data?.description ? <div  className=' h-1/3 z-[9999]' >
               <Image className='absolute w-[40rem] h-[40rem]' src={Description_Design} alt='Description' />
@@ -217,7 +217,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
               
             </div> :<div className='flex  md:-py-4 md:h-1/3 ' >
                <Image className='relative w-[40rem] h-[40rem] flex -top-64  ' src={Description_Design} alt='Description' />
-              <h1 className='flex relative top-20 -left-96 text-white' >Description....</h1>
+              <h1 className='flex relative top-20 -left-96 text-white max-sm:-left-64 ' >Description....</h1>
               </div>
             }
 
@@ -226,7 +226,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
          
         </div>
       
-      <div className='flex flex-col relative top-8 justify-self-center self-center w-5/6   space-y-6 py-4' >
+      <div className='flex flex-col relative top-8 max-sm:-top-40 justify-self-center self-center w-5/6   space-y-6 py-4' >
         
          {/* <h1 className='' ></h1> */}
          <div className='self-center  w-3/4 min-h-12  z-[9999]  rounded-lg ' >
@@ -238,7 +238,7 @@ const VideoPlayer = ({ params }: { params: { slug: string } }) => {
          </div>
             </button>
         </div>
-          <div className='relative top-12 w-1/3 left-8  p-4 md:min-h-[300px]' >
+          <div className='relative top-12 max-sm:-top-24 w-1/3 left-8  p-4 md:min-h-[300px]' >
          
         <div className='flex  transition ease-in-out rounded-sm hover:animate-pulse bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-1/3 max-sm:w-full' >
               <h1 className='text-white font-Gardion  px-2 text-md' >Comments</h1>

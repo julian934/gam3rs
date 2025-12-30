@@ -34,8 +34,8 @@ const Popular = (props: Props) => {
     
     const dataState = data?.data?.data || []; // Directly access nested data safely
   return (
-    <div className='flex flex-col justify-around  max-sm:self-center max-sm:flex-col bg-black rounded-md  w-full md:h-1/3 ' >
-   <div className='w-full space-y-5 p-4 flex  max-sm:flex-col bg-black md:self-center md:justify-between md:p-4 ' >
+    <div className='flex flex-col justify-around max-sm:relative max-sm:left-[15vw]  max-sm:self-center max-sm:flex-col  rounded-md  w-full md:h-1/3 ' >
+   <div className='w-full space-y-5 p-4 flex  max-sm:flex-col  md:self-center md:justify-between md:p-4 ' >
    
    {/*  <h1 className='text-xl' >Games</h1> */}
    <h1 className='flex md:h-8 font-Gardion justify-center md:z-[9999]  md:self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-48 text-white ' > 
@@ -60,12 +60,12 @@ const Popular = (props: Props) => {
      </div>
    
  </div>
-    {data!==undefined?<div className='w-[200px]  max-sm:self-center space-y-5  p-4  md:mb-2 flex  max-sm:flex-col bg-black   md:-mb-2 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
+    {data!==undefined?<div className='w-[200px]  max-sm:self-center max-sm:justify-around space-y-5  p-4  md:mb-2 flex  max-sm:flex-col    md:-mb-2 justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-4' >
       <h1 className='' >{dataState?.data?.data?.title} </h1>
       {dataState && dataState.map((vals:any)=>
       <Link className=' md:flex md:self-center  rounded-md md:w-[200px] ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
-        <div className='absolute z-50 md:pl-[1px] md:-ml-10 md:top-[44rem]  md:w-full md:s md:h-1/2  space-x-4'   >
-      <Image className='w-1/3 h-full md:left-2 ' src={Gam3rs_Video_Modal} alt='File Modal' />
+        <div className='absolute z-50 max-sm:left-[0.5vw] max-sm:-top-[37.5vh] max-sm:w-full max-sm:h-full md:pl-[1px] md:-ml-10 md:top-[44rem]  md:w-full md:s md:h-1/2  space-x-4'   >
+      <Image className='w-1/3 max-sm:w-full h-full max-sm:overflow-hidden max-sm:scale-y-[0.475] max-sm:scale-x-[1.2]  md:left-2 ' quality={100} src={Gam3rs_Video_Modal} alt='File Modal' />
     </div>
         <div className='md:w-full' >
             <Gif playbackID={vals.playbackId} fileName={vals.fileName?.split(':')?.filter((val:string)=>val!='filename' && val!=':')?.join('')} />

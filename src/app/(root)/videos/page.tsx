@@ -24,7 +24,7 @@ const Videos = (props: Props) => {
      
     //customize mobile.
   return (
-    <div className='flex grid grid-cols-6 grid-rows-2 bg-gradient-to-b from-black  via-red-900  to-red-900  ' >
+    <div className='flex grid max-sm:max-w-screen grid-cols-6 grid-rows-2 bg-gradient-to-b from-black  via-red-900  to-red-900  ' >
       <div className='flex w-screen col-start-1 col-span-6 row-start-1' >
       <NavBar/>
       </div>

@@ -149,12 +149,12 @@ const Forum = ({params}:{params: Props | undefined}) => {
        {/* Add Design to this page. */}
     
       
-     <div className='flex  md:h-full  flex-col rounded-md max-sm:self-center justify-self-center  col-start-2 md:col-start-1  max-sm:col-span-4 md:col-span-6 max-sm:row-start-1 max-sm:row-span-4 row-start-2  max-sm:row-span-3 md:row-start-1 md:row-span-4 max-sm:w-full' >
+     <div className='flex  md:h-full max-sm:relative max-sm:-top-24 flex-col rounded-md max-sm:self-center justify-self-center  col-start-2 md:col-start-1  max-sm:col-span-4 md:col-span-6 max-sm:row-start-1 max-sm:row-span-4 row-start-2  max-sm:row-span-3 md:row-start-1 md:row-span-4 max-sm:w-full' >
        {/*  Space for Data */} 
       
        {forumData && <div className=' flex flex-col space-y-4 max-sm:space-y-8 self-center max-sm:col-start-1 md:col-start-2 col-span-3 w-full   rounded-md h-full' >
            {/*Features needed: make a post, reply to post and delete your post, and update the server with the new information. */}
-           {forumData && <div className='flex max-sm:relative max-sm:-left-10 max-sm:pt-2 flex-col w-92 max-sm:w-full h-full self-center max-sm:space-y-4 md:space-y-8 md:pt-12 ' >
+           {forumData && <div className='flex max-sm:relative  max-sm:-left-10 max-sm:pt-2 flex-col w-92 max-sm:w-full h-full self-center max-sm:space-y-4 md:space-y-8 md:pt-12 ' >
             <h1 className=' flex  h-auto justify-center text-3xl max-sm:text-xl w-full flex rounded-sm md:self-center bg-gradient-to-r from-red-900 via-red-500 
              shadow-xl   to-red-900  -skew-x-12 w-64 text-white' > {forumData.name} </h1>
             <h3 className=' flex bg-white h-auto justify-center text-lg max-sm:text-md flex rounded-sm md:self-center  overflow-y-hidden -skew-x-12 w-full text-black px-4' > {forumData.description} </h3>
@@ -256,7 +256,7 @@ const Forum = ({params}:{params: Props | undefined}) => {
         <FriendsList  friends={currUser?.friends} />
         </div>*/}
 
-      <div className='flex row-start-4 col-start-1 col-span-4 bg-white justify-self-center self-center z-50' >
+      <div className='flex row-start-4 col-start-1 col-span-4  justify-self-center self-center z-50' >
          <Footer/>
       </div>
       </div>

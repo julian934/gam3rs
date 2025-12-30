@@ -41,8 +41,8 @@ if(dataState){
   console.log(dataState)
 }
   return (
-    <div className='flex flex-col  justify-around  max-sm:self-center max-sm:justify-center max-sm:flex-col bg-black rounded-md  w-full md:h-1/4 ' >
-    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col  md:self-center md:justify-between md:p-4 ' >
+    <div className='flex flex-col  justify-around  max-sm:self-center max-sm:justify-around max-sm:relative max-sm:left-[15vw] max-sm:flex-col rounded-md  w-full md:h-1/4 ' >
+    <div className='w-full space-y-5 p-4 flex  max-sm:flex-col  self-center md:justify-between md:p-4 ' >
    
    {/*  <h1 className='text-xl' >Games</h1> */}
    <h1 className='flex max-sm:relative max-sm:left-2 h-8 font-Gardion justify-center md:z-[9999]  self-center text-xl flex rounded-sm  bg-gradient-to-r from-red-900 via-red-500 shadow-xl  hover:scale-110 to-red-900 hover:bg-gradient-to-r hover:from-red-900 hover:via-red-300 hover:to-red-900 -skew-x-12 w-40 text-white ' > 
@@ -67,7 +67,7 @@ if(dataState){
      </div>
    
  </div>
-    {data!==undefined?<div className='w-[300px]  space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col bg-black md:-mt-4 md:mb-8 md:pb-8 md:justify-self-center md:self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-10' >
+    {data!==undefined?<div className='w-[300px]   space-y-5  p-4 max-sm:self-center flex  max-sm:flex-col  md:-mt-4 md:mb-8 md:pb-8 justify-center max-sm:justify-around self-center  md:z-60 md:flex-row md:self-start  md:w-full md:h-full md:space-x-10' >
       <h1 className='' >{data?.data?.title?.split(':')?.filter((val:string)=>val!='filename' && val!=':')?.join('')} </h1>
       {/*dataState && dataState?.length>0 && dataState?.slice(0, 3)?.map((vals:any)=>
       <Link className='md:flex md:self-start  rounded-md md:w-[300px]  border-2 border-black ' href={`/videos/${vals?.playbackId}`} key={vals?.playbackId}  >
@@ -102,8 +102,8 @@ if(dataState){
     {/* Main content */}
    
     <div className="w-full z-30  ">
-       <div className='absolute z-50 md:-left-20 md:pl-4 md:-top-32 md:mt-0 min-w-full min-h-full md:w-[35vw] md:h-[82.5vh]'   >
-      <Image className='w-full' src={Gam3rs_Video_Modal} alt='File Modal' />
+       <div className='absolute max-sm:-top-[10vh] max-sm:left-2 z-50 md:-left-20 md:pl-4 md:-top-32 md:mt-0 min-w-full min-h-full w-[35vw] h-[82.5vh]'   >
+      <Image className='w-full  max-sm:h-[60vh] max-sm:scale-x-[1.45] max-sm:scale-y-[1.205] overflow-hidden' quality={100} src={Gam3rs_Video_Modal} alt='File Modal' />
     </div>
       <Gif playbackID={vals?.playbackId} fileName={vals?.fileName?.split(':')?.filter((val:string)=>val!='filename' && val!=':')?.join('')} />
     </div>
